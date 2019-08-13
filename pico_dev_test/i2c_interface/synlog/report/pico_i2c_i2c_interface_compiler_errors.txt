@@ -1,0 +1,6 @@
+@E: CL219 :"D:\WorkingDir\top_level.vhd":8:2:8:6|Multiple non-tristate drivers for net c_out(0) in top
+@E: CL229 :"D:\WorkingDir\top_level.vhd":8:2:8:6|Unresolved tristate drivers for net c_out(0) in top
+@E: MF420 |Netlist read from file D:\WorkingDir\i2c_interface\synwork\layer0.srs failed
+@E: Could not find specified top level top (library: work, cell: top)Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+@E::Error while linking, aborting.
+

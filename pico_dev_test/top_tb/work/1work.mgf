@@ -1,0 +1,59 @@
+V 000052 55 1710          1565709353144 sample_arch
+(_unit VHDL (top 0 6(sample_arch 0 13))
+	(_version vd0)
+	(_time 1565709353145 2019.08.13 17:15:53)
+	(_source (\./../../top_level.vhd\))
+	(_parameters dbg tan)
+	(_code f2a3f6a2a6a4a6e5f4f2b4a9a3f5f6f4a4f5f2f5f6)
+	(_ent
+		(_time 1565709353142)
+	)
+	(_comp
+		(OSCH
+			(_object
+				(_type (_int ~STRING~13 0 19(_array -2 ((_uto i 1 i 2147483647)))))
+				(_gen (_int NOM_FREQ 1 0 19(_ent(_string \"133.00"\))))
+				(_port (_int STDBY -1 0 20(_ent (_in))))
+				(_port (_int OSC -1 0 20(_ent (_out))))
+				(_port (_int SEDSTDBY -1 0 20(_ent (_out))))
+			)
+		)
+	)
+	(_inst OSCInst0 0 25(_comp OSCH)
+		(_gen
+			((NOM_FREQ)(_string \"133.00"\))
+		)
+		(_port
+			((STDBY)(stdby))
+			((OSC)(osc_clk))
+			((SEDSTDBY)(stdby_sed))
+		)
+		(_use (_implicit)
+			(_gen
+				((NOM_FREQ)(_string \"133.00"\))
+			)
+			(_port
+				((STDBY)(STDBY))
+				((OSC)(OSC))
+				((SEDSTDBY)(SEDSTDBY))
+			)
+		)
+	)
+	(_object
+		(_port (_int led -1 0 8(_ent(_out))))
+		(_sig (_int osc_clk -1 0 14(_arch(_uni)(_event))))
+		(_sig (_int stdby -1 0 14(_arch(_uni))))
+		(_sig (_int stdby_sed -1 0 14(_arch(_uni))))
+		(_type (_int ~UNSIGNED{18~downto~0}~13 0 15(_array -1 ((_dto i 18 i 0)))))
+		(_sig (_int myCounter 0 0 15(_arch(_uni((_others(i 2)))))))
+		(_prcs
+			(line__29(_arch 0 0 29(_assignment (_trgt(0))(_sens(4(4))))))
+			(counter(_arch 1 0 31(_prcs (_simple)(_trgt(4))(_sens(1))(_read(4)))))
+		)
+		(_type (_ext ~extieee.std_logic_1164.STD_LOGIC (0 STD_LOGIC)))
+		(_type (_ext ~extstd.standard.CHARACTER (1 CHARACTER)))
+		(_type (_ext ~extieee.std_logic_1164.STD_ULOGIC (0 STD_ULOGIC)))
+	)
+	(_use (ieee(std_logic_1164))(std(standard))(ieee(std_logic_arith)))
+	(_model . sample_arch 2 -1)
+)

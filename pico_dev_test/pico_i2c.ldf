@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliProject version="3.2" title="pico_i2c" device="LCMXO2-1200ZE-1TG144C" default_implementation="i2c_interface">
+    <Options/>
+    <Implementation title="i2c_interface" dir="i2c_interface" description="i2c_interface" synthesis="synplify" default_strategy="Strategy1">
+        <Options def_top="top"/>
+        <Source name="top_level.vhd" type="VHDL" type_short="VHDL">
+            <Options top_module="top"/>
+        </Source>
+        <Source name="pico_i2c.lpf" type="Logic Preference" type_short="LPF">
+            <Options/>
+        </Source>
+        <Source name="top_tb/top_tb.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+    </Implementation>
+    <Strategy name="Strategy1" file="pico_i2c1.sty"/>
+</BaliProject>

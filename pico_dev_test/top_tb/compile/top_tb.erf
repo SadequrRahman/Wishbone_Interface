@@ -1,0 +1,5 @@
+MESSAGE "File: D:\WorkingDir\top_level.vhd" 
+MESSAGE "Compile Entity "top"" 
+MESSAGE "Compile Architecture "sample_arch" of Entity "top"" 
+WARNING ELAB1_0026: "There is no default binding for component "OSCH". (No entity named "OSCH" was found)." "D:\WorkingDir\top_level.vhd" 25 0
+SUCCESS "Compile success 0 Errors 1 Warnings  Analysis time :  63.0 [ms]" 

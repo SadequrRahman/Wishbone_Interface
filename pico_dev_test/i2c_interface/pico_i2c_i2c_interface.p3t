@@ -1,0 +1,5 @@
+-rem
+-distrce
+-log "pico_i2c_i2c_interface.log"
+-o "pico_i2c_i2c_interface.csv"
+-pr "pico_i2c_i2c_interface.prf"

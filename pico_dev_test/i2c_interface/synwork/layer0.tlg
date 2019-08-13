@@ -1,0 +1,7 @@
+@N: CD630 :"D:\WorkingDir\top_level.vhd":6:7:6:9|Synthesizing work.top.sample_arch.
+@N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":2291:10:2291:13|Synthesizing work.osch.syn_black_box.
+Post processing for work.osch.syn_black_box
+@W: CD638 :"D:\WorkingDir\top_level.vhd":14:17:14:21|Signal stdby is undriven. Either assign the signal a value or remove the signal declaration.
+Post processing for work.top.sample_arch
+@W: CL240 :"D:\WorkingDir\top_level.vhd":14:17:14:21|Signal stdby is floating; a simulation mismatch is possible.
+@W: CL167 :"D:\WorkingDir\top_level.vhd":25:1:25:8|Input stdby of instance OSCInst0 is floating
