@@ -1,1 +1,2 @@
+@W: MT246 :"f:\tuhh\hiwi\fpga\git_workdir\pico_dev_test\efb_i2c_vhdl.vhd":158:4:158:12|Blackbox EFB is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results) 
 @W: MT420 |Found inferred clock top_module|sys_clk_inferred_clock with period 7.52ns. Please declare a user-defined clock on object "n:sys_clk"

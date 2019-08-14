@@ -3,10 +3,12 @@ Report for cell top_module.sample_arch
 
 Register bits: 25 of 1280 (2%)
 PIC Latch:       0
-I/O cells:       2
+I/O cells:       4
                                           Cell usage:
                                cell       count    Res Usage(%)
+                                 BB        2       100.0
                               CCU2D       13       100.0
+                                EFB        1       100.0
                             FD1S3DX       25       100.0
                                 GSR        1       100.0
                                  IB        1       100.0
@@ -14,12 +16,38 @@ I/O cells:       2
                                  OB        1       100.0
                                OSCH        1       100.0
                                 PUR        1       100.0
-                                VHI        2       100.0
-                                VLO        2       100.0
+                                VHI        4       100.0
+                                VLO        4       100.0
 SUB MODULES 
                           HeartBeat        1       100.0
+                       efb_i2c_VHDL        1       100.0
+              i2c_master_controller        1       100.0
                             
-                         TOTAL            49           
+                         TOTAL            58           
+----------------------------------------------------------------------
+Report for cell i2c_master_controller.netlist
+     Instance path:  i2c_master_controller_Inst0
+                                          Cell usage:
+                               cell       count    Res Usage(%)
+                                 BB        2       100.0
+                                EFB        1       100.0
+                                VHI        2        50.0
+                                VLO        2        50.0
+SUB MODULES 
+                       efb_i2c_VHDL        1       100.0
+                            
+                         TOTAL             8           
+----------------------------------------------------------------------
+Report for cell efb_i2c_VHDL.netlist
+     Instance path:  i2c_master_controller_Inst0.efb_i2c_Inst0
+                                          Cell usage:
+                               cell       count    Res Usage(%)
+                                 BB        2       100.0
+                                EFB        1       100.0
+                                VHI        1        25.0
+                                VLO        1        25.0
+                            
+                         TOTAL             5           
 ----------------------------------------------------------------------
 Report for cell HeartBeat.netlist
      Instance path:  HeartBeatInst0
@@ -27,7 +55,7 @@ Report for cell HeartBeat.netlist
                                cell       count    Res Usage(%)
                               CCU2D       13       100.0
                             FD1S3DX       25       100.0
-                                VHI        1        50.0
-                                VLO        1        50.0
+                                VHI        1        25.0
+                                VLO        1        25.0
                             
                          TOTAL            40           

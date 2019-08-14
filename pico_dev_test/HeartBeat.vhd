@@ -6,7 +6,7 @@ use ieee.std_logic_unsigned.all;
 
 entity HeartBeat is 
 GENERIC  (
-		SPEED: integer := 18 
+		SPEED: integer := 22 
 	);
 Port(
 		CLK	: in std_logic;

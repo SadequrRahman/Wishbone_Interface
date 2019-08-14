@@ -4,7 +4,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2017 Lattice Semiconductor Corporation,  All rights reserved.
-Wed Aug 14 20:44:19 2019
+Wed Aug 14 21:25:09 2019
 
 C:/lscc/diamond/3.10_x64/ispfpga\bin\nt64\par -f pico_i2c_i2c_interface.p2t
 pico_i2c_i2c_interface_map.ncd pico_i2c_i2c_interface.dir
@@ -25,7 +25,7 @@ Total (real) run time for 1-seed: 5 secs
 par done!
 
 Lattice Place and Route Report for Design "pico_i2c_i2c_interface_map.ncd"
-Wed Aug 14 20:44:19 2019
+Wed Aug 14 21:25:09 2019
 
 PAR: Place And Route Diamond (64-bit) 3.10.3.144.
 Command Line: par -w -l 5 -i 6 -t 1 -c 0 -e 0 -gui -exp parUseNBR=1:parCDP=0:parCDR=0:parPathBased=OFF pico_i2c_i2c_interface_map.ncd pico_i2c_i2c_interface.dir/5_1.ncd pico_i2c_i2c_interface.prf
@@ -49,24 +49,25 @@ License checked out.
 Ignore Preference Error(s):  True
 Device utilization summary:
 
-   PIO (prelim)    2+4(JTAG)/108     6% used
-                   2+4(JTAG)/108     6% bonded
+   PIO (prelim)    4+4(JTAG)/108     7% used
+                   4+4(JTAG)/108     7% bonded
 
    SLICE             13/640           2% used
 
    GSR                1/1           100% used
    OSC                1/1           100% used
+   EFB                1/1           100% used
 
 
-Number of Signals: 64
-Number of Connections: 77
+Number of Signals: 70
+Number of Connections: 85
 WARNING - par: Placement timing preferences are hard to meet. However, placement will continue. Use static timing analysis to identify errors.
 
 Pin Constraint Summary:
-   2 out of 2 pins locked (100% locked).
+   2 out of 4 pins locked (50% locked).
 
 The following 1 signal is selected to use the primary clock routing resources:
-    sys_clk (driver: OSCInst0, clk load #: 13)
+    sys_clk (driver: OSCInst0, clk load #: 14)
 
 
 No signal is selected as secondary clock.
@@ -78,13 +79,13 @@ Finished Placer Phase 0.  REAL time: 0 secs
 
 Starting Placer Phase 1.
 ..................
-Placer score = 1011.
-Finished Placer Phase 1.  REAL time: 5 secs 
+Placer score = 3660.
+Finished Placer Phase 1.  REAL time: 4 secs 
 
 Starting Placer Phase 2.
 .
-Placer score =  1011
-Finished Placer Phase 2.  REAL time: 5 secs 
+Placer score =  3660
+Finished Placer Phase 2.  REAL time: 4 secs 
 
 
 ------------------ Clock Report ------------------
@@ -96,7 +97,7 @@ Global Clock Resources:
   DCC        : 0 out of 8 (0%)
 
 Quadrants All (TL, TR, BL, BR) - Global Clocks:
-  PRIMARY "sys_clk" from OSC on comp "OSCInst0" on site "OSC", clk load = 13
+  PRIMARY "sys_clk" from OSC on comp "OSCInst0" on site "OSC", clk load = 14
 
   PRIMARY  : 1 out of 8 (12%)
   SECONDARY: 0 out of 8 (0%)
@@ -108,16 +109,16 @@ Edge Clocks:
 
 
 I/O Usage Summary (final):
-   2 + 4(JTAG) out of 108 (5.6%) PIO sites used.
-   2 + 4(JTAG) out of 108 (5.6%) bonded PIO sites used.
-   Number of PIO comps: 2; differential: 0.
+   4 + 4(JTAG) out of 108 (7.4%) PIO sites used.
+   4 + 4(JTAG) out of 108 (7.4%) bonded PIO sites used.
+   Number of PIO comps: 4; differential: 0.
    Number of Vref pins used: 0.
 
 I/O Bank Usage Summary:
 +----------+---------------+------------+-----------+
 | I/O Bank | Usage         | Bank Vccio | Bank Vref |
 +----------+---------------+------------+-----------+
-| 0        | 0 / 28 (  0%) | -          | -         |
+| 0        | 2 / 28 (  7%) | 3.3V       | -         |
 | 1        | 0 / 26 (  0%) | -          | -         |
 | 2        | 1 / 28 (  3%) | 3.3V       | -         |
 | 3        | 1 / 26 (  3%) | 3.3V       | -         |
@@ -127,12 +128,12 @@ Total placer CPU time: 4 secs
 
 Dumping design to file pico_i2c_i2c_interface.dir/5_1.ncd.
 
-0 connections routed; 77 unrouted.
+0 connections routed; 85 unrouted.
 Starting router resource preassignment
 
 Completed router resource preassignment. Real time: 5 secs 
 
-Start NBR router at 20:44:24 08/14/19
+Start NBR router at 21:25:14 08/14/19
 
 *****************************************************************
 Info: NBR allows conflicts(one node used by more than one signal)
@@ -147,17 +148,17 @@ Note: NBR uses a different method to calculate timing slacks. The
       your design.                                               
 *****************************************************************
 
-Start NBR special constraint process at 20:44:24 08/14/19
+Start NBR special constraint process at 21:25:14 08/14/19
 
-Start NBR section for initial routing at 20:44:24 08/14/19
+Start NBR section for initial routing at 21:25:14 08/14/19
 Level 1, iteration 1
-0(0.00%) conflict; 25(32.47%) untouched conns; 79453 (nbr) score; 
+0(0.00%) conflict; 26(30.59%) untouched conns; 79453 (nbr) score; 
 Estimated worst slack/total negative slack<setup>: -2.568ns/-79.454ns; real time: 5 secs 
 Level 2, iteration 1
-0(0.00%) conflict; 23(29.87%) untouched conns; 68764 (nbr) score; 
+0(0.00%) conflict; 24(28.24%) untouched conns; 68764 (nbr) score; 
 Estimated worst slack/total negative slack<setup>: -2.251ns/-68.765ns; real time: 5 secs 
 Level 3, iteration 1
-0(0.00%) conflict; 2(2.60%) untouched conns; 50133 (nbr) score; 
+0(0.00%) conflict; 3(3.53%) untouched conns; 50133 (nbr) score; 
 Estimated worst slack/total negative slack<setup>: -1.946ns/-50.134ns; real time: 5 secs 
 Level 4, iteration 1
 0(0.00%) conflict; 0(0.00%) untouched conn; 50133 (nbr) score; 
@@ -166,7 +167,7 @@ Estimated worst slack/total negative slack<setup>: -1.946ns/-50.134ns; real time
 Info: Initial congestion level at 75% usage is 0
 Info: Initial congestion area  at 75% usage is 0 (0.00%)
 
-Start NBR section for normal routing at 20:44:24 08/14/19
+Start NBR section for normal routing at 21:25:14 08/14/19
 Level 1, iteration 1
 0(0.00%) conflict; 0(0.00%) untouched conn; 50133 (nbr) score; 
 Estimated worst slack/total negative slack<setup>: -1.946ns/-50.134ns; real time: 5 secs 
@@ -180,24 +181,24 @@ Level 4, iteration 1
 0(0.00%) conflict; 0(0.00%) untouched conn; 50133 (nbr) score; 
 Estimated worst slack/total negative slack<setup>: -1.946ns/-50.134ns; real time: 5 secs 
 
-Start NBR section for performance tuning (iteration 1) at 20:44:24 08/14/19
+Start NBR section for performance tuning (iteration 1) at 21:25:14 08/14/19
 Level 4, iteration 1
 0(0.00%) conflict; 0(0.00%) untouched conn; 50133 (nbr) score; 
 Estimated worst slack/total negative slack<setup>: -1.946ns/-50.134ns; real time: 5 secs 
 
-Start NBR section for re-routing at 20:44:24 08/14/19
+Start NBR section for re-routing at 21:25:14 08/14/19
 Level 4, iteration 1
 0(0.00%) conflict; 0(0.00%) untouched conn; 50133 (nbr) score; 
 Estimated worst slack/total negative slack<setup>: -1.946ns/-50.134ns; real time: 5 secs 
 
-Start NBR section for post-routing at 20:44:24 08/14/19
+Start NBR section for post-routing at 21:25:14 08/14/19
 
 End NBR router with 0 unrouted connection
 
 NBR Summary
 -----------
   Number of unrouted connections : 0 (0.00%)
-  Number of connections with timing violations : 38 (49.35%)
+  Number of connections with timing violations : 38 (44.71%)
   Estimated worst slack<setup> : -1.946ns
   Timing score<setup> : 68082
 -----------
@@ -208,7 +209,7 @@ Notes: The timing info is calculated for SETUP only and all PAR_ADJs are ignored
 Total CPU time 4 secs 
 Total REAL time: 5 secs 
 Completely routed.
-End of route.  77 routed (100.00%); 0 unrouted.
+End of route.  85 routed (100.00%); 0 unrouted.
 
 Hold time timing score: 0, hold timing errors: 0
 

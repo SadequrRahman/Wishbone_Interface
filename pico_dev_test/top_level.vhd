@@ -19,6 +19,9 @@ architecture sample_arch of top_module is
 
 	
 	signal stdby, sys_clk, stdby_sed : std_logic;
+	signal addr_i, data_io : std_logic_vector(7 downto 0);
+	signal rdy_o : std_logic;
+	
 	
 	COMPONENT OSCH 
 	GENERIC  (NOM_FREQ: string := "133.00");
@@ -30,6 +33,19 @@ architecture sample_arch of top_module is
 	PORT ( RST_n : IN std_logic; CLK	:IN std_logic; LED : OUT std_logic);
 	END COMPONENT; 
 	
+	COMPONENT i2c_master_controller 
+	PORT(
+		rst_n 	: in std_logic;
+		clk	  	: in std_logic;
+		addr  	: in std_logic_vector(7 downto 0);
+		data  	: inout std_logic_vector(7 downto 0);
+		scl     : inout std_logic;			-- to connect hardware pin from top level
+		sda     : inout std_logic;			-- to connect hardware pin from top level
+		rdy	  	: out std_logic
+	);
+	END COMPONENT;
+	
+	
 begin
 	OSCInst0: OSCH 
 	GENERIC MAP( NOM_FREQ  => "133.00" )    
@@ -37,6 +53,19 @@ begin
 	
 	HeartBeatInst0 :HeartBeat
 	PORT MAP (RST_n=>  rst_n, CLK =>  sys_clk, LED =>  heart_beat);
+	
+	
+	i2c_master_controller_Inst0 : i2c_master_controller
+	PORT MAP (
+		rst_n=>rst_n,
+		clk=>sys_clk,
+		addr=>addr_i,
+		data=>data_io,
+		scl=>scl,
+		sda=>sda,
+		rdy=>rdy_o
+	
+	);
 	
 	stdby <= '0';
 	

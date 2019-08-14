@@ -45,6 +45,6 @@ Global=
 [SpecTracer]
 WindowVisible=0
 [HierarchyViewer]
-HierarchyInformation=heartbeat|beh_arch|0 top_module_tb|testbanch|0   
+HierarchyInformation=heartbeat|beh_arch|0 top_module_tb|testbanch|0    
 ShowHide=ShowTopLevel
 Selected=
