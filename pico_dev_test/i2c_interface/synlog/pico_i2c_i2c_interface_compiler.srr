@@ -8,14 +8,15 @@ Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated
 
 @N: CD720 :"C:\lscc\diamond\3.10_x64\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ps
 @N:"F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\top_level.vhd":8:7:8:16|Top entity is set to top_module.
-File F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\HeartBeat.vhd changed - recompiling
+File F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\top_level.vhd changed - recompiling
 VHDL syntax check successful!
-File F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\HeartBeat.vhd changed - recompiling
+File F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\top_level.vhd changed - recompiling
 @N: CD630 :"F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\top_level.vhd":8:7:8:16|Synthesizing work.top_module.sample_arch.
 @N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":2291:10:2291:13|Synthesizing work.osch.syn_black_box.
 Post processing for work.osch.syn_black_box
 @N: CD630 :"F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\HeartBeat.vhd":7:7:7:15|Synthesizing work.heartbeat.beh_arch.
 Post processing for work.heartbeat.beh_arch
+@W: CL271 :"F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\HeartBeat.vhd":27:1:27:2|Pruning unused bits 27 to 25 of iCounter(27 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 Post processing for work.top_module.sample_arch
 @W: CL158 :"F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\top_level.vhd":11:2:11:4|Inout scl is unused
 @W: CL158 :"F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\top_level.vhd":12:2:12:4|Inout sda is unused
@@ -25,7 +26,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memor
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Wed Aug 14 20:07:50 2019
+# Wed Aug 14 20:44:14 2019
 
 ###########################################################]
 Synopsys Netlist Linker, version comp2017q2p1, Build 190R, built Aug  4 2017
@@ -37,7 +38,7 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Wed Aug 14 20:07:50 2019
+# Wed Aug 14 20:44:14 2019
 
 ###########################################################]
 @END
@@ -47,6 +48,6 @@ At c_hdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Wed Aug 14 20:07:50 2019
+# Wed Aug 14 20:44:14 2019
 
 ###########################################################]

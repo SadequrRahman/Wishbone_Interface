@@ -26,6 +26,7 @@ architecture sample_arch of top_module is
 	END COMPONENT; 
 	
 	COMPONENT HeartBeat 
+	GENERIC (SPEED: integer := 24 );
 	PORT ( RST_n : IN std_logic; CLK	:IN std_logic; LED : OUT std_logic);
 	END COMPONENT; 
 	

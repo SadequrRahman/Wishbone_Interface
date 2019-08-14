@@ -15,22 +15,22 @@ Target Vendor:  LATTICE
 Target Device:  LCMXO2-1200ZETQFP144
 Target Performance:   1
 Mapper:  xo2c00,  version:  Diamond (64-bit) 3.10.3.144
-Mapped on:  08/14/19  20:07:55
+Mapped on:  08/14/19  20:44:19
 
 Design Summary
 --------------
 
-   Number of registers:     28 out of  1604 (2%)
-      PFU registers:           28 out of  1280 (2%)
+   Number of registers:     25 out of  1604 (2%)
+      PFU registers:           25 out of  1280 (2%)
       PIO registers:            0 out of   324 (0%)
-   Number of SLICEs:        15 out of   640 (2%)
-      SLICEs as Logic/ROM:     15 out of   640 (2%)
+   Number of SLICEs:        13 out of   640 (2%)
+      SLICEs as Logic/ROM:     13 out of   640 (2%)
       SLICEs as RAM:            0 out of   480 (0%)
-      SLICEs as Carry:         15 out of   640 (2%)
-   Number of LUT4s:         30 out of  1280 (2%)
+      SLICEs as Carry:         13 out of   640 (2%)
+   Number of LUT4s:         26 out of  1280 (2%)
       Number used as logic LUTs:          0
       Number used as distributed RAM:     0
-      Number used as ripple logic:       30
+      Number used as ripple logic:       26
       Number used as shift registers:     0
    Number of PIO sites used: 2 + 4(JTAG) out of 108 (6%)
    Number of block RAMs:  0 out of 7 (0%)
@@ -58,7 +58,7 @@ Design Summary
       2. Number of logic LUT4s does not include count of distributed RAM and
      ripple logic.
    Number of clocks:  1
-     Net sys_clk: 15 loads, 15 rising, 0 falling (Driver: OSCInst0 )
+     Net sys_clk: 13 loads, 13 rising, 0 falling (Driver: OSCInst0 )
    Number of Clock Enables:  0
 
                                     Page 1
@@ -66,11 +66,11 @@ Design Summary
 
 
 
-Design:  top_module                                    Date:  08/14/19  20:07:55
+Design:  top_module                                    Date:  08/14/19  20:44:19
 
 Design Summary (cont)
 ---------------------
-   Number of local set/reset loads for net rst_n_c merged into GSR:  28
+   Number of local set/reset loads for net rst_n_c merged into GSR:  25
    Number of LSRs:  0
    Number of nets driven by tri-state buffers:  0
    Top 10 highest fanout non-clock nets:
@@ -81,7 +81,7 @@ Design Summary (cont)
      Net HeartBeatInst0/iCounter_cry[0]: 1 loads
      Net HeartBeatInst0/iCounter_s[0]: 1 loads
      Net HeartBeatInst0/iCounter_s[1]: 1 loads
-     Net HeartBeatInst0/iCounter_s[27]: 1 loads
+     Net HeartBeatInst0/iCounter_s[24]: 1 loads
      Net HeartBeatInst0/iCounter_s[2]: 1 loads
      Net rst_n_c: 1 loads
 
@@ -132,7 +132,7 @@ IO (PIO) Attributes
 
 
 
-Design:  top_module                                    Date:  08/14/19  20:07:55
+Design:  top_module                                    Date:  08/14/19  20:44:19
 
 Removed logic
 -------------
@@ -142,10 +142,8 @@ Signal rst_n_c_i was merged into signal rst_n_c
 Signal GND undriven or does not drive anything - clipped.
 Signal HeartBeatInst0/GND undriven or does not drive anything - clipped.
 Signal VCC undriven or does not drive anything - clipped.
-Signal HeartBeatInst0/iCounter_s_0_S1[27] undriven or does not drive anything -
-     clipped.
-Signal HeartBeatInst0/iCounter_s_0_COUT[27] undriven or does not drive anything
-     - clipped.
+Signal HeartBeatInst0/iCounter_cry_0_COUT[23] undriven or does not drive
+     anything - clipped.
 Signal HeartBeatInst0/iCounter_cry_0_S0[0] undriven or does not drive anything -
      clipped.
 Signal HeartBeatInst0/N_1 undriven or does not drive anything - clipped.
@@ -190,23 +188,25 @@ GSR Component:
         not.
         
 
+Run Time and Memory Usage
+-------------------------
 
-
+   Total CPU Time: 0 secs  
 
                                     Page 3
 
 
 
 
-Design:  top_module                                    Date:  08/14/19  20:07:55
+Design:  top_module                                    Date:  08/14/19  20:44:19
 
-Run Time and Memory Usage
--------------------------
-
-   Total CPU Time: 0 secs  
+Run Time and Memory Usage (cont)
+--------------------------------
    Total REAL Time: 0 secs  
    Peak Memory Usage: 38 MB
         
+
+
 
 
 

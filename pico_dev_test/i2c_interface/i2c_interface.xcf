@@ -20,14 +20,18 @@
 				<BScanVal>0</BScanVal>
 			</Bypass>
 			<File>F:/TUHH/HiWi/FPGA/git_workDir/pico_dev_test/i2c_interface/pico_i2c_i2c_interface.jed</File>
+			<FileTime>08/14/19 20:44:29</FileTime>
+			<JedecChecksum>0x8135</JedecChecksum>
 			<Operation>FLASH Erase,Program,Verify</Operation>
 			<Option>
 				<SVFVendor>JTAG STANDARD</SVFVendor>
 				<IOState>HighZ</IOState>
+				<PreloadLength>208</PreloadLength>
 				<IOVectorData>0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</IOVectorData>
 				<OverideUES value="TRUE"/>
 				<TCKFrequency>1.000000 MHz</TCKFrequency>
 				<SVFProcessor>ispVM</SVFProcessor>
+				<Usercode>0x00000000</Usercode>
 			</Option>
 		</Device>
 	</Chain>

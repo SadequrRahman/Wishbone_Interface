@@ -5,6 +5,9 @@ use ieee.std_logic_unsigned.all;
 
 
 entity HeartBeat is 
+GENERIC  (
+		SPEED: integer := 18 
+	);
 Port(
 		CLK	: in std_logic;
 		RST_n : in std_logic;
@@ -17,7 +20,7 @@ end HeartBeat;
 architecture beh_arch of HeartBeat is
 	signal iCounter : unsigned(27 downto 0);
 begin
-	LED <= std_logic(iCounter(27));
+	LED <= std_logic(iCounter(SPEED));
 	
 	process(RST_n,CLK)
 	begin

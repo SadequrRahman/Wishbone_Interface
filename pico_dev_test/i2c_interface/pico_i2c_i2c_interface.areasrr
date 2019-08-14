@@ -1,13 +1,13 @@
 ----------------------------------------------------------------------
 Report for cell top_module.sample_arch
 
-Register bits: 28 of 1280 (2%)
+Register bits: 25 of 1280 (2%)
 PIC Latch:       0
 I/O cells:       2
                                           Cell usage:
                                cell       count    Res Usage(%)
-                              CCU2D       15       100.0
-                            FD1S3DX       28       100.0
+                              CCU2D       13       100.0
+                            FD1S3DX       25       100.0
                                 GSR        1       100.0
                                  IB        1       100.0
                                 INV        1       100.0
@@ -19,15 +19,15 @@ I/O cells:       2
 SUB MODULES 
                           HeartBeat        1       100.0
                             
-                         TOTAL            54           
+                         TOTAL            49           
 ----------------------------------------------------------------------
 Report for cell HeartBeat.netlist
      Instance path:  HeartBeatInst0
                                           Cell usage:
                                cell       count    Res Usage(%)
-                              CCU2D       15       100.0
-                            FD1S3DX       28       100.0
+                              CCU2D       13       100.0
+                            FD1S3DX       25       100.0
                                 VHI        1        50.0
                                 VLO        1        50.0
                             
-                         TOTAL            45           
+                         TOTAL            40           

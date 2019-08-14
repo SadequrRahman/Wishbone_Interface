@@ -1,9 +1,9 @@
-@P:  Worst Slack : 1.491
-@P:  top_module|sys_clk_inferred_clock - Estimated Frequency : 165.9 MHz
+@P:  Worst Slack : 1.777
+@P:  top_module|sys_clk_inferred_clock - Estimated Frequency : 174.2 MHz
 @P:  top_module|sys_clk_inferred_clock - Requested Frequency : 133.0 MHz
-@P:  top_module|sys_clk_inferred_clock - Estimated Period : 6.027
+@P:  top_module|sys_clk_inferred_clock - Estimated Period : 5.742
 @P:  top_module|sys_clk_inferred_clock - Requested Period : 7.519
-@P:  top_module|sys_clk_inferred_clock - Slack : 1.491
+@P:  top_module|sys_clk_inferred_clock - Slack : 1.777
 @P:  Total Area : 1.0
 @P:  Total Area : 0.0
 @P:  CPU Time : 0h:00m:01s

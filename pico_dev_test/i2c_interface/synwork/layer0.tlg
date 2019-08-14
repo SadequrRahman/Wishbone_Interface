@@ -3,6 +3,7 @@
 Post processing for work.osch.syn_black_box
 @N: CD630 :"F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\HeartBeat.vhd":7:7:7:15|Synthesizing work.heartbeat.beh_arch.
 Post processing for work.heartbeat.beh_arch
+@W: CL271 :"F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\HeartBeat.vhd":27:1:27:2|Pruning unused bits 27 to 25 of iCounter(27 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 Post processing for work.top_module.sample_arch
 @W: CL158 :"F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\top_level.vhd":11:2:11:4|Inout scl is unused
 @W: CL158 :"F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\top_level.vhd":12:2:12:4|Inout sda is unused
