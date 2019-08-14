@@ -1,12 +1,13 @@
 #--  Synopsys, Inc.
 #--  Version M-2017.03L-SP1-1
-#--  Project file D:\WorkingDir\i2c_interface\run_options.txt
-#--  Written on Tue Aug 13 17:15:32 2019
+#--  Project file F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\i2c_interface\run_options.txt
+#--  Written on Wed Aug 14 20:07:49 2019
 
 
 #project files
 add_file -vhdl -lib work "C:/lscc/diamond/3.10_x64/cae_library/synthesis/vhdl/machxo2.vhd"
-add_file -vhdl -lib work "D:/WorkingDir/top_level.vhd"
+add_file -vhdl -lib work "F:/TUHH/HiWi/FPGA/git_workDir/pico_dev_test/HeartBeat.vhd"
+add_file -vhdl -lib work "F:/TUHH/HiWi/FPGA/git_workDir/pico_dev_test/top_level.vhd"
 
 
 
@@ -27,7 +28,7 @@ set_option -speed_grade -1
 set_option -part_companion ""
 
 #compilation/mapping options
-set_option -top_module "top"
+set_option -top_module "top_module"
 
 # hdl_compiler_options
 set_option -distributed_compile 0
@@ -73,5 +74,5 @@ set_option -write_apr_constraint 1
 project -result_file "./pico_i2c_i2c_interface.edi"
 
 #set log file 
-set_option log_file "D:/WorkingDir/i2c_interface/pico_i2c_i2c_interface.srf" 
+set_option log_file "F:/TUHH/HiWi/FPGA/git_workDir/pico_dev_test/i2c_interface/pico_i2c_i2c_interface.srf" 
 impl -active "i2c_interface"

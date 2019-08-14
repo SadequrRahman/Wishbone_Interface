@@ -5,10 +5,10 @@ Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2017 Lattice Semiconductor Corporation,  All rights reserved.
 
-Command: bitgen -g RamCfg:Reset -path D:/WorkingDir/Fpga/pico_dev_test -w -jedec -gui -msgset D:/WorkingDir/Fpga/pico_dev_test/promote.xml pico_i2c_i2c_interface.ncd pico_i2c_i2c_interface.prf 
+Command: bitgen -g RamCfg:Reset -path F:/TUHH/HiWi/FPGA/git_workDir/pico_dev_test -w -jedec -gui pico_i2c_i2c_interface.ncd pico_i2c_i2c_interface.prf 
 
 Loading design for application Bitgen from file pico_i2c_i2c_interface.ncd.
-Design name: top
+Design name: top_module
 NCD version: 3.3
 Vendor:      LATTICE
 Device:      LCMXO2-1200ZE

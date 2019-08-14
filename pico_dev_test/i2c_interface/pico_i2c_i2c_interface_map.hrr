@@ -1,9 +1,20 @@
 ---------------------------------------------------
-Report for cell top
-   Instance path: top
+Report for cell top_module
+   Instance path: top_module
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	       3.00        100.0
-                                 IOBUF	          1        100.0
-                                PFUREG	          5        100.0
-                                RIPPLE	          3        100.0
+                                  SLIC	      15.00        100.0
+                                 IOBUF	          2        100.0
+                                PFUREG	         28        100.0
+                                RIPPLE	         15        100.0
+SUB MODULES
+                                  cell	      count    SLC Usage(%)
+                             HeartBeat	          1        100.0
+---------------------------------------------------
+Report for cell HeartBeat
+   Instance path: top_module/HeartBeatInst0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      15.00        100.0
+                                PFUREG	         28        100.0
+                                RIPPLE	         15        100.0

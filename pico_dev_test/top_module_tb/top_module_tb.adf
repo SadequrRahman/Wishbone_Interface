@@ -1,0 +1,50 @@
+[Project]
+Current Flow=Generic
+VCS=0
+version=3
+Current Config=compile
+[Configurations]
+compile=work
+[Library]
+top_module_tb=.\top_module_tb\top_module_tb.lib
+work=.\work\work.lib
+[Settings]
+AccessRead=1
+AccessReadWrite=0
+AccessACCB=0
+AccessACCR=0
+AccessReadWriteSLP=0
+AccessReadTopLevel=0
+DisableC=1
+ENABLE_ADV_DATAFLOW=0
+FLOW_TYPE=HDL
+LANGUAGE=VHDL
+REFRESH_FLOW=1
+[LocalVerilogSets]
+EnableSLP=1
+EnableDebug=0
+PriorityLibNames=pmi_work
+LibNames=ovi_machxo2
+[LocalVhdlSets]
+CompileWithDebug=0
+[$LibMap$]
+top_module_tb=.
+work=.
+[LocalVerilogDirs]
+Count=0
+[DefineMacro]
+Global=
+[Files]
+/..\..\HeartBeat.vhd=-1
+/..\..\top_level.vhd=-1
+/..\..\top_module_tb.vhd=-1
+[Files.Data]
+.\..\HeartBeat.vhd=VHDL Source Code
+.\..\top_level.vhd=VHDL Source Code
+.\..\top_module_tb.vhd=VHDL Source Code
+[SpecTracer]
+WindowVisible=0
+[HierarchyViewer]
+HierarchyInformation=heartbeat|beh_arch|0 top_module_tb|testbanch|0   
+ShowHide=ShowTopLevel
+Selected=

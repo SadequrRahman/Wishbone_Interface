@@ -1,0 +1,4 @@
+MESSAGE "File: F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\top_module_tb.vhd" 
+MESSAGE "Compile Entity "top_module_tb"" 
+MESSAGE "Compile Architecture "testbanch" of Entity "top_module_tb"" 
+SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time :  31.0 [ms]" 

@@ -1,40 +1,43 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
+--use ieee.numeric_std.all;
+use ieee.std_logic_unsigned.all; 
 
 
-entity top is 
+entity top_module is 
 	port(
-		led : out std_logic
+		rst_n 			: in std_logic;
+		scl      		: inout std_logic;
+		sda      		: inout std_logic;
+		heart_beat 		: out std_logic
 	);
-end top;
+end top_module;
 
 
-architecture sample_arch of top is
-	signal osc_clk, stdby, stdby_sed : std_logic;
-	signal myCounter : unsigned( 18 downto 0) := (others => '0') ;
+architecture sample_arch of top_module is
+
 	
+	signal stdby, sys_clk, stdby_sed : std_logic;
 	
 	COMPONENT OSCH 
 	GENERIC  (NOM_FREQ: string := "133.00");
 	PORT (STDBY:IN std_logic; OSC:OUT std_logic; SEDSTDBY:OUT std_logic); 
 	END COMPONENT; 
 	
-
+	COMPONENT HeartBeat 
+	PORT ( RST_n : IN std_logic; CLK	:IN std_logic; LED : OUT std_logic);
+	END COMPONENT; 
+	
 begin
 	OSCInst0: OSCH 
 	GENERIC MAP( NOM_FREQ  => "133.00" )    
-	PORT MAP (STDBY=>  stdby, OSC =>  osc_clk, SEDSTDBY =>  stdby_sed);
+	PORT MAP (STDBY=>  stdby, OSC =>  sys_clk, SEDSTDBY =>  stdby_sed);
 	
-	led <= '1' when myCounter(4) = '1' else '0';
+	HeartBeatInst0 :HeartBeat
+	PORT MAP (RST_n=>  rst_n, CLK =>  sys_clk, LED =>  heart_beat);
 	
-	counter : process(osc_clk)
-	begin
-	if(rising_edge(osc_clk)) then
-		myCounter <= myCounter + '1';
-	end if;
+	stdby <= '0';
 	
-	end process;
 	
-
 end sample_arch;

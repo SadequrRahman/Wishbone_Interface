@@ -1,1 +1,1 @@
--w -erf D:/WorkingDir/top_tb/compile/top_tb.erf -d D:/WorkingDir/top_tb/compile -s D:/WorkingDir/top_tb/library.cfg -j D:/WorkingDir/top_tb/projlib.cfg -work work -dbg -work work D:/WorkingDir/top_level.vhd 
+-w -erf F:/TUHH/HiWi/FPGA/git_workDir/pico_dev_test/top_tb/compile/top_tb.erf -d F:/TUHH/HiWi/FPGA/git_workDir/pico_dev_test/top_tb/compile -s F:/TUHH/HiWi/FPGA/git_workDir/pico_dev_test/top_tb/library.cfg -j F:/TUHH/HiWi/FPGA/git_workDir/pico_dev_test/top_tb/projlib.cfg -work work -dbg -work work F:/TUHH/HiWi/FPGA/git_workDir/pico_dev_test/top_level.vhd 

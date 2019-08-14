@@ -1,4 +1,3 @@
-@W: CD638 :"D:\WorkingDir\top_level.vhd":14:17:14:21|Signal stdby is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CL240 :"D:\WorkingDir\top_level.vhd":14:17:14:21|Signal stdby is floating; a simulation mismatch is possible.
-@W: CL167 :"D:\WorkingDir\top_level.vhd":25:1:25:8|Input stdby of instance OSCInst0 is floating
+@W: CL158 :"F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\top_level.vhd":11:2:11:4|Inout scl is unused
+@W: CL158 :"F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\top_level.vhd":12:2:12:4|Inout sda is unused
 

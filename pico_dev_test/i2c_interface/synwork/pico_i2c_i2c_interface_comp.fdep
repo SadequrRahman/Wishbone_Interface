@@ -1,4 +1,4 @@
-#OPTIONS:"|-layerid|0|-orig_srs|D:\\WorkingDir\\i2c_interface\\synwork\\pico_i2c_i2c_interface_comp.srs|-top|top|-prodtype|synplify_pro|-dspmac|-fixsmult|-infer_seqShift|-nram|-sdff_counter|-divnmod|-nostructver|-encrypt|-pro|-lite|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-ignore_undefined_lib|-lib|work|-lib|work"
+#OPTIONS:"|-layerid|0|-orig_srs|F:\\TUHH\\HiWi\\FPGA\\git_workDir\\pico_dev_test\\i2c_interface\\synwork\\pico_i2c_i2c_interface_comp.srs|-top|top_module|-prodtype|synplify_pro|-dspmac|-fixsmult|-infer_seqShift|-nram|-sdff_counter|-divnmod|-nostructver|-encrypt|-pro|-lite|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-ignore_undefined_lib|-lib|work|-lib|work|-lib|work"
 #CUR:"C:\\lscc\\diamond\\3.10_x64\\synpbase\\bin64\\c_vhdl.exe":1501881310
 #CUR:"C:\\lscc\\diamond\\3.10_x64\\synpbase\\lib\\vhd\\location.map":1501904608
 #CUR:"C:\\lscc\\diamond\\3.10_x64\\synpbase\\lib\\vhd\\std.vhd":1501880624
@@ -10,15 +10,21 @@
 #CUR:"C:\\lscc\\diamond\\3.10_x64\\synpbase\\lib\\vhd\\unsigned.vhd":1501880624
 #CUR:"C:\\lscc\\diamond\\3.10_x64\\synpbase\\lib\\vhd\\hyperents.vhd":1501880624
 #CUR:"C:\\lscc\\diamond\\3.10_x64\\cae_library\\synthesis\\vhdl\\machxo2.vhd":1493302304
-#CUR:"D:\\WorkingDir\\top_level.vhd":1565709323
+#CUR:"F:\\TUHH\\HiWi\\FPGA\\git_workDir\\pico_dev_test\\HeartBeat.vhd":1565806060
+#CUR:"F:\\TUHH\\HiWi\\FPGA\\git_workDir\\pico_dev_test\\top_level.vhd":1565805980
 0			"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd" vhdl
-1			"D:\WorkingDir\top_level.vhd" vhdl
+1			"F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\HeartBeat.vhd" vhdl
+2			"F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\top_level.vhd" vhdl
 #Dependency Lists(Uses List)
 0 -1
 1 -1
+2 1
 #Dependency Lists(Users Of)
 0 -1
-1 -1
+1 2
+2 -1
 #Design Unit to File Association
-module work top 1
-arch work top sample_arch 1
+module work top_module 2
+arch work top_module sample_arch 2
+module work heartbeat 1
+arch work heartbeat beh_arch 1

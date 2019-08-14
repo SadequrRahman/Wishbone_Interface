@@ -1,8 +1,8 @@
 @N: MF248 |Running in 64-bit mode.
 @N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
-@N: MO231 :"d:\workingdir\top_level.vhd":33:1:33:2|Found counter in view:work.top(sample_arch) instance myCounter[4:0] 
+@N: MO231 :"f:\tuhh\hiwi\fpga\git_workdir\pico_dev_test\heartbeat.vhd":24:1:24:2|Found counter in view:work.top_module(sample_arch) instance HeartBeatInst0.iCounter[27:0] 
 @N: FX164 |The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.  
-@N: FX1056 |Writing EDF file: D:\WorkingDir\i2c_interface\pico_i2c_i2c_interface.edi
+@N: FX1056 |Writing EDF file: F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.edi
 @N: BW106 |Synplicity Constraint File capacitance units using default value of 1pF 
 @N: MT320 |This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report.
 @N: MT322 |Clock constraints include only register-to-register paths associated with each individual clock.

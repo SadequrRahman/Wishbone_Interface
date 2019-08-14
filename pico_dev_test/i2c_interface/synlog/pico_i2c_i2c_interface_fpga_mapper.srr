@@ -1,42 +1,42 @@
-# Tue Aug 13 17:15:35 2019
+# Wed Aug 14 20:07:52 2019
 
 Synopsys Lattice Technology Mapper, Version maplat, Build 1796R, Built Aug  4 2017 11:10:16
 Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated documentation are proprietary to Synopsys, Inc. and may only be used pursuant to the terms and conditions of a written license agreement with Synopsys, Inc. All other use, reproduction, modification, or distribution of the Synopsys software or the associated documentation is strictly prohibited.
 Product Version M-2017.03L-SP1-1
 
-Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 100MB)
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 99MB)
 
 @N: MF248 |Running in 64-bit mode.
 @N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
 
-Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 101MB)
+Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 98MB peak: 100MB)
 
 
-Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 101MB)
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 98MB peak: 100MB)
 
 
-Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 112MB)
+Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 111MB)
 
 
-Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 114MB)
+Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 113MB)
 
 
 
-Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
+Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 138MB peak: 141MB)
 
 
 Available hyper_sources - for debug and ip models
 	None Found
 
 
-Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
+Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 138MB peak: 141MB)
 
-@N: MO231 :"d:\workingdir\top_level.vhd":33:1:33:2|Found counter in view:work.top(sample_arch) instance myCounter[4:0] 
+@N: MO231 :"f:\tuhh\hiwi\fpga\git_workdir\pico_dev_test\heartbeat.vhd":24:1:24:2|Found counter in view:work.top_module(sample_arch) instance HeartBeatInst0.iCounter[27:0] 
 
-Starting factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
+Starting factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 138MB peak: 141MB)
 
 
-Finished factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
+Finished factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 138MB peak: 141MB)
 
 
 Starting gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
@@ -64,6 +64,7 @@ Finished technology mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:0
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
+   1		0h:00m:00s		     2.06ns		   1 /        28
 
 Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
 
@@ -79,44 +80,44 @@ Finished restoring hierarchy (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:
 #### START OF CLOCK OPTIMIZATION REPORT #####[
 
 0 non-gated/non-generated clock tree(s) driving 0 clock pin(s) of sequential element(s)
-1 gated/generated clock tree(s) driving 5 clock pin(s) of sequential element(s)
-0 instances converted, 5 sequential instances remain driven by gated/generated clocks
+1 gated/generated clock tree(s) driving 28 clock pin(s) of sequential element(s)
+0 instances converted, 28 sequential instances remain driven by gated/generated clocks
 
-================================================================================================= Gated/Generated Clocks =================================================================================================
-Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance     Explanation                                                                                                                   
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-@K:CKID0001       OSCInst0            OSCH                   5          myCounter[0]        Gating structure creates improper gating logic. See the Gated Clocks description in the user guide for conversion requirements
-==========================================================================================================================================================================================================================
+====================================================================== Gated/Generated Clocks =======================================================================
+Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance                 Explanation                                                  
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+@K:CKID0001       OSCInst0            OSCH                   28         HeartBeatInst0.iCounter[27]     No gated clock conversion method for cell cell:LUCENT.FD1S3DX
+=====================================================================================================================================================================
 
 
 ##### END OF CLOCK OPTIMIZATION REPORT ######]
 
 
-Start Writing Netlists (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 106MB peak: 141MB)
+Start Writing Netlists (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 105MB peak: 141MB)
 
-Writing Analyst data base D:\WorkingDir\i2c_interface\synwork\pico_i2c_i2c_interface_m.srm
+Writing Analyst data base F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\i2c_interface\synwork\pico_i2c_i2c_interface_m.srm
 
 Finished Writing Netlist Databases (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 138MB peak: 141MB)
 
 Writing EDIF Netlist and constraint files
-@N: FX1056 |Writing EDF file: D:\WorkingDir\i2c_interface\pico_i2c_i2c_interface.edi
+@N: FX1056 |Writing EDF file: F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.edi
 M-2017.03L-SP1-1
 @N: BW106 |Synplicity Constraint File capacitance units using default value of 1pF 
 
-Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 143MB peak: 145MB)
+Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 142MB peak: 144MB)
 
 
-Start final timing analysis (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 144MB peak: 145MB)
+Start final timing analysis (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 143MB peak: 144MB)
 
-@W: MT420 |Found inferred clock top|osc_clk_inferred_clock with period 7.52ns. Please declare a user-defined clock on object "n:osc_clk"
+@W: MT420 |Found inferred clock top_module|sys_clk_inferred_clock with period 7.52ns. Please declare a user-defined clock on object "n:sys_clk"
 
 
 ##### START OF TIMING REPORT #####[
-# Timing Report written on Tue Aug 13 17:15:36 2019
+# Timing Report written on Wed Aug 14 20:07:53 2019
 #
 
 
-Top view:               top
+Top view:               top_module
 Requested Frequency:    133.0 MHz
 Wire load mode:         top
 Paths requested:        5
@@ -131,13 +132,13 @@ Performance Summary
 *******************
 
 
-Worst slack in design: 3.205
+Worst slack in design: 1.491
 
-                               Requested     Estimated     Requested     Estimated               Clock        Clock              
-Starting Clock                 Frequency     Frequency     Period        Period        Slack     Type         Group              
----------------------------------------------------------------------------------------------------------------------------------
-top|osc_clk_inferred_clock     133.0 MHz     231.8 MHz     7.519         4.314         3.205     inferred     Inferred_clkgroup_0
-=================================================================================================================================
+                                      Requested     Estimated     Requested     Estimated               Clock        Clock              
+Starting Clock                        Frequency     Frequency     Period        Period        Slack     Type         Group              
+----------------------------------------------------------------------------------------------------------------------------------------
+top_module|sys_clk_inferred_clock     133.0 MHz     165.9 MHz     7.519         6.027         1.491     inferred     Inferred_clkgroup_0
+========================================================================================================================================
 
 
 
@@ -146,12 +147,12 @@ top|osc_clk_inferred_clock     133.0 MHz     231.8 MHz     7.519         4.314  
 Clock Relationships
 *******************
 
-Clocks                                                  |    rise  to  rise   |    fall  to  fall   |    rise  to  fall   |    fall  to  rise 
-----------------------------------------------------------------------------------------------------------------------------------------------
-Starting                    Ending                      |  constraint  slack  |  constraint  slack  |  constraint  slack  |  constraint  slack
-----------------------------------------------------------------------------------------------------------------------------------------------
-top|osc_clk_inferred_clock  top|osc_clk_inferred_clock  |  7.519       3.205  |  No paths    -      |  No paths    -      |  No paths    -    
-==============================================================================================================================================
+Clocks                                                                |    rise  to  rise   |    fall  to  fall   |    rise  to  fall   |    fall  to  rise 
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Starting                           Ending                             |  constraint  slack  |  constraint  slack  |  constraint  slack  |  constraint  slack
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+top_module|sys_clk_inferred_clock  top_module|sys_clk_inferred_clock  |  7.519       1.491  |  No paths    -      |  No paths    -      |  No paths    -    
+============================================================================================================================================================
  Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
        'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
 
@@ -165,7 +166,7 @@ No IO constraint found
 
 
 ====================================
-Detailed Report for Clock: top|osc_clk_inferred_clock
+Detailed Report for Clock: top_module|sys_clk_inferred_clock
 ====================================
 
 
@@ -173,31 +174,41 @@ Detailed Report for Clock: top|osc_clk_inferred_clock
 Starting Points with Worst Slack
 ********************************
 
-                 Starting                                                            Arrival          
-Instance         Reference                      Type        Pin     Net              Time        Slack
-                 Clock                                                                                
-------------------------------------------------------------------------------------------------------
-myCounter[0]     top|osc_clk_inferred_clock     FD1S3AX     Q       myCounter[0]     0.972       3.205
-myCounter[1]     top|osc_clk_inferred_clock     FD1S3AX     Q       myCounter[1]     0.972       3.348
-myCounter[2]     top|osc_clk_inferred_clock     FD1S3AX     Q       myCounter[2]     0.972       3.348
-myCounter[4]     top|osc_clk_inferred_clock     FD1S3AX     Q       led_c            1.044       5.159
-myCounter[3]     top|osc_clk_inferred_clock     FD1S3AX     Q       myCounter[3]     0.972       5.231
-======================================================================================================
+                               Starting                                                                  Arrival          
+Instance                       Reference                             Type        Pin     Net             Time        Slack
+                               Clock                                                                                      
+--------------------------------------------------------------------------------------------------------------------------
+HeartBeatInst0.iCounter[0]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[0]     0.972       1.491
+HeartBeatInst0.iCounter[1]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[1]     0.972       1.634
+HeartBeatInst0.iCounter[2]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[2]     0.972       1.634
+HeartBeatInst0.iCounter[3]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[3]     0.972       1.777
+HeartBeatInst0.iCounter[4]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[4]     0.972       1.777
+HeartBeatInst0.iCounter[5]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[5]     0.972       1.920
+HeartBeatInst0.iCounter[6]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[6]     0.972       1.920
+HeartBeatInst0.iCounter[7]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[7]     0.972       2.063
+HeartBeatInst0.iCounter[8]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[8]     0.972       2.063
+HeartBeatInst0.iCounter[9]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[9]     0.972       2.205
+==========================================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                 Starting                                                              Required          
-Instance         Reference                      Type        Pin     Net                Time         Slack
-                 Clock                                                                                   
----------------------------------------------------------------------------------------------------------
-myCounter[3]     top|osc_clk_inferred_clock     FD1S3AX     D       myCounter_s[3]     7.413        3.205
-myCounter[4]     top|osc_clk_inferred_clock     FD1S3AX     D       myCounter_s[4]     7.413        3.205
-myCounter[1]     top|osc_clk_inferred_clock     FD1S3AX     D       myCounter_s[1]     7.413        3.348
-myCounter[2]     top|osc_clk_inferred_clock     FD1S3AX     D       myCounter_s[2]     7.413        3.348
-myCounter[0]     top|osc_clk_inferred_clock     FD1S3AX     D       myCounter_s[0]     7.413        5.231
-=========================================================================================================
+                                Starting                                                                     Required          
+Instance                        Reference                             Type        Pin     Net                Time         Slack
+                                Clock                                                                                          
+-------------------------------------------------------------------------------------------------------------------------------
+HeartBeatInst0.iCounter[27]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[27]     7.413        1.491
+HeartBeatInst0.iCounter[25]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[25]     7.413        1.634
+HeartBeatInst0.iCounter[26]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[26]     7.413        1.634
+HeartBeatInst0.iCounter[23]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[23]     7.413        1.777
+HeartBeatInst0.iCounter[24]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[24]     7.413        1.777
+HeartBeatInst0.iCounter[21]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[21]     7.413        1.920
+HeartBeatInst0.iCounter[22]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[22]     7.413        1.920
+HeartBeatInst0.iCounter[19]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[19]     7.413        2.063
+HeartBeatInst0.iCounter[20]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[20]     7.413        2.063
+HeartBeatInst0.iCounter[17]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[17]     7.413        2.205
+===============================================================================================================================
 
 
 
@@ -211,32 +222,68 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         7.413
 
-    - Propagation time:                      4.208
+    - Propagation time:                      5.922
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (critical) :                     3.205
+    = Slack (critical) :                     1.491
 
-    Number of logic level(s):                3
-    Starting point:                          myCounter[0] / Q
-    Ending point:                            myCounter[4] / D
-    The start point is clocked by            top|osc_clk_inferred_clock [rising] on pin CK
-    The end   point is clocked by            top|osc_clk_inferred_clock [rising] on pin CK
+    Number of logic level(s):                15
+    Starting point:                          HeartBeatInst0.iCounter[0] / Q
+    Ending point:                            HeartBeatInst0.iCounter[27] / D
+    The start point is clocked by            top_module|sys_clk_inferred_clock [rising] on pin CK
+    The end   point is clocked by            top_module|sys_clk_inferred_clock [rising] on pin CK
 
-Instance / Net                     Pin      Pin               Arrival     No. of    
-Name                   Type        Name     Dir     Delay     Time        Fan Out(s)
-------------------------------------------------------------------------------------
-myCounter[0]           FD1S3AX     Q        Out     0.972     0.972       -         
-myCounter[0]           Net         -        -       -         -           1         
-myCounter_cry_0[0]     CCU2D       A1       In      0.000     0.972       -         
-myCounter_cry_0[0]     CCU2D       COUT     Out     1.544     2.516       -         
-myCounter_cry[0]       Net         -        -       -         -           1         
-myCounter_cry_0[1]     CCU2D       CIN      In      0.000     2.516       -         
-myCounter_cry_0[1]     CCU2D       COUT     Out     0.143     2.659       -         
-myCounter_cry[2]       Net         -        -       -         -           1         
-myCounter_cry_0[3]     CCU2D       CIN      In      0.000     2.659       -         
-myCounter_cry_0[3]     CCU2D       S1       Out     1.549     4.208       -         
-myCounter_s[4]         Net         -        -       -         -           1         
-myCounter[4]           FD1S3AX     D        In      0.000     4.208       -         
-====================================================================================
+Instance / Net                                    Pin      Pin               Arrival     No. of    
+Name                                  Type        Name     Dir     Delay     Time        Fan Out(s)
+---------------------------------------------------------------------------------------------------
+HeartBeatInst0.iCounter[0]            FD1S3DX     Q        Out     0.972     0.972       -         
+iCounter[0]                           Net         -        -       -         -           1         
+HeartBeatInst0.iCounter_cry_0[0]      CCU2D       A1       In      0.000     0.972       -         
+HeartBeatInst0.iCounter_cry_0[0]      CCU2D       COUT     Out     1.544     2.516       -         
+iCounter_cry[0]                       Net         -        -       -         -           1         
+HeartBeatInst0.iCounter_cry_0[1]      CCU2D       CIN      In      0.000     2.516       -         
+HeartBeatInst0.iCounter_cry_0[1]      CCU2D       COUT     Out     0.143     2.659       -         
+iCounter_cry[2]                       Net         -        -       -         -           1         
+HeartBeatInst0.iCounter_cry_0[3]      CCU2D       CIN      In      0.000     2.659       -         
+HeartBeatInst0.iCounter_cry_0[3]      CCU2D       COUT     Out     0.143     2.802       -         
+iCounter_cry[4]                       Net         -        -       -         -           1         
+HeartBeatInst0.iCounter_cry_0[5]      CCU2D       CIN      In      0.000     2.802       -         
+HeartBeatInst0.iCounter_cry_0[5]      CCU2D       COUT     Out     0.143     2.945       -         
+iCounter_cry[6]                       Net         -        -       -         -           1         
+HeartBeatInst0.iCounter_cry_0[7]      CCU2D       CIN      In      0.000     2.945       -         
+HeartBeatInst0.iCounter_cry_0[7]      CCU2D       COUT     Out     0.143     3.087       -         
+iCounter_cry[8]                       Net         -        -       -         -           1         
+HeartBeatInst0.iCounter_cry_0[9]      CCU2D       CIN      In      0.000     3.087       -         
+HeartBeatInst0.iCounter_cry_0[9]      CCU2D       COUT     Out     0.143     3.230       -         
+iCounter_cry[10]                      Net         -        -       -         -           1         
+HeartBeatInst0.iCounter_cry_0[11]     CCU2D       CIN      In      0.000     3.230       -         
+HeartBeatInst0.iCounter_cry_0[11]     CCU2D       COUT     Out     0.143     3.373       -         
+iCounter_cry[12]                      Net         -        -       -         -           1         
+HeartBeatInst0.iCounter_cry_0[13]     CCU2D       CIN      In      0.000     3.373       -         
+HeartBeatInst0.iCounter_cry_0[13]     CCU2D       COUT     Out     0.143     3.516       -         
+iCounter_cry[14]                      Net         -        -       -         -           1         
+HeartBeatInst0.iCounter_cry_0[15]     CCU2D       CIN      In      0.000     3.516       -         
+HeartBeatInst0.iCounter_cry_0[15]     CCU2D       COUT     Out     0.143     3.659       -         
+iCounter_cry[16]                      Net         -        -       -         -           1         
+HeartBeatInst0.iCounter_cry_0[17]     CCU2D       CIN      In      0.000     3.659       -         
+HeartBeatInst0.iCounter_cry_0[17]     CCU2D       COUT     Out     0.143     3.801       -         
+iCounter_cry[18]                      Net         -        -       -         -           1         
+HeartBeatInst0.iCounter_cry_0[19]     CCU2D       CIN      In      0.000     3.801       -         
+HeartBeatInst0.iCounter_cry_0[19]     CCU2D       COUT     Out     0.143     3.944       -         
+iCounter_cry[20]                      Net         -        -       -         -           1         
+HeartBeatInst0.iCounter_cry_0[21]     CCU2D       CIN      In      0.000     3.944       -         
+HeartBeatInst0.iCounter_cry_0[21]     CCU2D       COUT     Out     0.143     4.087       -         
+iCounter_cry[22]                      Net         -        -       -         -           1         
+HeartBeatInst0.iCounter_cry_0[23]     CCU2D       CIN      In      0.000     4.087       -         
+HeartBeatInst0.iCounter_cry_0[23]     CCU2D       COUT     Out     0.143     4.230       -         
+iCounter_cry[24]                      Net         -        -       -         -           1         
+HeartBeatInst0.iCounter_cry_0[25]     CCU2D       CIN      In      0.000     4.230       -         
+HeartBeatInst0.iCounter_cry_0[25]     CCU2D       COUT     Out     0.143     4.373       -         
+iCounter_cry[26]                      Net         -        -       -         -           1         
+HeartBeatInst0.iCounter_s_0[27]       CCU2D       CIN      In      0.000     4.373       -         
+HeartBeatInst0.iCounter_s_0[27]       CCU2D       S0       Out     1.549     5.922       -         
+iCounter_s[27]                        Net         -        -       -         -           1         
+HeartBeatInst0.iCounter[27]           FD1S3DX     D        In      0.000     5.922       -         
+===================================================================================================
 
 
 
@@ -245,34 +292,36 @@ myCounter[4]           FD1S3AX     D        In      0.000     4.208       -
 Timing exceptions that could not be applied
 None
 
-Finished final timing analysis (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 144MB peak: 145MB)
+Finished final timing analysis (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 144MB peak: 144MB)
 
 
-Finished timing report (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 144MB peak: 145MB)
+Finished timing report (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 144MB peak: 144MB)
 
 ---------------------------------------
 Resource Usage Report
 Part: lcmxo2_1200ze-1
 
-Register bits: 5 of 1280 (0%)
+Register bits: 28 of 1280 (2%)
 PIC Latch:       0
-I/O cells:       1
+I/O cells:       2
 
 
 Details:
-CCU2D:          3
-FD1S3AX:        5
+CCU2D:          15
+FD1S3DX:        28
 GSR:            1
+IB:             1
+INV:            1
 OB:             1
 OSCH:           1
 PUR:            1
-VHI:            1
-VLO:            1
+VHI:            2
+VLO:            2
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 145MB)
+At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 31MB peak: 144MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Aug 13 17:15:36 2019
+# Wed Aug 14 20:07:53 2019
 
 ###########################################################]
