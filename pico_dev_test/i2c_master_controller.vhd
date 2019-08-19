@@ -54,6 +54,7 @@ constant I2C_CMDR_RD	: std_logic_vector (7 downto 0) := "00100000";  	--indicate
 constant I2C_CMDR_WR	: std_logic_vector (7 downto 0) := "00010000";  	--indicate read from slave
 constant I2C_CMDR_ACK	: std_logic_vector (7 downto 0) := "00001000";  	--acknowledge Option
 																			--( 0: send ack, 1: send nack)
+constant I2C_CMDR_CKSDIS: std_logic_vector (7 downto 0) := "00000100";		-- clock stretching disable (must write 1 for every transition)
 
 -- I2C status register mask
 constant I2C_SR_TIP	: std_logic_vector (7 downto 0) := "10000000";  		--Transmit in progress 
