@@ -26,15 +26,15 @@ architecture beh_i2c_master_controller of i2c_master_controller is
  --* WISHBONE INTERFACE SIGNAL                                           *
  --*                                                                     *
  --***********************************************************************/
-signal wb_dat_i : std_logic_vector(7 downto 0) ;
-signal wb_stb_i : std_logic ;
-signal wb_cyc_i : std_logic  ;
-signal wb_adr_i : std_logic_vector(7 downto 0) ;
-signal wb_we_i  : std_logic ;
-signal wb_dat_o : std_logic_vector(7 downto 0) ;
-signal wb_ack_o : std_logic ;
+signal wb_dat_i : std_logic_vector(7 downto 0) := ( others=>'0') ;
+signal wb_stb_i : std_logic := '0';
+signal wb_cyc_i : std_logic := '0' ;
+signal wb_adr_i : std_logic_vector(7 downto 0) := ( others=>'0');
+signal wb_we_i  : std_logic := '0';
+signal wb_dat_o : std_logic_vector(7 downto 0) := ( others=>'0');
+signal wb_ack_o : std_logic := '0';
 signal i2c1_irqo: std_logic := 'Z';
-signal rst_p : std_logic;
+signal rst_p : std_logic := '0';
 
 
 
