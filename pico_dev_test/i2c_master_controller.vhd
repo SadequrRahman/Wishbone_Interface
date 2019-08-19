@@ -36,7 +36,24 @@ signal wb_ack_o : std_logic := '0';
 signal i2c1_irqo: std_logic := 'Z';
 signal rst_p : std_logic := '0';
 
-
+--/***********************************************************************
+ --*                                                                     *
+ --* I2C REGISTER DESCRIPTION                                            *
+ --*                                                                     *
+ --***********************************************************************/
+ constant I2C1_CR : std_logic_vector (7 downto 0) := x"40";		-- Control register
+ constant I2C1_CMDR : std_logic_vector (7 downto 0) := x"41";	-- Command register
+ constant I2C1_TXDR : std_logic_vector (7 downto 0) := x"44";	-- Transmit data register
+ constant I2C1_SR : std_logic_vector (7 downto 0) := x"45";		-- Status register
+ constant I2C1_RXDR : std_logic_vector (7 downto 0) := x"47";	-- Receive Data register
+ 
+ --/***********************************************************************
+ --*                                                                      *
+ --* I2C REGISTER MASKS                                            		  *
+ --*                                                                      *
+ --***********************************************************************/
+ 
+ 
 
 -- parameterized module component declaration
 component efb_i2c_VHDL
