@@ -1,7 +1,8 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
-use ieee.std_logic_unsigned.all; 
+use ieee.std_logic_unsigned.all;
+
 
 
 entity HeartBeat is 
@@ -18,7 +19,9 @@ end HeartBeat;
 
 
 architecture beh_arch of HeartBeat is
-	signal iCounter : unsigned(27 downto 0);
+
+	signal iCounter : unsigned(32 downto 0);
+	
 begin
 	LED <= std_logic(iCounter(SPEED));
 	

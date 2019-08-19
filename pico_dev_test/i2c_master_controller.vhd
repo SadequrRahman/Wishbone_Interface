@@ -47,13 +47,28 @@ signal rst_p : std_logic := '0';
  constant I2C1_SR : std_logic_vector (7 downto 0) := x"45";		-- Status register
  constant I2C1_RXDR : std_logic_vector (7 downto 0) := x"47";	-- Receive Data register
  
- --/***********************************************************************
- --*                                                                      *
- --* I2C REGISTER MASKS                                            		  *
- --*                                                                      *
- --***********************************************************************/
- 
- 
+-- I2C command register mask
+constant I2C_CMDR_STA	: std_logic_vector (7 downto 0) := "10000000";  	--generate a start condition
+constant I2C_CMDR_STO	: std_logic_vector (7 downto 0) := "01000000";  	--generate a stop condition
+constant I2C_CMDR_RD	: std_logic_vector (7 downto 0) := "00100000";  	--indicate read from slave
+constant I2C_CMDR_WR	: std_logic_vector (7 downto 0) := "00010000";  	--indicate read from slave
+constant I2C_CMDR_ACK	: std_logic_vector (7 downto 0) := "00001000";  	--acknowledge Option
+																			--( 0: send ack, 1: send nack)
+
+-- I2C status register mask
+constant I2C_SR_TIP	: std_logic_vector (7 downto 0) := "10000000";  		--Transmit in progress 
+																			--( 1: byte transfer in progress, 0: byte transfer complete)
+constant I2C_SR_BUSY : std_logic_vector (7 downto 0) := "01000000";  		--i2c bus is busy
+																			--(0: not busy, 1: busy)		
+constant I2C_SR_RARC : std_logic_vector (7 downto 0) := "00100000";			-- Recevice acknowladge
+																			--(0: No ack receive, 1: ack receive)
+constant I2C_SR_SRW : std_logic_vector (7 downto 0) := "00010000";			--slave Read/write. Indicate transmit or receive mode
+																			--(1: Master receiving/ slave transmiting, 0: Master transmitting/slave receiving)
+constant I2C_SR_ARBL : std_logic_vector (7 downto 0) := "00001000";			-- Arbitration lost
+constant I2C_SR_TRRDY : std_logic_vector (7 downto 0) := "00000100";		-- Transmitter or receiver is ready
+constant I2C_SR_TROE : std_logic_vector (7 downto 0) := "00000010";			-- Transmitter or receiver overrun error
+constant I2C_SR_HGC : std_logic_vector (7 downto 0) := "00000001";			-- Hardware general call receive
+
 
 -- parameterized module component declaration
 component efb_i2c_VHDL
