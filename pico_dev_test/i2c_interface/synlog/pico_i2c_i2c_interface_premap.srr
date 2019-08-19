@@ -1,28 +1,31 @@
-# Wed Aug 14 21:24:54 2019
+# Mon Aug 19 16:06:39 2019
 
 Synopsys Lattice Technology Pre-mapping, Version maplat, Build 1796R, Built Aug  4 2017 11:10:16
 Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated documentation are proprietary to Synopsys, Inc. and may only be used pursuant to the terms and conditions of a written license agreement with Synopsys, Inc. All other use, reproduction, modification, or distribution of the Synopsys software or the associated documentation is strictly prohibited.
 Product Version M-2017.03L-SP1-1
 
-Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 99MB)
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 100MB)
 
 @A: MF827 |No constraint file specified.
-@L: F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\i2c_interface\pico_i2c_i2c_interface_scck.rpt 
-Printing clock  summary report in "F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\i2c_interface\pico_i2c_i2c_interface_scck.rpt" file 
+@L: D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface_scck.rpt 
+Printing clock  summary report in "D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface_scck.rpt" file 
 @N: MF248 |Running in 64-bit mode.
 @N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
 
-Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 102MB)
+Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 100MB peak: 102MB)
 
 
-Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 102MB)
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 100MB peak: 102MB)
 
 
-Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 112MB)
+Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 112MB)
 
 
-Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 114MB)
+Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 114MB)
 
+@W: FX474 |User-specified initial value defined for some sequential elements which can prevent optimum synthesis results from being achieved. 
+@W: BN132 :"d:\workingdir\fpga\pico_dev_test\i2c_master_controller.vhd":31:31:31:33|Removing sequential instance i2c_master_controller_Inst0.wb_stb_i because it is equivalent to instance i2c_master_controller_Inst0.wb_cyc_i. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"d:\workingdir\fpga\pico_dev_test\i2c_master_controller.vhd":106:1:106:2|Removing sequential instance i2c_master_controller_Inst0.wb_we_i because it is equivalent to instance i2c_master_controller_Inst0.wb_cyc_i. To keep the instance, apply constraint syn_preserve=1 on the instance.
 ICG Latch Removal Summary:
 Number of ICG latches removed:	0
 Number of ICG latches not removed:	0
@@ -38,28 +41,38 @@ Clock Summary
           Start                                 Requested     Requested     Clock        Clock                   Clock
 Level     Clock                                 Frequency     Period        Type         Group                   Load 
 ----------------------------------------------------------------------------------------------------------------------
-0 -       top_module|sys_clk_inferred_clock     133.0 MHz     7.519         inferred     Inferred_clkgroup_0     25   
+0 -       System                                1.0 MHz       1000.000      system       system_clkgroup         0    
+                                                                                                                      
+0 -       top_module|sys_clk_inferred_clock     133.0 MHz     7.519         inferred     Inferred_clkgroup_0     36   
 ======================================================================================================================
 
-@W: MT529 :"f:\tuhh\hiwi\fpga\git_workdir\pico_dev_test\heartbeat.vhd":27:1:27:2|Found inferred clock top_module|sys_clk_inferred_clock which controls 25 sequential elements including HeartBeatInst0.iCounter[24:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
+@W: MT529 :"d:\workingdir\fpga\pico_dev_test\heartbeat.vhd":30:1:30:2|Found inferred clock top_module|sys_clk_inferred_clock which controls 36 sequential elements including HeartBeatInst0.iCounter[20:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
 
 Finished Pre Mapping Phase.
 
 Starting constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
 
+Encoding state machine State[0:5] (in view: work.i2c_master_controller(beh_i2c_master_controller))
+original code -> new code
+   000001 -> 000001
+   000010 -> 000010
+   000100 -> 000100
+   001000 -> 001000
+   010000 -> 010000
+   100000 -> 100000
 
-Finished constraint checker preprocessing (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
+Finished constraint checker preprocessing (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
 
 None
 None
 
-Finished constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
+Finished constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
 
 Pre-mapping successful!
 
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 55MB peak: 141MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Wed Aug 14 21:24:55 2019
+# Mon Aug 19 16:06:40 2019
 
 ###########################################################]

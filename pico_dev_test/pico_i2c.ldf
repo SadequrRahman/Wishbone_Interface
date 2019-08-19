@@ -2,9 +2,21 @@
 <BaliProject version="3.2" title="pico_i2c" device="LCMXO2-1200ZE-1TG144C" default_implementation="i2c_interface">
     <Options/>
     <Implementation title="i2c_interface" dir="i2c_interface" description="i2c_interface" synthesis="synplify" default_strategy="Strategy1">
-        <Options def_top="top"/>
+        <Options def_top="top_module"/>
         <Source name="top_level.vhd" type="VHDL" type_short="VHDL">
-            <Options top_module="top"/>
+            <Options top_module="top_module"/>
+        </Source>
+        <Source name="i2c_master_controller.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="efb_i2c_VHDL.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="HeartBeat.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="i2c_interface/i2c_interface.xcf" type="Programming Project File" type_short="Programming">
+            <Options/>
         </Source>
         <Source name="pico_i2c.lpf" type="Logic Preference" type_short="LPF">
             <Options/>

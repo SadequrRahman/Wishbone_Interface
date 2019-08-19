@@ -8,9 +8,10 @@
 @N: MO111 :|Tristate driver data_io_t[2] (in view: work.top_module(sample_arch)) on net data_io[2] (in view: work.top_module(sample_arch)) has its enable tied to GND.
 @N: MO111 :|Tristate driver data_io_t[1] (in view: work.top_module(sample_arch)) on net data_io[1] (in view: work.top_module(sample_arch)) has its enable tied to GND.
 @N: MO111 :|Tristate driver data_io_t[0] (in view: work.top_module(sample_arch)) on net data_io[0] (in view: work.top_module(sample_arch)) has its enable tied to GND.
-@N: MO231 :"f:\tuhh\hiwi\fpga\git_workdir\pico_dev_test\heartbeat.vhd":27:1:27:2|Found counter in view:work.top_module(sample_arch) instance HeartBeatInst0.iCounter[24:0] 
+@N: FX493 |Applying initial value "00" on instance i2c_master_controller_Inst0.wb_dat_i[7:6].
+@N: MO231 :"d:\workingdir\fpga\pico_dev_test\heartbeat.vhd":30:1:30:2|Found counter in view:work.top_module(sample_arch) instance HeartBeatInst0.iCounter[20:0] 
 @N: FX164 |The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.  
-@N: FX1056 |Writing EDF file: F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.edi
+@N: FX1056 |Writing EDF file: D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.edi
 @N: BW106 |Synplicity Constraint File capacitance units using default value of 1pF 
 @N: MT320 |This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report.
 @N: MT322 |Clock constraints include only register-to-register paths associated with each individual clock.

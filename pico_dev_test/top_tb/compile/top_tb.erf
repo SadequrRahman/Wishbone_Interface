@@ -1,6 +1,7 @@
-MESSAGE "File: F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\top_level.vhd" 
+MESSAGE "File: D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd" 
 MESSAGE "Compile Entity "top_module"" 
 MESSAGE "Compile Architecture "sample_arch" of Entity "top_module"" 
-WARNING ELAB1_0026: "There is no default binding for component "OSCH". (No entity named "OSCH" was found)." "F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\top_level.vhd" 33 0
-WARNING ELAB1_0026: "There is no default binding for component "HeartBeat". (No entity named "HeartBeat" was found)." "F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\top_level.vhd" 37 0
-SUCCESS "Compile success 0 Errors 2 Warnings  Analysis time :  0.0 [ms]" 
+WARNING ELAB1_0026: "There is no default binding for component "OSCH". (No entity named "OSCH" was found)." "D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd" 50 0
+WARNING ELAB1_0026: "There is no default binding for component "HeartBeat". (No entity named "HeartBeat" was found)." "D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd" 54 0
+WARNING ELAB1_0026: "There is no default binding for component "i2c_master_controller". (No entity named "i2c_master_controller" was found)." "D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd" 58 0
+SUCCESS "Compile success 0 Errors 3 Warnings  Analysis time :  0.1 [s]" 

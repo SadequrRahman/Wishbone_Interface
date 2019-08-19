@@ -1,15 +1,15 @@
 #--  Synopsys, Inc.
 #--  Version M-2017.03L-SP1-1
-#--  Project file F:\TUHH\HiWi\FPGA\git_workDir\pico_dev_test\i2c_interface\run_options.txt
-#--  Written on Wed Aug 14 21:24:52 2019
+#--  Project file D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\run_options.txt
+#--  Written on Mon Aug 19 16:06:36 2019
 
 
 #project files
 add_file -vhdl -lib work "C:/lscc/diamond/3.10_x64/cae_library/synthesis/vhdl/machxo2.vhd"
-add_file -vhdl -lib work "F:/TUHH/HiWi/FPGA/git_workDir/pico_dev_test/HeartBeat.vhd"
-add_file -vhdl -lib work "F:/TUHH/HiWi/FPGA/git_workDir/pico_dev_test/efb_i2c_VHDL.vhd"
-add_file -vhdl -lib work "F:/TUHH/HiWi/FPGA/git_workDir/pico_dev_test/i2c_master_controller.vhd"
-add_file -vhdl -lib work "F:/TUHH/HiWi/FPGA/git_workDir/pico_dev_test/top_level.vhd"
+add_file -vhdl -lib work "D:/WorkingDir/Fpga/pico_dev_test/HeartBeat.vhd"
+add_file -vhdl -lib work "D:/WorkingDir/Fpga/pico_dev_test/efb_i2c_VHDL.vhd"
+add_file -vhdl -lib work "D:/WorkingDir/Fpga/pico_dev_test/i2c_master_controller.vhd"
+add_file -vhdl -lib work "D:/WorkingDir/Fpga/pico_dev_test/top_level.vhd"
 
 
 
@@ -76,5 +76,5 @@ set_option -write_apr_constraint 1
 project -result_file "./pico_i2c_i2c_interface.edi"
 
 #set log file 
-set_option log_file "F:/TUHH/HiWi/FPGA/git_workDir/pico_dev_test/i2c_interface/pico_i2c_i2c_interface.srf" 
+set_option log_file "D:/WorkingDir/Fpga/pico_dev_test/i2c_interface/pico_i2c_i2c_interface.srf" 
 impl -active "i2c_interface"

@@ -51,7 +51,7 @@ signal rst_p : std_logic := '0';
 constant I2C_CMDR_STA	: std_logic_vector (7 downto 0) := "10000000";  	--generate a start condition
 constant I2C_CMDR_STO	: std_logic_vector (7 downto 0) := "01000000";  	--generate a stop condition
 constant I2C_CMDR_RD	: std_logic_vector (7 downto 0) := "00100000";  	--indicate read from slave
-constant I2C_CMDR_WR	: std_logic_vector (7 downto 0) := "00010000";  	--indicate read from slave
+constant I2C_CMDR_WR	: std_logic_vector (7 downto 0) := "00010000";  	--indicate write to slave
 constant I2C_CMDR_ACK	: std_logic_vector (7 downto 0) := "00001000";  	--acknowledge Option
 																			--( 0: send ack, 1: send nack)
 constant I2C_CMDR_CKSDIS: std_logic_vector (7 downto 0) := "00000100";		-- clock stretching disable (must write 1 for every transition)
@@ -70,6 +70,13 @@ constant I2C_SR_TRRDY : std_logic_vector (7 downto 0) := "00000100";		-- Transmi
 constant I2C_SR_TROE : std_logic_vector (7 downto 0) := "00000010";			-- Transmitter or receiver overrun error
 constant I2C_SR_HGC : std_logic_vector (7 downto 0) := "00000001";			-- Hardware general call receive
 
+
+-- internal register
+signal status_reg, command_reg, txData_reg, rxData_reg : std_logic_vector( 7 downto 0);
+
+-- Enumerated type declaration and state signal declaration
+type state_t is (state_0, state_1, state_2, state_3, state_4, state_5);
+signal State : state_t := state_0;
 
 -- parameterized module component declaration
 component efb_i2c_VHDL
@@ -92,6 +99,68 @@ efb_i2c_Inst0 : efb_i2c_VHDL
         wb_dat_o(7 downto 0)=>wb_dat_o, wb_ack_o=>wb_ack_o, i2c1_scl=>scl, i2c1_sda=>sda, 
         i2c1_irqo=>i2c1_irqo);
 
-rst_p <= not(rst_n);
+rst_p <= '0';
+
+process(clk, rst_n)
+begin
+	if rising_edge(clk) then
+	
+		case State is
+			when state_0 =>
+				wb_adr_i <= I2C1_TXDR;
+				wb_dat_i <= x"55";
+				wb_we_i <= '1';
+				wb_cyc_i <= '1';
+				wb_stb_i<= '1';
+				if(wb_ack_o = '1') then
+					State <= state_1;
+				end if;
+			when state_1 =>
+				wb_we_i <= '0';
+				wb_cyc_i <= '0';
+				wb_stb_i<= '0';
+				if(wb_ack_o = '0') then
+					State <= state_2;
+				end if;
+			when state_2 =>
+				wb_adr_i <= I2C1_CMDR;
+				wb_dat_i <= x"94";
+				wb_we_i <= '1';
+				wb_cyc_i <= '1';
+				wb_stb_i<= '1';
+				if(wb_ack_o = '1') then
+					State <= state_3;
+				end if;
+			when state_3 =>
+				wb_we_i <= '0';
+				wb_cyc_i <= '0';
+				wb_stb_i<= '0';
+				if(wb_ack_o = '0') then
+					State <= state_4;
+				end if;
+			when state_4 =>
+				wb_adr_i <= I2C1_CMDR;
+				wb_dat_i <= x"44";
+				wb_we_i <= '1';
+				wb_cyc_i <= '1';
+				wb_stb_i<= '1';
+				if(wb_ack_o = '1') then
+					State <= state_5;
+				end if;
+			when state_5 =>
+				wb_we_i <= '0';
+				wb_cyc_i <= '0';
+				wb_stb_i<= '0';
+				if(wb_ack_o = '0') then
+					State <= state_1;
+				end if;
+		end case;
+
+		
+	end if;
+
+
+end process;
+
 
 end beh_i2c_master_controller;

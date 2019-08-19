@@ -1,0 +1,16 @@
+
+fsm_encoding {113031301} original
+
+fsm_state_encoding {113031301} state_0 {000001}
+
+fsm_state_encoding {113031301} state_1 {000010}
+
+fsm_state_encoding {113031301} state_2 {000100}
+
+fsm_state_encoding {113031301} state_3 {001000}
+
+fsm_state_encoding {113031301} state_4 {010000}
+
+fsm_state_encoding {113031301} state_5 {100000}
+
+fsm_registers {113031301} {State[5]}  {State[4]}  {State[3]}  {State[2]}  {State[1]}  {State[0]} 

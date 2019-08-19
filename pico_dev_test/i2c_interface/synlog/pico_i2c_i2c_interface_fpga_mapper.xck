@@ -1,1 +1,1 @@
-CKID0001:@|S:OSCInst0@|E:HeartBeatInst0.iCounter[24]@|F:@syn_sample_clock_path==CKID0001@|M:ClockId0001 
+CKID0001:@|S:OSCInst0@|E:i2c_master_controller_Inst0.State[5]@|F:@syn_sample_clock_path==CKID0001@|M:ClockId0001 

@@ -3,20 +3,24 @@ Report for cell top_module
    Instance path: top_module
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	      13.00        100.0
+                                  SLIC	      18.00        100.0
+                                  LUT4	      11.00        100.0
                                  IOBUF	          4        100.0
-                                PFUREG	         25        100.0
-                                RIPPLE	         13        100.0
+                                PFUREG	         31        100.0
+                                RIPPLE	         11        100.0
 SUB MODULES
                                   cell	      count    SLC Usage(%)
-                 i2c_master_controller	          1         0.0
-                             HeartBeat	          1        100.0
+                 i2c_master_controller	          1        38.9
+                             HeartBeat	          1        61.1
 ---------------------------------------------------
 Report for cell i2c_master_controller
    Instance path: top_module/i2c_master_controller_Inst0
                      Cell usage:
                                   cell	      count    Res Usage(%)
+                                  SLIC	       7.00        38.9
+                                  LUT4	      11.00        100.0
                                  IOBUF	          2        50.0
+                                PFUREG	         10        32.3
 SUB MODULES
                                   cell	      count    SLC Usage(%)
                           efb_i2c_VHDL	          1         0.0
@@ -31,6 +35,6 @@ Report for cell HeartBeat
    Instance path: top_module/HeartBeatInst0
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	      13.00        100.0
-                                PFUREG	         25        100.0
-                                RIPPLE	         13        100.0
+                                  SLIC	      11.00        61.1
+                                PFUREG	         21        67.7
+                                RIPPLE	         11        100.0

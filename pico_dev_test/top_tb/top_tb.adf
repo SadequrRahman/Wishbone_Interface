@@ -41,6 +41,6 @@ Global=
 [SpecTracer]
 WindowVisible=0
 [HierarchyViewer]
-HierarchyInformation=top_module|sample_arch|0       
+HierarchyInformation=       
 ShowHide=ShowTopLevel
 Selected=
