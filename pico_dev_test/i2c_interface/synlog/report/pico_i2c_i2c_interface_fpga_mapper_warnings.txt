@@ -4,4 +4,5 @@
 @W: BN132 :"d:\workingdir\fpga\pico_dev_test\i2c_master_controller.vhd":106:1:106:2|Removing instance i2c_master_controller_Inst0.wb_adr_i[6] because it is equivalent to instance i2c_master_controller_Inst0.wb_adr_i[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"d:\workingdir\fpga\pico_dev_test\i2c_master_controller.vhd":106:1:106:2|Removing instance i2c_master_controller_Inst0.wb_dat_i[2] because it is equivalent to instance i2c_master_controller_Inst0.wb_adr_i[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: MT246 :"d:\workingdir\fpga\pico_dev_test\efb_i2c_vhdl.vhd":158:4:158:12|Blackbox EFB is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results) 
+@W: MT420 |Found inferred clock top_module|usb_osc with period 1000.00ns. Please declare a user-defined clock on object "p:usb_osc"
 @W: MT420 |Found inferred clock top_module|sys_clk_inferred_clock with period 7.52ns. Please declare a user-defined clock on object "n:sys_clk"

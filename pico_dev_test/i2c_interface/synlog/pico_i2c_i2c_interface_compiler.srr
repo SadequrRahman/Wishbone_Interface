@@ -8,13 +8,13 @@ Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated
 
 @N: CD720 :"C:\lscc\diamond\3.10_x64\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ps
 @N:"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":8:7:8:16|Top entity is set to top_module.
-File D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd changed - recompiling
+File D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd changed - recompiling
 VHDL syntax check successful!
-File D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd changed - recompiling
+File D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd changed - recompiling
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":8:7:8:16|Synthesizing work.top_module.sample_arch.
 @N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":2291:10:2291:13|Synthesizing work.osch.syn_black_box.
 Post processing for work.osch.syn_black_box
-@W: CD638 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":22:8:22:13|Signal addr_i is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Signal addr_i is undriven. Either assign the signal a value or remove the signal declaration.
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":8:7:8:27|Synthesizing work.i2c_master_controller.beh_i2c_master_controller.
 @N: CD231 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":78:13:78:14|Using onehot encoding for type state_t. For example, enumeration state_0 is mapped to "100000".
 @W: CD434 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":104:13:104:17|Signal rst_n in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
@@ -38,22 +38,22 @@ Post processing for work.i2c_master_controller.beh_i2c_master_controller
 Post processing for work.heartbeat.beh_arch
 @W: CL271 :"D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd":30:1:30:2|Pruning unused bits 32 to 21 of iCounter(32 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 Post processing for work.top_module.sample_arch
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":22:8:22:13|Bit 0 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":22:8:22:13|Bit 1 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":22:8:22:13|Bit 2 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":22:8:22:13|Bit 3 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":22:8:22:13|Bit 4 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":22:8:22:13|Bit 5 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":22:8:22:13|Bit 6 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":22:8:22:13|Bit 7 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":58:1:58:27|Bit 0 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":58:1:58:27|Bit 1 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":58:1:58:27|Bit 2 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":58:1:58:27|Bit 3 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":58:1:58:27|Bit 4 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":58:1:58:27|Bit 5 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":58:1:58:27|Bit 6 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":58:1:58:27|Bit 7 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 0 of signal addr_i is floating -- simulation mismatch possible.
+@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 1 of signal addr_i is floating -- simulation mismatch possible.
+@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 2 of signal addr_i is floating -- simulation mismatch possible.
+@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 3 of signal addr_i is floating -- simulation mismatch possible.
+@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 4 of signal addr_i is floating -- simulation mismatch possible.
+@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 5 of signal addr_i is floating -- simulation mismatch possible.
+@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 6 of signal addr_i is floating -- simulation mismatch possible.
+@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 7 of signal addr_i is floating -- simulation mismatch possible.
+@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":60:1:60:27|Bit 0 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":60:1:60:27|Bit 1 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":60:1:60:27|Bit 2 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":60:1:60:27|Bit 3 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":60:1:60:27|Bit 4 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":60:1:60:27|Bit 5 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":60:1:60:27|Bit 6 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":60:1:60:27|Bit 7 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 @N: CL189 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":106:1:106:2|Register bit wb_adr_i(1) is always 0.
 @N: CL189 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":106:1:106:2|Register bit wb_adr_i(3) is always 0.
 @N: CL189 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":106:1:106:2|Register bit wb_adr_i(4) is always 0.
@@ -87,7 +87,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memor
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Aug 19 16:06:37 2019
+# Tue Aug 20 15:44:40 2019
 
 ###########################################################]
 Synopsys Netlist Linker, version comp2017q2p1, Build 190R, built Aug  4 2017
@@ -99,7 +99,7 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Aug 19 16:06:37 2019
+# Tue Aug 20 15:44:40 2019
 
 ###########################################################]
 @END
@@ -109,6 +109,6 @@ At c_hdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Aug 19 16:06:37 2019
+# Tue Aug 20 15:44:40 2019
 
 ###########################################################]

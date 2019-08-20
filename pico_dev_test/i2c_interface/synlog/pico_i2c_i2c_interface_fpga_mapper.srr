@@ -1,4 +1,4 @@
-# Mon Aug 19 16:06:40 2019
+# Tue Aug 20 15:44:43 2019
 
 Synopsys Lattice Technology Mapper, Version maplat, Build 1796R, Built Aug  4 2017 11:10:16
 Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated documentation are proprietary to Synopsys, Inc. and may only be used pursuant to the terms and conditions of a written license agreement with Synopsys, Inc. All other use, reproduction, modification, or distribution of the Synopsys software or the associated documentation is strictly prohibited.
@@ -86,7 +86,7 @@ Finished technology mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:0
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
-   1		0h:00m:00s		     2.63ns		  11 /        31
+   1		0h:00m:00s		     4.85ns		  11 /        31
 
 Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
 
@@ -101,14 +101,19 @@ Finished restoring hierarchy (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:
 
 #### START OF CLOCK OPTIMIZATION REPORT #####[
 
-0 non-gated/non-generated clock tree(s) driving 0 clock pin(s) of sequential element(s)
-1 gated/generated clock tree(s) driving 31 clock pin(s) of sequential element(s)
-0 instances converted, 31 sequential instances remain driven by gated/generated clocks
+1 non-gated/non-generated clock tree(s) driving 21 clock pin(s) of sequential element(s)
+1 gated/generated clock tree(s) driving 10 clock pin(s) of sequential element(s)
+0 instances converted, 10 sequential instances remain driven by gated/generated clocks
 
+================================= Non-Gated/Non-Generated Clocks ==================================
+Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance            
+---------------------------------------------------------------------------------------------------
+@K:CKID0002       usb_osc             port                   21         HeartBeatInst0.iCounter[20]
+===================================================================================================
 =========================================================================================================== Gated/Generated Clocks ============================================================================================================
 Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance                          Explanation                                                                                                                   
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-@K:CKID0001       OSCInst0            OSCH                   31         i2c_master_controller_Inst0.State[5]     Gating structure creates improper gating logic. See the Gated Clocks description in the user guide for conversion requirements
+@K:CKID0001       OSCInst0            OSCH                   10         i2c_master_controller_Inst0.State[5]     Gating structure creates improper gating logic. See the Gated Clocks description in the user guide for conversion requirements
 ===============================================================================================================================================================================================================================================
 
 
@@ -129,19 +134,20 @@ M-2017.03L-SP1-1
 Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 143MB peak: 145MB)
 
 
-Start final timing analysis (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 144MB peak: 145MB)
+Start final timing analysis (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 144MB peak: 145MB)
 
 @W: MT246 :"d:\workingdir\fpga\pico_dev_test\efb_i2c_vhdl.vhd":158:4:158:12|Blackbox EFB is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results) 
+@W: MT420 |Found inferred clock top_module|usb_osc with period 1000.00ns. Please declare a user-defined clock on object "p:usb_osc"
 @W: MT420 |Found inferred clock top_module|sys_clk_inferred_clock with period 7.52ns. Please declare a user-defined clock on object "n:sys_clk"
 
 
 ##### START OF TIMING REPORT #####[
-# Timing Report written on Mon Aug 19 16:06:41 2019
+# Timing Report written on Tue Aug 20 15:44:44 2019
 #
 
 
 Top view:               top_module
-Requested Frequency:    133.0 MHz
+Requested Frequency:    1.0 MHz
 Wire load mode:         top
 Paths requested:        5
 Constraint File(s):    
@@ -155,14 +161,15 @@ Performance Summary
 *******************
 
 
-Worst slack in design: 2.063
+Worst slack in design: 4.786
 
-                                      Requested     Estimated     Requested     Estimated               Clock        Clock              
-Starting Clock                        Frequency     Frequency     Period        Period        Slack     Type         Group              
-----------------------------------------------------------------------------------------------------------------------------------------
-top_module|sys_clk_inferred_clock     133.0 MHz     183.3 MHz     7.519         5.456         2.063     inferred     Inferred_clkgroup_0
-System                                1.0 MHz       1.0 MHz       1000.000      993.009       6.991     system       system_clkgroup    
-========================================================================================================================================
+                                      Requested     Estimated     Requested     Estimated                 Clock        Clock              
+Starting Clock                        Frequency     Frequency     Period        Period        Slack       Type         Group              
+------------------------------------------------------------------------------------------------------------------------------------------
+top_module|sys_clk_inferred_clock     133.0 MHz     366.0 MHz     7.519         2.733         4.786       inferred     Inferred_clkgroup_0
+top_module|usb_osc                    1.0 MHz       183.3 MHz     1000.000      5.456         994.544     inferred     Inferred_clkgroup_1
+System                                1.0 MHz       1.0 MHz       1000.000      993.009       6.991       system       system_clkgroup    
+==========================================================================================================================================
 
 
 
@@ -171,14 +178,15 @@ System                                1.0 MHz       1.0 MHz       1000.000      
 Clock Relationships
 *******************
 
-Clocks                                                                |    rise  to  rise   |    fall  to  fall   |    rise  to  fall   |    fall  to  rise 
-------------------------------------------------------------------------------------------------------------------------------------------------------------
-Starting                           Ending                             |  constraint  slack  |  constraint  slack  |  constraint  slack  |  constraint  slack
-------------------------------------------------------------------------------------------------------------------------------------------------------------
-System                             top_module|sys_clk_inferred_clock  |  7.519       6.991  |  No paths    -      |  No paths    -      |  No paths    -    
-top_module|sys_clk_inferred_clock  System                             |  7.519       6.371  |  No paths    -      |  No paths    -      |  No paths    -    
-top_module|sys_clk_inferred_clock  top_module|sys_clk_inferred_clock  |  7.519       2.063  |  No paths    -      |  No paths    -      |  No paths    -    
-============================================================================================================================================================
+Clocks                                                                |    rise  to  rise     |    fall  to  fall   |    rise  to  fall   |    fall  to  rise 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Starting                           Ending                             |  constraint  slack    |  constraint  slack  |  constraint  slack  |  constraint  slack
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+System                             top_module|sys_clk_inferred_clock  |  7.519       6.991    |  No paths    -      |  No paths    -      |  No paths    -    
+top_module|sys_clk_inferred_clock  System                             |  7.519       6.371    |  No paths    -      |  No paths    -      |  No paths    -    
+top_module|sys_clk_inferred_clock  top_module|sys_clk_inferred_clock  |  7.519       4.786    |  No paths    -      |  No paths    -      |  No paths    -    
+top_module|usb_osc                 top_module|usb_osc                 |  1000.000    994.544  |  No paths    -      |  No paths    -      |  No paths    -    
+==============================================================================================================================================================
  Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
        'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
 
@@ -200,41 +208,41 @@ Detailed Report for Clock: top_module|sys_clk_inferred_clock
 Starting Points with Worst Slack
 ********************************
 
-                               Starting                                                                  Arrival          
-Instance                       Reference                             Type        Pin     Net             Time        Slack
-                               Clock                                                                                      
---------------------------------------------------------------------------------------------------------------------------
-HeartBeatInst0.iCounter[0]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[0]     0.972       2.063
-HeartBeatInst0.iCounter[1]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[1]     0.972       2.205
-HeartBeatInst0.iCounter[2]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[2]     0.972       2.205
-HeartBeatInst0.iCounter[3]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[3]     0.972       2.348
-HeartBeatInst0.iCounter[4]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[4]     0.972       2.348
-HeartBeatInst0.iCounter[5]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[5]     0.972       2.491
-HeartBeatInst0.iCounter[6]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[6]     0.972       2.491
-HeartBeatInst0.iCounter[7]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[7]     0.972       2.634
-HeartBeatInst0.iCounter[8]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[8]     0.972       2.634
-HeartBeatInst0.iCounter[9]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[9]     0.972       2.777
-==========================================================================================================================
+                                            Starting                                                                  Arrival          
+Instance                                    Reference                             Type        Pin     Net             Time        Slack
+                                            Clock                                                                                      
+---------------------------------------------------------------------------------------------------------------------------------------
+i2c_master_controller_Inst0.State[2]        top_module|sys_clk_inferred_clock     FD1S3AX     Q       State[2]        1.188       4.786
+i2c_master_controller_Inst0.State[3]        top_module|sys_clk_inferred_clock     FD1S3AX     Q       State[3]        1.180       4.794
+i2c_master_controller_Inst0.State[4]        top_module|sys_clk_inferred_clock     FD1S3AX     Q       State[4]        1.188       5.803
+i2c_master_controller_Inst0.State[5]        top_module|sys_clk_inferred_clock     FD1S3AX     Q       State[5]        1.148       5.843
+i2c_master_controller_Inst0.wb_adr_i[0]     top_module|sys_clk_inferred_clock     FD1S3AX     Q       wb_adr_i[0]     1.148       5.843
+i2c_master_controller_Inst0.State[1]        top_module|sys_clk_inferred_clock     FD1S3AX     Q       State[1]        1.108       5.883
+i2c_master_controller_Inst0.wb_dat_i[4]     top_module|sys_clk_inferred_clock     FD1S3AX     Q       wb_dat_i[4]     1.044       5.947
+i2c_master_controller_Inst0.wb_dat_i[6]     top_module|sys_clk_inferred_clock     FD1S3AX     Q       wb_dat_i[6]     1.044       5.947
+i2c_master_controller_Inst0.wb_dat_i[7]     top_module|sys_clk_inferred_clock     FD1S3AX     Q       wb_dat_i[7]     1.044       5.947
+i2c_master_controller_Inst0.wb_cyc_i        top_module|sys_clk_inferred_clock     FD1S3AX     Q       wb_we_i         1.108       6.411
+=======================================================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                                Starting                                                                     Required          
-Instance                        Reference                             Type        Pin     Net                Time         Slack
-                                Clock                                                                                          
--------------------------------------------------------------------------------------------------------------------------------
-HeartBeatInst0.iCounter[19]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[19]     7.413        2.063
-HeartBeatInst0.iCounter[20]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[20]     7.413        2.063
-HeartBeatInst0.iCounter[17]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[17]     7.413        2.205
-HeartBeatInst0.iCounter[18]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[18]     7.413        2.205
-HeartBeatInst0.iCounter[15]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[15]     7.413        2.348
-HeartBeatInst0.iCounter[16]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[16]     7.413        2.348
-HeartBeatInst0.iCounter[13]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[13]     7.413        2.491
-HeartBeatInst0.iCounter[14]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[14]     7.413        2.491
-HeartBeatInst0.iCounter[11]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[11]     7.413        2.634
-HeartBeatInst0.iCounter[12]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[12]     7.413        2.634
-===============================================================================================================================
+                                            Starting                                                                    Required          
+Instance                                    Reference                             Type        Pin     Net               Time         Slack
+                                            Clock                                                                                         
+------------------------------------------------------------------------------------------------------------------------------------------
+i2c_master_controller_Inst0.State[1]        top_module|sys_clk_inferred_clock     FD1S3AX     D       State_ns[1]       7.607        4.786
+i2c_master_controller_Inst0.State[2]        top_module|sys_clk_inferred_clock     FD1S3AX     D       N_89_i            7.607        5.803
+i2c_master_controller_Inst0.State[3]        top_module|sys_clk_inferred_clock     FD1S3AX     D       N_91_i            7.607        5.803
+i2c_master_controller_Inst0.State[4]        top_module|sys_clk_inferred_clock     FD1S3AX     D       N_93_i            7.607        5.803
+i2c_master_controller_Inst0.State[5]        top_module|sys_clk_inferred_clock     FD1S3AX     D       N_95_i            7.607        5.803
+i2c_master_controller_Inst0.wb_dat_i[4]     top_module|sys_clk_inferred_clock     FD1S3AX     D       wb_dat_i_1[4]     7.607        5.803
+i2c_master_controller_Inst0.wb_dat_i[6]     top_module|sys_clk_inferred_clock     FD1S3AX     D       wb_dat_i_1[6]     7.607        5.803
+i2c_master_controller_Inst0.wb_dat_i[7]     top_module|sys_clk_inferred_clock     FD1S3AX     D       wb_dat_i_1[7]     7.607        5.803
+i2c_master_controller_Inst0.wb_adr_i[0]     top_module|sys_clk_inferred_clock     FD1S3AX     D       N_28_0            7.607        5.811
+i2c_master_controller_Inst0.wb_cyc_i        top_module|sys_clk_inferred_clock     FD1S3AX     D       wb_we_i_2         7.607        5.811
+==========================================================================================================================================
 
 
 
@@ -244,19 +252,103 @@ Worst Path Information
 
 Path information for path number 1: 
       Requested Period:                      7.519
+    - Setup time:                            -0.089
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         7.607
+
+    - Propagation time:                      2.821
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (critical) :                     4.786
+
+    Number of logic level(s):                2
+    Starting point:                          i2c_master_controller_Inst0.State[2] / Q
+    Ending point:                            i2c_master_controller_Inst0.State[1] / D
+    The start point is clocked by            top_module|sys_clk_inferred_clock [rising] on pin CK
+    The end   point is clocked by            top_module|sys_clk_inferred_clock [rising] on pin CK
+
+Instance / Net                                                Pin      Pin               Arrival     No. of    
+Name                                             Type         Name     Dir     Delay     Time        Fan Out(s)
+---------------------------------------------------------------------------------------------------------------
+i2c_master_controller_Inst0.State[2]             FD1S3AX      Q        Out     1.188     1.188       -         
+State[2]                                         Net          -        -       -         -           6         
+i2c_master_controller_Inst0.State_ns_i_a2[3]     ORCALUT4     A        In      0.000     1.188       -         
+i2c_master_controller_Inst0.State_ns_i_a2[3]     ORCALUT4     Z        Out     1.017     2.205       -         
+N_105                                            Net          -        -       -         -           1         
+i2c_master_controller_Inst0.State_ns_0_a3[1]     ORCALUT4     A        In      0.000     2.205       -         
+i2c_master_controller_Inst0.State_ns_0_a3[1]     ORCALUT4     Z        Out     0.617     2.821       -         
+State_ns[1]                                      Net          -        -       -         -           1         
+i2c_master_controller_Inst0.State[1]             FD1S3AX      D        In      0.000     2.821       -         
+===============================================================================================================
+
+
+
+
+====================================
+Detailed Report for Clock: top_module|usb_osc
+====================================
+
+
+
+Starting Points with Worst Slack
+********************************
+
+                               Starting                                                   Arrival            
+Instance                       Reference              Type        Pin     Net             Time        Slack  
+                               Clock                                                                         
+-------------------------------------------------------------------------------------------------------------
+HeartBeatInst0.iCounter[0]     top_module|usb_osc     FD1S3DX     Q       iCounter[0]     0.972       994.544
+HeartBeatInst0.iCounter[1]     top_module|usb_osc     FD1S3DX     Q       iCounter[1]     0.972       994.687
+HeartBeatInst0.iCounter[2]     top_module|usb_osc     FD1S3DX     Q       iCounter[2]     0.972       994.687
+HeartBeatInst0.iCounter[3]     top_module|usb_osc     FD1S3DX     Q       iCounter[3]     0.972       994.830
+HeartBeatInst0.iCounter[4]     top_module|usb_osc     FD1S3DX     Q       iCounter[4]     0.972       994.830
+HeartBeatInst0.iCounter[5]     top_module|usb_osc     FD1S3DX     Q       iCounter[5]     0.972       994.972
+HeartBeatInst0.iCounter[6]     top_module|usb_osc     FD1S3DX     Q       iCounter[6]     0.972       994.972
+HeartBeatInst0.iCounter[7]     top_module|usb_osc     FD1S3DX     Q       iCounter[7]     0.972       995.115
+HeartBeatInst0.iCounter[8]     top_module|usb_osc     FD1S3DX     Q       iCounter[8]     0.972       995.115
+HeartBeatInst0.iCounter[9]     top_module|usb_osc     FD1S3DX     Q       iCounter[9]     0.972       995.258
+=============================================================================================================
+
+
+Ending Points with Worst Slack
+******************************
+
+                                Starting                                                      Required            
+Instance                        Reference              Type        Pin     Net                Time         Slack  
+                                Clock                                                                             
+------------------------------------------------------------------------------------------------------------------
+HeartBeatInst0.iCounter[19]     top_module|usb_osc     FD1S3DX     D       iCounter_s[19]     999.894      994.544
+HeartBeatInst0.iCounter[20]     top_module|usb_osc     FD1S3DX     D       iCounter_s[20]     999.894      994.544
+HeartBeatInst0.iCounter[17]     top_module|usb_osc     FD1S3DX     D       iCounter_s[17]     999.894      994.687
+HeartBeatInst0.iCounter[18]     top_module|usb_osc     FD1S3DX     D       iCounter_s[18]     999.894      994.687
+HeartBeatInst0.iCounter[15]     top_module|usb_osc     FD1S3DX     D       iCounter_s[15]     999.894      994.830
+HeartBeatInst0.iCounter[16]     top_module|usb_osc     FD1S3DX     D       iCounter_s[16]     999.894      994.830
+HeartBeatInst0.iCounter[13]     top_module|usb_osc     FD1S3DX     D       iCounter_s[13]     999.894      994.972
+HeartBeatInst0.iCounter[14]     top_module|usb_osc     FD1S3DX     D       iCounter_s[14]     999.894      994.972
+HeartBeatInst0.iCounter[11]     top_module|usb_osc     FD1S3DX     D       iCounter_s[11]     999.894      995.115
+HeartBeatInst0.iCounter[12]     top_module|usb_osc     FD1S3DX     D       iCounter_s[12]     999.894      995.115
+==================================================================================================================
+
+
+
+Worst Path Information
+***********************
+
+
+Path information for path number 1: 
+      Requested Period:                      1000.000
     - Setup time:                            0.106
     + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         7.413
+    = Required time:                         999.894
 
     - Propagation time:                      5.351
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (critical) :                     2.063
+    = Slack (non-critical) :                 994.544
 
     Number of logic level(s):                11
     Starting point:                          HeartBeatInst0.iCounter[0] / Q
     Ending point:                            HeartBeatInst0.iCounter[20] / D
-    The start point is clocked by            top_module|sys_clk_inferred_clock [rising] on pin CK
-    The end   point is clocked by            top_module|sys_clk_inferred_clock [rising] on pin CK
+    The start point is clocked by            top_module|usb_osc [rising] on pin CK
+    The end   point is clocked by            top_module|usb_osc [rising] on pin CK
 
 Instance / Net                                    Pin      Pin               Arrival     No. of    
 Name                                  Type        Name     Dir     Delay     Time        Fan Out(s)
@@ -374,10 +466,10 @@ i2c_master_controller_Inst0.State[2]                    FD1S3AX      D          
 Timing exceptions that could not be applied
 None
 
-Finished final timing analysis (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 144MB peak: 145MB)
+Finished final timing analysis (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 144MB peak: 145MB)
 
 
-Finished timing report (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 144MB peak: 145MB)
+Finished timing report (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 144MB peak: 145MB)
 
 ---------------------------------------
 Resource Usage Report
@@ -385,7 +477,7 @@ Part: lcmxo2_1200ze-1
 
 Register bits: 31 of 1280 (2%)
 PIC Latch:       0
-I/O cells:       4
+I/O cells:       6
 
 
 Details:
@@ -394,9 +486,9 @@ CCU2D:          11
 FD1S3AX:        10
 FD1S3DX:        21
 GSR:            1
-IB:             1
+IB:             2
 INV:            1
-OB:             1
+OB:             2
 ORCALUT4:       11
 OSCH:           1
 PUR:            1
@@ -407,6 +499,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 31MB peak: 145MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Mon Aug 19 16:06:41 2019
+# Tue Aug 20 15:44:44 2019
 
 ###########################################################]

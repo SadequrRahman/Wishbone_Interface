@@ -3,7 +3,7 @@ Report for cell top_module.sample_arch
 
 Register bits: 31 of 1280 (2%)
 PIC Latch:       0
-I/O cells:       4
+I/O cells:       6
                                           Cell usage:
                                cell       count    Res Usage(%)
                                  BB        2       100.0
@@ -12,9 +12,9 @@ I/O cells:       4
                             FD1S3AX       10       100.0
                             FD1S3DX       21       100.0
                                 GSR        1       100.0
-                                 IB        1       100.0
+                                 IB        2       100.0
                                 INV        1       100.0
-                                 OB        1       100.0
+                                 OB        2       100.0
                            ORCALUT4       11       100.0
                                OSCH        1       100.0
                                 PUR        1       100.0
@@ -25,7 +25,7 @@ SUB MODULES
                        efb_i2c_VHDL        1       100.0
               i2c_master_controller        1       100.0
                             
-                         TOTAL            73           
+                         TOTAL            75           
 ----------------------------------------------------------------------
 Report for cell i2c_master_controller.netlist
      Instance path:  i2c_master_controller_Inst0

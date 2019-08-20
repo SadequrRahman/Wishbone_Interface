@@ -4,9 +4,9 @@
   (keywordMap (keywordLevel 0))
   (status
     (written
-      (timestamp 2019 8 14 18 30 1)
+      (timestamp 2019 8 20 12 53 44)
       (program "SCUBA" (version "Diamond (64-bit) 3.10.3.144"))))
-      (comment "C:\lscc\diamond\3.10_x64\ispfpga\bin\nt64\scuba.exe -w -n efb_i2c_VHDL -lang vhdl -synth synplify -bus_exp 7 -bb -type efb -arch xo2c00 -freq 133.00 -i2c1 -i2c1_freq 100 -i2c1_sa 1000001 -i2c1_addr 7 -wb -dev 1200 ")
+      (comment "C:\lscc\diamond\3.10_x64\ispfpga\bin\nt64\scuba.exe -w -n efb_i2c_VHDL -lang vhdl -synth synplify -bus_exp 7 -bb -type efb -arch xo2c00 -freq 133.00 -i2c1 -i2c1_freq 400 -i2c1_sa 1000001 -i2c1_addr 7 -wb -dev 1200 ")
   (library ORCLIB
     (edifLevel 0)
     (technology
@@ -396,9 +396,9 @@
             (property I2C1_GEN_CALL
               (string "DISABLED"))
             (property I2C1_CLK_DIVIDER
-              (string "333"))
+              (string "84"))
             (property I2C1_BUS_PERF
-              (string "100kHz"))
+              (string "400kHz"))
             (property I2C1_SLAVE_ADDR
               (string "0b1000001"))
             (property I2C1_ADDRESSING

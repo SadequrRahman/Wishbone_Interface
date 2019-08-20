@@ -6,16 +6,18 @@ Performance Grade:      1
 PACKAGE:          TQFP144
 Package Status:                     Final          Version 1.42
 
-Mon Aug 19 16:06:47 2019
+Tue Aug 20 15:45:39 2019
 
 Pinout by Port Name:
 +------------+----------+---------------+-------+-----------+-----------+----------------------------------------------------------+
 | Port Name  | Pin/Bank | Buffer Type   | Site  | PG Enable | BC Enable | Properties                                               |
 +------------+----------+---------------+-------+-----------+-----------+----------------------------------------------------------+
+| enI2C      | 39/2     | LVCMOS33_OUT  | PB4B  |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW                            |
 | heart_beat | 6/3      | LVCMOS33_OUT  | PL3B  |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW                            |
 | rst_n      | 42/2     | LVCMOS33_IN   | PB6A  |           |           | PULL:DOWN CLAMP:ON HYSTERESIS:SMALL                      |
 | scl        | 126/0    | LVCMOS33_BIDI | PT12C |           |           | DRIVE:8mA PULL:DOWN CLAMP:ON HYSTERESIS:SMALL SLEW:SLOW  |
 | sda        | 125/0    | LVCMOS33_BIDI | PT12D |           |           | DRIVE:8mA PULL:DOWN CLAMP:ON HYSTERESIS:SMALL SLEW:SLOW  |
+| usb_osc    | 128/0    | LVCMOS33_IN   | PT12A |           |           | PULL:DOWN CLAMP:ON HYSTERESIS:SMALL                      |
 +------------+----------+---------------+-------+-----------+-----------+----------------------------------------------------------+
 
 Vccio by Bank:
@@ -64,7 +66,7 @@ Pinout by Pin Number:
 | 34/3     |     unused, PULL:DOWN |            |               | PL10C |               |           |           |
 | 35/3     |     unused, PULL:DOWN |            |               | PL10D |               |           |           |
 | 38/2     |     unused, PULL:DOWN |            |               | PB4A  |               |           |           |
-| 39/2     |     unused, PULL:DOWN |            |               | PB4B  |               |           |           |
+| 39/2     | enI2C                 | LOCATED    | LVCMOS33_OUT  | PB4B  |               |           |           |
 | 40/2     |     unused, PULL:DOWN |            |               | PB4C  | CSSPIN        |           |           |
 | 41/2     |     unused, PULL:DOWN |            |               | PB4D  |               |           |           |
 | 42/2     | rst_n                 | LOCATED    | LVCMOS33_IN   | PB6A  |               |           |           |
@@ -132,7 +134,7 @@ Pinout by Pin Number:
 | 125/0    | sda                   |            | LVCMOS33_BIDI | PT12D | SDA/PCLKC0_0  |           |           |
 | 126/0    | scl                   |            | LVCMOS33_BIDI | PT12C | SCL/PCLKT0_0  |           |           |
 | 127/0    |     unused, PULL:DOWN |            |               | PT12B | PCLKC0_1      |           |           |
-| 128/0    |     unused, PULL:DOWN |            |               | PT12A | PCLKT0_1      |           |           |
+| 128/0    | usb_osc               | LOCATED    | LVCMOS33_IN   | PT12A | PCLKT0_1      |           |           |
 | 130/0    | Reserved: sysCONFIG   |            |               | PT11D | TMS           |           |           |
 | 131/0    | Reserved: sysCONFIG   |            |               | PT11C | TCK           |           |           |
 | 132/0    |     unused, PULL:DOWN |            |               | PT11B |               |           |           |
@@ -165,10 +167,12 @@ Dedicated sysCONFIG Pins:
 List of All Pins' Locate Preferences Based on Final Placement After PAR 
 to Help Users Lock Down ALL the Pins Easily (by Simply Copy & Paste): 
 
+LOCATE  COMP  "enI2C"  SITE  "39";
 LOCATE  COMP  "heart_beat"  SITE  "6";
 LOCATE  COMP  "rst_n"  SITE  "42";
 LOCATE  COMP  "scl"  SITE  "126";
 LOCATE  COMP  "sda"  SITE  "125";
+LOCATE  COMP  "usb_osc"  SITE  "128";
 
 
 
@@ -180,5 +184,5 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2017 Lattice Semiconductor Corporation,  All rights reserved.
-Mon Aug 19 16:06:47 2019
+Tue Aug 20 15:45:39 2019
 

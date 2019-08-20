@@ -4,7 +4,7 @@
   (keywordMap (keywordLevel 0))
   (status
     (written
-      (timeStamp 2019 8 19 16 6 41)
+      (timeStamp 2019 8 20 15 44 44)
       (author "Synopsys, Inc.")
       (program "Synplify Pro" (version "M-2017.03L-SP1-1, mapper maplat, Build 1796R"))
      )
@@ -348,9 +348,9 @@
            (property I2C2_GEN_CALL (string "DISABLED"))
            (property I2C1_GEN_CALL (string "DISABLED"))
            (property I2C2_CLK_DIVIDER (integer 1))
-           (property I2C1_CLK_DIVIDER (integer 333))
+           (property I2C1_CLK_DIVIDER (integer 84))
            (property I2C2_BUS_PERF (string "100kHz"))
-           (property I2C1_BUS_PERF (string "100kHz"))
+           (property I2C1_BUS_PERF (string "400kHz"))
            (property I2C2_SLAVE_ADDR (string "0b1000001"))
            (property I2C1_SLAVE_ADDR (string "0b1000001"))
            (property I2C2_ADDRESSING (string "7BIT"))
@@ -860,7 +860,7 @@
          (interface
            (port heart_beat_c (direction OUTPUT))
            (port rst_n_c_i (direction INPUT))
-           (port sys_clk (direction INPUT))
+           (port usb_osc_c (direction INPUT))
          )
          (contents
           (instance (rename iCounter_0 "iCounter[0]") (viewRef PRIM (cellRef FD1S3DX (libraryRef LUCENT)))
@@ -977,8 +977,8 @@
            (portRef S1 (instanceRef iCounter_cry_0_0))
            (portRef D (instanceRef iCounter_0))
           ))
-          (net sys_clk (joined
-           (portRef sys_clk)
+          (net usb_osc_c (joined
+           (portRef usb_osc_c)
            (portRef CK (instanceRef iCounter_20))
            (portRef CK (instanceRef iCounter_19))
            (portRef CK (instanceRef iCounter_18))
@@ -1322,6 +1322,8 @@
            (port rst_n (direction INPUT))
            (port scl (direction INOUT))
            (port sda (direction INOUT))
+           (port usb_osc (direction INPUT))
+           (port enI2C (direction OUTPUT))
            (port heart_beat (direction OUTPUT))
          )
          (contents
@@ -1331,6 +1333,9 @@
           )
           (instance rst_n_c_i (viewRef PRIM (cellRef INV (libraryRef LUCENT)))          )
           (instance heart_beat_pad (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (instance enI2C_pad (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (instance usb_osc_pad (viewRef PRIM (cellRef IB (libraryRef LUCENT)))
+          )
           (instance rst_n_pad (viewRef PRIM (cellRef IB (libraryRef LUCENT)))          )
           (instance OSCInst0 (viewRef PRIM (cellRef OSCH (libraryRef LUCENT)))
            (property NOM_FREQ (string "133.00"))
@@ -1349,7 +1354,6 @@
           ))
           (net (rename sys_clk_inferred_clock "sys_clk") (joined
            (portRef sys_clk (instanceRef i2c_master_controller_Inst0))
-           (portRef sys_clk (instanceRef HeartBeatInst0))
            (portRef OSC (instanceRef OSCInst0))
           ))
           (net stdby_sed (joined
@@ -1357,6 +1361,7 @@
           ))
           (net VCC (joined
            (portRef Z (instanceRef VCC))
+           (portRef I (instanceRef enI2C_pad))
            (portRef GSR (instanceRef GSR_INST))
           ))
           (net GND (joined
@@ -1370,6 +1375,18 @@
           (net rst_n (joined
            (portRef rst_n)
            (portRef I (instanceRef rst_n_pad))
+          ))
+          (net usb_osc_c (joined
+           (portRef O (instanceRef usb_osc_pad))
+           (portRef usb_osc_c (instanceRef HeartBeatInst0))
+          ))
+          (net usb_osc (joined
+           (portRef usb_osc)
+           (portRef I (instanceRef usb_osc_pad))
+          ))
+          (net enI2C (joined
+           (portRef O (instanceRef enI2C_pad))
+           (portRef enI2C)
           ))
           (net heart_beat_c (joined
            (portRef heart_beat_c (instanceRef HeartBeatInst0))

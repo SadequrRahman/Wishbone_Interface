@@ -1,4 +1,4 @@
-@W: CD638 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":22:8:22:13|Signal addr_i is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Signal addr_i is undriven. Either assign the signal a value or remove the signal declaration.
 @W: CD434 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":104:13:104:17|Signal rst_n in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
 @W: CD638 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":75:7:75:16|Signal status_reg is undriven. Either assign the signal a value or remove the signal declaration.
 @W: CD638 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":75:19:75:29|Signal command_reg is undriven. Either assign the signal a value or remove the signal declaration.
@@ -6,22 +6,22 @@
 @W: CD638 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":75:44:75:53|Signal rxdata_reg is undriven. Either assign the signal a value or remove the signal declaration.
 @W: CL240 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":16:2:16:4|Signal rdy is floating; a simulation mismatch is possible.
 @W: CL271 :"D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd":30:1:30:2|Pruning unused bits 32 to 21 of iCounter(32 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":22:8:22:13|Bit 0 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":22:8:22:13|Bit 1 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":22:8:22:13|Bit 2 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":22:8:22:13|Bit 3 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":22:8:22:13|Bit 4 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":22:8:22:13|Bit 5 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":22:8:22:13|Bit 6 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":22:8:22:13|Bit 7 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":58:1:58:27|Bit 0 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":58:1:58:27|Bit 1 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":58:1:58:27|Bit 2 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":58:1:58:27|Bit 3 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":58:1:58:27|Bit 4 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":58:1:58:27|Bit 5 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":58:1:58:27|Bit 6 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":58:1:58:27|Bit 7 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 0 of signal addr_i is floating -- simulation mismatch possible.
+@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 1 of signal addr_i is floating -- simulation mismatch possible.
+@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 2 of signal addr_i is floating -- simulation mismatch possible.
+@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 3 of signal addr_i is floating -- simulation mismatch possible.
+@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 4 of signal addr_i is floating -- simulation mismatch possible.
+@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 5 of signal addr_i is floating -- simulation mismatch possible.
+@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 6 of signal addr_i is floating -- simulation mismatch possible.
+@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 7 of signal addr_i is floating -- simulation mismatch possible.
+@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":60:1:60:27|Bit 0 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":60:1:60:27|Bit 1 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":60:1:60:27|Bit 2 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":60:1:60:27|Bit 3 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":60:1:60:27|Bit 4 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":60:1:60:27|Bit 5 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":60:1:60:27|Bit 6 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":60:1:60:27|Bit 7 of input addr of instance i2c_master_controller_Inst0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 @W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":106:1:106:2|Pruning register bit 5 of wb_dat_i(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
 @W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":106:1:106:2|Pruning register bit 3 of wb_dat_i(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
 @W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":106:1:106:2|Pruning register bit 1 of wb_dat_i(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.

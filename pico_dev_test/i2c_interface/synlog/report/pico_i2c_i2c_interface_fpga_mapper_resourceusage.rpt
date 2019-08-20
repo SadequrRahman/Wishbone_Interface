@@ -3,7 +3,7 @@ Part: lcmxo2_1200ze-1
 
 Register bits: 31 of 1280 (2%)
 PIC Latch:       0
-I/O cells:       4
+I/O cells:       6
 
 Details:
 BB:             2
@@ -11,9 +11,9 @@ CCU2D:          11
 FD1S3AX:        10
 FD1S3DX:        21
 GSR:            1
-IB:             1
+IB:             2
 INV:            1
-OB:             1
+OB:             2
 ORCALUT4:       11
 OSCH:           1
 PUR:            1

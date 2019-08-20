@@ -15,7 +15,7 @@ Target Vendor:  LATTICE
 Target Device:  LCMXO2-1200ZETQFP144
 Target Performance:   1
 Mapper:  xo2c00,  version:  Diamond (64-bit) 3.10.3.144
-Mapped on:  08/19/19  16:06:44
+Mapped on:  08/20/19  15:45:35
 
 Design Summary
 --------------
@@ -27,12 +27,12 @@ Design Summary
       SLICEs as Logic/ROM:     18 out of   640 (3%)
       SLICEs as RAM:            0 out of   480 (0%)
       SLICEs as Carry:         11 out of   640 (2%)
-   Number of LUT4s:         33 out of  1280 (3%)
-      Number used as logic LUTs:         11
+   Number of LUT4s:         34 out of  1280 (3%)
+      Number used as logic LUTs:         12
       Number used as distributed RAM:     0
       Number used as ripple logic:       22
       Number used as shift registers:     0
-   Number of PIO sites used: 4 + 4(JTAG) out of 108 (7%)
+   Number of PIO sites used: 6 + 4(JTAG) out of 108 (9%)
    Number of block RAMs:  0 out of 7 (0%)
    Number of GSRs:  1 out of 1 (100%)
    EFB used :       Yes
@@ -57,8 +57,8 @@ Design Summary
      distributed RAMs) + 2*(Number of ripple logic)
       2. Number of logic LUT4s does not include count of distributed RAM and
      ripple logic.
-   Number of clocks:  2
-     Net sys_clk: 19 loads, 19 rising, 0 falling (Driver: OSCInst0 )
+   Number of clocks:  3
+     Net sys_clk: 8 loads, 8 rising, 0 falling (Driver: OSCInst0 )
      Net i2c_master_controller_Inst0/efb_i2c_Inst0/i2c1_scli: 1 loads, 1 rising,
 
                                     Page 1
@@ -66,11 +66,12 @@ Design Summary
 
 
 
-Design:  top_module                                    Date:  08/19/19  16:06:44
+Design:  top_module                                    Date:  08/20/19  15:45:35
 
 Design Summary (cont)
 ---------------------
      0 falling (Driver: PIO scl )
+     Net usb_osc_c: 11 loads, 11 rising, 0 falling (Driver: PIO usb_osc )
    Number of Clock Enables:  0
    Number of local set/reset loads for net rst_n_c merged into GSR:  21
    Number of LSRs:  0
@@ -84,8 +85,8 @@ Design Summary (cont)
      Net i2c_master_controller_Inst0/wb_adr_i[0]: 4 loads
      Net i2c_master_controller_Inst0/State[1]: 3 loads
      Net i2c_master_controller_Inst0/wb_we_i: 3 loads
-     Net heart_beat_c: 2 loads
      Net i2c_master_controller_Inst0/wb_dat_i[4]: 2 loads
+     Net i2c_master_controller_Inst0/wb_dat_i[6]: 2 loads
 
 
 
@@ -121,29 +122,32 @@ IO (PIO) Attributes
 | IO Name             | Direction | Levelmode | IO         |
 |                     |           |  IO_TYPE  | Register   |
 +---------------------+-----------+-----------+------------+
-| heart_beat          | OUTPUT    | LVCMOS33  |            |
+| enI2C               | OUTPUT    | LVCMOS33  |            |
 +---------------------+-----------+-----------+------------+
 | rst_n               | INPUT     | LVCMOS33  |            |
 +---------------------+-----------+-----------+------------+
-| scl                 | BIDIR     | LVCMOS33  |            |
 
                                     Page 2
 
 
 
 
-Design:  top_module                                    Date:  08/19/19  16:06:44
+Design:  top_module                                    Date:  08/20/19  15:45:35
 
 IO (PIO) Attributes (cont)
 --------------------------
+| scl                 | BIDIR     | LVCMOS33  |            |
 +---------------------+-----------+-----------+------------+
 | sda                 | BIDIR     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| heart_beat          | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| usb_osc             | INPUT     | LVCMOS33  |            |
 +---------------------+-----------+-----------+------------+
 
 Removed logic
 -------------
 
-Block VCC undriven or does not drive anything - clipped.
 Block i2c_master_controller_Inst0/VCC undriven or does not drive anything -
      clipped.
 Block i2c_master_controller_Inst0/GND undriven or does not drive anything -
@@ -155,7 +159,6 @@ Signal i2c_master_controller_Inst0/efb_i2c_Inst0/VCC undriven or does not drive
      anything - clipped.
 Signal i2c_master_controller_Inst0/efb_i2c_Inst0/GND undriven or does not drive
      anything - clipped.
-Signal VCC undriven or does not drive anything - clipped.
 Signal HeartBeatInst0/iCounter_cry_0_COUT[19] undriven or does not drive
      anything - clipped.
 Signal HeartBeatInst0/iCounter_cry_0_S0[0] undriven or does not drive anything -
@@ -189,19 +192,19 @@ Signal i2c_master_controller_Inst0/efb_i2c_Inst0/SPIMCSN2 undriven or does not
      drive anything - clipped.
 Signal i2c_master_controller_Inst0/efb_i2c_Inst0/SPIMCSN1 undriven or does not
      drive anything - clipped.
-Signal i2c_master_controller_Inst0/efb_i2c_Inst0/SPIMCSN0 undriven or does not
-     drive anything - clipped.
-Signal i2c_master_controller_Inst0/efb_i2c_Inst0/SPIMOSIEN undriven or does not
 
                                     Page 3
 
 
 
 
-Design:  top_module                                    Date:  08/19/19  16:06:44
+Design:  top_module                                    Date:  08/20/19  15:45:35
 
 Removed logic (cont)
 --------------------
+Signal i2c_master_controller_Inst0/efb_i2c_Inst0/SPIMCSN0 undriven or does not
+     drive anything - clipped.
+Signal i2c_master_controller_Inst0/efb_i2c_Inst0/SPIMOSIEN undriven or does not
      drive anything - clipped.
 Signal i2c_master_controller_Inst0/efb_i2c_Inst0/SPIMOSIO undriven or does not
      drive anything - clipped.
@@ -255,19 +258,19 @@ Signal i2c_master_controller_Inst0/efb_i2c_Inst0/PLLWEO undriven or does not
      drive anything - clipped.
 Signal i2c_master_controller_Inst0/efb_i2c_Inst0/PLL1STBO undriven or does not
      drive anything - clipped.
-Signal i2c_master_controller_Inst0/efb_i2c_Inst0/PLL0STBO undriven or does not
-     drive anything - clipped.
-Signal i2c_master_controller_Inst0/efb_i2c_Inst0/PLLRSTO undriven or does not
 
                                     Page 4
 
 
 
 
-Design:  top_module                                    Date:  08/19/19  16:06:44
+Design:  top_module                                    Date:  08/20/19  15:45:35
 
 Removed logic (cont)
 --------------------
+Signal i2c_master_controller_Inst0/efb_i2c_Inst0/PLL0STBO undriven or does not
+     drive anything - clipped.
+Signal i2c_master_controller_Inst0/efb_i2c_Inst0/PLLRSTO undriven or does not
      drive anything - clipped.
 Signal i2c_master_controller_Inst0/efb_i2c_Inst0/PLLCLKO undriven or does not
      drive anything - clipped.
@@ -321,31 +324,31 @@ Embedded Functional Block Connection Summary:
       I2C #2 (Secondary) Function:   DISABLED
       SPI Function:                  DISABLED
       Timer/Counter Function:        DISABLED
-      Timer/Counter Mode:            WB
-      UFM Connection:                DISABLED
-      PLL0 Connection:               DISABLED
 
                                     Page 5
 
 
 
 
-Design:  top_module                                    Date:  08/19/19  16:06:44
+Design:  top_module                                    Date:  08/20/19  15:45:35
 
 Embedded Functional Block Connection Summary: (cont)
 ----------------------------------------------------
+      Timer/Counter Mode:            WB
+      UFM Connection:                DISABLED
+      PLL0 Connection:               DISABLED
       PLL1 Connection:               DISABLED
    I2C Function Summary:
    --------------------
       I2C Component:          PRIMARY
       I2C Addressing:         7BIT
-      I2C Performance:        100kHz
+      I2C Performance:        400kHz
       Slave Address:          0b1000001
       General Call:           DISABLED
       I2C Wake Up:            DISABLED
       I2C Component:          UFM/Configuration
       I2C Addressing:         7BIT
-      I2C Performance:        100kHz
+      I2C Performance:        400kHz
       Slave Address:          0b1000000
    SPI Function Summary:
    --------------------
@@ -388,15 +391,13 @@ GSR Component:
         not.
         
 
-
-
-
                                     Page 6
 
 
 
 
-Design:  top_module                                    Date:  08/19/19  16:06:44
+Design:  top_module                                    Date:  08/20/19  15:45:35
+
 
 Run Time and Memory Usage
 -------------------------
@@ -405,7 +406,6 @@ Run Time and Memory Usage
    Total REAL Time: 0 secs  
    Peak Memory Usage: 39 MB
         
-
 
 
 

@@ -16,8 +16,8 @@ CoreRevision=1.2
 ModuleName=efb_i2c_VHDL
 SourceFormat=VHDL
 ParameterFileVersion=1.0
-Date=08/14/2019
-Time=18:30:01
+Date=08/20/2019
+Time=12:53:44
 
 [Parameters]
 Verilog=0
@@ -32,13 +32,13 @@ i2c1=1
 i2c1config=0
 i2c1_addr=7-Bit Addressing
 i2c1_ce=0
-i2c1_freq=100
+i2c1_freq=400
 i2c1_sa=10000
 i2c1_we=0
 i2c2=0
 i2c2_addr=7-Bit Addressing
 i2c2_ce=0
-i2c2_freq=100
+i2c2_freq=400
 i2c2_sa=10000
 i2c2_we=0
 ufm_addr=7-Bit Addressing
@@ -87,4 +87,4 @@ ufm_dt=hex
 wb=1
 
 [Command]
-cmd_line= -w -n efb_i2c_VHDL -lang vhdl -synth synplify -bus_exp 7 -bb -type efb -arch xo2c00 -freq 133.00 -i2c1 -i2c1_freq 100 -i2c1_sa 1000001 -i2c1_addr 7 -wb -dev 1200
+cmd_line= -w -n efb_i2c_VHDL -lang vhdl -synth synplify -bus_exp 7 -bb -type efb -arch xo2c00 -freq 133.00 -i2c1 -i2c1_freq 400 -i2c1_sa 1000001 -i2c1_addr 7 -wb -dev 1200

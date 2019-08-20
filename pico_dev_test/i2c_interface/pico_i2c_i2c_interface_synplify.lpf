@@ -4,6 +4,7 @@
 
 # Period Constraints 
 #FREQUENCY NET "sys_clk" 133.0 MHz;
+#FREQUENCY PORT "usb_osc" 1.0 MHz;
 
 
 # Output Constraints 
@@ -15,6 +16,8 @@
 
 
 # Block Path Constraints 
+#BLOCK PATH FROM CLKNET "usb_osc_c" TO CLKNET "sys_clk";
+#BLOCK PATH FROM CLKNET "sys_clk" TO CLKNET "usb_osc_c";
 
 BLOCK ASYNCPATHS;
 

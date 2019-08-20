@@ -10,6 +10,8 @@ entity top_module is
 		rst_n 			: in std_logic;
 		scl      		: inout std_logic;
 		sda      		: inout std_logic;
+		usb_osc			: in std_logic;
+		enI2C			: out std_logic;
 		heart_beat 		: out std_logic
 	);
 end top_module;
@@ -52,7 +54,7 @@ begin
 	PORT MAP (STDBY=>  stdby, OSC =>  sys_clk, SEDSTDBY =>  stdby_sed);
 	
 	HeartBeatInst0 :HeartBeat
-	PORT MAP (RST_n=>  rst_n, CLK =>  sys_clk, LED =>  heart_beat);
+	PORT MAP (RST_n=>  rst_n, CLK =>  usb_osc, LED =>  heart_beat);
 	
 	
 	i2c_master_controller_Inst0 : i2c_master_controller
@@ -68,6 +70,6 @@ begin
 	);
 	
 	stdby <= '0';
-	
+	enI2C <= '1';
 	
 end sample_arch;
