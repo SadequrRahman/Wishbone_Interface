@@ -13,7 +13,7 @@ entity i2c_master_controller is
 		data  : inout std_logic_vector(7 downto 0);
 		scl      : inout std_logic;			-- to connect hardware pin from top level
 		sda      : inout std_logic;			-- to connect hardware pin from top level
-		rdy	  : out std_logic
+		rdy	  	: out std_logic
 	);
 end i2c_master_controller;
 
