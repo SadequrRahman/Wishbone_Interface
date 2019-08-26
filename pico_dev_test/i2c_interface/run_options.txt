@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version M-2017.03L-SP1-1
 #--  Project file D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\run_options.txt
-#--  Written on Mon Aug 26 15:42:20 2019
+#--  Written on Mon Aug 26 16:31:15 2019
 
 
 #project files

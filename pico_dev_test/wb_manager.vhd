@@ -11,11 +11,11 @@ entity wb_manager is
 	port(
 			clk_i		: in std_logic;
 			rst_n_i		: in std_logic;
-			data_i 		: in std_logic_vector(7 downto 0);
+			data_io 	: inout std_logic_vector(7 downto 0);
 			addr_i 		: in std_logic_vector(7 downto 0);
 			option_reg	: in std_logic_vector(7 downto 0);
 			status_reg	: out std_logic_vector(7 downto 0);
-			data_o 		: out std_logic_vector(7 downto 0);
+			--data_o 		: out std_logic_vector(7 downto 0);
 			-- interface port (e.g i2c, spi etc)
 			scl      : inout std_logic;			-- to connect hardware pin from top level
 			sda      : inout std_logic			-- to connect hardware pin from top level
@@ -87,9 +87,9 @@ begin
 		);
 		
 	rst_p <= not(rst_n_i);
-	wb_dat_i <= data_i when wb_active = '1' else (others =>'0');
+	wb_dat_i <= data_io when wb_active = '1' and option_reg(1) = '1' else (others =>'0');
 	wb_adr_i <= addr_i when wb_active ='1' else (others =>'0');
-	data_o <= wb_dat_o when wb_active = '1' else (others =>'0');
+	wb_dat_o <= data_io when wb_active = '1' and option_reg(1) = '0' else (others =>'0');
 	
 		
 	reset_block : process(rst_n_i, clk_i)

@@ -15,20 +15,20 @@ Target Vendor:  LATTICE
 Target Device:  LCMXO2-1200ZETQFP144
 Target Performance:   1
 Mapper:  xo2c00,  version:  Diamond (64-bit) 3.10.3.144
-Mapped on:  08/26/19  15:42:26
+Mapped on:  08/26/19  16:31:21
 
 Design Summary
 --------------
 
-   Number of registers:     21 out of  1604 (1%)
-      PFU registers:           21 out of  1280 (2%)
+   Number of registers:     40 out of  1604 (2%)
+      PFU registers:           40 out of  1280 (3%)
       PIO registers:            0 out of   324 (0%)
-   Number of SLICEs:        12 out of   640 (2%)
-      SLICEs as Logic/ROM:     12 out of   640 (2%)
+   Number of SLICEs:        22 out of   640 (3%)
+      SLICEs as Logic/ROM:     22 out of   640 (3%)
       SLICEs as RAM:            0 out of   480 (0%)
       SLICEs as Carry:         11 out of   640 (2%)
-   Number of LUT4s:         23 out of  1280 (2%)
-      Number used as logic LUTs:          1
+   Number of LUT4s:         36 out of  1280 (3%)
+      Number used as logic LUTs:         14
       Number used as distributed RAM:     0
       Number used as ripple logic:       22
       Number used as shift registers:     0
@@ -57,36 +57,40 @@ Design Summary
      distributed RAMs) + 2*(Number of ripple logic)
       2. Number of logic LUT4s does not include count of distributed RAM and
      ripple logic.
-   Number of clocks:  2
-     Net sys_clk: 12 loads, 12 rising, 0 falling (Driver: OSCInst0 )
-     Net wb_manager0/efb_i2c_Inst0/i2c1_scli: 1 loads, 1 rising, 0 falling
+   Number of clocks:  3
+     Net sys_clk_0: 20 loads, 20 rising, 0 falling (Driver: OSCInst0 )
+     Net wb_manager0/nState_1_sqmuxa_2_i: 3 loads, 3 rising, 0 falling (Driver:
 
                                     Page 1
 
 
 
 
-Design:  top_module                                    Date:  08/26/19  15:42:26
+Design:  top_module                                    Date:  08/26/19  16:31:21
 
 Design Summary (cont)
 ---------------------
+     wb_manager0/nState_1_sqmuxa_2_i )
+     Net wb_manager0/efb_i2c_Inst0/i2c1_scli: 1 loads, 1 rising, 0 falling
      (Driver: PIO scl )
-   Number of Clock Enables:  0
-   Number of local set/reset loads for net rst_n_c merged into GSR:  21
+   Number of Clock Enables:  2
+     Net rst_n_c: 1 loads, 1 LSLICEs
+     Net status_reg_1_RNI75G51[5]: 4 loads, 4 LSLICEs
+   Number of local set/reset loads for net rst_n_c merged into GSR:  26
    Number of LSRs:  1
      Net rst_n_c: 1 loads, 0 LSLICEs
    Number of nets driven by tri-state buffers:  0
    Top 10 highest fanout non-clock nets:
-     Net heart_beat_c: 2 loads
-     Net rst_n_c: 2 loads
-     Net HeartBeatInst0/iCounter[0]: 1 loads
-     Net HeartBeatInst0/iCounter_cry[0]: 1 loads
-     Net HeartBeatInst0/iCounter_s[0]: 1 loads
-     Net VCC: 1 loads
-     Net wb_manager0/efb_i2c_Inst0/i2c1_sclo: 1 loads
-     Net wb_manager0/efb_i2c_Inst0/i2c1_scloen: 1 loads
-     Net wb_manager0/efb_i2c_Inst0/i2c1_sdai: 1 loads
-     Net wb_manager0/efb_i2c_Inst0/i2c1_sdao: 1 loads
+     Net wb_manager0.cState[1]: 9 loads
+     Net wb_manager0/cState[5]: 6 loads
+     Net rst_n_c: 5 loads
+     Net main.un5[0]: 4 loads
+     Net status_reg_1_RNI75G51[5]: 4 loads
+     Net wb_manager0/wb_adr_i[2]: 4 loads
+     Net main.un5[1]: 3 loads
+     Net main.un5[2]: 3 loads
+     Net wb_manager0/cState[2]: 3 loads
+     Net wb_manager0/cState[3]: 3 loads
 
 
 
@@ -120,22 +124,22 @@ WARNING - map: In "LOCATE COMP "sda" SITE "125" ;": Current SYS_CONFIG setting
      prohibits pin "125" to be used as user IO. This preference has been
      disabled.
 
-IO (PIO) Attributes
--------------------
 
-+---------------------+-----------+-----------+------------+
-| IO Name             | Direction | Levelmode | IO         |
-|                     |           |  IO_TYPE  | Register   |
+
 
                                     Page 2
 
 
 
 
-Design:  top_module                                    Date:  08/26/19  15:42:26
+Design:  top_module                                    Date:  08/26/19  16:31:21
 
-IO (PIO) Attributes (cont)
---------------------------
+IO (PIO) Attributes
+-------------------
+
++---------------------+-----------+-----------+------------+
+| IO Name             | Direction | Levelmode | IO         |
+|                     |           |  IO_TYPE  | Register   |
 +---------------------+-----------+-----------+------------+
 | enI2C               | OUTPUT    | LVCMOS33  |            |
 +---------------------+-----------+-----------+------------+
@@ -188,20 +192,20 @@ Signal wb_manager0/efb_i2c_Inst0/SPIMCSN5 undriven or does not drive anything -
 Signal wb_manager0/efb_i2c_Inst0/SPIMCSN4 undriven or does not drive anything -
      clipped.
 Signal wb_manager0/efb_i2c_Inst0/SPIMCSN3 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/SPIMCSN2 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/SPIMCSN1 undriven or does not drive anything -
 
                                     Page 3
 
 
 
 
-Design:  top_module                                    Date:  08/26/19  15:42:26
+Design:  top_module                                    Date:  08/26/19  16:31:21
 
 Removed logic (cont)
 --------------------
+     clipped.
+Signal wb_manager0/efb_i2c_Inst0/SPIMCSN2 undriven or does not drive anything -
+     clipped.
+Signal wb_manager0/efb_i2c_Inst0/SPIMCSN1 undriven or does not drive anything -
      clipped.
 Signal wb_manager0/efb_i2c_Inst0/SPIMCSN0 undriven or does not drive anything -
      clipped.
@@ -254,20 +258,20 @@ Signal wb_manager0/efb_i2c_Inst0/PLLADRO2 undriven or does not drive anything -
 Signal wb_manager0/efb_i2c_Inst0/PLLADRO3 undriven or does not drive anything -
      clipped.
 Signal wb_manager0/efb_i2c_Inst0/PLLADRO4 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLLWEO undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLL1STBO undriven or does not drive anything -
 
                                     Page 4
 
 
 
 
-Design:  top_module                                    Date:  08/26/19  15:42:26
+Design:  top_module                                    Date:  08/26/19  16:31:21
 
 Removed logic (cont)
 --------------------
+     clipped.
+Signal wb_manager0/efb_i2c_Inst0/PLLWEO undriven or does not drive anything -
+     clipped.
+Signal wb_manager0/efb_i2c_Inst0/PLL1STBO undriven or does not drive anything -
      clipped.
 Signal wb_manager0/efb_i2c_Inst0/PLL0STBO undriven or does not drive anything -
      clipped.
@@ -275,24 +279,22 @@ Signal wb_manager0/efb_i2c_Inst0/PLLRSTO undriven or does not drive anything -
      clipped.
 Signal wb_manager0/efb_i2c_Inst0/PLLCLKO undriven or does not drive anything -
      clipped.
-Signal wb_manager0/efb_i2c_Inst0/wb_ack_o undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/wb_dat_o[0] undriven or does not drive anything
-     - clipped.
-Signal wb_manager0/efb_i2c_Inst0/wb_dat_o[1] undriven or does not drive anything
-     - clipped.
-Signal wb_manager0/efb_i2c_Inst0/wb_dat_o[2] undriven or does not drive anything
-     - clipped.
-Signal wb_manager0/efb_i2c_Inst0/wb_dat_o[3] undriven or does not drive anything
-     - clipped.
-Signal wb_manager0/efb_i2c_Inst0/wb_dat_o[4] undriven or does not drive anything
-     - clipped.
-Signal wb_manager0/efb_i2c_Inst0/wb_dat_o[5] undriven or does not drive anything
-     - clipped.
-Signal wb_manager0/efb_i2c_Inst0/wb_dat_o[6] undriven or does not drive anything
-     - clipped.
-Signal wb_manager0/efb_i2c_Inst0/wb_dat_o[7] undriven or does not drive anything
-     - clipped.
+Signal wb_manager0/efb_i2c_Inst0/wb_dat_o_1[0] undriven or does not drive
+     anything - clipped.
+Signal wb_manager0/efb_i2c_Inst0/wb_dat_o_1[1] undriven or does not drive
+     anything - clipped.
+Signal wb_manager0/efb_i2c_Inst0/wb_dat_o_1[2] undriven or does not drive
+     anything - clipped.
+Signal wb_manager0/efb_i2c_Inst0/wb_dat_o_1[3] undriven or does not drive
+     anything - clipped.
+Signal wb_manager0/efb_i2c_Inst0/wb_dat_o_1[4] undriven or does not drive
+     anything - clipped.
+Signal wb_manager0/efb_i2c_Inst0/wb_dat_o_1[5] undriven or does not drive
+     anything - clipped.
+Signal wb_manager0/efb_i2c_Inst0/wb_dat_o_1[6] undriven or does not drive
+     anything - clipped.
+Signal wb_manager0/efb_i2c_Inst0/wb_dat_o_1[7] undriven or does not drive
+     anything - clipped.
 Signal stdby_sed undriven or does not drive anything - clipped.
 Block rst_n_c_i was optimized away.
 Block GND was optimized away.
@@ -313,27 +315,27 @@ OSC 1:                                     Pin/Node Value
   OSC Instance Name:                                OSCInst0
   OSC Type:                                         OSCH
   STDBY Input:                                      NONE
-  OSC Output:                              NODE     sys_clk
+  OSC Output:                              NODE     sys_clk_0
   OSC Nominal Frequency (MHz):                      133.00
 
 Embedded Functional Block Connection Summary:
 ---------------------------------------------
 
    Desired WISHBONE clock frequency: 133.0 MHz
-   Clock source:                     sys_clk
+   Clock source:                     sys_clk_0
    Reset source:                     rst_n_c
-   Functions mode:
-      I2C #1 (Primary) Function:     ENABLED
 
                                     Page 5
 
 
 
 
-Design:  top_module                                    Date:  08/26/19  15:42:26
+Design:  top_module                                    Date:  08/26/19  16:31:21
 
 Embedded Functional Block Connection Summary: (cont)
 ----------------------------------------------------
+   Functions mode:
+      I2C #1 (Primary) Function:     ENABLED
       I2C #2 (Secondary) Function:   DISABLED
       SPI Function:                  DISABLED
       Timer/Counter Function:        DISABLED
@@ -388,18 +390,18 @@ GSR Component:
         Set Reset (GSR). The reset signal used for GSR control is 'rst_n_c'.
         
 
-     GSR Property:
-   The design components with GSR property set to ENABLED will respond to global
 
                                     Page 6
 
 
 
 
-Design:  top_module                                    Date:  08/26/19  15:42:26
+Design:  top_module                                    Date:  08/26/19  16:31:21
 
 GSR Usage (cont)
 ----------------
+     GSR Property:
+   The design components with GSR property set to ENABLED will respond to global
         set reset while the components with GSR property set to DISABLED will
         not.
         
@@ -412,9 +414,11 @@ GSR Usage (cont)
      'rst_n_c' via the local reset on the component and not the GSR component.
 
      Type and number of components of the type: 
+   Register = 1 
    EFB = 1
 
      Type and instance name of component: 
+   Register : wb_manager0/status_reg_1[5]
    EFB : wb_manager0/efb_i2c_Inst0/EFBInst_0
 
 Run Time and Memory Usage
@@ -424,10 +428,6 @@ Run Time and Memory Usage
    Total REAL Time: 0 secs  
    Peak Memory Usage: 39 MB
         
-
-
-
-
 
 
 

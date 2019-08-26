@@ -1,7 +1,8 @@
 ----------------------------------------------------------------------
 Report for cell top_module.sample_arch
 
-Register bits: 21 of 1280 (2%)
+Register bits: 35 of 1280 (3%)
+Latch bits:      5
 PIC Latch:       0
 I/O cells:       5
                                           Cell usage:
@@ -9,11 +10,16 @@ I/O cells:       5
                                  BB        2       100.0
                               CCU2D       11       100.0
                                 EFB        1       100.0
-                            FD1S3DX       21       100.0
+                            FD1P3AX        8       100.0
+                            FD1S1AY        5       100.0
+                            FD1S3AX        1       100.0
+                            FD1S3BX        1       100.0
+                            FD1S3DX       25       100.0
                                 GSR        1       100.0
                                  IB        1       100.0
-                                INV        1       100.0
+                                INV        2       100.0
                                  OB        2       100.0
+                           ORCALUT4       12       100.0
                                OSCH        1       100.0
                                 PUR        1       100.0
                                 VHI        4       100.0
@@ -23,7 +29,7 @@ SUB MODULES
                        efb_i2c_VHDL        1       100.0
                          wb_manager        1       100.0
                             
-                         TOTAL            53           
+                         TOTAL            85           
 ----------------------------------------------------------------------
 Report for cell wb_manager.netlist
      Instance path:  wb_manager0
@@ -31,12 +37,17 @@ Report for cell wb_manager.netlist
                                cell       count    Res Usage(%)
                                  BB        2       100.0
                                 EFB        1       100.0
+                            FD1P3AX        1        12.5
+                            FD1S1AY        5       100.0
+                            FD1S3BX        1       100.0
+                            FD1S3DX        4        16.0
+                           ORCALUT4        8        66.7
                                 VHI        2        50.0
                                 VLO        2        50.0
 SUB MODULES 
                        efb_i2c_VHDL        1       100.0
                             
-                         TOTAL             8           
+                         TOTAL            27           
 ----------------------------------------------------------------------
 Report for cell efb_i2c_VHDL.netlist
      Instance path:  wb_manager0.efb_i2c_Inst0
@@ -54,7 +65,7 @@ Report for cell HeartBeat.netlist
                                           Cell usage:
                                cell       count    Res Usage(%)
                               CCU2D       11       100.0
-                            FD1S3DX       21       100.0
+                            FD1S3DX       21        84.0
                                 VHI        1        25.0
                                 VLO        1        25.0
                             

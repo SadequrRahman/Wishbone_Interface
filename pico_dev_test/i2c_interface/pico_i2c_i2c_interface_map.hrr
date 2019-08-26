@@ -3,21 +3,24 @@ Report for cell top_module
    Instance path: top_module
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	      12.00        100.0
-                                  LUT4	       1.00        100.0
+                                  SLIC	      22.00        100.0
+                                  LUT4	      14.00        100.0
                                  IOBUF	          5        100.0
-                                PFUREG	         21        100.0
+                                PFUREG	         40        100.0
                                 RIPPLE	         11        100.0
 SUB MODULES
                                   cell	      count    SLC Usage(%)
-                             HeartBeat	          1        91.7
-                            wb_manager	          1         0.0
+                            wb_manager	          1        32.2
+                             HeartBeat	          1        48.5
 ---------------------------------------------------
 Report for cell wb_manager
    Instance path: top_module/wb_manager0
                      Cell usage:
                                   cell	      count    Res Usage(%)
+                                  SLIC	       7.08        32.2
+                                  LUT4	       8.00        57.1
                                  IOBUF	          2        40.0
+                                PFUREG	         11        27.5
 SUB MODULES
                                   cell	      count    SLC Usage(%)
                           efb_i2c_VHDL	          1         0.0
@@ -32,6 +35,6 @@ Report for cell HeartBeat
    Instance path: top_module/HeartBeatInst0
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	      11.00        91.7
-                                PFUREG	         21        100.0
+                                  SLIC	      10.67        48.5
+                                PFUREG	         21        52.5
                                 RIPPLE	         11        100.0

@@ -1,1 +1,2 @@
-CKID0001:@|S:OSCInst0@|E:HeartBeatInst0.iCounter[20]@|F:@syn_sample_clock_path==CKID0001@|M:ClockId0001 
+CKID0001:@|S:OSCInst0@|E:addr_i[0]@|F:@syn_sample_clock_path==CKID0001@|M:ClockId0001 
+CKID0002:@|S:wb_manager0.nState_1_sqmuxa_2_i@|E:wb_manager0.nState[1]@|F:@syn_sample_clock_path==CKID0002@|M:ClockId0002 

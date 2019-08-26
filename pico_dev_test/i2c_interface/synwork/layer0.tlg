@@ -1,8 +1,6 @@
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":8:7:8:16|Synthesizing work.top_module.sample_arch.
 @N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":2291:10:2291:13|Synthesizing work.osch.syn_black_box.
 Post processing for work.osch.syn_black_box
-@W: CD638 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Signal addr_i is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|Signal option is undriven. Either assign the signal a value or remove the signal declaration.
 @W: CD638 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":25:8:25:12|Signal rdy_o is undriven. Either assign the signal a value or remove the signal declaration.
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":10:7:10:16|Synthesizing work.wb_manager.rtl.
 @N: CD231 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":45:14:45:15|Using onehot encoding for type state_t. For example, enumeration idle is mapped to "100000".
@@ -28,37 +26,22 @@ Post processing for work.wb_manager.rtl
 Post processing for work.heartbeat.beh_arch
 @W: CL271 :"D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd":30:1:30:2|Pruning unused bits 32 to 21 of iCounter(32 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 Post processing for work.top_module.sample_arch
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|Bit 0 of signal option is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|Bit 1 of signal option is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|Bit 2 of signal option is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|Bit 3 of signal option is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|Bit 4 of signal option is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|Bit 5 of signal option is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|Bit 6 of signal option is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|Bit 7 of signal option is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 0 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 1 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 2 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 3 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 4 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 5 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 6 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Bit 7 of signal addr_i is floating -- simulation mismatch possible.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":73:1:73:11|Bit 0 of input addr_i of instance wb_manager0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":73:1:73:11|Bit 1 of input addr_i of instance wb_manager0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":73:1:73:11|Bit 2 of input addr_i of instance wb_manager0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":73:1:73:11|Bit 3 of input addr_i of instance wb_manager0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":73:1:73:11|Bit 4 of input addr_i of instance wb_manager0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":73:1:73:11|Bit 5 of input addr_i of instance wb_manager0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":73:1:73:11|Bit 6 of input addr_i of instance wb_manager0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":73:1:73:11|Bit 7 of input addr_i of instance wb_manager0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":73:1:73:11|Bit 0 of input option_reg of instance wb_manager0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":73:1:73:11|Bit 1 of input option_reg of instance wb_manager0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":73:1:73:11|Bit 2 of input option_reg of instance wb_manager0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":73:1:73:11|Bit 3 of input option_reg of instance wb_manager0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":73:1:73:11|Bit 4 of input option_reg of instance wb_manager0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":73:1:73:11|Bit 5 of input option_reg of instance wb_manager0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":73:1:73:11|Bit 6 of input option_reg of instance wb_manager0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":73:1:73:11|Bit 7 of input option_reg of instance wb_manager0 is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(2) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(4) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(5) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(6) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(7) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL251 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(1 downto 0) assign 1, register removed by optimization
 @W: CL246 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":16:3:16:12|Input port bits 7 to 3 of option_reg(7 downto 0) are unused. Assign logic for all port bits or change the input port size.
+@W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:22|Pruning register bit 7 of data_io(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:22|Pruning register bit 5 of data_io(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:22|Pruning register bit 1 of data_io(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Pruning register bit 7 of addr_i(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@W: CL279 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Pruning register bits 5 to 3 of addr_i(7 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@N: CL189 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Register bit addr_i(1) is always 0.
+@N: CL189 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:22|Register bit data_io(3) is always 0.
+@W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:22|Pruning register bit 3 of data_io(4 downto 2). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Pruning register bit 1 of addr_i(2 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@N: CL201 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":99:7:99:13|Trying to extract state machine for register NoName.
 @N: CL159 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":13:2:13:8|Input usb_osc is unused.

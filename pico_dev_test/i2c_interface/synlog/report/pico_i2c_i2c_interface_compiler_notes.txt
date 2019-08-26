@@ -12,6 +12,9 @@
 @N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":1490:10:1490:12|Synthesizing work.vlo.syn_black_box.
 @N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":1483:10:1483:12|Synthesizing work.vhi.syn_black_box.
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd":8:7:8:15|Synthesizing work.heartbeat.beh_arch.
+@N: CL189 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Register bit addr_i(1) is always 0.
+@N: CL189 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:22|Register bit data_io(3) is always 0.
+@N: CL201 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":99:7:99:13|Trying to extract state machine for register NoName.
 @N: CL159 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":13:2:13:8|Input usb_osc is unused.
 @N|Running in 64-bit mode
 

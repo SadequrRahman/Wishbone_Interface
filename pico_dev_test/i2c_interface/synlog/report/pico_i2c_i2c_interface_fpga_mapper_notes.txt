@@ -1,9 +1,10 @@
 @N: MF248 |Running in 64-bit mode.
 @N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
 @N: MO231 :"d:\workingdir\fpga\pico_dev_test\heartbeat.vhd":30:1:30:2|Found counter in view:work.top_module(sample_arch) instance HeartBeatInst0.iCounter[20:0] 
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|Removing sequential instance cState[1] (in view: work.wb_manager(rtl)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|Removing sequential instance cState[5] (in view: work.wb_manager(rtl)) of type view:PrimLib.dffs(prim) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|Removing sequential instance status_reg_1[7] (in view: work.wb_manager(rtl)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|Removing sequential instance status_reg_1[6] (in view: work.wb_manager(rtl)) because it does not drive other instances.
 @N: FX164 |The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.  
+@N: MT611 :|Automatically generated clock wb_manager|status_reg_1_derived_clock[5] is not used and is being removed
 @N: FX1056 |Writing EDF file: D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.edi
 @N: BW106 |Synplicity Constraint File capacitance units using default value of 1pF 
 @N: MT320 |This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report.

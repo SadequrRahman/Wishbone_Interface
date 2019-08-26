@@ -21,7 +21,7 @@ architecture sample_arch of top_module is
 
 	
 	signal stdby, sys_clk, stdby_sed : std_logic;
-	signal addr_i, data_io, status, option : std_logic_vector(7 downto 0);
+	signal addr_i, data_io, status, option : std_logic_vector(7 downto 0) := (others => '0');
 	signal rdy_o : std_logic;
 	
 	
@@ -39,11 +39,10 @@ architecture sample_arch of top_module is
 	PORT(
 		clk_i		: in std_logic;
 		rst_n_i		: in std_logic;
-		data_i 		: in std_logic_vector(7 downto 0);
+		data_io 	: inout std_logic_vector(7 downto 0);
 		addr_i 		: in std_logic_vector(7 downto 0);
 		option_reg	: in std_logic_vector(7 downto 0);
 		status_reg	: out std_logic_vector(7 downto 0);
-		data_o 		: out std_logic_vector(7 downto 0);
 		scl      : inout std_logic;			
 		sda      : inout std_logic
 	);
@@ -74,11 +73,10 @@ begin
 	PORT MAP(
 			clk_i => sys_clk,
 			rst_n_i => rst_n,
-			data_i => data_io,
+			data_io => data_io,
 			addr_i => addr_i,
 			option_reg => option,
 			status_reg => status,
-			data_o => data_io,
 			scl => scl,		
 			sda=> sda	
 		);
@@ -97,5 +95,26 @@ begin
 	
 	stdby <= '0';
 	enI2C <= '1';
+	
+main : process
+	
+	begin
+		addr_i <=  x"44";
+		data_io <= x"F3";
+		option <= x"03";
+		wait until (status(5) = '1');
+		option <= x"00";
+		addr_i <=  x"41";
+		data_io <= x"94";
+		option <= x"03";
+		wait until (status(5) = '1');
+		option <= x"00";
+		addr_i <=  x"41";
+		data_io <= x"44";
+		option <= x"03";
+		wait until (status(5) = '1');
+		option <= x"00";
+	
+end process main;
 	
 end sample_arch;
