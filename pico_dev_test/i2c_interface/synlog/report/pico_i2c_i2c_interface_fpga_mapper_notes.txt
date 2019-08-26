@@ -1,15 +1,8 @@
 @N: MF248 |Running in 64-bit mode.
 @N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
-@N: MO111 :|Tristate driver data_io_t[7] (in view: work.top_module(sample_arch)) on net data_io[7] (in view: work.top_module(sample_arch)) has its enable tied to GND.
-@N: MO111 :|Tristate driver data_io_t[6] (in view: work.top_module(sample_arch)) on net data_io[6] (in view: work.top_module(sample_arch)) has its enable tied to GND.
-@N: MO111 :|Tristate driver data_io_t[5] (in view: work.top_module(sample_arch)) on net data_io[5] (in view: work.top_module(sample_arch)) has its enable tied to GND.
-@N: MO111 :|Tristate driver data_io_t[4] (in view: work.top_module(sample_arch)) on net data_io[4] (in view: work.top_module(sample_arch)) has its enable tied to GND.
-@N: MO111 :|Tristate driver data_io_t[3] (in view: work.top_module(sample_arch)) on net data_io[3] (in view: work.top_module(sample_arch)) has its enable tied to GND.
-@N: MO111 :|Tristate driver data_io_t[2] (in view: work.top_module(sample_arch)) on net data_io[2] (in view: work.top_module(sample_arch)) has its enable tied to GND.
-@N: MO111 :|Tristate driver data_io_t[1] (in view: work.top_module(sample_arch)) on net data_io[1] (in view: work.top_module(sample_arch)) has its enable tied to GND.
-@N: MO111 :|Tristate driver data_io_t[0] (in view: work.top_module(sample_arch)) on net data_io[0] (in view: work.top_module(sample_arch)) has its enable tied to GND.
-@N: FX493 |Applying initial value "00" on instance i2c_master_controller_Inst0.wb_dat_i[7:6].
 @N: MO231 :"d:\workingdir\fpga\pico_dev_test\heartbeat.vhd":30:1:30:2|Found counter in view:work.top_module(sample_arch) instance HeartBeatInst0.iCounter[20:0] 
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|Removing sequential instance cState[1] (in view: work.wb_manager(rtl)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|Removing sequential instance cState[5] (in view: work.wb_manager(rtl)) of type view:PrimLib.dffs(prim) because it does not drive other instances.
 @N: FX164 |The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.  
 @N: FX1056 |Writing EDF file: D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.edi
 @N: BW106 |Synplicity Constraint File capacitance units using default value of 1pF 

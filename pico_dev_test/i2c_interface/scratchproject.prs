@@ -6,7 +6,7 @@
 add_file -vhdl -lib work "C:/lscc/diamond/3.10_x64/cae_library/synthesis/vhdl/machxo2.vhd"
 add_file -vhdl -lib work "D:/WorkingDir/Fpga/pico_dev_test/HeartBeat.vhd"
 add_file -vhdl -lib work "D:/WorkingDir/Fpga/pico_dev_test/efb_i2c_VHDL.vhd"
-add_file -vhdl -lib work "D:/WorkingDir/Fpga/pico_dev_test/i2c_master_controller.vhd"
+add_file -vhdl -lib work "D:/WorkingDir/Fpga/pico_dev_test/wb_manager.vhd"
 add_file -vhdl -lib work "D:/WorkingDir/Fpga/pico_dev_test/top_level.vhd"
 
 

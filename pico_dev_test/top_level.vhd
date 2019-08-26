@@ -21,7 +21,7 @@ architecture sample_arch of top_module is
 
 	
 	signal stdby, sys_clk, stdby_sed : std_logic;
-	signal addr_i, data_io : std_logic_vector(7 downto 0);
+	signal addr_i, data_io, status, option : std_logic_vector(7 downto 0);
 	signal rdy_o : std_logic;
 	
 	
@@ -35,17 +35,31 @@ architecture sample_arch of top_module is
 	PORT ( RST_n : IN std_logic; CLK	:IN std_logic; LED : OUT std_logic);
 	END COMPONENT; 
 	
-	COMPONENT i2c_master_controller 
+	COMPONENT wb_manager 
 	PORT(
-		rst_n 	: in std_logic;
-		clk	  	: in std_logic;
-		addr  	: in std_logic_vector(7 downto 0);
-		data  	: inout std_logic_vector(7 downto 0);
-		scl     : inout std_logic;			-- to connect hardware pin from top level
-		sda     : inout std_logic;			-- to connect hardware pin from top level
-		rdy	  	: out std_logic
+		clk_i		: in std_logic;
+		rst_n_i		: in std_logic;
+		data_i 		: in std_logic_vector(7 downto 0);
+		addr_i 		: in std_logic_vector(7 downto 0);
+		option_reg	: in std_logic_vector(7 downto 0);
+		status_reg	: out std_logic_vector(7 downto 0);
+		data_o 		: out std_logic_vector(7 downto 0);
+		scl      : inout std_logic;			
+		sda      : inout std_logic
 	);
 	END COMPONENT;
+	
+	--COMPONENT i2c_master_controller 
+	--PORT(
+		--rst_n 	: in std_logic;
+		--clk	  	: in std_logic;
+		--addr  	: in std_logic_vector(7 downto 0);
+		--data  	: inout std_logic_vector(7 downto 0);
+		--scl     : inout std_logic;			-- to connect hardware pin from top level
+		--sda     : inout std_logic;			-- to connect hardware pin from top level
+		--rdy	  	: out std_logic
+	--);
+	--END COMPONENT;
 	
 	
 begin
@@ -54,20 +68,32 @@ begin
 	PORT MAP (STDBY=>  stdby, OSC =>  sys_clk, SEDSTDBY =>  stdby_sed);
 	
 	HeartBeatInst0 :HeartBeat
-	PORT MAP (RST_n=>  rst_n, CLK =>  usb_osc, LED =>  heart_beat);
+	PORT MAP (RST_n=>  rst_n, CLK =>  sys_clk, LED =>  heart_beat);
 	
+	wb_manager0 : wb_manager
+	PORT MAP(
+			clk_i => sys_clk,
+			rst_n_i => rst_n,
+			data_i => data_io,
+			addr_i => addr_i,
+			option_reg => option,
+			status_reg => status,
+			data_o => data_io,
+			scl => scl,		
+			sda=> sda	
+		);
 	
-	i2c_master_controller_Inst0 : i2c_master_controller
-	PORT MAP (
-		rst_n=>rst_n,
-		clk=>sys_clk,
-		addr=>addr_i,
-		data=>data_io,
-		scl=>scl,
-		sda=>sda,
-		rdy=>rdy_o
+	--i2c_master_controller_Inst0 : i2c_master_controller
+	--PORT MAP (
+		--rst_n=>rst_n,
+		--clk=>sys_clk,
+		--addr=>addr_i,
+		--data=>data_io,
+		--scl=>scl,
+		--sda=>sda,
+		--rdy=>rdy_o
 	
-	);
+	--);
 	
 	stdby <= '0';
 	enI2C <= '1';

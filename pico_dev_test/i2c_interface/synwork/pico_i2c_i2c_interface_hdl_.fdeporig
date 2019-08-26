@@ -11,36 +11,36 @@
 #CUR:"C:\\lscc\\diamond\\3.10_x64\\synpbase\\lib\\vhd\\unsigned.vhd":1501880624
 #CUR:"C:\\lscc\\diamond\\3.10_x64\\synpbase\\lib\\vhd\\hyperents.vhd":1501880624
 #CUR:"C:\\lscc\\diamond\\3.10_x64\\cae_library\\synthesis\\vhdl\\machxo2.vhd":1493302304
-#CUR:"D:\\WorkingDir\\Fpga\\pico_dev_test\\top_level.vhd":1566308670
-#CUR:"D:\\WorkingDir\\Fpga\\pico_dev_test\\i2c_master_controller.vhd":1566223589
+#CUR:"D:\\WorkingDir\\Fpga\\pico_dev_test\\top_level.vhd":1566826930
 #CUR:"D:\\WorkingDir\\Fpga\\pico_dev_test\\efb_i2c_VHDL.vhd":1566298424
 #CUR:"D:\\WorkingDir\\Fpga\\pico_dev_test\\HeartBeat.vhd":1566210836
+#CUR:"D:\\WorkingDir\\Fpga\\pico_dev_test\\wb_manager.vhd":1566825734
 0 "C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd" vhdl
 1 "D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd" vhdl
-2 "D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd" vhdl
-3 "D:\WorkingDir\Fpga\pico_dev_test\efb_i2c_VHDL.vhd" vhdl
-4 "D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd" vhdl
+2 "D:\WorkingDir\Fpga\pico_dev_test\efb_i2c_VHDL.vhd" vhdl
+3 "D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd" vhdl
+4 "D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd" vhdl
 
 # Dependency Lists (Uses list)
 0 -1
-1 4 2 
-2 3 
-3 0 
-4 -1
+1 3 4 
+2 0 
+3 -1
+4 2 
 
 # Dependency Lists (Users Of)
-0 3 
+0 2 
 1 -1
-2 1 
-3 2 
+2 4 
+3 1 
 4 1 
 
 # Design Unit to File Association
 arch work top_module sample_arch 1
 module work top_module 1
-arch work i2c_master_controller beh_i2c_master_controller 2
-module work i2c_master_controller 2
-arch work efb_i2c_vhdl structure 3
-module work efb_i2c_vhdl 3
-arch work heartbeat beh_arch 4
-module work heartbeat 4
+arch work efb_i2c_vhdl structure 2
+module work efb_i2c_vhdl 2
+arch work heartbeat beh_arch 3
+module work heartbeat 3
+arch work wb_manager rtl 4
+module work wb_manager 4

@@ -5,20 +5,15 @@
 
 #### START OF CLOCK OPTIMIZATION REPORT #####[
 
-1 non-gated/non-generated clock tree(s) driving 21 clock pin(s) of sequential element(s)
-1 gated/generated clock tree(s) driving 10 clock pin(s) of sequential element(s)
-0 instances converted, 10 sequential instances remain driven by gated/generated clocks
+0 non-gated/non-generated clock tree(s) driving 0 clock pin(s) of sequential element(s)
+1 gated/generated clock tree(s) driving 21 clock pin(s) of sequential element(s)
+0 instances converted, 21 sequential instances remain driven by gated/generated clocks
 
-================================= Non-Gated/Non-Generated Clocks ==================================
-Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance            
----------------------------------------------------------------------------------------------------
-@K:CKID0002       usb_osc             port                   21         HeartBeatInst0.iCounter[20]
-===================================================================================================
-=========================================================================================================== Gated/Generated Clocks ============================================================================================================
-Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance                          Explanation                                                                                                                   
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-@K:CKID0001       OSCInst0            OSCH                   10         i2c_master_controller_Inst0.State[5]     Gating structure creates improper gating logic. See the Gated Clocks description in the user guide for conversion requirements
-===============================================================================================================================================================================================================================================
+====================================================================== Gated/Generated Clocks =======================================================================
+Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance                 Explanation                                                  
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+@K:CKID0001       OSCInst0            OSCH                   21         HeartBeatInst0.iCounter[20]     No gated clock conversion method for cell cell:LUCENT.FD1S3DX
+=====================================================================================================================================================================
 
 
 ##### END OF CLOCK OPTIMIZATION REPORT ######]

@@ -1,6 +1,6 @@
 NOTE Copyright (C), 1992-2010, Lattice Semiconductor Corporation *
 NOTE All Rights Reserved *
-NOTE DATE CREATED: Tue Aug 20 15:45:44 2019 *
+NOTE DATE CREATED: Mon Aug 26 15:42:33 2019 *
 NOTE DESIGN NAME: top_module *
 NOTE DEVICE NAME: LCMXO2-1200ZE-1TQFP144 *
 NOTE PIN ASSIGNMENTS *
@@ -9,6 +9,5 @@ NOTE PINS rst_n : 42 : in *
 NOTE PINS scl : 126 : inout *
 NOTE PINS sda : 125 : inout *
 NOTE PINS heart_beat : 6 : out *
-NOTE PINS usb_osc : 128 : in *
 NOTE CONFIGURATION MODE: NONE *
 NOTE COMPRESSION: on *

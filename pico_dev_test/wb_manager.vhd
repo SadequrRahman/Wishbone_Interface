@@ -13,8 +13,8 @@ entity wb_manager is
 			rst_n_i		: in std_logic;
 			data_i 		: in std_logic_vector(7 downto 0);
 			addr_i 		: in std_logic_vector(7 downto 0);
+			option_reg	: in std_logic_vector(7 downto 0);
 			status_reg	: out std_logic_vector(7 downto 0);
-			option_reg	: out std_logic_vector(7 downto 0);
 			data_o 		: out std_logic_vector(7 downto 0);
 			-- interface port (e.g i2c, spi etc)
 			scl      : inout std_logic;			-- to connect hardware pin from top level
@@ -24,7 +24,7 @@ end wb_manager;
 
 
 
-architecture mix_arc of wb_manager is
+architecture rtl of wb_manager is
 
 	--/***********************************************************************
 	 --*                                                                     *
@@ -39,21 +39,32 @@ architecture mix_arc of wb_manager is
 	signal wb_dat_o : std_logic_vector(7 downto 0) := ( others=>'0');
 	signal wb_ack_o : std_logic := '0';
 	signal i2c1_irqo: std_logic := 'Z';
-	signal rst_p : std_logic := '0';
-
+	signal rst_p 	: std_logic := '0';
+	
+	-- Enumerated type declaration and state signal declaration
+	type state_t is (IDLE, ACTIVE_WB, ASSERT_CTRL, WAIT_ACK, UPDATE_STATUS_FLAG, TIMEOUT_ACK);
+	signal cState : state_t := IDLE; -- current state variable
+	signal nState : state_t;
+	
 	-- internal signal
 	signal wb_active : std_logic :=  '0';
+	signal wb_busy 	 : std_logic :=  '0';
+	signal wb_read_complete : std_logic :=  '0';
+	signal wb_write_complete : std_logic := '0';
+	signal wb_timeout_err : std_logic := '0';
+	signal start_timeout_timer : std_logic := '0';
 
 	-- parameterized module component declaration
 	component efb_i2c_VHDL
-    port (wb_clk_i: in  std_logic; wb_rst_i: in  std_logic; 
-        wb_cyc_i: in  std_logic; wb_stb_i: in  std_logic; 
-        wb_we_i: in  std_logic; 
-        wb_adr_i: in  std_logic_vector(7 downto 0); 
-        wb_dat_i: in  std_logic_vector(7 downto 0); 
-        wb_dat_o: out  std_logic_vector(7 downto 0); 
-        wb_ack_o: out  std_logic; i2c1_scl: inout  std_logic; 
-        i2c1_sda: inout  std_logic; i2c1_irqo: out  std_logic);
+    port (
+			wb_clk_i: in  std_logic; wb_rst_i: in  std_logic; 
+			wb_cyc_i: in  std_logic; wb_stb_i: in  std_logic; 
+			wb_we_i: in  std_logic; 
+			wb_adr_i: in  std_logic_vector(7 downto 0); 
+			wb_dat_i: in  std_logic_vector(7 downto 0); 
+			wb_dat_o: out  std_logic_vector(7 downto 0); 
+			wb_ack_o: out  std_logic; i2c1_scl: inout  std_logic; 
+			i2c1_sda: inout  std_logic; i2c1_irqo: out  std_logic);
 	end component;
 
 begin
@@ -81,17 +92,110 @@ begin
 	data_o <= wb_dat_o when wb_active = '1' else (others =>'0');
 	
 		
-	process(clk_i, rst_n_i)
+	reset_block : process(rst_n_i, clk_i)
 		-- declare veriables here 
 	begin
 		if( rst_n_i = '0') then
-		-- reset logic here
+			-- reset logic here
+			cState <= IDLE;
 		else
-			if(rising_edge(clk_i)) then
-			
+			if rising_edge(clk_i) then
+				cState <= nState;
+				status_reg <= ( 7 => wb_busy, 6 =>wb_read_complete, 5 => wb_write_complete, others=> '0');
 			end if;
 		end if;
+	end process reset_block;
+	
+	next_state_logic : process(cState, option_reg(0),option_reg(1),option_reg(2), wb_ack_o)
+			begin
+		case (cState) is
+			when IDLE =>
+					if option_reg(0) = '1' then
+						nState <= ACTIVE_WB;
+					else
+						nState <= IDLE;
+					end if;
+			when ACTIVE_WB =>
+					nState <= ASSERT_CTRL;
+			when ASSERT_CTRL =>
+					nState <= WAIT_ACK;
+			when WAIT_ACK =>
+						if wb_ack_o = '1' then 
+							nState <= UPDATE_STATUS_FLAG;
+						end if;
+			when UPDATE_STATUS_FLAG =>
+						if option_reg(1) = '0' then
+							nState <= UPDATE_STATUS_FLAG;
+						else
+							if option_reg(2) = '1' then 
+								nState <= ACTIVE_WB;
+							else
+								nState <= IDLE;
+							end if;
+						end if;
+			when TIMEOUT_ACK =>
+						
+		end case; 
 
-	end process;
+	end process next_state_logic;
 
-end mix_arc;
+	output_logic : process(cState, option_reg(1))
+	begin
+		wb_active <= '0';
+		wb_cyc_i <= '0';
+		wb_stb_i <= '0';
+		wb_we_i <= '0';
+		wb_busy <= '0';
+		wb_we_i <= '0';
+		wb_read_complete <= '0';
+		wb_write_complete <= '0';
+		wb_timeout_err <= '0';
+		start_timeout_timer <= '0';
+		
+		case (cState) is
+			when IDLE =>
+						wb_active <= '0';
+						wb_cyc_i <= '0';
+						wb_stb_i <= '0';
+						wb_we_i <= '0';
+						wb_busy <= '0';
+						wb_read_complete <= '0';
+						wb_write_complete <= '0';
+						wb_timeout_err <= '0';
+						start_timeout_timer <= '0';
+			when ACTIVE_WB =>
+						wb_busy <= '1';
+						wb_active <= '1';
+			when ASSERT_CTRL =>
+						wb_busy <= '1'; 
+						wb_active <= '1';
+						if option_reg(1) = '0' then 
+							wb_we_i <= '0';
+						else
+							wb_we_i <= '1';
+						end if;
+						
+						wb_cyc_i <= '1';
+						wb_stb_i <= '1';
+						start_timeout_timer <= '1';
+			when WAIT_ACK =>
+						wb_busy <= '1';
+						wb_active <= '1';
+						wb_cyc_i <= '1';
+						wb_stb_i <= '1';
+			when UPDATE_STATUS_FLAG =>
+						wb_busy <= '1';
+						if option_reg(1) = '0' then 
+							wb_read_complete <= '1';
+						else
+							wb_write_complete <= '1';
+						end if;
+			when TIMEOUT_ACK =>
+						wb_busy <= '1';
+						wb_timeout_err <= '1';
+		end case; 
+		
+	end process output_logic;
+	
+
+end rtl;

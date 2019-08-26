@@ -1,4 +1,4 @@
-# Tue Aug 20 15:44:42 2019
+# Mon Aug 26 15:42:22 2019
 
 Synopsys Lattice Technology Pre-mapping, Version maplat, Build 1796R, Built Aug  4 2017 11:10:16
 Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated documentation are proprietary to Synopsys, Inc. and may only be used pursuant to the terms and conditions of a written license agreement with Synopsys, Inc. All other use, reproduction, modification, or distribution of the Synopsys software or the associated documentation is strictly prohibited.
@@ -23,9 +23,8 @@ Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00
 
 Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 114MB)
 
-@W: FX474 |User-specified initial value defined for some sequential elements which can prevent optimum synthesis results from being achieved. 
-@W: BN132 :"d:\workingdir\fpga\pico_dev_test\i2c_master_controller.vhd":31:31:31:33|Removing sequential instance i2c_master_controller_Inst0.wb_stb_i because it is equivalent to instance i2c_master_controller_Inst0.wb_cyc_i. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"d:\workingdir\fpga\pico_dev_test\i2c_master_controller.vhd":106:1:106:2|Removing sequential instance i2c_master_controller_Inst0.wb_we_i because it is equivalent to instance i2c_master_controller_Inst0.wb_cyc_i. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN287 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|Register cState[0:5] with reset has an initial value of 1. Ignoring initial value.  
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|Removing sequential instance status_reg_1[7:5] (in view: work.wb_manager(rtl)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
 ICG Latch Removal Summary:
 Number of ICG latches removed:	0
 Number of ICG latches not removed:	0
@@ -41,41 +40,31 @@ Clock Summary
           Start                                 Requested     Requested     Clock        Clock                   Clock
 Level     Clock                                 Frequency     Period        Type         Group                   Load 
 ----------------------------------------------------------------------------------------------------------------------
-0 -       System                                1.0 MHz       1000.000      system       system_clkgroup         0    
+0 -       System                                1.0 MHz       1000.000      system       system_clkgroup         6    
                                                                                                                       
-0 -       top_module|usb_osc                    1.0 MHz       1000.000      inferred     Inferred_clkgroup_1     21   
-                                                                                                                      
-0 -       top_module|sys_clk_inferred_clock     133.0 MHz     7.519         inferred     Inferred_clkgroup_0     15   
+0 -       top_module|sys_clk_inferred_clock     133.0 MHz     7.519         inferred     Inferred_clkgroup_0     27   
 ======================================================================================================================
 
-@W: MT529 :"d:\workingdir\fpga\pico_dev_test\i2c_master_controller.vhd":106:1:106:2|Found inferred clock top_module|sys_clk_inferred_clock which controls 15 sequential elements including i2c_master_controller_Inst0.wb_cyc_i. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
-@W: MT529 :"d:\workingdir\fpga\pico_dev_test\heartbeat.vhd":30:1:30:2|Found inferred clock top_module|usb_osc which controls 21 sequential elements including HeartBeatInst0.iCounter[20:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
+@W: MT531 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":112:2:112:5|Found signal identified as System clock which controls 6 sequential elements including wb_manager0.nState[0:5].  Using this clock, which has no specified timing constraint, can prevent conversion of gated or generated clocks and can adversely impact design performance. 
+@W: MT529 :"d:\workingdir\fpga\pico_dev_test\heartbeat.vhd":30:1:30:2|Found inferred clock top_module|sys_clk_inferred_clock which controls 27 sequential elements including HeartBeatInst0.iCounter[20:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
 
 Finished Pre Mapping Phase.
 
 Starting constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
 
-Encoding state machine State[0:5] (in view: work.i2c_master_controller(beh_i2c_master_controller))
-original code -> new code
-   000001 -> 000001
-   000010 -> 000010
-   000100 -> 000100
-   001000 -> 001000
-   010000 -> 010000
-   100000 -> 100000
 
-Finished constraint checker preprocessing (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
+Finished constraint checker preprocessing (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
 
 None
 None
 
-Finished constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
+Finished constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
 
 Pre-mapping successful!
 
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 55MB peak: 141MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Aug 20 15:44:43 2019
+# Mon Aug 26 15:42:23 2019
 
 ###########################################################]
