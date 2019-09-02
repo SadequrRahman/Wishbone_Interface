@@ -1,7 +1,0 @@
-3
-~E 1 "./../../HeartBeat.vhd" 7 HeartBeat
-~A 1 "./../../HeartBeat.vhd" 20 beh_arch
-~E 1 "./../../top_level.vhd" 8 top_module
-~A 1 "./../../top_level.vhd" 18 sample_arch
-~E 1 "./../../top_module_tb.vhd" 7 top_module_tb
-~A 1 "./../../top_module_tb.vhd" 12 testbanch

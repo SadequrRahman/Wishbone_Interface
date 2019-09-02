@@ -1,0 +1,6 @@
+rst_n  i
+scl  b
+sda  b
+usb_osc  i
+enI2C  o
+heart_beat  o

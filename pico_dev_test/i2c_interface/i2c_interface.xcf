@@ -20,8 +20,8 @@
 				<BScanVal>0</BScanVal>
 			</Bypass>
 			<File>D:/WorkingDir/Fpga/pico_dev_test/i2c_interface/pico_i2c_i2c_interface.jed</File>
-			<FileTime>08/26/19 15:42:33</FileTime>
-			<JedecChecksum>0x83FB</JedecChecksum>
+			<FileTime>08/27/19 14:06:43</FileTime>
+			<JedecChecksum>0x50C7</JedecChecksum>
 			<Operation>FLASH Erase,Program,Verify</Operation>
 			<Option>
 				<SVFVendor>JTAG STANDARD</SVFVendor>

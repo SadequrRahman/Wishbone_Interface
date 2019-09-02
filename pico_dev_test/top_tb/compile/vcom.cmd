@@ -1,1 +1,0 @@
--w -erf D:/WorkingDir/Fpga/pico_dev_test/top_tb/compile/top_tb.erf -d D:/WorkingDir/Fpga/pico_dev_test/top_tb/compile -s D:/WorkingDir/Fpga/pico_dev_test/top_tb/library.cfg -j D:/WorkingDir/Fpga/pico_dev_test/top_tb/projlib.cfg -work work -dbg -work work D:/WorkingDir/Fpga/pico_dev_test/top_level.vhd 

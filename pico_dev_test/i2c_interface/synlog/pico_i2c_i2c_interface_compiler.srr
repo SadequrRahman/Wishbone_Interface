@@ -8,17 +8,27 @@ Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated
 
 @N: CD720 :"C:\lscc\diamond\3.10_x64\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ps
 @N:"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":8:7:8:16|Top entity is set to top_module.
-File D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd changed - recompiling
-File D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd changed - recompiling
+
+File Dependency file is up to date.  It will not be rewritten.
+
 VHDL syntax check successful!
-File D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd changed - recompiling
-File D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd changed - recompiling
+
+Compiler output is up to date.  No re-compile necessary
+
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":8:7:8:16|Synthesizing work.top_module.sample_arch.
 @N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":2291:10:2291:13|Synthesizing work.osch.syn_black_box.
 Post processing for work.osch.syn_black_box
-@W: CD638 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":25:8:25:12|Signal rdy_o is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:40:24:45|Signal status is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:48:24:53|Signal option is undriven. Either assign the signal a value or remove the signal declaration.
+@N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":8:7:8:27|Synthesizing work.i2c_master_controller.beh_i2c_master_controller.
+@N: CD231 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":60:13:60:14|Using onehot encoding for type state_t. For example, enumeration idle is mapped to "1000000000000".
+@W: CG296 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":107:16:107:22|Incomplete sensitivity list; assuming completeness. Make sure all referenced variables in message CG290 are included in the sensitivity list.
+@W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":119:12:119:17|Referenced variable addr_i is not in sensitivity list.
+@W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":134:12:134:17|Referenced variable data_i is not in sensitivity list.
+@W: CD434 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":153:42:153:47|Signal addr_i in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
+@W: CD434 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":153:49:153:54|Signal data_i in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":10:7:10:16|Synthesizing work.wb_manager.rtl.
-@N: CD231 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":45:14:45:15|Using onehot encoding for type state_t. For example, enumeration idle is mapped to "100000".
+@N: CD231 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":43:14:43:15|Using onehot encoding for type state_t. For example, enumeration idle is mapped to "100000".
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\efb_i2c_VHDL.vhd":14:7:14:18|Synthesizing work.efb_i2c_vhdl.structure.
 @N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":2302:10:2302:12|Synthesizing work.efb.syn_black_box.
 Post processing for work.efb.syn_black_box
@@ -30,55 +40,50 @@ Post processing for work.vlo.syn_black_box
 Post processing for work.vhi.syn_black_box
 Post processing for work.efb_i2c_vhdl.structure
 Post processing for work.wb_manager.rtl
-@W: CL117 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":112:2:112:5|Latch generated from process for signal nState(0 to 5); possible missing assignment in an if or case statement.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|All reachable assignments to status_reg(0) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|All reachable assignments to status_reg(1) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|All reachable assignments to status_reg(2) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|All reachable assignments to status_reg(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|All reachable assignments to status_reg(4) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@A: CL282 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|Feedback mux created for signal status_reg[7:5]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@W: CL117 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":110:2:110:5|Latch generated from process for signal nState(0 to 5); possible missing assignment in an if or case statement.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":96:2:96:3|All reachable assignments to status(0) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":96:2:96:3|All reachable assignments to status(1) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":96:2:96:3|All reachable assignments to status(2) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":96:2:96:3|All reachable assignments to status(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":96:2:96:3|All reachable assignments to status(4) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@A: CL282 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":96:2:96:3|Feedback mux created for signal status[7:5]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+Post processing for work.i2c_master_controller.beh_i2c_master_controller
+@W: CL240 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":16:2:16:7|Signal data_o is floating; a simulation mismatch is possible.
+@W: CL117 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":155:2:155:5|Latch generated from process for signal nState(0 to 12); possible missing assignment in an if or case statement.
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd":8:7:8:15|Synthesizing work.heartbeat.beh_arch.
 Post processing for work.heartbeat.beh_arch
 @W: CL271 :"D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd":30:1:30:2|Pruning unused bits 32 to 21 of iCounter(32 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 Post processing for work.top_module.sample_arch
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(2) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(4) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(5) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(6) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(7) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL251 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(1 downto 0) assign 1, register removed by optimization
-@W: CL246 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":16:3:16:12|Input port bits 7 to 3 of option_reg(7 downto 0) are unused. Assign logic for all port bits or change the input port size.
-@W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:22|Pruning register bit 7 of data_io(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:22|Pruning register bit 5 of data_io(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:22|Pruning register bit 1 of data_io(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Pruning register bit 7 of addr_i(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL279 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Pruning register bits 5 to 3 of addr_i(7 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@N: CL189 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Register bit addr_i(1) is always 0.
-@N: CL189 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:22|Register bit data_io(3) is always 0.
-@W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:22|Pruning register bit 3 of data_io(4 downto 2). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Pruning register bit 1 of addr_i(2 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@N: CL201 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":99:7:99:13|Trying to extract state machine for register NoName.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:25|All reachable assignments to main.i2c_data_i(0) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:25|All reachable assignments to main.i2c_data_i(1) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:25|All reachable assignments to main.i2c_data_i(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|All reachable assignments to main.addr_i(1) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|All reachable assignments to main.addr_i(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL177 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Sharing sequential element addr_i. Add a syn_preserve attribute to the element to prevent sharing.
+@W: CL177 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Sharing sequential element addr_i. Add a syn_preserve attribute to the element to prevent sharing.
+@W: CL251 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|All reachable assignments to main.addr_i(0) assign 1, register removed by optimization
+@W: CL251 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:25|All reachable assignments to main.i2c_data_i(7 downto 4) assign 1, register removed by optimization
+@W: CL251 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:25|All reachable assignments to main.i2c_data_i(2) assign 1, register removed by optimization
+@W: CL246 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":16:3:16:8|Input port bits 7 to 3 of option(7 downto 0) are unused. Assign logic for all port bits or change the input port size.
 @N: CL159 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":13:2:13:8|Input usb_osc is unused.
 
-At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 71MB peak: 72MB)
+At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 70MB peak: 71MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Aug 26 16:31:15 2019
+# Mon Sep  2 16:01:49 2019
 
 ###########################################################]
 Synopsys Netlist Linker, version comp2017q2p1, Build 190R, built Aug  4 2017
 @N|Running in 64-bit mode
-File D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\synwork\layer0.srs changed - recompiling
 
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Aug 26 16:31:16 2019
+# Mon Sep  2 16:01:49 2019
 
 ###########################################################]
 @END
@@ -88,6 +93,6 @@ At c_hdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Aug 26 16:31:16 2019
+# Mon Sep  2 16:01:49 2019
 
 ###########################################################]

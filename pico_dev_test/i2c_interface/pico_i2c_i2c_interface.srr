@@ -3,7 +3,7 @@
 #OS: Windows 8 6.2
 #Hostname: T5810JP
 
-# Mon Aug 26 16:31:15 2019
+# Mon Sep  2 16:01:48 2019
 
 #Implementation: i2c_interface
 
@@ -17,17 +17,27 @@ Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated
 
 @N: CD720 :"C:\lscc\diamond\3.10_x64\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ps
 @N:"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":8:7:8:16|Top entity is set to top_module.
-File D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd changed - recompiling
-File D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd changed - recompiling
+
+File Dependency file is up to date.  It will not be rewritten.
+
 VHDL syntax check successful!
-File D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd changed - recompiling
-File D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd changed - recompiling
+
+Compiler output is up to date.  No re-compile necessary
+
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":8:7:8:16|Synthesizing work.top_module.sample_arch.
 @N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":2291:10:2291:13|Synthesizing work.osch.syn_black_box.
 Post processing for work.osch.syn_black_box
-@W: CD638 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":25:8:25:12|Signal rdy_o is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:40:24:45|Signal status is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:48:24:53|Signal option is undriven. Either assign the signal a value or remove the signal declaration.
+@N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":8:7:8:27|Synthesizing work.i2c_master_controller.beh_i2c_master_controller.
+@N: CD231 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":60:13:60:14|Using onehot encoding for type state_t. For example, enumeration idle is mapped to "1000000000000".
+@W: CG296 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":107:16:107:22|Incomplete sensitivity list; assuming completeness. Make sure all referenced variables in message CG290 are included in the sensitivity list.
+@W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":119:12:119:17|Referenced variable addr_i is not in sensitivity list.
+@W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":134:12:134:17|Referenced variable data_i is not in sensitivity list.
+@W: CD434 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":153:42:153:47|Signal addr_i in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
+@W: CD434 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":153:49:153:54|Signal data_i in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":10:7:10:16|Synthesizing work.wb_manager.rtl.
-@N: CD231 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":45:14:45:15|Using onehot encoding for type state_t. For example, enumeration idle is mapped to "100000".
+@N: CD231 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":43:14:43:15|Using onehot encoding for type state_t. For example, enumeration idle is mapped to "100000".
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\efb_i2c_VHDL.vhd":14:7:14:18|Synthesizing work.efb_i2c_vhdl.structure.
 @N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":2302:10:2302:12|Synthesizing work.efb.syn_black_box.
 Post processing for work.efb.syn_black_box
@@ -39,55 +49,50 @@ Post processing for work.vlo.syn_black_box
 Post processing for work.vhi.syn_black_box
 Post processing for work.efb_i2c_vhdl.structure
 Post processing for work.wb_manager.rtl
-@W: CL117 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":112:2:112:5|Latch generated from process for signal nState(0 to 5); possible missing assignment in an if or case statement.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|All reachable assignments to status_reg(0) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|All reachable assignments to status_reg(1) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|All reachable assignments to status_reg(2) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|All reachable assignments to status_reg(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|All reachable assignments to status_reg(4) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@A: CL282 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|Feedback mux created for signal status_reg[7:5]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@W: CL117 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":110:2:110:5|Latch generated from process for signal nState(0 to 5); possible missing assignment in an if or case statement.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":96:2:96:3|All reachable assignments to status(0) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":96:2:96:3|All reachable assignments to status(1) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":96:2:96:3|All reachable assignments to status(2) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":96:2:96:3|All reachable assignments to status(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":96:2:96:3|All reachable assignments to status(4) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@A: CL282 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":96:2:96:3|Feedback mux created for signal status[7:5]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+Post processing for work.i2c_master_controller.beh_i2c_master_controller
+@W: CL240 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":16:2:16:7|Signal data_o is floating; a simulation mismatch is possible.
+@W: CL117 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":155:2:155:5|Latch generated from process for signal nState(0 to 12); possible missing assignment in an if or case statement.
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd":8:7:8:15|Synthesizing work.heartbeat.beh_arch.
 Post processing for work.heartbeat.beh_arch
 @W: CL271 :"D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd":30:1:30:2|Pruning unused bits 32 to 21 of iCounter(32 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 Post processing for work.top_module.sample_arch
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(2) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(4) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(5) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(6) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(7) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL251 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:33:24:38|All reachable assignments to main.option(1 downto 0) assign 1, register removed by optimization
-@W: CL246 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":16:3:16:12|Input port bits 7 to 3 of option_reg(7 downto 0) are unused. Assign logic for all port bits or change the input port size.
-@W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:22|Pruning register bit 7 of data_io(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:22|Pruning register bit 5 of data_io(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:22|Pruning register bit 1 of data_io(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Pruning register bit 7 of addr_i(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL279 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Pruning register bits 5 to 3 of addr_i(7 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@N: CL189 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Register bit addr_i(1) is always 0.
-@N: CL189 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:22|Register bit data_io(3) is always 0.
-@W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:22|Pruning register bit 3 of data_io(4 downto 2). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL260 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Pruning register bit 1 of addr_i(2 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@N: CL201 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":99:7:99:13|Trying to extract state machine for register NoName.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:25|All reachable assignments to main.i2c_data_i(0) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:25|All reachable assignments to main.i2c_data_i(1) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:25|All reachable assignments to main.i2c_data_i(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|All reachable assignments to main.addr_i(1) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|All reachable assignments to main.addr_i(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL177 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Sharing sequential element addr_i. Add a syn_preserve attribute to the element to prevent sharing.
+@W: CL177 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|Sharing sequential element addr_i. Add a syn_preserve attribute to the element to prevent sharing.
+@W: CL251 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:8:24:13|All reachable assignments to main.addr_i(0) assign 1, register removed by optimization
+@W: CL251 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:25|All reachable assignments to main.i2c_data_i(7 downto 4) assign 1, register removed by optimization
+@W: CL251 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":24:16:24:25|All reachable assignments to main.i2c_data_i(2) assign 1, register removed by optimization
+@W: CL246 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":16:3:16:8|Input port bits 7 to 3 of option(7 downto 0) are unused. Assign logic for all port bits or change the input port size.
 @N: CL159 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":13:2:13:8|Input usb_osc is unused.
 
-At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 71MB peak: 72MB)
+At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 70MB peak: 71MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Aug 26 16:31:15 2019
+# Mon Sep  2 16:01:49 2019
 
 ###########################################################]
 Synopsys Netlist Linker, version comp2017q2p1, Build 190R, built Aug  4 2017
 @N|Running in 64-bit mode
-File D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\synwork\layer0.srs changed - recompiling
 
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Aug 26 16:31:16 2019
+# Mon Sep  2 16:01:49 2019
 
 ###########################################################]
 @END
@@ -97,7 +102,7 @@ At c_hdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Aug 26 16:31:16 2019
+# Mon Sep  2 16:01:49 2019
 
 ###########################################################]
 Synopsys Netlist Linker, version comp2017q2p1, Build 190R, built Aug  4 2017
@@ -109,12 +114,12 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Aug 26 16:31:17 2019
+# Mon Sep  2 16:01:50 2019
 
 ###########################################################]
 Pre-mapping Report
 
-# Mon Aug 26 16:31:17 2019
+# Mon Sep  2 16:01:50 2019
 
 Synopsys Lattice Technology Pre-mapping, Version maplat, Build 1796R, Built Aug  4 2017 11:10:16
 Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated documentation are proprietary to Synopsys, Inc. and may only be used pursuant to the terms and conditions of a written license agreement with Synopsys, Inc. All other use, reproduction, modification, or distribution of the Synopsys software or the associated documentation is strictly prohibited.
@@ -139,10 +144,8 @@ Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00
 
 Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 114MB)
 
-@W: BN287 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|Register cState[0:5] with reset has an initial value of 1. Ignoring initial value.  
-@W: FX474 |User-specified initial value defined for some sequential elements which can prevent optimum synthesis results from being achieved. 
-@W: BN132 :"d:\workingdir\fpga\pico_dev_test\top_level.vhd":24:16:24:22|Removing sequential instance data_io[2] because it is equivalent to instance addr_i[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"d:\workingdir\fpga\pico_dev_test\top_level.vhd":24:16:24:22|Removing sequential instance data_io[0] because it is equivalent to instance addr_i[2]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN287 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":96:2:96:3|Register cState[0:5] with reset has an initial value of 1. Ignoring initial value.  
+@W: BN287 :"d:\workingdir\fpga\pico_dev_test\i2c_master_controller.vhd":96:2:96:3|Register cState[0:12] with reset has an initial value of 1. Ignoring initial value.  
 ICG Latch Removal Summary:
 Number of ICG latches removed:	0
 Number of ICG latches not removed:	0
@@ -155,17 +158,16 @@ Finished netlist restructuring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0
 Clock Summary
 ******************
 
-          Start                                          Requested     Requested     Clock                                                Clock                   Clock
-Level     Clock                                          Frequency     Period        Type                                                 Group                   Load 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-0 -       System                                         1.0 MHz       1000.000      system                                               system_clkgroup         6    
-                                                                                                                                                                       
-0 -       top_module|sys_clk_inferred_clock              133.0 MHz     7.519         inferred                                             Inferred_clkgroup_0     30   
-1 .         wb_manager|status_reg_1_derived_clock[5]     133.0 MHz     7.519         derived (from top_module|sys_clk_inferred_clock)     Inferred_clkgroup_0     8    
-=======================================================================================================================================================================
+          Start                                 Requested     Requested     Clock        Clock                   Clock
+Level     Clock                                 Frequency     Period        Type         Group                   Load 
+----------------------------------------------------------------------------------------------------------------------
+0 -       System                                1.0 MHz       1000.000      system       system_clkgroup         19   
+                                                                                                                      
+0 -       top_module|sys_clk_inferred_clock     133.0 MHz     7.519         inferred     Inferred_clkgroup_0     43   
+======================================================================================================================
 
-@W: MT531 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":112:2:112:5|Found signal identified as System clock which controls 6 sequential elements including wb_manager0.nState[0:5].  Using this clock, which has no specified timing constraint, can prevent conversion of gated or generated clocks and can adversely impact design performance. 
-@W: MT529 :"d:\workingdir\fpga\pico_dev_test\heartbeat.vhd":30:1:30:2|Found inferred clock top_module|sys_clk_inferred_clock which controls 30 sequential elements including HeartBeatInst0.iCounter[20:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
+@W: MT531 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":110:2:110:5|Found signal identified as System clock which controls 19 sequential elements including i2c_master_controller_Inst0.wb_manager0.nState[0:5].  Using this clock, which has no specified timing constraint, can prevent conversion of gated or generated clocks and can adversely impact design performance. 
+@W: MT529 :"d:\workingdir\fpga\pico_dev_test\heartbeat.vhd":30:1:30:2|Found inferred clock top_module|sys_clk_inferred_clock which controls 43 sequential elements including HeartBeatInst0.iCounter[20:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
 
 Finished Pre Mapping Phase.
 
@@ -174,8 +176,8 @@ Starting constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:0
 
 Finished constraint checker preprocessing (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
 
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|Removing sequential instance status_reg_1[7] (in view: work.wb_manager(rtl)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|Removing sequential instance status_reg_1[6] (in view: work.wb_manager(rtl)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":96:2:96:3|Removing sequential instance status_1[7] (in view: work.wb_manager(rtl)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":96:2:96:3|Removing sequential instance status_1[6] (in view: work.wb_manager(rtl)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
 None
 None
 
@@ -186,12 +188,12 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 55MB peak: 141MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Mon Aug 26 16:31:18 2019
+# Mon Sep  2 16:01:51 2019
 
 ###########################################################]
 Map & Optimize Report
 
-# Mon Aug 26 16:31:18 2019
+# Mon Sep  2 16:01:51 2019
 
 Synopsys Lattice Technology Mapper, Version maplat, Build 1796R, Built Aug  4 2017 11:10:16
 Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated documentation are proprietary to Synopsys, Inc. and may only be used pursuant to the terms and conditions of a written license agreement with Synopsys, Inc. All other use, reproduction, modification, or distribution of the Synopsys software or the associated documentation is strictly prohibited.
@@ -225,18 +227,24 @@ Available hyper_sources - for debug and ip models
 Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
 
 @N: MO231 :"d:\workingdir\fpga\pico_dev_test\heartbeat.vhd":30:1:30:2|Found counter in view:work.top_module(sample_arch) instance HeartBeatInst0.iCounter[20:0] 
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|Removing sequential instance status_reg_1[7] (in view: work.wb_manager(rtl)) because it does not drive other instances.
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":98:2:98:3|Removing sequential instance status_reg_1[6] (in view: work.wb_manager(rtl)) because it does not drive other instances.
-@W: MO129 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":112:2:112:5|Sequential instance wb_manager0.nState[0] is reduced to a combinational gate by constant propagation.
+@W: MO129 :"d:\workingdir\fpga\pico_dev_test\i2c_master_controller.vhd":155:2:155:5|Sequential instance i2c_master_controller_Inst0.nState[7] is reduced to a combinational gate by constant propagation.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":96:2:96:3|Removing sequential instance status_1[7] (in view: work.wb_manager(rtl)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":96:2:96:3|Removing sequential instance status_1[6] (in view: work.wb_manager(rtl)) because it does not drive other instances.
+@W: MO129 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":110:2:110:5|Sequential instance i2c_master_controller_Inst0.wb_manager0.nState[0] is reduced to a combinational gate by constant propagation.
 
-Starting factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
+Starting factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
 
 
-Finished factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
+Finished factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
 
 
 Starting gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
 
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_master_controller.vhd":96:2:96:3|Removing sequential instance i2c_master_controller_Inst0.cState[8] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_master_controller.vhd":96:2:96:3|Removing sequential instance i2c_master_controller_Inst0.cState[1] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_master_controller.vhd":96:2:96:3|Removing sequential instance i2c_master_controller_Inst0.cState[2] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_master_controller.vhd":96:2:96:3|Removing sequential instance i2c_master_controller_Inst0.cState[3] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":96:2:96:3|Removing sequential instance i2c_master_controller_Inst0.wb_manager0.status_1[5] (in view: work.top_module(sample_arch)) because it does not drive other instances.
 
 Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
 
@@ -256,19 +264,19 @@ Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:00s; CP
 Finished preparing to map (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
 
 
-Finished technology mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
+Finished technology mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
-   1		0h:00m:00s		     2.63ns		  13 /        35
+   1		0h:00m:00s		   995.11ns		  19 /        40
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
 
 @N: FX164 |The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.  
 
 Finished restoring hierarchy (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
 
-@N: MT611 :|Automatically generated clock wb_manager|status_reg_1_derived_clock[5] is not used and is being removed
+@N: MT611 :|Automatically generated clock top_module|sys_clk_inferred_clock is not used and is being removed
 
 
 @S |Clock Optimization Summary
@@ -277,15 +285,16 @@ Finished restoring hierarchy (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:
 #### START OF CLOCK OPTIMIZATION REPORT #####[
 
 0 non-gated/non-generated clock tree(s) driving 0 clock pin(s) of sequential element(s)
-2 gated/generated clock tree(s) driving 40 clock pin(s) of sequential element(s)
-0 instances converted, 40 sequential instances remain driven by gated/generated clocks
+3 gated/generated clock tree(s) driving 57 clock pin(s) of sequential element(s)
+0 instances converted, 57 sequential instances remain driven by gated/generated clocks
 
-============================================================================================================ Gated/Generated Clocks ============================================================================================================
-Clock Tree ID     Driving Element                     Drive Element Type     Fanout     Sample Instance           Explanation                                                                                                                   
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-@K:CKID0001       OSCInst0                            OSCH                   35         addr_i[0]                 Gating structure creates improper gating logic. See the Gated Clocks description in the user guide for conversion requirements
-@K:CKID0002       wb_manager0.nState_1_sqmuxa_2_i     ORCALUT4               5          wb_manager0.nState[1]     No clocks found on inputs                                                                                                     
-================================================================================================================================================================================================================================================
+======================================================================================================================================== Gated/Generated Clocks ========================================================================================================================================
+Clock Tree ID     Driving Element                                                 Drive Element Type     Fanout     Sample Instance                                       Explanation                                                                                                                   
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+@K:CKID0001       OSCInst0                                                        OSCH                   40         i2c_master_controller_Inst0.wb_manager0.status[5]     Gating structure creates improper gating logic. See the Gated Clocks description in the user guide for conversion requirements
+@K:CKID0002       i2c_master_controller_Inst0.un1_cState_3_i                      ORCALUT4               12         i2c_master_controller_Inst0.nState[0]                 No clocks found on inputs                                                                                                     
+@K:CKID0003       i2c_master_controller_Inst0.wb_manager0.nState_1_sqmuxa_2_i     ORCALUT4               5          i2c_master_controller_Inst0.wb_manager0.nState[1]     No clocks found on inputs                                                                                                     
+========================================================================================================================================================================================================================================================================================================
 
 
 ##### END OF CLOCK OPTIMIZATION REPORT ######]
@@ -308,16 +317,15 @@ Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:01s
 Start final timing analysis (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 144MB peak: 145MB)
 
 @W: MT246 :"d:\workingdir\fpga\pico_dev_test\efb_i2c_vhdl.vhd":158:4:158:12|Blackbox EFB is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results) 
-@W: MT420 |Found inferred clock top_module|sys_clk_inferred_clock with period 7.52ns. Please declare a user-defined clock on object "n:sys_clk"
 
 
 ##### START OF TIMING REPORT #####[
-# Timing Report written on Mon Aug 26 16:31:19 2019
+# Timing Report written on Mon Sep  2 16:01:53 2019
 #
 
 
 Top view:               top_module
-Requested Frequency:    133.0 MHz
+Requested Frequency:    1.0 MHz
 Wire load mode:         top
 Paths requested:        5
 Constraint File(s):    
@@ -331,14 +339,13 @@ Performance Summary
 *******************
 
 
-Worst slack in design: 2.063
+Worst slack in design: 994.544
 
-                                      Requested     Estimated     Requested     Estimated               Clock        Clock              
-Starting Clock                        Frequency     Frequency     Period        Period        Slack     Type         Group              
-----------------------------------------------------------------------------------------------------------------------------------------
-top_module|sys_clk_inferred_clock     133.0 MHz     183.3 MHz     7.519         5.456         2.063     inferred     Inferred_clkgroup_0
-System                                1.0 MHz       1.0 MHz       1000.000      993.559       6.441     system       system_clkgroup    
-========================================================================================================================================
+                   Requested     Estimated     Requested     Estimated                 Clock      Clock          
+Starting Clock     Frequency     Frequency     Period        Period        Slack       Type       Group          
+-----------------------------------------------------------------------------------------------------------------
+System             1.0 MHz       183.3 MHz     1000.000      5.456         994.544     system     system_clkgroup
+=================================================================================================================
 
 
 
@@ -347,14 +354,12 @@ System                                1.0 MHz       1.0 MHz       1000.000      
 Clock Relationships
 *******************
 
-Clocks                                                                |    rise  to  rise   |    fall  to  fall   |    rise  to  fall   |    fall  to  rise 
-------------------------------------------------------------------------------------------------------------------------------------------------------------
-Starting                           Ending                             |  constraint  slack  |  constraint  slack  |  constraint  slack  |  constraint  slack
-------------------------------------------------------------------------------------------------------------------------------------------------------------
-System                             top_module|sys_clk_inferred_clock  |  7.519       6.441  |  No paths    -      |  No paths    -      |  No paths    -    
-top_module|sys_clk_inferred_clock  System                             |  7.519       5.842  |  No paths    -      |  No paths    -      |  No paths    -    
-top_module|sys_clk_inferred_clock  top_module|sys_clk_inferred_clock  |  7.519       2.063  |  No paths    -      |  No paths    -      |  No paths    -    
-============================================================================================================================================================
+Clocks            |    rise  to  rise     |    fall  to  fall   |    rise  to  fall   |    fall  to  rise 
+----------------------------------------------------------------------------------------------------------
+Starting  Ending  |  constraint  slack    |  constraint  slack  |  constraint  slack  |  constraint  slack
+----------------------------------------------------------------------------------------------------------
+System    System  |  1000.000    994.544  |  No paths    -      |  No paths    -      |  No paths    -    
+==========================================================================================================
  Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
        'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
 
@@ -368,7 +373,7 @@ No IO constraint found
 
 
 ====================================
-Detailed Report for Clock: top_module|sys_clk_inferred_clock
+Detailed Report for Clock: System
 ====================================
 
 
@@ -376,41 +381,41 @@ Detailed Report for Clock: top_module|sys_clk_inferred_clock
 Starting Points with Worst Slack
 ********************************
 
-                               Starting                                                                  Arrival          
-Instance                       Reference                             Type        Pin     Net             Time        Slack
-                               Clock                                                                                      
---------------------------------------------------------------------------------------------------------------------------
-HeartBeatInst0.iCounter[0]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[0]     0.972       2.063
-HeartBeatInst0.iCounter[1]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[1]     0.972       2.205
-HeartBeatInst0.iCounter[2]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[2]     0.972       2.205
-HeartBeatInst0.iCounter[3]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[3]     0.972       2.348
-HeartBeatInst0.iCounter[4]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[4]     0.972       2.348
-HeartBeatInst0.iCounter[5]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[5]     0.972       2.491
-HeartBeatInst0.iCounter[6]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[6]     0.972       2.491
-HeartBeatInst0.iCounter[7]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[7]     0.972       2.634
-HeartBeatInst0.iCounter[8]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[8]     0.972       2.634
-HeartBeatInst0.iCounter[9]     top_module|sys_clk_inferred_clock     FD1S3DX     Q       iCounter[9]     0.972       2.777
-==========================================================================================================================
+                               Starting                                          Arrival            
+Instance                       Reference     Type        Pin     Net             Time        Slack  
+                               Clock                                                                
+----------------------------------------------------------------------------------------------------
+HeartBeatInst0.iCounter[0]     System        FD1S3DX     Q       iCounter[0]     0.972       994.544
+HeartBeatInst0.iCounter[1]     System        FD1S3DX     Q       iCounter[1]     0.972       994.687
+HeartBeatInst0.iCounter[2]     System        FD1S3DX     Q       iCounter[2]     0.972       994.687
+HeartBeatInst0.iCounter[3]     System        FD1S3DX     Q       iCounter[3]     0.972       994.830
+HeartBeatInst0.iCounter[4]     System        FD1S3DX     Q       iCounter[4]     0.972       994.830
+HeartBeatInst0.iCounter[5]     System        FD1S3DX     Q       iCounter[5]     0.972       994.972
+HeartBeatInst0.iCounter[6]     System        FD1S3DX     Q       iCounter[6]     0.972       994.972
+HeartBeatInst0.iCounter[7]     System        FD1S3DX     Q       iCounter[7]     0.972       995.115
+HeartBeatInst0.iCounter[8]     System        FD1S3DX     Q       iCounter[8]     0.972       995.115
+HeartBeatInst0.iCounter[9]     System        FD1S3DX     Q       iCounter[9]     0.972       995.258
+====================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                                Starting                                                                     Required          
-Instance                        Reference                             Type        Pin     Net                Time         Slack
-                                Clock                                                                                          
--------------------------------------------------------------------------------------------------------------------------------
-HeartBeatInst0.iCounter[19]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[19]     7.413        2.063
-HeartBeatInst0.iCounter[20]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[20]     7.413        2.063
-HeartBeatInst0.iCounter[17]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[17]     7.413        2.205
-HeartBeatInst0.iCounter[18]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[18]     7.413        2.205
-HeartBeatInst0.iCounter[15]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[15]     7.413        2.348
-HeartBeatInst0.iCounter[16]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[16]     7.413        2.348
-HeartBeatInst0.iCounter[13]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[13]     7.413        2.491
-HeartBeatInst0.iCounter[14]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[14]     7.413        2.491
-HeartBeatInst0.iCounter[11]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[11]     7.413        2.634
-HeartBeatInst0.iCounter[12]     top_module|sys_clk_inferred_clock     FD1S3DX     D       iCounter_s[12]     7.413        2.634
-===============================================================================================================================
+                                Starting                                             Required            
+Instance                        Reference     Type        Pin     Net                Time         Slack  
+                                Clock                                                                    
+---------------------------------------------------------------------------------------------------------
+HeartBeatInst0.iCounter[19]     System        FD1S3DX     D       iCounter_s[19]     999.894      994.544
+HeartBeatInst0.iCounter[20]     System        FD1S3DX     D       iCounter_s[20]     999.894      994.544
+HeartBeatInst0.iCounter[17]     System        FD1S3DX     D       iCounter_s[17]     999.894      994.687
+HeartBeatInst0.iCounter[18]     System        FD1S3DX     D       iCounter_s[18]     999.894      994.687
+HeartBeatInst0.iCounter[15]     System        FD1S3DX     D       iCounter_s[15]     999.894      994.830
+HeartBeatInst0.iCounter[16]     System        FD1S3DX     D       iCounter_s[16]     999.894      994.830
+HeartBeatInst0.iCounter[13]     System        FD1S3DX     D       iCounter_s[13]     999.894      994.972
+HeartBeatInst0.iCounter[14]     System        FD1S3DX     D       iCounter_s[14]     999.894      994.972
+HeartBeatInst0.iCounter[11]     System        FD1S3DX     D       iCounter_s[11]     999.894      995.115
+HeartBeatInst0.iCounter[12]     System        FD1S3DX     D       iCounter_s[12]     999.894      995.115
+=========================================================================================================
 
 
 
@@ -419,20 +424,22 @@ Worst Path Information
 
 
 Path information for path number 1: 
-      Requested Period:                      7.519
+      Requested Period:                      1000.000
     - Setup time:                            0.106
     + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         7.413
+    + Estimated clock delay at ending point: 0.000
+    = Required time:                         999.894
 
     - Propagation time:                      5.351
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (critical) :                     2.063
+    - Estimated clock delay at start point:  -0.000
+    = Slack (critical) :                     994.544
 
     Number of logic level(s):                11
     Starting point:                          HeartBeatInst0.iCounter[0] / Q
     Ending point:                            HeartBeatInst0.iCounter[20] / D
-    The start point is clocked by            top_module|sys_clk_inferred_clock [rising] on pin CK
-    The end   point is clocked by            top_module|sys_clk_inferred_clock [rising] on pin CK
+    The start point is clocked by            System [rising] on pin CK
+    The end   point is clocked by            System [rising] on pin CK
 
 Instance / Net                                    Pin      Pin               Arrival     No. of    
 Name                                  Type        Name     Dir     Delay     Time        Fan Out(s)
@@ -477,75 +484,6 @@ HeartBeatInst0.iCounter[20]           FD1S3DX     D        In      0.000     5.3
 
 
 
-
-====================================
-Detailed Report for Clock: System
-====================================
-
-
-
-Starting Points with Worst Slack
-********************************
-
-                          Starting                                        Arrival          
-Instance                  Reference     Type        Pin     Net           Time        Slack
-                          Clock                                                            
--------------------------------------------------------------------------------------------
-wb_manager0.nState[1]     System        FD1S1AY     Q       nState[1]     0.972       6.441
-wb_manager0.nState[2]     System        FD1S1AY     Q       nState[2]     0.972       6.441
-wb_manager0.nState[3]     System        FD1S1AY     Q       nState[3]     0.972       6.441
-wb_manager0.nState[4]     System        FD1S1AY     Q       nState[4]     0.972       6.441
-wb_manager0.nState[5]     System        FD1S1AY     Q       nState[5]     0.972       6.441
-===========================================================================================
-
-
-Ending Points with Worst Slack
-******************************
-
-                          Starting                                        Required          
-Instance                  Reference     Type        Pin     Net           Time         Slack
-                          Clock                                                             
---------------------------------------------------------------------------------------------
-wb_manager0.cState[1]     System        FD1S3DX     D       nState[1]     7.413        6.441
-wb_manager0.cState[2]     System        FD1S3DX     D       nState[2]     7.413        6.441
-wb_manager0.cState[3]     System        FD1S3DX     D       nState[3]     7.413        6.441
-wb_manager0.cState[4]     System        FD1S3DX     D       nState[4]     7.413        6.441
-wb_manager0.cState[5]     System        FD1S3BX     D       nState[5]     7.413        6.441
-============================================================================================
-
-
-
-Worst Path Information
-***********************
-
-
-Path information for path number 1: 
-      Requested Period:                      7.519
-    - Setup time:                            0.106
-    + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         7.413
-
-    - Propagation time:                      0.972
-    - Clock delay at starting point:         0.000 (ideal)
-    - Estimated clock delay at start point:  -0.000
-    = Slack (non-critical) :                 6.441
-
-    Number of logic level(s):                0
-    Starting point:                          wb_manager0.nState[1] / Q
-    Ending point:                            wb_manager0.cState[1] / D
-    The start point is clocked by            System [rising] on pin CK
-    The end   point is clocked by            top_module|sys_clk_inferred_clock [rising] on pin CK
-
-Instance / Net                        Pin      Pin               Arrival     No. of    
-Name                      Type        Name     Dir     Delay     Time        Fan Out(s)
----------------------------------------------------------------------------------------
-wb_manager0.nState[1]     FD1S1AY     Q        Out     0.972     0.972       -         
-nState[1]                 Net         -        -       -         -           1         
-wb_manager0.cState[1]     FD1S3DX     D        In      0.000     0.972       -         
-=======================================================================================
-
-
-
 ##### END OF TIMING REPORT #####]
 
 Timing exceptions that could not be applied
@@ -560,8 +498,8 @@ Finished timing report (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01
 Resource Usage Report
 Part: lcmxo2_1200ze-1
 
-Register bits: 35 of 1280 (3%)
-Latch bits:      5
+Register bits: 40 of 1280 (3%)
+Latch bits:      17
 PIC Latch:       0
 I/O cells:       5
 
@@ -569,25 +507,24 @@ I/O cells:       5
 Details:
 BB:             2
 CCU2D:          11
-FD1P3AX:        8
-FD1S1AY:        5
-FD1S3AX:        1
-FD1S3BX:        1
-FD1S3DX:        25
+FD1P3AX:        1
+FD1S1AY:        17
+FD1S3BX:        3
+FD1S3DX:        36
 GSR:            1
 IB:             1
-INV:            2
+INV:            1
 OB:             2
-ORCALUT4:       12
+ORCALUT4:       18
 OSCH:           1
 PUR:            1
-VHI:            4
-VLO:            4
+VHI:            5
+VLO:            5
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 31MB peak: 145MB)
+At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 30MB peak: 145MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Mon Aug 26 16:31:19 2019
+# Mon Sep  2 16:01:53 2019
 
 ###########################################################]

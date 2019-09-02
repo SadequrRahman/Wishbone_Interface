@@ -1,0 +1,1 @@
+-w -erf D:/WorkingDir/Fpga/pico_dev_test/simulationfiles/compile/simulationfiles.erf -d D:/WorkingDir/Fpga/pico_dev_test/simulationfiles/compile -s D:/WorkingDir/Fpga/pico_dev_test/simulationfiles/library.cfg -j D:/WorkingDir/Fpga/pico_dev_test/simulationfiles/projlib.cfg -work work -dbg -work work D:/WorkingDir/Fpga/pico_dev_test/top_level.vhd 

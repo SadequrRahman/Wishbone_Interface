@@ -15,20 +15,20 @@ Target Vendor:  LATTICE
 Target Device:  LCMXO2-1200ZETQFP144
 Target Performance:   1
 Mapper:  xo2c00,  version:  Diamond (64-bit) 3.10.3.144
-Mapped on:  08/26/19  16:31:21
+Mapped on:  09/02/19  16:01:55
 
 Design Summary
 --------------
 
-   Number of registers:     40 out of  1604 (2%)
-      PFU registers:           40 out of  1280 (3%)
+   Number of registers:     57 out of  1604 (4%)
+      PFU registers:           57 out of  1280 (4%)
       PIO registers:            0 out of   324 (0%)
-   Number of SLICEs:        22 out of   640 (3%)
-      SLICEs as Logic/ROM:     22 out of   640 (3%)
+   Number of SLICEs:        30 out of   640 (5%)
+      SLICEs as Logic/ROM:     30 out of   640 (5%)
       SLICEs as RAM:            0 out of   480 (0%)
       SLICEs as Carry:         11 out of   640 (2%)
-   Number of LUT4s:         36 out of  1280 (3%)
-      Number used as logic LUTs:         14
+   Number of LUT4s:         41 out of  1280 (3%)
+      Number used as logic LUTs:         19
       Number used as distributed RAM:     0
       Number used as ripple logic:       22
       Number used as shift registers:     0
@@ -57,40 +57,42 @@ Design Summary
      distributed RAMs) + 2*(Number of ripple logic)
       2. Number of logic LUT4s does not include count of distributed RAM and
      ripple logic.
-   Number of clocks:  3
-     Net sys_clk_0: 20 loads, 20 rising, 0 falling (Driver: OSCInst0 )
-     Net wb_manager0/nState_1_sqmuxa_2_i: 3 loads, 3 rising, 0 falling (Driver:
+   Number of clocks:  4
+     Net sys_clk: 22 loads, 22 rising, 0 falling (Driver: OSCInst0 )
+     Net i2c_master_controller_Inst0/N_5: 6 loads, 6 rising, 0 falling (Driver:
 
                                     Page 1
 
 
 
 
-Design:  top_module                                    Date:  08/26/19  16:31:21
+Design:  top_module                                    Date:  09/02/19  16:01:55
 
 Design Summary (cont)
 ---------------------
-     wb_manager0/nState_1_sqmuxa_2_i )
-     Net wb_manager0/efb_i2c_Inst0/i2c1_scli: 1 loads, 1 rising, 0 falling
-     (Driver: PIO scl )
-   Number of Clock Enables:  2
+     i2c_master_controller_Inst0/un1_cState_3_i )
+     Net i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/i2c1_scli: 1
+     loads, 1 rising, 0 falling (Driver: PIO scl )
+     Net i2c_master_controller_Inst0/wb_manager0/nState_1_sqmuxa_2_i: 3 loads, 3
+     rising, 0 falling (Driver:
+     i2c_master_controller_Inst0/wb_manager0/nState_1_sqmuxa_2_i )
+   Number of Clock Enables:  1
      Net rst_n_c: 1 loads, 1 LSLICEs
-     Net status_reg_1_RNI75G51[5]: 4 loads, 4 LSLICEs
-   Number of local set/reset loads for net rst_n_c merged into GSR:  26
+   Number of local set/reset loads for net rst_n_c merged into GSR:  39
    Number of LSRs:  1
      Net rst_n_c: 1 loads, 0 LSLICEs
    Number of nets driven by tri-state buffers:  0
    Top 10 highest fanout non-clock nets:
-     Net wb_manager0.cState[1]: 9 loads
-     Net wb_manager0/cState[5]: 6 loads
-     Net rst_n_c: 5 loads
-     Net main.un5[0]: 4 loads
-     Net status_reg_1_RNI75G51[5]: 4 loads
-     Net wb_manager0/wb_adr_i[2]: 4 loads
-     Net main.un5[1]: 3 loads
-     Net main.un5[2]: 3 loads
-     Net wb_manager0/cState[2]: 3 loads
-     Net wb_manager0/cState[3]: 3 loads
+     Net i2c_master_controller_Inst0/addr_i_a2_2[6]: 7 loads
+     Net i2c_master_controller_Inst0/wb_manager0/cState[1]: 7 loads
+     Net i2c_master_controller_Inst0/wb_manager0/cState[5]: 6 loads
+     Net i2c_master_controller_Inst0/cState[4]: 5 loads
+     Net i2c_master_controller_Inst0/cState[5]: 5 loads
+     Net i2c_master_controller_Inst0/N_66_1: 5 loads
+     Net i2c_master_controller_Inst0/cState[10]: 4 loads
+     Net i2c_master_controller_Inst0/cState[9]: 4 loads
+     Net i2c_master_controller_Inst0/data[0]: 4 loads
+     Net i2c_master_controller_Inst0/wb_manager0/wb_adr_i[6]: 4 loads
 
 
 
@@ -125,14 +127,12 @@ WARNING - map: In "LOCATE COMP "sda" SITE "125" ;": Current SYS_CONFIG setting
      disabled.
 
 
-
-
                                     Page 2
 
 
 
 
-Design:  top_module                                    Date:  08/26/19  16:31:21
+Design:  top_module                                    Date:  09/02/19  16:01:55
 
 IO (PIO) Attributes
 -------------------
@@ -155,152 +155,160 @@ IO (PIO) Attributes
 Removed logic
 -------------
 
-Block wb_manager0/GND undriven or does not drive anything - clipped.
-Block wb_manager0/VCC undriven or does not drive anything - clipped.
+Block i2c_master_controller_Inst0/GND undriven or does not drive anything -
+     clipped.
+Block i2c_master_controller_Inst0/VCC undriven or does not drive anything -
+     clipped.
+Block i2c_master_controller_Inst0/wb_manager0/GND undriven or does not drive
+     anything - clipped.
+Block i2c_master_controller_Inst0/wb_manager0/VCC undriven or does not drive
+     anything - clipped.
 Signal rst_n_c_i was merged into signal rst_n_c
 Signal GND undriven or does not drive anything - clipped.
 Signal HeartBeatInst0/GND undriven or does not drive anything - clipped.
-Signal wb_manager0/efb_i2c_Inst0/VCC undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/GND undriven or does not drive anything -
-     clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/VCC undriven or
+     does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/GND undriven or
+     does not drive anything - clipped.
 Signal HeartBeatInst0/iCounter_cry_0_COUT[19] undriven or does not drive
      anything - clipped.
 Signal HeartBeatInst0/iCounter_cry_0_S0[0] undriven or does not drive anything -
      clipped.
 Signal HeartBeatInst0/N_1 undriven or does not drive anything - clipped.
-Signal wb_manager0/efb_i2c_Inst0/CFGSTDBY undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/CFGWAKE undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/WBCUFMIRQ undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/TCOC undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/TCINT undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/SPIIRQO undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/SPICSNEN undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/SPIMCSN7 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/SPIMCSN6 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/SPIMCSN5 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/SPIMCSN4 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/SPIMCSN3 undriven or does not drive anything -
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/CFGSTDBY undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/CFGWAKE undriven or
+     does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/WBCUFMIRQ undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/TCOC undriven or
+     does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/TCINT undriven or
+     does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/SPIIRQO undriven or
+     does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/SPICSNEN undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/SPIMCSN7 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/SPIMCSN6 undriven
 
                                     Page 3
 
 
 
 
-Design:  top_module                                    Date:  08/26/19  16:31:21
+Design:  top_module                                    Date:  09/02/19  16:01:55
 
 Removed logic (cont)
 --------------------
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/SPIMCSN2 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/SPIMCSN1 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/SPIMCSN0 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/SPIMOSIEN undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/SPIMOSIO undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/SPIMISOEN undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/SPIMISOO undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/SPISCKEN undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/SPISCKO undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/I2C2IRQO undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/i2c1_irqo undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/I2C2SDAOEN undriven or does not drive anything
-     - clipped.
-Signal wb_manager0/efb_i2c_Inst0/I2C2SDAO undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/I2C2SCLOEN undriven or does not drive anything
-     - clipped.
-Signal wb_manager0/efb_i2c_Inst0/I2C2SCLO undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLLDATO0 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLLDATO1 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLLDATO2 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLLDATO3 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLLDATO4 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLLDATO5 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLLDATO6 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLLDATO7 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLLADRO0 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLLADRO1 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLLADRO2 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLLADRO3 undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLLADRO4 undriven or does not drive anything -
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/SPIMCSN5 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/SPIMCSN4 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/SPIMCSN3 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/SPIMCSN2 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/SPIMCSN1 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/SPIMCSN0 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/SPIMOSIEN undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/SPIMOSIO undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/SPIMISOEN undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/SPIMISOO undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/SPISCKEN undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/SPISCKO undriven or
+     does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/I2C2IRQO undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/i2c1_irqo undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/I2C2SDAOEN undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/I2C2SDAO undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/I2C2SCLOEN undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/I2C2SCLO undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/PLLDATO0 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/PLLDATO1 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/PLLDATO2 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/PLLDATO3 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/PLLDATO4 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/PLLDATO5 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/PLLDATO6 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/PLLDATO7 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/PLLADRO0 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/PLLADRO1 undriven
 
                                     Page 4
 
 
 
 
-Design:  top_module                                    Date:  08/26/19  16:31:21
+Design:  top_module                                    Date:  09/02/19  16:01:55
 
 Removed logic (cont)
 --------------------
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLLWEO undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLL1STBO undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLL0STBO undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLLRSTO undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/PLLCLKO undriven or does not drive anything -
-     clipped.
-Signal wb_manager0/efb_i2c_Inst0/wb_dat_o_1[0] undriven or does not drive
-     anything - clipped.
-Signal wb_manager0/efb_i2c_Inst0/wb_dat_o_1[1] undriven or does not drive
-     anything - clipped.
-Signal wb_manager0/efb_i2c_Inst0/wb_dat_o_1[2] undriven or does not drive
-     anything - clipped.
-Signal wb_manager0/efb_i2c_Inst0/wb_dat_o_1[3] undriven or does not drive
-     anything - clipped.
-Signal wb_manager0/efb_i2c_Inst0/wb_dat_o_1[4] undriven or does not drive
-     anything - clipped.
-Signal wb_manager0/efb_i2c_Inst0/wb_dat_o_1[5] undriven or does not drive
-     anything - clipped.
-Signal wb_manager0/efb_i2c_Inst0/wb_dat_o_1[6] undriven or does not drive
-     anything - clipped.
-Signal wb_manager0/efb_i2c_Inst0/wb_dat_o_1[7] undriven or does not drive
-     anything - clipped.
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/PLLADRO2 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/PLLADRO3 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/PLLADRO4 undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/PLLWEO undriven or
+     does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/PLL1STBO undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/PLL0STBO undriven
+     or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/PLLRSTO undriven or
+     does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/PLLCLKO undriven or
+     does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/wb_dat_o_1[0]
+     undriven or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/wb_dat_o_1[1]
+     undriven or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/wb_dat_o_1[2]
+     undriven or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/wb_dat_o_1[3]
+     undriven or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/wb_dat_o_1[4]
+     undriven or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/wb_dat_o_1[5]
+     undriven or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/wb_dat_o_1[6]
+     undriven or does not drive anything - clipped.
+Signal i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/wb_dat_o_1[7]
+     undriven or does not drive anything - clipped.
 Signal stdby_sed undriven or does not drive anything - clipped.
-Block rst_n_c_i was optimized away.
+Block rst_n_pad_RNIQR5E was optimized away.
 Block GND was optimized away.
 Block HeartBeatInst0/GND was optimized away.
-Block wb_manager0/efb_i2c_Inst0/VCC was optimized away.
-Block wb_manager0/efb_i2c_Inst0/GND was optimized away.
+Block i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/VCC was optimized
+     away.
+Block i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/GND was optimized
+     away.
 
 Memory Usage
 ------------
@@ -315,25 +323,25 @@ OSC 1:                                     Pin/Node Value
   OSC Instance Name:                                OSCInst0
   OSC Type:                                         OSCH
   STDBY Input:                                      NONE
-  OSC Output:                              NODE     sys_clk_0
-  OSC Nominal Frequency (MHz):                      133.00
-
-Embedded Functional Block Connection Summary:
----------------------------------------------
-
-   Desired WISHBONE clock frequency: 133.0 MHz
-   Clock source:                     sys_clk_0
-   Reset source:                     rst_n_c
+  OSC Output:                              NODE     sys_clk
 
                                     Page 5
 
 
 
 
-Design:  top_module                                    Date:  08/26/19  16:31:21
+Design:  top_module                                    Date:  09/02/19  16:01:55
 
-Embedded Functional Block Connection Summary: (cont)
-----------------------------------------------------
+OSC Summary (cont)
+------------------
+  OSC Nominal Frequency (MHz):                      133.00
+
+Embedded Functional Block Connection Summary:
+---------------------------------------------
+
+   Desired WISHBONE clock frequency: 133.0 MHz
+   Clock source:                     sys_clk
+   Reset source:                     rst_n_c
    Functions mode:
       I2C #1 (Primary) Function:     ENABLED
       I2C #2 (Secondary) Function:   DISABLED
@@ -379,8 +387,16 @@ ASIC Components
 
 Instance Name: OSCInst0
          Type: OSCH
-Instance Name: wb_manager0/efb_i2c_Inst0/EFBInst_0
+Instance Name: i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/EFBInst_0
          Type: EFB
+
+
+                                    Page 6
+
+
+
+
+Design:  top_module                                    Date:  09/02/19  16:01:55
 
 GSR Usage
 ---------
@@ -390,16 +406,6 @@ GSR Component:
         Set Reset (GSR). The reset signal used for GSR control is 'rst_n_c'.
         
 
-
-                                    Page 6
-
-
-
-
-Design:  top_module                                    Date:  08/26/19  16:31:21
-
-GSR Usage (cont)
-----------------
      GSR Property:
    The design components with GSR property set to ENABLED will respond to global
         set reset while the components with GSR property set to DISABLED will
@@ -418,8 +424,8 @@ GSR Usage (cont)
    EFB = 1
 
      Type and instance name of component: 
-   Register : wb_manager0/status_reg_1[5]
-   EFB : wb_manager0/efb_i2c_Inst0/EFBInst_0
+   Register : i2c_master_controller_Inst0/wb_manager0/status[5]
+   EFB : i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0/EFBInst_0
 
 Run Time and Memory Usage
 -------------------------
@@ -428,12 +434,6 @@ Run Time and Memory Usage
    Total REAL Time: 0 secs  
    Peak Memory Usage: 39 MB
         
-
-
-
-
-
-
 
 
 

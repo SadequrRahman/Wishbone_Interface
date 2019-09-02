@@ -13,12 +13,10 @@ entity wb_manager is
 			rst_n_i		: in std_logic;
 			data_io 	: inout std_logic_vector(7 downto 0);
 			addr_i 		: in std_logic_vector(7 downto 0);
-			option_reg	: in std_logic_vector(7 downto 0);
-			status_reg	: out std_logic_vector(7 downto 0);
-			--data_o 		: out std_logic_vector(7 downto 0);
-			-- interface port (e.g i2c, spi etc)
-			scl      : inout std_logic;			-- to connect hardware pin from top level
-			sda      : inout std_logic			-- to connect hardware pin from top level
+			option		: in std_logic_vector(7 downto 0);
+			status		: out std_logic_vector(7 downto 0);
+			scl      	: inout std_logic;			-- to connect hardware pin from top level
+			sda      	: inout std_logic			-- to connect hardware pin from top level
 	);
 end wb_manager;
 
@@ -87,9 +85,9 @@ begin
 		);
 		
 	rst_p <= not(rst_n_i);
-	wb_dat_i <= data_io when wb_active = '1' and option_reg(1) = '1' else (others =>'0');
+	wb_dat_i <= data_io when wb_active = '1' and option(1) = '1' else (others =>'0');
 	wb_adr_i <= addr_i when wb_active ='1' else (others =>'0');
-	wb_dat_o <= data_io when wb_active = '1' and option_reg(1) = '0' else (others =>'0');
+	wb_dat_o <= data_io when wb_active = '1' and option(1) = '0' else (others =>'0');
 	
 		
 	reset_block : process(rst_n_i, clk_i)
@@ -101,16 +99,16 @@ begin
 		else
 			if rising_edge(clk_i) then
 				cState <= nState;
-				status_reg <= ( 7 => wb_busy, 6 =>wb_read_complete, 5 => wb_write_complete, others=> '0');
+				status <= ( 7 => wb_busy, 6 =>wb_read_complete, 5 => wb_write_complete, others=> '0');
 			end if;
 		end if;
 	end process reset_block;
 	
-	next_state_logic : process(cState, option_reg(0),option_reg(1),option_reg(2), wb_ack_o)
+	next_state_logic : process(cState, option(0),option(1),option(2), wb_ack_o)
 			begin
 		case (cState) is
 			when IDLE =>
-					if option_reg(0) = '1' then
+					if option(0) = '1' then
 						nState <= ACTIVE_WB;
 					else
 						nState <= IDLE;
@@ -124,10 +122,10 @@ begin
 							nState <= UPDATE_STATUS_FLAG;
 						end if;
 			when UPDATE_STATUS_FLAG =>
-						if option_reg(1) = '0' then
+						if option(1) = '0' then
 							nState <= UPDATE_STATUS_FLAG;
 						else
-							if option_reg(2) = '1' then 
+							if option(2) = '1' then 
 								nState <= ACTIVE_WB;
 							else
 								nState <= IDLE;
@@ -139,7 +137,7 @@ begin
 
 	end process next_state_logic;
 
-	output_logic : process(cState, option_reg(1))
+	output_logic : process(cState, option(1))
 	begin
 		wb_active <= '0';
 		wb_cyc_i <= '0';
@@ -169,7 +167,7 @@ begin
 			when ASSERT_CTRL =>
 						wb_busy <= '1'; 
 						wb_active <= '1';
-						if option_reg(1) = '0' then 
+						if option(1) = '0' then 
 							wb_we_i <= '0';
 						else
 							wb_we_i <= '1';
@@ -185,7 +183,7 @@ begin
 						wb_stb_i <= '1';
 			when UPDATE_STATUS_FLAG =>
 						wb_busy <= '1';
-						if option_reg(1) = '0' then 
+						if option(1) = '0' then 
 							wb_read_complete <= '1';
 						else
 							wb_write_complete <= '1';

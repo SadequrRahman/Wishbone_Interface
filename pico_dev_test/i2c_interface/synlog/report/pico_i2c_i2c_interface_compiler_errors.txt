@@ -1,6 +1,6 @@
-@E: CL219 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":38:8:38:14|Multiple non-tristate drivers for net wb_we_i in wb_manager
-@E: CL229 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":38:8:38:14|Unresolved tristate drivers for net wb_we_i in wb_manager
+@E: CL219 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":17:2:17:6|Multiple non-tristate drivers for net ack_o in i2c_master_controller
+@E: CL229 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_master_controller.vhd":17:2:17:6|Unresolved tristate drivers for net ack_o in i2c_master_controller
 @E: MF420 |Netlist read from file D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\synwork\layer0.srs failed
-@E: Could not find specified top level wb_manager (library: work, cell: wb_manager)Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+@E: Could not find specified top level top_module (library: work, cell: top_module)Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 @E::Error while linking, aborting.
 
