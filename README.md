@@ -24,10 +24,11 @@ It also provide two **inout**  signal to connect  connect hardware pins for seri
 
 ## Status register
 
-This is 8-bit status register for wishbone manager. Each bit represent individual status of the manager. Bit definition given below:
-|BIT7     |  BIT6   | BIT5   | BIT4 | BIT3   | BIT2 | BIT1   | BIT0 |
-|--------|---------|-------|-------|-------|-------|-------|-------|
-|**wb_busy** | **wb_read_complete** | **wb_write_complete** | **timeout_flag** | **reserved** | **reserved** | **reserved** | **reserved**|
+This is 8-bit status register for wishbone manager. Each bit represent individual status of the manager. Bit definition given below
+
+BIT7     |  BIT6   | BIT5   | BIT4 | BIT3   | BIT2 | BIT1   | BIT0 
+--------|---------|-------|-------|-------|-------|-------|-------
+**wb_busy** | **wb_read_complete** | **wb_write_complete** | **timeout_flag** | **reserved** | **reserved** | **reserved** | **reserved**
 
 - ##### wb_busy
     This bit  Indicate that wishbone manager is currently performing an operation. Before every write to wishbone manager check this bit. If the bit is **Zero** it means that wishbone manager is idle and **One** means wishbone is busy wait until this bit turn to **zero**.
