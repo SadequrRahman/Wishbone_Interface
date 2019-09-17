@@ -69,48 +69,10 @@ BIT7|BIT6|BIT5|BIT4|BIT3|BIT2|BIT1|BIT0
 
 ## Option register 
 
-This is a 8-bit control signal for wishbone manager. Bits defination are given below:
+This is a 8-bit control signal for wishbone manager. Bits defination are given below
+
 BIT7|BIT6|BIT5|BIT4|BIT3|BIT2|BIT1|BIT0 
 --------|---------|-------|-------|-------|-------|-------|-------
-**reserved** | **reserved** | **reserved** | **reserved** | **reserved** | **reserved** | **wb_we_cmd** | **wb_init_cmd**
- 
-- ##### wb_init_cmd
-    Assert this bit to initiate a wishbone operation (**NOTE** please check the `wb_busy` bit in status register before initiating an operation). Updated values for the operation should be written into the **data_io** and **addr_i** bus before asserting this bit.
-
-- ##### wb_we_cmd
-   - **'0'** write enable. (Write through wishbone interface)
-   - **'1'** read enable. (read through wishbone interface)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- ##### wb_busy
-    This bit  Indicate that wishbone manager is currently performing an operation. Before every write to wishbone manager check this bit. If the bit is **Zero** it means that wishbone manager is idle and **One** means wishbone is busy wait until this bit turn to **zero**.
-- ##### wb_read_complete
-    This bit  Indicate that wishbone manager is completed current read command.
-- ##### wb_write_complete
-    This bit  Indicate that wishbone manager is completed current write command.
-- ##### timeout_flag
-    This bit  Indicate that current is timeouted. (slave does not response)
-
-## Option register 
-
-This is a 8-bit control signal for wishbone manager. Bits defination are given below:
-BIT7 | BIT6 | BIT5 | BIT4 | BIT3 | BIT2 | BIT1 | BIT0
---- | --- | --- | --- | --- | --- | --- | ---
 **reserved** | **reserved** | **reserved** | **reserved** | **reserved** | **reserved** | **wb_we_cmd** | **wb_init_cmd**
  
 - ##### wb_init_cmd
