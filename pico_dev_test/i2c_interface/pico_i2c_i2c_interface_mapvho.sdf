@@ -1,7 +1,7 @@
 (DELAYFILE
   (SDFVERSION "3.0")
   (DESIGN "top_module")
-  (DATE "Wed Aug 14 20:02:50 2019")
+  (DATE "Tue Sep 17 17:12:44 2019")
   (VENDOR "Lattice")
   (PROGRAM "ldbanno")
   (VERSION "Diamond (64-bit) 3.10.3.144")
@@ -260,11 +260,37 @@
     )
   )
   (CELL
-    (CELLTYPE "heart_beatB")
-    (INSTANCE heart_beatI)
+    (CELLTYPE "HeartBeatInst0_SLICE_10")
+    (INSTANCE HeartBeatInst0_SLICE_10I)
     (DELAY
       (ABSOLUTE
-        (IOPATH PADDO heartbeat (2601:2704:2807)(2601:2704:2807))
+        (IOPATH A1 F1 (741:832:923)(741:832:923))
+        (IOPATH A1 FCO (1448:1621:1795)(1448:1621:1795))
+        (IOPATH A0 F0 (741:832:923)(741:832:923))
+        (IOPATH A0 F1 (1448:1621:1795)(1448:1621:1795))
+        (IOPATH A0 FCO (1668:1866:2064)(1668:1866:2064))
+        (IOPATH CLK Q0 (840:897:955)(840:897:955))
+        (IOPATH CLK Q1 (840:897:955)(840:897:955))
+        (IOPATH FCI F0 (955:1068:1181)(955:1068:1181))
+        (IOPATH FCI F1 (1047:1172:1298)(1047:1172:1298))
+        (IOPATH FCI FCO (262:289:317)(262:289:317))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
+      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
+    )
+    (TIMINGCHECK
+      (WIDTH (posedge CLK) (2000:2000:2000))
+      (WIDTH (negedge CLK) (2000:2000:2000))
+    )
+  )
+  (CELL
+    (CELLTYPE "enI2CB")
+    (INSTANCE enI2CI)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH PADDO enI2CS (2601:2704:2807)(2601:2704:2807))
       )
     )
   )
@@ -279,6 +305,15 @@
     (TIMINGCHECK
       (WIDTH (posedge rstn) (3330:3330:3330))
       (WIDTH (negedge rstn) (3330:3330:3330))
+    )
+  )
+  (CELL
+    (CELLTYPE "heart_beatB")
+    (INSTANCE heart_beatI)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH PADDO heartbeat (2601:2704:2807)(2601:2704:2807))
+      )
     )
   )
   (CELL
@@ -299,7 +334,8 @@
         (INTERCONNECT OSCInst0I/OSC HeartBeatInst0_SLICE_7I/CLK (0:0:0)(0:0:0))
         (INTERCONNECT OSCInst0I/OSC HeartBeatInst0_SLICE_8I/CLK (0:0:0)(0:0:0))
         (INTERCONNECT OSCInst0I/OSC HeartBeatInst0_SLICE_9I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_0I/FCO HeartBeatInst0_SLICE_9I/FCI (0:0:0)
+        (INTERCONNECT OSCInst0I/OSC HeartBeatInst0_SLICE_10I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT HeartBeatInst0_SLICE_0I/FCO HeartBeatInst0_SLICE_10I/FCI (0:0:0)
           (0:0:0))
         (INTERCONNECT HeartBeatInst0_SLICE_1I/Q1 HeartBeatInst0_SLICE_1I/A1 (0:0:0)(0:0:0))
         (INTERCONNECT HeartBeatInst0_SLICE_1I/Q1 heart_beatI/PADDO (0:0:0)(0:0:0))
@@ -372,7 +408,17 @@
           (0:0:0))
         (INTERCONNECT HeartBeatInst0_SLICE_9I/F0 HeartBeatInst0_SLICE_9I/DI0 (0:0:0)
           (0:0:0))
-        (INTERCONNECT rst_nI/PADDI OSCInst0I/STDBY (0:0:0)(0:0:0))
+        (INTERCONNECT HeartBeatInst0_SLICE_10I/FCO HeartBeatInst0_SLICE_9I/FCI (0:0:0)
+          (0:0:0))
+        (INTERCONNECT HeartBeatInst0_SLICE_10I/Q1 HeartBeatInst0_SLICE_10I/A1 (0:0:0)
+          (0:0:0))
+        (INTERCONNECT HeartBeatInst0_SLICE_10I/Q0 HeartBeatInst0_SLICE_10I/A0 (0:0:0)
+          (0:0:0))
+        (INTERCONNECT HeartBeatInst0_SLICE_10I/F1 HeartBeatInst0_SLICE_10I/DI1 (0:0:0)
+          (0:0:0))
+        (INTERCONNECT HeartBeatInst0_SLICE_10I/F0 HeartBeatInst0_SLICE_10I/DI0 (0:0:0)
+          (0:0:0))
+        (INTERCONNECT SLICE_11I/F0 enI2CI/PADDO (0:0:0)(0:0:0))
         (INTERCONNECT rst_nI/PADDI GSR_INST/GSRNET (0:0:0)(0:0:0))
       )
     )

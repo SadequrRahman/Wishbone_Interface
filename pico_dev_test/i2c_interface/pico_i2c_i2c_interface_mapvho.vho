@@ -1,9 +1,9 @@
 
 -- VHDL netlist produced by program ldbanno, Version Diamond (64-bit) 3.10.3.144
 
--- ldbanno -n VHDL -o pico_i2c_i2c_interface_mapvho.vho -w -neg -gui pico_i2c_i2c_interface_map.ncd 
--- Netlist created on Wed Aug 14 20:02:48 2019
--- Netlist written on Wed Aug 14 20:02:50 2019
+-- ldbanno -n VHDL -o pico_i2c_i2c_interface_mapvho.vho -w -neg -gui -msgset D:/WorkingDir/Fpga/pico_dev_test/promote.xml pico_i2c_i2c_interface_map.ncd 
+-- Netlist created on Tue Sep 17 17:12:43 2019
+-- Netlist written on Tue Sep 17 17:12:44 2019
 -- Design is for device LCMXO2-1200ZE
 -- Design is for package TQFP144
 -- Design is for performance grade 1
@@ -375,17 +375,17 @@
             S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
     end component;
   begin
-    HeartBeatInst0_iCounter_18: vmuxregsre
+    HeartBeatInst0_iCounter_20: vmuxregsre
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    HeartBeatInst0_iCounter_17: vmuxregsre
+    HeartBeatInst0_iCounter_19: vmuxregsre
       port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_17: ccu20001
+    HeartBeatInst0_iCounter_cry_0_19: ccu20001
       port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
                 C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
                 CO1=>open);
@@ -641,17 +641,17 @@
             S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
     end component;
   begin
-    HeartBeatInst0_iCounter_16: vmuxregsre
+    HeartBeatInst0_iCounter_18: vmuxregsre
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    HeartBeatInst0_iCounter_15: vmuxregsre
+    HeartBeatInst0_iCounter_17: vmuxregsre
       port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_15: ccu20002
+    HeartBeatInst0_iCounter_cry_0_17: ccu20002
       port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
                 C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
                 CO1=>FCO_out);
@@ -898,17 +898,17 @@
             S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
     end component;
   begin
-    HeartBeatInst0_iCounter_14: vmuxregsre
+    HeartBeatInst0_iCounter_16: vmuxregsre
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    HeartBeatInst0_iCounter_13: vmuxregsre
+    HeartBeatInst0_iCounter_15: vmuxregsre
       port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_13: ccu20002
+    HeartBeatInst0_iCounter_cry_0_15: ccu20002
       port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
                 C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
                 CO1=>FCO_out);
@@ -1155,17 +1155,17 @@
             S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
     end component;
   begin
-    HeartBeatInst0_iCounter_12: vmuxregsre
+    HeartBeatInst0_iCounter_14: vmuxregsre
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    HeartBeatInst0_iCounter_11: vmuxregsre
+    HeartBeatInst0_iCounter_13: vmuxregsre
       port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_11: ccu20002
+    HeartBeatInst0_iCounter_cry_0_13: ccu20002
       port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
                 C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
                 CO1=>FCO_out);
@@ -1412,17 +1412,17 @@
             S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
     end component;
   begin
-    HeartBeatInst0_iCounter_10: vmuxregsre
+    HeartBeatInst0_iCounter_12: vmuxregsre
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    HeartBeatInst0_iCounter_9: vmuxregsre
+    HeartBeatInst0_iCounter_11: vmuxregsre
       port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_9: ccu20002
+    HeartBeatInst0_iCounter_cry_0_11: ccu20002
       port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
                 C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
                 CO1=>FCO_out);
@@ -1669,17 +1669,17 @@
             S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
     end component;
   begin
-    HeartBeatInst0_iCounter_8: vmuxregsre
+    HeartBeatInst0_iCounter_10: vmuxregsre
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    HeartBeatInst0_iCounter_7: vmuxregsre
+    HeartBeatInst0_iCounter_9: vmuxregsre
       port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_7: ccu20002
+    HeartBeatInst0_iCounter_cry_0_9: ccu20002
       port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
                 C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
                 CO1=>FCO_out);
@@ -1926,17 +1926,17 @@
             S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
     end component;
   begin
-    HeartBeatInst0_iCounter_6: vmuxregsre
+    HeartBeatInst0_iCounter_8: vmuxregsre
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    HeartBeatInst0_iCounter_5: vmuxregsre
+    HeartBeatInst0_iCounter_7: vmuxregsre
       port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_5: ccu20002
+    HeartBeatInst0_iCounter_cry_0_7: ccu20002
       port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
                 C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
                 CO1=>FCO_out);
@@ -2183,17 +2183,17 @@
             S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
     end component;
   begin
-    HeartBeatInst0_iCounter_4: vmuxregsre
+    HeartBeatInst0_iCounter_6: vmuxregsre
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    HeartBeatInst0_iCounter_3: vmuxregsre
+    HeartBeatInst0_iCounter_5: vmuxregsre
       port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_3: ccu20002
+    HeartBeatInst0_iCounter_cry_0_5: ccu20002
       port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
                 C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
                 CO1=>FCO_out);
@@ -2440,6 +2440,263 @@
             S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
     end component;
   begin
+    HeartBeatInst0_iCounter_4: vmuxregsre
+      port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
+                LSR=>GNDI, Q=>Q1_out);
+    DRIVEVCC: vcc
+      port map (PWR1=>VCCI);
+    DRIVEGND: gnd
+      port map (PWR0=>GNDI);
+    HeartBeatInst0_iCounter_3: vmuxregsre
+      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
+                LSR=>GNDI, Q=>Q0_out);
+    HeartBeatInst0_iCounter_cry_0_3: ccu20002
+      port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
+                C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
+                CO1=>FCO_out);
+
+    --  INPUT PATH DELAYs
+    WireDelay : BLOCK
+    BEGIN
+      VitalWireDelay(A1_ipd, A1, tipd_A1);
+      VitalWireDelay(A0_ipd, A0, tipd_A0);
+      VitalWireDelay(DI1_ipd, DI1, tipd_DI1);
+      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
+      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
+      VitalWireDelay(FCI_ipd, FCI, tipd_FCI);
+    END BLOCK;
+
+    --  Setup and Hold DELAYs
+    SignalDelay : BLOCK
+    BEGIN
+      VitalSignalDelay(DI1_dly, DI1_ipd, tisd_DI1_CLK);
+      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
+      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
+    END BLOCK;
+
+    VitalBehavior : PROCESS (A1_ipd, A0_ipd, DI1_dly, DI0_dly, CLK_dly, 
+      FCI_ipd, F0_out, Q0_out, F1_out, Q1_out, FCO_out)
+    VARIABLE F0_zd         	: std_logic := 'X';
+    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
+    VARIABLE Q0_zd         	: std_logic := 'X';
+    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
+    VARIABLE F1_zd         	: std_logic := 'X';
+    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
+    VARIABLE Q1_zd         	: std_logic := 'X';
+    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
+    VARIABLE FCO_zd         	: std_logic := 'X';
+    VARIABLE FCO_GlitchData 	: VitalGlitchDataType;
+
+    VARIABLE tviol_DI1_CLK       	: x01 := '0';
+    VARIABLE DI1_CLK_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_DI0_CLK       	: x01 := '0';
+    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_CLK_CLK          	: x01 := '0';
+    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
+
+    BEGIN
+
+    IF (TimingChecksOn) THEN
+      VitalSetupHoldCheck (
+        TestSignal => DI1_dly,
+        TestSignalName => "DI1",
+        TestDelay => tisd_DI1_CLK,
+        RefSignal => CLK_dly,
+        RefSignalName => "CLK",
+        RefDelay => ticd_CLK,
+        SetupHigh => tsetup_DI1_CLK_noedge_posedge,
+        SetupLow => tsetup_DI1_CLK_noedge_posedge,
+        HoldHigh => thold_DI1_CLK_noedge_posedge,
+        HoldLow => thold_DI1_CLK_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => DI1_CLK_TimingDatash,
+        Violation => tviol_DI1_CLK,
+        MsgSeverity => warning);
+      VitalSetupHoldCheck (
+        TestSignal => DI0_dly,
+        TestSignalName => "DI0",
+        TestDelay => tisd_DI0_CLK,
+        RefSignal => CLK_dly,
+        RefSignalName => "CLK",
+        RefDelay => ticd_CLK,
+        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
+        SetupLow => tsetup_DI0_CLK_noedge_posedge,
+        HoldHigh => thold_DI0_CLK_noedge_posedge,
+        HoldLow => thold_DI0_CLK_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => DI0_CLK_TimingDatash,
+        Violation => tviol_DI0_CLK,
+        MsgSeverity => warning);
+      VitalPeriodPulseCheck (
+        TestSignal => CLK_ipd,
+        TestSignalName => "CLK",
+        Period => tperiod_CLK,
+        PulseWidthHigh => tpw_CLK_posedge,
+        PulseWidthLow => tpw_CLK_negedge,
+        PeriodData => periodcheckinfo_CLK,
+        Violation => tviol_CLK_CLK,
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        CheckEnabled => TRUE,
+        MsgSeverity => warning);
+
+    END IF;
+
+    F0_zd 	:= F0_out;
+    Q0_zd 	:= Q0_out;
+    F1_zd 	:= F1_out;
+    Q1_zd 	:= Q1_out;
+    FCO_zd 	:= FCO_out;
+
+    VitalPathDelay01 (
+      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
+      Paths      => (0 => (InputChangeTime => A0_ipd'last_event,
+                           PathDelay => tpd_A0_F0,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => FCI_ipd'last_event,
+                           PathDelay => tpd_FCI_F0,
+                           PathCondition => TRUE)),
+      GlitchData => F0_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
+      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
+                           PathDelay => tpd_CLK_Q0,
+                           PathCondition => TRUE)),
+      GlitchData => Q0_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
+      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
+                           PathDelay => tpd_A1_F1,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => A0_ipd'last_event,
+                           PathDelay => tpd_A0_F1,
+                           PathCondition => TRUE),
+                     2 => (InputChangeTime => FCI_ipd'last_event,
+                           PathDelay => tpd_FCI_F1,
+                           PathCondition => TRUE)),
+      GlitchData => F1_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
+      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
+                           PathDelay => tpd_CLK_Q1,
+                           PathCondition => TRUE)),
+      GlitchData => Q1_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => FCO, OutSignalName => "FCO", OutTemp => FCO_zd,
+      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
+                           PathDelay => tpd_A1_FCO,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => A0_ipd'last_event,
+                           PathDelay => tpd_A0_FCO,
+                           PathCondition => TRUE),
+                     2 => (InputChangeTime => FCI_ipd'last_event,
+                           PathDelay => tpd_FCI_FCO,
+                           PathCondition => TRUE)),
+      GlitchData => FCO_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+
+    END PROCESS;
+
+  end Structure;
+
+-- entity HeartBeatInst0_SLICE_10
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity HeartBeatInst0_SLICE_10 is
+    -- miscellaneous vital GENERICs
+    GENERIC (
+      TimingChecksOn	: boolean := TRUE;
+      XOn           	: boolean := FALSE;
+      MsgOn         	: boolean := TRUE;
+      InstancePath  	: string := "HeartBeatInst0_SLICE_10";
+
+      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_FCI  	: VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A1_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A0_F1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A0_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_FCI_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_FCI_F1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_FCI_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
+      ticd_CLK	: VitalDelayType := 0 ns;
+      tisd_DI1_CLK	: VitalDelayType := 0 ns;
+      tsetup_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      tisd_DI0_CLK	: VitalDelayType := 0 ns;
+      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      tperiod_CLK 	: VitalDelayType := 0 ns;
+      tpw_CLK_posedge	: VitalDelayType := 0 ns;
+      tpw_CLK_negedge	: VitalDelayType := 0 ns);
+
+    port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
+          DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
+          F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
+          Q1: out Std_logic; FCO: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF HeartBeatInst0_SLICE_10 : ENTITY IS TRUE;
+
+  end HeartBeatInst0_SLICE_10;
+
+  architecture Structure of HeartBeatInst0_SLICE_10 is
+    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
+
+    signal A1_ipd 	: std_logic := 'X';
+    signal A0_ipd 	: std_logic := 'X';
+    signal DI1_ipd 	: std_logic := 'X';
+    signal DI1_dly 	: std_logic := 'X';
+    signal DI0_ipd 	: std_logic := 'X';
+    signal DI0_dly 	: std_logic := 'X';
+    signal CLK_ipd 	: std_logic := 'X';
+    signal CLK_dly 	: std_logic := 'X';
+    signal FCI_ipd 	: std_logic := 'X';
+    signal F0_out 	: std_logic := 'X';
+    signal Q0_out 	: std_logic := 'X';
+    signal F1_out 	: std_logic := 'X';
+    signal Q1_out 	: std_logic := 'X';
+    signal FCO_out 	: std_logic := 'X';
+
+    signal VCCI: Std_logic;
+    signal GNDI: Std_logic;
+    component vmuxregsre
+      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
+            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
+            Q: out Std_logic);
+    end component;
+    component vcc
+      port (PWR1: out Std_logic);
+    end component;
+    component gnd
+      port (PWR0: out Std_logic);
+    end component;
+    component ccu20002
+      port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
+            D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
+            C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
+            S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
+    end component;
+  begin
     HeartBeatInst0_iCounter_2: vmuxregsre
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
@@ -2609,6 +2866,87 @@
 
   end Structure;
 
+-- entity lut4
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity lut4 is
+    port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+          Z: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF lut4 : ENTITY IS TRUE;
+
+  end lut4;
+
+  architecture Structure of lut4 is
+  begin
+    INST10: ROM16X1A
+      generic map (initval => X"FFFF")
+      port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
+  end Structure;
+
+-- entity SLICE_11
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity SLICE_11 is
+    -- miscellaneous vital GENERICs
+    GENERIC (
+      TimingChecksOn	: boolean := TRUE;
+      XOn           	: boolean := FALSE;
+      MsgOn         	: boolean := TRUE;
+      InstancePath  	: string := "SLICE_11");
+
+    port (F0: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF SLICE_11 : ENTITY IS TRUE;
+
+  end SLICE_11;
+
+  architecture Structure of SLICE_11 is
+    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
+
+    signal F0_out 	: std_logic := 'X';
+
+    signal GNDI: Std_logic;
+    component gnd
+      port (PWR0: out Std_logic);
+    end component;
+    component lut4
+      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+            Z: out Std_logic);
+    end component;
+  begin
+    VCCI: lut4
+      port map (A=>GNDI, B=>GNDI, C=>GNDI, D=>GNDI, Z=>F0_out);
+    DRIVEGND: gnd
+      port map (PWR0=>GNDI);
+
+    --  INPUT PATH DELAYs
+    WireDelay : BLOCK
+    BEGIN
+    END BLOCK;
+
+    VitalBehavior : PROCESS (F0_out)
+
+
+    BEGIN
+
+    IF (TimingChecksOn) THEN
+
+    END IF;
+
+    F0 	<= F0_out;
+
+
+    END PROCESS;
+
+  end Structure;
+
 -- entity xo2iobuf
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
@@ -2628,34 +2966,34 @@
       port map (I=>I, T=>T, O=>PAD);
   end Structure;
 
--- entity heart_beatB
+-- entity enI2CB
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity heart_beatB is
+  entity enI2CB is
     -- miscellaneous vital GENERICs
     GENERIC (
       TimingChecksOn	: boolean := TRUE;
       XOn           	: boolean := FALSE;
       MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "heart_beatB";
+      InstancePath  	: string := "enI2CB";
 
       tipd_PADDO  	: VitalDelayType01 := (0 ns, 0 ns);
-      tpd_PADDO_heartbeat	 : VitalDelayType01 := (0 ns, 0 ns));
+      tpd_PADDO_enI2CS	 : VitalDelayType01 := (0 ns, 0 ns));
 
-    port (PADDO: in Std_logic; heartbeat: out Std_logic);
+    port (PADDO: in Std_logic; enI2CS: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF heart_beatB : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF enI2CB : ENTITY IS TRUE;
 
-  end heart_beatB;
+  end enI2CB;
 
-  architecture Structure of heart_beatB is
+  architecture Structure of enI2CB is
     ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
 
     signal PADDO_ipd 	: std_logic := 'X';
-    signal heartbeat_out 	: std_logic := 'X';
+    signal enI2CS_out 	: std_logic := 'X';
 
     signal GNDI: Std_logic;
     component gnd
@@ -2665,8 +3003,8 @@
       port (I: in Std_logic; T: in Std_logic; PAD: out Std_logic);
     end component;
   begin
-    heart_beat_pad: xo2iobuf
-      port map (I=>PADDO_ipd, T=>GNDI, PAD=>heartbeat_out);
+    enI2C_pad: xo2iobuf
+      port map (I=>PADDO_ipd, T=>GNDI, PAD=>enI2CS_out);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
 
@@ -2676,9 +3014,9 @@
       VitalWireDelay(PADDO_ipd, PADDO, tipd_PADDO);
     END BLOCK;
 
-    VitalBehavior : PROCESS (PADDO_ipd, heartbeat_out)
-    VARIABLE heartbeat_zd         	: std_logic := 'X';
-    VARIABLE heartbeat_GlitchData 	: VitalGlitchDataType;
+    VitalBehavior : PROCESS (PADDO_ipd, enI2CS_out)
+    VARIABLE enI2CS_zd         	: std_logic := 'X';
+    VARIABLE enI2CS_GlitchData 	: VitalGlitchDataType;
 
 
     BEGIN
@@ -2687,14 +3025,14 @@
 
     END IF;
 
-    heartbeat_zd 	:= heartbeat_out;
+    enI2CS_zd 	:= enI2CS_out;
 
     VitalPathDelay01 (
-      OutSignal => heartbeat, OutSignalName => "heartbeat", OutTemp => heartbeat_zd,
+      OutSignal => enI2CS, OutSignalName => "enI2CS", OutTemp => enI2CS_zd,
       Paths      => (0 => (InputChangeTime => PADDO_ipd'last_event,
-                           PathDelay => tpd_PADDO_heartbeat,
+                           PathDelay => tpd_PADDO_enI2CS,
                            PathCondition => TRUE)),
-      GlitchData => heartbeat_GlitchData,
+      GlitchData => enI2CS_GlitchData,
       Mode       => vitaltransport, XOn => XOn, MsgOn => MsgOn);
 
     END PROCESS;
@@ -2804,6 +3142,79 @@
 
   end Structure;
 
+-- entity heart_beatB
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity heart_beatB is
+    -- miscellaneous vital GENERICs
+    GENERIC (
+      TimingChecksOn	: boolean := TRUE;
+      XOn           	: boolean := FALSE;
+      MsgOn         	: boolean := TRUE;
+      InstancePath  	: string := "heart_beatB";
+
+      tipd_PADDO  	: VitalDelayType01 := (0 ns, 0 ns);
+      tpd_PADDO_heartbeat	 : VitalDelayType01 := (0 ns, 0 ns));
+
+    port (PADDO: in Std_logic; heartbeat: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF heart_beatB : ENTITY IS TRUE;
+
+  end heart_beatB;
+
+  architecture Structure of heart_beatB is
+    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
+
+    signal PADDO_ipd 	: std_logic := 'X';
+    signal heartbeat_out 	: std_logic := 'X';
+
+    signal GNDI: Std_logic;
+    component gnd
+      port (PWR0: out Std_logic);
+    end component;
+    component xo2iobuf
+      port (I: in Std_logic; T: in Std_logic; PAD: out Std_logic);
+    end component;
+  begin
+    heart_beat_pad: xo2iobuf
+      port map (I=>PADDO_ipd, T=>GNDI, PAD=>heartbeat_out);
+    DRIVEGND: gnd
+      port map (PWR0=>GNDI);
+
+    --  INPUT PATH DELAYs
+    WireDelay : BLOCK
+    BEGIN
+      VitalWireDelay(PADDO_ipd, PADDO, tipd_PADDO);
+    END BLOCK;
+
+    VitalBehavior : PROCESS (PADDO_ipd, heartbeat_out)
+    VARIABLE heartbeat_zd         	: std_logic := 'X';
+    VARIABLE heartbeat_GlitchData 	: VitalGlitchDataType;
+
+
+    BEGIN
+
+    IF (TimingChecksOn) THEN
+
+    END IF;
+
+    heartbeat_zd 	:= heartbeat_out;
+
+    VitalPathDelay01 (
+      OutSignal => heartbeat, OutSignalName => "heartbeat", OutTemp => heartbeat_zd,
+      Paths      => (0 => (InputChangeTime => PADDO_ipd'last_event,
+                           PathDelay => tpd_PADDO_heartbeat,
+                           PathCondition => TRUE)),
+      GlitchData => heartbeat_GlitchData,
+      Mode       => vitaltransport, XOn => XOn, MsgOn => MsgOn);
+
+    END PROCESS;
+
+  end Structure;
+
 -- entity OSCHB
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
@@ -2836,34 +3247,36 @@
       TimingChecksOn	: boolean := TRUE;
       XOn           	: boolean := FALSE;
       MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "OSCInst0";
+      InstancePath  	: string := "OSCInst0");
 
-      tipd_STDBY  	: VitalDelayType01 := (0 ns, 0 ns));
-
-    port (STDBY: in Std_logic; OSC: out Std_logic);
+    port (OSC: out Std_logic);
 
     ATTRIBUTE Vital_Level0 OF OSCInst0 : ENTITY IS TRUE;
 
   end OSCInst0;
 
   architecture Structure of OSCInst0 is
-    signal STDBY_ipd 	: std_logic := 'X';
     signal OSC_out 	: std_logic := 'X';
 
+    signal GNDI: Std_logic;
+    component gnd
+      port (PWR0: out Std_logic);
+    end component;
     component OSCHB
       port (STDBY: in Std_logic; OSC: out Std_logic; SEDSTDBY: out Std_logic);
     end component;
   begin
     OSCInst0_OSCH: OSCHB
-      port map (STDBY=>STDBY_ipd, OSC=>OSC_out, SEDSTDBY=>open);
+      port map (STDBY=>GNDI, OSC=>OSC_out, SEDSTDBY=>open);
+    DRIVEGND: gnd
+      port map (PWR0=>GNDI);
 
     --  INPUT PATH DELAYs
     WireDelay : BLOCK
     BEGIN
-      VitalWireDelay(STDBY_ipd, STDBY, tipd_STDBY);
     END BLOCK;
 
-    VitalBehavior : PROCESS (STDBY_ipd, OSC_out)
+    VitalBehavior : PROCESS (OSC_out)
 
 
     BEGIN
@@ -2964,6 +3377,7 @@
 
   entity top_module is
     port (rst_n: in Std_logic; scl: in Std_logic; sda: in Std_logic; 
+          usb_osc: in Std_logic; enI2C: out Std_logic; 
           heart_beat: out Std_logic);
 
 
@@ -2976,6 +3390,11 @@
     signal sys_clk: Std_logic;
     signal HeartBeatInst0_iCounter_cry_0: Std_logic;
     signal heart_beat_c: Std_logic;
+    signal HeartBeatInst0_iCounter_19: Std_logic;
+    signal HeartBeatInst0_iCounter_s_20: Std_logic;
+    signal HeartBeatInst0_iCounter_s_19: Std_logic;
+    signal HeartBeatInst0_iCounter_cry_18: Std_logic;
+    signal HeartBeatInst0_iCounter_18: Std_logic;
     signal HeartBeatInst0_iCounter_17: Std_logic;
     signal HeartBeatInst0_iCounter_s_18: Std_logic;
     signal HeartBeatInst0_iCounter_s_17: Std_logic;
@@ -3019,6 +3438,7 @@
     signal HeartBeatInst0_iCounter_1: Std_logic;
     signal HeartBeatInst0_iCounter_s_2: Std_logic;
     signal HeartBeatInst0_iCounter_s_1: Std_logic;
+    signal VCCS: Std_logic;
     signal rst_n_c: Std_logic;
     signal VCCI: Std_logic;
     component HeartBeatInst0_SLICE_0
@@ -3079,14 +3499,26 @@
             F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
             Q1: out Std_logic; FCO: out Std_logic);
     end component;
-    component heart_beatB
-      port (PADDO: in Std_logic; heartbeat: out Std_logic);
+    component HeartBeatInst0_SLICE_10
+      port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
+            DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
+            F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
+            Q1: out Std_logic; FCO: out Std_logic);
+    end component;
+    component SLICE_11
+      port (F0: out Std_logic);
+    end component;
+    component enI2CB
+      port (PADDO: in Std_logic; enI2CS: out Std_logic);
     end component;
     component rst_nB
       port (PADDI: out Std_logic; rstn: in Std_logic);
     end component;
+    component heart_beatB
+      port (PADDO: in Std_logic; heartbeat: out Std_logic);
+    end component;
     component OSCInst0
-      port (STDBY: in Std_logic; OSC: out Std_logic);
+      port (OSC: out Std_logic);
     end component;
     component GSR_INSTB
       port (GSRNET: in Std_logic);
@@ -3098,14 +3530,24 @@
                 F1=>HeartBeatInst0_iCounter_s_0, Q1=>HeartBeatInst0_iCounter_0, 
                 FCO=>HeartBeatInst0_iCounter_cry_0);
     HeartBeatInst0_SLICE_1I: HeartBeatInst0_SLICE_1
-      port map (A1=>heart_beat_c, A0=>HeartBeatInst0_iCounter_17, 
+      port map (A1=>heart_beat_c, A0=>HeartBeatInst0_iCounter_19, 
+                DI1=>HeartBeatInst0_iCounter_s_20, 
+                DI0=>HeartBeatInst0_iCounter_s_19, CLK=>sys_clk, 
+                FCI=>HeartBeatInst0_iCounter_cry_18, 
+                F0=>HeartBeatInst0_iCounter_s_19, 
+                Q0=>HeartBeatInst0_iCounter_19, 
+                F1=>HeartBeatInst0_iCounter_s_20, Q1=>heart_beat_c);
+    HeartBeatInst0_SLICE_2I: HeartBeatInst0_SLICE_2
+      port map (A1=>HeartBeatInst0_iCounter_18, A0=>HeartBeatInst0_iCounter_17, 
                 DI1=>HeartBeatInst0_iCounter_s_18, 
                 DI0=>HeartBeatInst0_iCounter_s_17, CLK=>sys_clk, 
                 FCI=>HeartBeatInst0_iCounter_cry_16, 
                 F0=>HeartBeatInst0_iCounter_s_17, 
                 Q0=>HeartBeatInst0_iCounter_17, 
-                F1=>HeartBeatInst0_iCounter_s_18, Q1=>heart_beat_c);
-    HeartBeatInst0_SLICE_2I: HeartBeatInst0_SLICE_2
+                F1=>HeartBeatInst0_iCounter_s_18, 
+                Q1=>HeartBeatInst0_iCounter_18, 
+                FCO=>HeartBeatInst0_iCounter_cry_18);
+    HeartBeatInst0_SLICE_3I: HeartBeatInst0_SLICE_3
       port map (A1=>HeartBeatInst0_iCounter_16, A0=>HeartBeatInst0_iCounter_15, 
                 DI1=>HeartBeatInst0_iCounter_s_16, 
                 DI0=>HeartBeatInst0_iCounter_s_15, CLK=>sys_clk, 
@@ -3115,7 +3557,7 @@
                 F1=>HeartBeatInst0_iCounter_s_16, 
                 Q1=>HeartBeatInst0_iCounter_16, 
                 FCO=>HeartBeatInst0_iCounter_cry_16);
-    HeartBeatInst0_SLICE_3I: HeartBeatInst0_SLICE_3
+    HeartBeatInst0_SLICE_4I: HeartBeatInst0_SLICE_4
       port map (A1=>HeartBeatInst0_iCounter_14, A0=>HeartBeatInst0_iCounter_13, 
                 DI1=>HeartBeatInst0_iCounter_s_14, 
                 DI0=>HeartBeatInst0_iCounter_s_13, CLK=>sys_clk, 
@@ -3125,7 +3567,7 @@
                 F1=>HeartBeatInst0_iCounter_s_14, 
                 Q1=>HeartBeatInst0_iCounter_14, 
                 FCO=>HeartBeatInst0_iCounter_cry_14);
-    HeartBeatInst0_SLICE_4I: HeartBeatInst0_SLICE_4
+    HeartBeatInst0_SLICE_5I: HeartBeatInst0_SLICE_5
       port map (A1=>HeartBeatInst0_iCounter_12, A0=>HeartBeatInst0_iCounter_11, 
                 DI1=>HeartBeatInst0_iCounter_s_12, 
                 DI0=>HeartBeatInst0_iCounter_s_11, CLK=>sys_clk, 
@@ -3135,7 +3577,7 @@
                 F1=>HeartBeatInst0_iCounter_s_12, 
                 Q1=>HeartBeatInst0_iCounter_12, 
                 FCO=>HeartBeatInst0_iCounter_cry_12);
-    HeartBeatInst0_SLICE_5I: HeartBeatInst0_SLICE_5
+    HeartBeatInst0_SLICE_6I: HeartBeatInst0_SLICE_6
       port map (A1=>HeartBeatInst0_iCounter_10, A0=>HeartBeatInst0_iCounter_9, 
                 DI1=>HeartBeatInst0_iCounter_s_10, 
                 DI0=>HeartBeatInst0_iCounter_s_9, CLK=>sys_clk, 
@@ -3144,7 +3586,7 @@
                 F1=>HeartBeatInst0_iCounter_s_10, 
                 Q1=>HeartBeatInst0_iCounter_10, 
                 FCO=>HeartBeatInst0_iCounter_cry_10);
-    HeartBeatInst0_SLICE_6I: HeartBeatInst0_SLICE_6
+    HeartBeatInst0_SLICE_7I: HeartBeatInst0_SLICE_7
       port map (A1=>HeartBeatInst0_iCounter_8, A0=>HeartBeatInst0_iCounter_7, 
                 DI1=>HeartBeatInst0_iCounter_s_8, 
                 DI0=>HeartBeatInst0_iCounter_s_7, CLK=>sys_clk, 
@@ -3152,7 +3594,7 @@
                 F0=>HeartBeatInst0_iCounter_s_7, Q0=>HeartBeatInst0_iCounter_7, 
                 F1=>HeartBeatInst0_iCounter_s_8, Q1=>HeartBeatInst0_iCounter_8, 
                 FCO=>HeartBeatInst0_iCounter_cry_8);
-    HeartBeatInst0_SLICE_7I: HeartBeatInst0_SLICE_7
+    HeartBeatInst0_SLICE_8I: HeartBeatInst0_SLICE_8
       port map (A1=>HeartBeatInst0_iCounter_6, A0=>HeartBeatInst0_iCounter_5, 
                 DI1=>HeartBeatInst0_iCounter_s_6, 
                 DI0=>HeartBeatInst0_iCounter_s_5, CLK=>sys_clk, 
@@ -3160,7 +3602,7 @@
                 F0=>HeartBeatInst0_iCounter_s_5, Q0=>HeartBeatInst0_iCounter_5, 
                 F1=>HeartBeatInst0_iCounter_s_6, Q1=>HeartBeatInst0_iCounter_6, 
                 FCO=>HeartBeatInst0_iCounter_cry_6);
-    HeartBeatInst0_SLICE_8I: HeartBeatInst0_SLICE_8
+    HeartBeatInst0_SLICE_9I: HeartBeatInst0_SLICE_9
       port map (A1=>HeartBeatInst0_iCounter_4, A0=>HeartBeatInst0_iCounter_3, 
                 DI1=>HeartBeatInst0_iCounter_s_4, 
                 DI0=>HeartBeatInst0_iCounter_s_3, CLK=>sys_clk, 
@@ -3168,7 +3610,7 @@
                 F0=>HeartBeatInst0_iCounter_s_3, Q0=>HeartBeatInst0_iCounter_3, 
                 F1=>HeartBeatInst0_iCounter_s_4, Q1=>HeartBeatInst0_iCounter_4, 
                 FCO=>HeartBeatInst0_iCounter_cry_4);
-    HeartBeatInst0_SLICE_9I: HeartBeatInst0_SLICE_9
+    HeartBeatInst0_SLICE_10I: HeartBeatInst0_SLICE_10
       port map (A1=>HeartBeatInst0_iCounter_2, A0=>HeartBeatInst0_iCounter_1, 
                 DI1=>HeartBeatInst0_iCounter_s_2, 
                 DI0=>HeartBeatInst0_iCounter_s_1, CLK=>sys_clk, 
@@ -3176,12 +3618,16 @@
                 F0=>HeartBeatInst0_iCounter_s_1, Q0=>HeartBeatInst0_iCounter_1, 
                 F1=>HeartBeatInst0_iCounter_s_2, Q1=>HeartBeatInst0_iCounter_2, 
                 FCO=>HeartBeatInst0_iCounter_cry_2);
-    heart_beatI: heart_beatB
-      port map (PADDO=>heart_beat_c, heartbeat=>heart_beat);
+    SLICE_11I: SLICE_11
+      port map (F0=>VCCS);
+    enI2CI: enI2CB
+      port map (PADDO=>VCCS, enI2CS=>enI2C);
     rst_nI: rst_nB
       port map (PADDI=>rst_n_c, rstn=>rst_n);
+    heart_beatI: heart_beatB
+      port map (PADDO=>heart_beat_c, heartbeat=>heart_beat);
     OSCInst0I: OSCInst0
-      port map (STDBY=>rst_n_c, OSC=>sys_clk);
+      port map (OSC=>sys_clk);
     GSR_INST: GSR_INSTB
       port map (GSRNET=>rst_n_c);
     VHI_INST: VHI

@@ -1,80 +1,87 @@
-
--- VHDL Test Bench Created from source file wb_manager.vhd -- Tue Aug 27 11:10:23 2019
-
---
--- Notes: 
--- 1) This testbench template has been automatically generated using types
--- std_logic and std_logic_vector for the ports of the unit under test.
--- Lattice recommends that these types always be used for the top-level
--- I/O of a design in order to guarantee that the testbench will bind
--- correctly to the timing (post-route) simulation model.
--- 2) To use this template as your testbench, change the filename to any
--- name of your choice with the extension .vhd, and use the "source->import"
--- menu in the ispLEVER Project Navigator to import the testbench.
--- Then edit the user defined section below, adding code to generate the 
--- stimulus for your design.
--- 3) VHDL simulations will produce errors if there are Lattice FPGA library 
--- elements in your design that require the instantiation of GSR, PUR, and
--- TSALL and they are not present in the testbench. For more information see
--- the How To section of online help.  
---
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY testbench IS
-END testbench;
+ENTITY wb_manager_tb IS
+END wb_manager_tb;
 
-ARCHITECTURE behavior OF testbench IS 
+ARCHITECTURE behavior OF wb_manager_tb IS 
 
-	COMPONENT wb_manager
-	PORT(
-		clk_i : IN std_logic;
-		rst_n_i : IN std_logic;
-		addr_i : IN std_logic_vector(7 downto 0);
-		option_reg : IN std_logic_vector(7 downto 0);    
-		data_io : INOUT std_logic_vector(7 downto 0);
-		scl : INOUT std_logic;
-		sda : INOUT std_logic;      
-		status_reg : OUT std_logic_vector(7 downto 0)
-		);
-	END COMPONENT;
 
-	SIGNAL clk_i :  std_logic := '0';
-	SIGNAL rst_n_i :  std_logic;
-	SIGNAL data_io :  std_logic_vector(7 downto 0);
-	SIGNAL addr_i :  std_logic_vector(7 downto 0);
-	SIGNAL option_reg :  std_logic_vector(7 downto 0);
-	SIGNAL status_reg :  std_logic_vector(7 downto 0);
-	SIGNAL scl :  std_logic;
-	SIGNAL sda :  std_logic;
-	CONSTANT time CLK_PERIOD = 100ns ;
+	COMPONENT OSCH 
+	GENERIC  (NOM_FREQ: string := "133.00");
+	PORT (
+		STDBY:IN std_logic; 
+		OSC:OUT std_logic; 
+		SEDSTDBY:OUT std_logic
+		); 
+	END COMPONENT; 
+
+	SIGNAL clk_i 		:  std_logic := '0';
+	SIGNAL rst_n_i 		:  std_logic;
+	SIGNAL data_i 		:  std_logic_vector(7 downto 0) := (others=>'0');
+	SIGNAL data_o 		:  std_logic_vector(7 downto 0) := (others=>'0');
+	SIGNAL addr_i 		:  std_logic_vector(7 downto 0) := (others=>'0');
+	SIGNAL option 		:  std_logic_vector(7 downto 0) := (others=>'0');
+	SIGNAL status 		:  std_logic_vector(7 downto 0) := (others=>'0');
+	SIGNAL scl 			:  std_logic := '1';
+	SIGNAL sda 			:  std_logic := '1';
+	SIGNAL stdby 		:  std_logic;
+	SIGNAL stdby_sed 	: std_logic;
+	CONSTANT CLK_PERIOD : time := 50ns ;
 	
 BEGIN
 
 -- Please check and add your generic clause manually
-	uut: wb_manager PORT MAP(
-		clk_i => clk_i,
-		rst_n_i => rst_n_i,
-		data_io => data_io,
-		addr_i => addr_i,
-		option_reg => option_reg,
-		status_reg => status_reg,
-		scl => scl,
-		sda => sda
+	uut: entity work.wb_manager 
+	PORT MAP(
+			clk_i => clk_i,
+			rst_n_i => rst_n_i,
+			data_i => data_i,
+			addr_i => addr_i,
+			option => option,
+			status => status,
+			data_o => data_o,
+			scl => scl,
+			sda => sda
 	);
-
-
+	-- internal clock generator unit
+	OSCInst0: OSCH 
+	GENERIC MAP( NOM_FREQ  => "133.00" )    
+	PORT MAP (
+		STDBY=>stdby, 
+		OSC =>clk_i, 
+		SEDSTDBY =>stdby_sed
+	);
+	stdby <= '0';
 -- *** Test Bench - User Defined Section ***
-	clk_gen : process
-	begin
-	clk_i <= not clk_i wait for CLK_PERIOD/2;
-	end process clk_gen;
-
-   tb : PROCESS
+	
+   stimuli_gen : PROCESS
    BEGIN
-      wait; -- will wait forever
-   END PROCESS;
+   
+		rst_n_i <= '0';
+		wait for CLK_PERIOD;
+		rst_n_i <= '1';
+		wait for CLK_PERIOD/2;
+		
+		addr_i <=  x"44";
+		data_i <= x"F3";
+		option <= x"03";
+		wait until (status(5) = '1');
+		option <= x"00";
+		addr_i <=  x"41";
+		data_i <= x"94";
+		option <= x"03";
+		wait until (status(5) = '1');
+		option <= x"00";
+		addr_i <=  x"41";
+		data_i <= x"44";
+		option <= x"03";
+		wait until (status(5) = '1');
+		option <= x"00";
+		
+		wait;
+   END PROCESS stimuli_gen;
 -- *** End Test Bench - User Defined Section ***
 
 END;

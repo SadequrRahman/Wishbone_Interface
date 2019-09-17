@@ -42,18 +42,18 @@ architecture sample_arch of top_module is
 			);
 	END COMPONENT; 
 
-	COMPONENT i2c_master_controller 
-	PORT(
-		rst_n 		: in std_logic;
-		clk	  		: in std_logic;
-		data_i 		: in std_logic_vector(7 downto 0);
-		addr_i 		: in std_logic_vector(7 downto 0);
-		scl      	: inout std_logic;			
-		sda      	: inout std_logic;
-		data_o		: out std_logic_vector(7 downto 0);
-		ack_o		: out std_logic
-	);
-	END COMPONENT;
+	--COMPONENT i2c_master_controller 
+	--PORT(
+		--rst_n 		: in std_logic;
+		--clk	  		: in std_logic;
+		--data_i 		: in std_logic_vector(7 downto 0);
+		--addr_i 		: in std_logic_vector(7 downto 0);
+		--scl      	: inout std_logic;			
+		--sda      	: inout std_logic;
+		--data_o		: out std_logic_vector(7 downto 0);
+		--ack_o		: out std_logic
+	--);
+	--END COMPONENT;
 	
 	
 begin

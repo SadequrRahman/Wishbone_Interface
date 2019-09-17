@@ -1,0 +1,30 @@
+[COMPILESTATUS|.\..\efb_i2c_VHDL.vhd]
+FileTimeLow=30762771
+Status=Compiled
+
+[COMPILESTATUS|.\..\wb_manager.vhd]
+FileTimeLow=30764394
+Status=Compiled
+
+[COMPILESTATUS|.\..\wb_manager_tb.vhd]
+FileTimeLow=30764394
+Status=Warning
+
+[General]
+CurrentVersion=103
+
+[CACHEDOC|Aldec.Project.Generic.7|.\wb_manager_tb.adf|]
+Path=/wb_manager_tb
+
+[Gui config]
+RunFor=1000 ns
+
+[OPENDOC|Aldec.Hde.HdePlugIn.7|.\..\wb_manager_tb.vhd|]
+CurrentLine=0
+CurrentColumn=0
+Bookmarks=-1
+BookmarksLength=3
+CurrentFontSize=-13
+Frame=0
+WindowWorkspaceInfo="LAAAAAAAAAABAAAA/////////////////////zgBAAB6AAAAgAcAAEkDAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADIAAAAyAAAAAAAAAAAAAAAyAAAAMgAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAEAAAA="
+

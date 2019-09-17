@@ -9,7 +9,6 @@ add_file -vhdl -lib work "D:/WorkingDir/Fpga/pico_dev_test/timeout.vhd"
 add_file -vhdl -lib work "D:/WorkingDir/Fpga/pico_dev_test/top_level.vhd"
 add_file -vhdl -lib work "D:/WorkingDir/Fpga/pico_dev_test/efb_i2c_VHDL.vhd"
 add_file -vhdl -lib work "D:/WorkingDir/Fpga/pico_dev_test/wb_manager.vhd"
-add_file -vhdl -lib work "D:/WorkingDir/Fpga/pico_dev_test/timeout_tb.vhd"
 
 
 

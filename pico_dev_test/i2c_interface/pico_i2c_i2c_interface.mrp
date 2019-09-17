@@ -15,7 +15,7 @@ Target Vendor:  LATTICE
 Target Device:  LCMXO2-1200ZETQFP144
 Target Performance:   1
 Mapper:  xo2c00,  version:  Diamond (64-bit) 3.10.3.144
-Mapped on:  09/17/19  15:40:03
+Mapped on:  09/17/19  17:12:43
 
 Design Summary
 --------------
@@ -66,7 +66,7 @@ Design Summary
 
 
 
-Design:  top_module                                    Date:  09/17/19  15:40:03
+Design:  top_module                                    Date:  09/17/19  17:12:43
 
 Design Summary (cont)
 ---------------------
@@ -132,7 +132,7 @@ IO (PIO) Attributes
 
 
 
-Design:  top_module                                    Date:  09/17/19  15:40:03
+Design:  top_module                                    Date:  09/17/19  17:12:43
 
 IO (PIO) Attributes (cont)
 --------------------------
@@ -198,7 +198,7 @@ GSR Component:
 
 
 
-Design:  top_module                                    Date:  09/17/19  15:40:03
+Design:  top_module                                    Date:  09/17/19  17:12:43
 
 GSR Usage (cont)
 ----------------
@@ -212,7 +212,7 @@ Run Time and Memory Usage
 
    Total CPU Time: 0 secs  
    Total REAL Time: 0 secs  
-   Peak Memory Usage: 39 MB
+   Peak Memory Usage: 38 MB
         
 
 

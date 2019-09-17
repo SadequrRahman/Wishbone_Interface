@@ -1,0 +1,1276 @@
+
+Loading design for application trce from file pico_i2c_i2c_interface.ncd.
+Design name: top_module
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-1200ZE
+Package:     TQFP144
+Performance: 1
+Loading device for application trce from file 'xo2c1200.nph' in environment: C:/lscc/diamond/3.10_x64/ispfpga.
+Package Status:                     Final          Version 1.42.
+Performance Hardware Data Status:   Final          Version 34.4.
+Setup and Hold Report
+
+--------------------------------------------------------------------------------
+Lattice TRACE Report - Setup, Version Diamond (64-bit) 3.10.3.144
+Tue Sep 17 15:49:52 2019
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2017 Lattice Semiconductor Corporation,  All rights reserved.
+
+Report Information
+------------------
+Command line:    trce -v 10 -gt -sethld -sp 1 -sphld m -o pico_i2c_i2c_interface.twr -gui -msgset D:/WorkingDir/Fpga/pico_dev_test/promote.xml pico_i2c_i2c_interface.ncd pico_i2c_i2c_interface.prf 
+Design file:     pico_i2c_i2c_interface.ncd
+Preference file: pico_i2c_i2c_interface.prf
+Device,speed:    LCMXO2-1200ZE,1
+Report level:    verbose report, limited to 10 items per preference
+--------------------------------------------------------------------------------
+
+BLOCK ASYNCPATHS
+BLOCK RESETPATHS
+--------------------------------------------------------------------------------
+
+
+
+================================================================================
+Preference: FREQUENCY NET "sys_clk" 133.000000 MHz ;
+            231 items scored, 45 timing errors detected.
+--------------------------------------------------------------------------------
+
+
+Error: The following path exceeds requirements by 1.312ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[0]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[20]  (to sys_clk +)
+
+   Delay:               8.399ns  (82.2% logic, 17.8% route), 12 logic levels.
+
+ Constraint Details:
+
+      8.399ns physical path delay HeartBeatInst0/SLICE_0 to HeartBeatInst0/SLICE_1 exceeds
+      7.519ns delay constraint less
+      0.000ns skew and
+      0.432ns DIN_SET requirement (totaling 7.087ns) by 1.312ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_0 to HeartBeatInst0/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.955      R3C2A.CLK to       R3C2A.Q1 HeartBeatInst0/SLICE_0 (from sys_clk)
+ROUTE         1     1.498       R3C2A.Q1 to       R3C2A.A1 HeartBeatInst0/iCounter[0]
+C1TOFCO_DE  ---     1.795       R3C2A.A1 to      R3C2A.FCO HeartBeatInst0/SLICE_0
+ROUTE         1     0.000      R3C2A.FCO to      R3C2B.FCI HeartBeatInst0/iCounter_cry[0]
+FCITOFCO_D  ---     0.317      R3C2B.FCI to      R3C2B.FCO HeartBeatInst0/SLICE_10
+ROUTE         1     0.000      R3C2B.FCO to      R3C2C.FCI HeartBeatInst0/iCounter_cry[2]
+FCITOFCO_D  ---     0.317      R3C2C.FCI to      R3C2C.FCO HeartBeatInst0/SLICE_9
+ROUTE         1     0.000      R3C2C.FCO to      R3C2D.FCI HeartBeatInst0/iCounter_cry[4]
+FCITOFCO_D  ---     0.317      R3C2D.FCI to      R3C2D.FCO HeartBeatInst0/SLICE_8
+ROUTE         1     0.000      R3C2D.FCO to      R3C3A.FCI HeartBeatInst0/iCounter_cry[6]
+FCITOFCO_D  ---     0.317      R3C3A.FCI to      R3C3A.FCO HeartBeatInst0/SLICE_7
+ROUTE         1     0.000      R3C3A.FCO to      R3C3B.FCI HeartBeatInst0/iCounter_cry[8]
+FCITOFCO_D  ---     0.317      R3C3B.FCI to      R3C3B.FCO HeartBeatInst0/SLICE_6
+ROUTE         1     0.000      R3C3B.FCO to      R3C3C.FCI HeartBeatInst0/iCounter_cry[10]
+FCITOFCO_D  ---     0.317      R3C3C.FCI to      R3C3C.FCO HeartBeatInst0/SLICE_5
+ROUTE         1     0.000      R3C3C.FCO to      R3C3D.FCI HeartBeatInst0/iCounter_cry[12]
+FCITOFCO_D  ---     0.317      R3C3D.FCI to      R3C3D.FCO HeartBeatInst0/SLICE_4
+ROUTE         1     0.000      R3C3D.FCO to      R3C4A.FCI HeartBeatInst0/iCounter_cry[14]
+FCITOFCO_D  ---     0.317      R3C4A.FCI to      R3C4A.FCO HeartBeatInst0/SLICE_3
+ROUTE         1     0.000      R3C4A.FCO to      R3C4B.FCI HeartBeatInst0/iCounter_cry[16]
+FCITOFCO_D  ---     0.317      R3C4B.FCI to      R3C4B.FCO HeartBeatInst0/SLICE_2
+ROUTE         1     0.000      R3C4B.FCO to      R3C4C.FCI HeartBeatInst0/iCounter_cry[18]
+FCITOF1_DE  ---     1.298      R3C4C.FCI to       R3C4C.F1 HeartBeatInst0/SLICE_1
+ROUTE         1     0.000       R3C4C.F1 to      R3C4C.DI1 HeartBeatInst0/iCounter_s[20] (to sys_clk)
+                  --------
+                    8.399   (82.2% logic, 17.8% route), 12 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_0:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C2A.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C4C.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Error: The following path exceeds requirements by 1.264ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[1]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[20]  (to sys_clk +)
+
+   Delay:               8.351ns  (82.1% logic, 17.9% route), 11 logic levels.
+
+ Constraint Details:
+
+      8.351ns physical path delay HeartBeatInst0/SLICE_10 to HeartBeatInst0/SLICE_1 exceeds
+      7.519ns delay constraint less
+      0.000ns skew and
+      0.432ns DIN_SET requirement (totaling 7.087ns) by 1.264ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_10 to HeartBeatInst0/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.955      R3C2B.CLK to       R3C2B.Q0 HeartBeatInst0/SLICE_10 (from sys_clk)
+ROUTE         1     1.498       R3C2B.Q0 to       R3C2B.A0 HeartBeatInst0/iCounter[1]
+C0TOFCO_DE  ---     2.064       R3C2B.A0 to      R3C2B.FCO HeartBeatInst0/SLICE_10
+ROUTE         1     0.000      R3C2B.FCO to      R3C2C.FCI HeartBeatInst0/iCounter_cry[2]
+FCITOFCO_D  ---     0.317      R3C2C.FCI to      R3C2C.FCO HeartBeatInst0/SLICE_9
+ROUTE         1     0.000      R3C2C.FCO to      R3C2D.FCI HeartBeatInst0/iCounter_cry[4]
+FCITOFCO_D  ---     0.317      R3C2D.FCI to      R3C2D.FCO HeartBeatInst0/SLICE_8
+ROUTE         1     0.000      R3C2D.FCO to      R3C3A.FCI HeartBeatInst0/iCounter_cry[6]
+FCITOFCO_D  ---     0.317      R3C3A.FCI to      R3C3A.FCO HeartBeatInst0/SLICE_7
+ROUTE         1     0.000      R3C3A.FCO to      R3C3B.FCI HeartBeatInst0/iCounter_cry[8]
+FCITOFCO_D  ---     0.317      R3C3B.FCI to      R3C3B.FCO HeartBeatInst0/SLICE_6
+ROUTE         1     0.000      R3C3B.FCO to      R3C3C.FCI HeartBeatInst0/iCounter_cry[10]
+FCITOFCO_D  ---     0.317      R3C3C.FCI to      R3C3C.FCO HeartBeatInst0/SLICE_5
+ROUTE         1     0.000      R3C3C.FCO to      R3C3D.FCI HeartBeatInst0/iCounter_cry[12]
+FCITOFCO_D  ---     0.317      R3C3D.FCI to      R3C3D.FCO HeartBeatInst0/SLICE_4
+ROUTE         1     0.000      R3C3D.FCO to      R3C4A.FCI HeartBeatInst0/iCounter_cry[14]
+FCITOFCO_D  ---     0.317      R3C4A.FCI to      R3C4A.FCO HeartBeatInst0/SLICE_3
+ROUTE         1     0.000      R3C4A.FCO to      R3C4B.FCI HeartBeatInst0/iCounter_cry[16]
+FCITOFCO_D  ---     0.317      R3C4B.FCI to      R3C4B.FCO HeartBeatInst0/SLICE_2
+ROUTE         1     0.000      R3C4B.FCO to      R3C4C.FCI HeartBeatInst0/iCounter_cry[18]
+FCITOF1_DE  ---     1.298      R3C4C.FCI to       R3C4C.F1 HeartBeatInst0/SLICE_1
+ROUTE         1     0.000       R3C4C.F1 to      R3C4C.DI1 HeartBeatInst0/iCounter_s[20] (to sys_clk)
+                  --------
+                    8.351   (82.1% logic, 17.9% route), 11 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_10:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C2B.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C4C.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Error: The following path exceeds requirements by 1.195ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[0]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[19]  (to sys_clk +)
+
+   Delay:               8.282ns  (81.9% logic, 18.1% route), 12 logic levels.
+
+ Constraint Details:
+
+      8.282ns physical path delay HeartBeatInst0/SLICE_0 to HeartBeatInst0/SLICE_1 exceeds
+      7.519ns delay constraint less
+      0.000ns skew and
+      0.432ns DIN_SET requirement (totaling 7.087ns) by 1.195ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_0 to HeartBeatInst0/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.955      R3C2A.CLK to       R3C2A.Q1 HeartBeatInst0/SLICE_0 (from sys_clk)
+ROUTE         1     1.498       R3C2A.Q1 to       R3C2A.A1 HeartBeatInst0/iCounter[0]
+C1TOFCO_DE  ---     1.795       R3C2A.A1 to      R3C2A.FCO HeartBeatInst0/SLICE_0
+ROUTE         1     0.000      R3C2A.FCO to      R3C2B.FCI HeartBeatInst0/iCounter_cry[0]
+FCITOFCO_D  ---     0.317      R3C2B.FCI to      R3C2B.FCO HeartBeatInst0/SLICE_10
+ROUTE         1     0.000      R3C2B.FCO to      R3C2C.FCI HeartBeatInst0/iCounter_cry[2]
+FCITOFCO_D  ---     0.317      R3C2C.FCI to      R3C2C.FCO HeartBeatInst0/SLICE_9
+ROUTE         1     0.000      R3C2C.FCO to      R3C2D.FCI HeartBeatInst0/iCounter_cry[4]
+FCITOFCO_D  ---     0.317      R3C2D.FCI to      R3C2D.FCO HeartBeatInst0/SLICE_8
+ROUTE         1     0.000      R3C2D.FCO to      R3C3A.FCI HeartBeatInst0/iCounter_cry[6]
+FCITOFCO_D  ---     0.317      R3C3A.FCI to      R3C3A.FCO HeartBeatInst0/SLICE_7
+ROUTE         1     0.000      R3C3A.FCO to      R3C3B.FCI HeartBeatInst0/iCounter_cry[8]
+FCITOFCO_D  ---     0.317      R3C3B.FCI to      R3C3B.FCO HeartBeatInst0/SLICE_6
+ROUTE         1     0.000      R3C3B.FCO to      R3C3C.FCI HeartBeatInst0/iCounter_cry[10]
+FCITOFCO_D  ---     0.317      R3C3C.FCI to      R3C3C.FCO HeartBeatInst0/SLICE_5
+ROUTE         1     0.000      R3C3C.FCO to      R3C3D.FCI HeartBeatInst0/iCounter_cry[12]
+FCITOFCO_D  ---     0.317      R3C3D.FCI to      R3C3D.FCO HeartBeatInst0/SLICE_4
+ROUTE         1     0.000      R3C3D.FCO to      R3C4A.FCI HeartBeatInst0/iCounter_cry[14]
+FCITOFCO_D  ---     0.317      R3C4A.FCI to      R3C4A.FCO HeartBeatInst0/SLICE_3
+ROUTE         1     0.000      R3C4A.FCO to      R3C4B.FCI HeartBeatInst0/iCounter_cry[16]
+FCITOFCO_D  ---     0.317      R3C4B.FCI to      R3C4B.FCO HeartBeatInst0/SLICE_2
+ROUTE         1     0.000      R3C4B.FCO to      R3C4C.FCI HeartBeatInst0/iCounter_cry[18]
+FCITOF0_DE  ---     1.181      R3C4C.FCI to       R3C4C.F0 HeartBeatInst0/SLICE_1
+ROUTE         1     0.000       R3C4C.F0 to      R3C4C.DI0 HeartBeatInst0/iCounter_s[19] (to sys_clk)
+                  --------
+                    8.282   (81.9% logic, 18.1% route), 12 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_0:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C2A.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C4C.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Error: The following path exceeds requirements by 1.147ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[1]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[19]  (to sys_clk +)
+
+   Delay:               8.234ns  (81.8% logic, 18.2% route), 11 logic levels.
+
+ Constraint Details:
+
+      8.234ns physical path delay HeartBeatInst0/SLICE_10 to HeartBeatInst0/SLICE_1 exceeds
+      7.519ns delay constraint less
+      0.000ns skew and
+      0.432ns DIN_SET requirement (totaling 7.087ns) by 1.147ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_10 to HeartBeatInst0/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.955      R3C2B.CLK to       R3C2B.Q0 HeartBeatInst0/SLICE_10 (from sys_clk)
+ROUTE         1     1.498       R3C2B.Q0 to       R3C2B.A0 HeartBeatInst0/iCounter[1]
+C0TOFCO_DE  ---     2.064       R3C2B.A0 to      R3C2B.FCO HeartBeatInst0/SLICE_10
+ROUTE         1     0.000      R3C2B.FCO to      R3C2C.FCI HeartBeatInst0/iCounter_cry[2]
+FCITOFCO_D  ---     0.317      R3C2C.FCI to      R3C2C.FCO HeartBeatInst0/SLICE_9
+ROUTE         1     0.000      R3C2C.FCO to      R3C2D.FCI HeartBeatInst0/iCounter_cry[4]
+FCITOFCO_D  ---     0.317      R3C2D.FCI to      R3C2D.FCO HeartBeatInst0/SLICE_8
+ROUTE         1     0.000      R3C2D.FCO to      R3C3A.FCI HeartBeatInst0/iCounter_cry[6]
+FCITOFCO_D  ---     0.317      R3C3A.FCI to      R3C3A.FCO HeartBeatInst0/SLICE_7
+ROUTE         1     0.000      R3C3A.FCO to      R3C3B.FCI HeartBeatInst0/iCounter_cry[8]
+FCITOFCO_D  ---     0.317      R3C3B.FCI to      R3C3B.FCO HeartBeatInst0/SLICE_6
+ROUTE         1     0.000      R3C3B.FCO to      R3C3C.FCI HeartBeatInst0/iCounter_cry[10]
+FCITOFCO_D  ---     0.317      R3C3C.FCI to      R3C3C.FCO HeartBeatInst0/SLICE_5
+ROUTE         1     0.000      R3C3C.FCO to      R3C3D.FCI HeartBeatInst0/iCounter_cry[12]
+FCITOFCO_D  ---     0.317      R3C3D.FCI to      R3C3D.FCO HeartBeatInst0/SLICE_4
+ROUTE         1     0.000      R3C3D.FCO to      R3C4A.FCI HeartBeatInst0/iCounter_cry[14]
+FCITOFCO_D  ---     0.317      R3C4A.FCI to      R3C4A.FCO HeartBeatInst0/SLICE_3
+ROUTE         1     0.000      R3C4A.FCO to      R3C4B.FCI HeartBeatInst0/iCounter_cry[16]
+FCITOFCO_D  ---     0.317      R3C4B.FCI to      R3C4B.FCO HeartBeatInst0/SLICE_2
+ROUTE         1     0.000      R3C4B.FCO to      R3C4C.FCI HeartBeatInst0/iCounter_cry[18]
+FCITOF0_DE  ---     1.181      R3C4C.FCI to       R3C4C.F0 HeartBeatInst0/SLICE_1
+ROUTE         1     0.000       R3C4C.F0 to      R3C4C.DI0 HeartBeatInst0/iCounter_s[19] (to sys_clk)
+                  --------
+                    8.234   (81.8% logic, 18.2% route), 11 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_10:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C2B.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C4C.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Error: The following path exceeds requirements by 0.995ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[0]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[18]  (to sys_clk +)
+
+   Delay:               8.082ns  (81.5% logic, 18.5% route), 11 logic levels.
+
+ Constraint Details:
+
+      8.082ns physical path delay HeartBeatInst0/SLICE_0 to HeartBeatInst0/SLICE_2 exceeds
+      7.519ns delay constraint less
+      0.000ns skew and
+      0.432ns DIN_SET requirement (totaling 7.087ns) by 0.995ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_0 to HeartBeatInst0/SLICE_2:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.955      R3C2A.CLK to       R3C2A.Q1 HeartBeatInst0/SLICE_0 (from sys_clk)
+ROUTE         1     1.498       R3C2A.Q1 to       R3C2A.A1 HeartBeatInst0/iCounter[0]
+C1TOFCO_DE  ---     1.795       R3C2A.A1 to      R3C2A.FCO HeartBeatInst0/SLICE_0
+ROUTE         1     0.000      R3C2A.FCO to      R3C2B.FCI HeartBeatInst0/iCounter_cry[0]
+FCITOFCO_D  ---     0.317      R3C2B.FCI to      R3C2B.FCO HeartBeatInst0/SLICE_10
+ROUTE         1     0.000      R3C2B.FCO to      R3C2C.FCI HeartBeatInst0/iCounter_cry[2]
+FCITOFCO_D  ---     0.317      R3C2C.FCI to      R3C2C.FCO HeartBeatInst0/SLICE_9
+ROUTE         1     0.000      R3C2C.FCO to      R3C2D.FCI HeartBeatInst0/iCounter_cry[4]
+FCITOFCO_D  ---     0.317      R3C2D.FCI to      R3C2D.FCO HeartBeatInst0/SLICE_8
+ROUTE         1     0.000      R3C2D.FCO to      R3C3A.FCI HeartBeatInst0/iCounter_cry[6]
+FCITOFCO_D  ---     0.317      R3C3A.FCI to      R3C3A.FCO HeartBeatInst0/SLICE_7
+ROUTE         1     0.000      R3C3A.FCO to      R3C3B.FCI HeartBeatInst0/iCounter_cry[8]
+FCITOFCO_D  ---     0.317      R3C3B.FCI to      R3C3B.FCO HeartBeatInst0/SLICE_6
+ROUTE         1     0.000      R3C3B.FCO to      R3C3C.FCI HeartBeatInst0/iCounter_cry[10]
+FCITOFCO_D  ---     0.317      R3C3C.FCI to      R3C3C.FCO HeartBeatInst0/SLICE_5
+ROUTE         1     0.000      R3C3C.FCO to      R3C3D.FCI HeartBeatInst0/iCounter_cry[12]
+FCITOFCO_D  ---     0.317      R3C3D.FCI to      R3C3D.FCO HeartBeatInst0/SLICE_4
+ROUTE         1     0.000      R3C3D.FCO to      R3C4A.FCI HeartBeatInst0/iCounter_cry[14]
+FCITOFCO_D  ---     0.317      R3C4A.FCI to      R3C4A.FCO HeartBeatInst0/SLICE_3
+ROUTE         1     0.000      R3C4A.FCO to      R3C4B.FCI HeartBeatInst0/iCounter_cry[16]
+FCITOF1_DE  ---     1.298      R3C4B.FCI to       R3C4B.F1 HeartBeatInst0/SLICE_2
+ROUTE         1     0.000       R3C4B.F1 to      R3C4B.DI1 HeartBeatInst0/iCounter_s[18] (to sys_clk)
+                  --------
+                    8.082   (81.5% logic, 18.5% route), 11 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_0:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C2A.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_2:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C4B.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Error: The following path exceeds requirements by 0.995ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[2]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[20]  (to sys_clk +)
+
+   Delay:               8.082ns  (81.5% logic, 18.5% route), 11 logic levels.
+
+ Constraint Details:
+
+      8.082ns physical path delay HeartBeatInst0/SLICE_10 to HeartBeatInst0/SLICE_1 exceeds
+      7.519ns delay constraint less
+      0.000ns skew and
+      0.432ns DIN_SET requirement (totaling 7.087ns) by 0.995ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_10 to HeartBeatInst0/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.955      R3C2B.CLK to       R3C2B.Q1 HeartBeatInst0/SLICE_10 (from sys_clk)
+ROUTE         1     1.498       R3C2B.Q1 to       R3C2B.A1 HeartBeatInst0/iCounter[2]
+C1TOFCO_DE  ---     1.795       R3C2B.A1 to      R3C2B.FCO HeartBeatInst0/SLICE_10
+ROUTE         1     0.000      R3C2B.FCO to      R3C2C.FCI HeartBeatInst0/iCounter_cry[2]
+FCITOFCO_D  ---     0.317      R3C2C.FCI to      R3C2C.FCO HeartBeatInst0/SLICE_9
+ROUTE         1     0.000      R3C2C.FCO to      R3C2D.FCI HeartBeatInst0/iCounter_cry[4]
+FCITOFCO_D  ---     0.317      R3C2D.FCI to      R3C2D.FCO HeartBeatInst0/SLICE_8
+ROUTE         1     0.000      R3C2D.FCO to      R3C3A.FCI HeartBeatInst0/iCounter_cry[6]
+FCITOFCO_D  ---     0.317      R3C3A.FCI to      R3C3A.FCO HeartBeatInst0/SLICE_7
+ROUTE         1     0.000      R3C3A.FCO to      R3C3B.FCI HeartBeatInst0/iCounter_cry[8]
+FCITOFCO_D  ---     0.317      R3C3B.FCI to      R3C3B.FCO HeartBeatInst0/SLICE_6
+ROUTE         1     0.000      R3C3B.FCO to      R3C3C.FCI HeartBeatInst0/iCounter_cry[10]
+FCITOFCO_D  ---     0.317      R3C3C.FCI to      R3C3C.FCO HeartBeatInst0/SLICE_5
+ROUTE         1     0.000      R3C3C.FCO to      R3C3D.FCI HeartBeatInst0/iCounter_cry[12]
+FCITOFCO_D  ---     0.317      R3C3D.FCI to      R3C3D.FCO HeartBeatInst0/SLICE_4
+ROUTE         1     0.000      R3C3D.FCO to      R3C4A.FCI HeartBeatInst0/iCounter_cry[14]
+FCITOFCO_D  ---     0.317      R3C4A.FCI to      R3C4A.FCO HeartBeatInst0/SLICE_3
+ROUTE         1     0.000      R3C4A.FCO to      R3C4B.FCI HeartBeatInst0/iCounter_cry[16]
+FCITOFCO_D  ---     0.317      R3C4B.FCI to      R3C4B.FCO HeartBeatInst0/SLICE_2
+ROUTE         1     0.000      R3C4B.FCO to      R3C4C.FCI HeartBeatInst0/iCounter_cry[18]
+FCITOF1_DE  ---     1.298      R3C4C.FCI to       R3C4C.F1 HeartBeatInst0/SLICE_1
+ROUTE         1     0.000       R3C4C.F1 to      R3C4C.DI1 HeartBeatInst0/iCounter_s[20] (to sys_clk)
+                  --------
+                    8.082   (81.5% logic, 18.5% route), 11 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_10:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C2B.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C4C.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Error: The following path exceeds requirements by 0.947ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[3]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[20]  (to sys_clk +)
+
+   Delay:               8.034ns  (81.4% logic, 18.6% route), 10 logic levels.
+
+ Constraint Details:
+
+      8.034ns physical path delay HeartBeatInst0/SLICE_9 to HeartBeatInst0/SLICE_1 exceeds
+      7.519ns delay constraint less
+      0.000ns skew and
+      0.432ns DIN_SET requirement (totaling 7.087ns) by 0.947ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_9 to HeartBeatInst0/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.955      R3C2C.CLK to       R3C2C.Q0 HeartBeatInst0/SLICE_9 (from sys_clk)
+ROUTE         1     1.498       R3C2C.Q0 to       R3C2C.A0 HeartBeatInst0/iCounter[3]
+C0TOFCO_DE  ---     2.064       R3C2C.A0 to      R3C2C.FCO HeartBeatInst0/SLICE_9
+ROUTE         1     0.000      R3C2C.FCO to      R3C2D.FCI HeartBeatInst0/iCounter_cry[4]
+FCITOFCO_D  ---     0.317      R3C2D.FCI to      R3C2D.FCO HeartBeatInst0/SLICE_8
+ROUTE         1     0.000      R3C2D.FCO to      R3C3A.FCI HeartBeatInst0/iCounter_cry[6]
+FCITOFCO_D  ---     0.317      R3C3A.FCI to      R3C3A.FCO HeartBeatInst0/SLICE_7
+ROUTE         1     0.000      R3C3A.FCO to      R3C3B.FCI HeartBeatInst0/iCounter_cry[8]
+FCITOFCO_D  ---     0.317      R3C3B.FCI to      R3C3B.FCO HeartBeatInst0/SLICE_6
+ROUTE         1     0.000      R3C3B.FCO to      R3C3C.FCI HeartBeatInst0/iCounter_cry[10]
+FCITOFCO_D  ---     0.317      R3C3C.FCI to      R3C3C.FCO HeartBeatInst0/SLICE_5
+ROUTE         1     0.000      R3C3C.FCO to      R3C3D.FCI HeartBeatInst0/iCounter_cry[12]
+FCITOFCO_D  ---     0.317      R3C3D.FCI to      R3C3D.FCO HeartBeatInst0/SLICE_4
+ROUTE         1     0.000      R3C3D.FCO to      R3C4A.FCI HeartBeatInst0/iCounter_cry[14]
+FCITOFCO_D  ---     0.317      R3C4A.FCI to      R3C4A.FCO HeartBeatInst0/SLICE_3
+ROUTE         1     0.000      R3C4A.FCO to      R3C4B.FCI HeartBeatInst0/iCounter_cry[16]
+FCITOFCO_D  ---     0.317      R3C4B.FCI to      R3C4B.FCO HeartBeatInst0/SLICE_2
+ROUTE         1     0.000      R3C4B.FCO to      R3C4C.FCI HeartBeatInst0/iCounter_cry[18]
+FCITOF1_DE  ---     1.298      R3C4C.FCI to       R3C4C.F1 HeartBeatInst0/SLICE_1
+ROUTE         1     0.000       R3C4C.F1 to      R3C4C.DI1 HeartBeatInst0/iCounter_s[20] (to sys_clk)
+                  --------
+                    8.034   (81.4% logic, 18.6% route), 10 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_9:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C2C.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C4C.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Error: The following path exceeds requirements by 0.947ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[1]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[18]  (to sys_clk +)
+
+   Delay:               8.034ns  (81.4% logic, 18.6% route), 10 logic levels.
+
+ Constraint Details:
+
+      8.034ns physical path delay HeartBeatInst0/SLICE_10 to HeartBeatInst0/SLICE_2 exceeds
+      7.519ns delay constraint less
+      0.000ns skew and
+      0.432ns DIN_SET requirement (totaling 7.087ns) by 0.947ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_10 to HeartBeatInst0/SLICE_2:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.955      R3C2B.CLK to       R3C2B.Q0 HeartBeatInst0/SLICE_10 (from sys_clk)
+ROUTE         1     1.498       R3C2B.Q0 to       R3C2B.A0 HeartBeatInst0/iCounter[1]
+C0TOFCO_DE  ---     2.064       R3C2B.A0 to      R3C2B.FCO HeartBeatInst0/SLICE_10
+ROUTE         1     0.000      R3C2B.FCO to      R3C2C.FCI HeartBeatInst0/iCounter_cry[2]
+FCITOFCO_D  ---     0.317      R3C2C.FCI to      R3C2C.FCO HeartBeatInst0/SLICE_9
+ROUTE         1     0.000      R3C2C.FCO to      R3C2D.FCI HeartBeatInst0/iCounter_cry[4]
+FCITOFCO_D  ---     0.317      R3C2D.FCI to      R3C2D.FCO HeartBeatInst0/SLICE_8
+ROUTE         1     0.000      R3C2D.FCO to      R3C3A.FCI HeartBeatInst0/iCounter_cry[6]
+FCITOFCO_D  ---     0.317      R3C3A.FCI to      R3C3A.FCO HeartBeatInst0/SLICE_7
+ROUTE         1     0.000      R3C3A.FCO to      R3C3B.FCI HeartBeatInst0/iCounter_cry[8]
+FCITOFCO_D  ---     0.317      R3C3B.FCI to      R3C3B.FCO HeartBeatInst0/SLICE_6
+ROUTE         1     0.000      R3C3B.FCO to      R3C3C.FCI HeartBeatInst0/iCounter_cry[10]
+FCITOFCO_D  ---     0.317      R3C3C.FCI to      R3C3C.FCO HeartBeatInst0/SLICE_5
+ROUTE         1     0.000      R3C3C.FCO to      R3C3D.FCI HeartBeatInst0/iCounter_cry[12]
+FCITOFCO_D  ---     0.317      R3C3D.FCI to      R3C3D.FCO HeartBeatInst0/SLICE_4
+ROUTE         1     0.000      R3C3D.FCO to      R3C4A.FCI HeartBeatInst0/iCounter_cry[14]
+FCITOFCO_D  ---     0.317      R3C4A.FCI to      R3C4A.FCO HeartBeatInst0/SLICE_3
+ROUTE         1     0.000      R3C4A.FCO to      R3C4B.FCI HeartBeatInst0/iCounter_cry[16]
+FCITOF1_DE  ---     1.298      R3C4B.FCI to       R3C4B.F1 HeartBeatInst0/SLICE_2
+ROUTE         1     0.000       R3C4B.F1 to      R3C4B.DI1 HeartBeatInst0/iCounter_s[18] (to sys_clk)
+                  --------
+                    8.034   (81.4% logic, 18.6% route), 10 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_10:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C2B.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_2:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C4B.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Error: The following path exceeds requirements by 0.878ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[0]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[17]  (to sys_clk +)
+
+   Delay:               7.965ns  (81.2% logic, 18.8% route), 11 logic levels.
+
+ Constraint Details:
+
+      7.965ns physical path delay HeartBeatInst0/SLICE_0 to HeartBeatInst0/SLICE_2 exceeds
+      7.519ns delay constraint less
+      0.000ns skew and
+      0.432ns DIN_SET requirement (totaling 7.087ns) by 0.878ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_0 to HeartBeatInst0/SLICE_2:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.955      R3C2A.CLK to       R3C2A.Q1 HeartBeatInst0/SLICE_0 (from sys_clk)
+ROUTE         1     1.498       R3C2A.Q1 to       R3C2A.A1 HeartBeatInst0/iCounter[0]
+C1TOFCO_DE  ---     1.795       R3C2A.A1 to      R3C2A.FCO HeartBeatInst0/SLICE_0
+ROUTE         1     0.000      R3C2A.FCO to      R3C2B.FCI HeartBeatInst0/iCounter_cry[0]
+FCITOFCO_D  ---     0.317      R3C2B.FCI to      R3C2B.FCO HeartBeatInst0/SLICE_10
+ROUTE         1     0.000      R3C2B.FCO to      R3C2C.FCI HeartBeatInst0/iCounter_cry[2]
+FCITOFCO_D  ---     0.317      R3C2C.FCI to      R3C2C.FCO HeartBeatInst0/SLICE_9
+ROUTE         1     0.000      R3C2C.FCO to      R3C2D.FCI HeartBeatInst0/iCounter_cry[4]
+FCITOFCO_D  ---     0.317      R3C2D.FCI to      R3C2D.FCO HeartBeatInst0/SLICE_8
+ROUTE         1     0.000      R3C2D.FCO to      R3C3A.FCI HeartBeatInst0/iCounter_cry[6]
+FCITOFCO_D  ---     0.317      R3C3A.FCI to      R3C3A.FCO HeartBeatInst0/SLICE_7
+ROUTE         1     0.000      R3C3A.FCO to      R3C3B.FCI HeartBeatInst0/iCounter_cry[8]
+FCITOFCO_D  ---     0.317      R3C3B.FCI to      R3C3B.FCO HeartBeatInst0/SLICE_6
+ROUTE         1     0.000      R3C3B.FCO to      R3C3C.FCI HeartBeatInst0/iCounter_cry[10]
+FCITOFCO_D  ---     0.317      R3C3C.FCI to      R3C3C.FCO HeartBeatInst0/SLICE_5
+ROUTE         1     0.000      R3C3C.FCO to      R3C3D.FCI HeartBeatInst0/iCounter_cry[12]
+FCITOFCO_D  ---     0.317      R3C3D.FCI to      R3C3D.FCO HeartBeatInst0/SLICE_4
+ROUTE         1     0.000      R3C3D.FCO to      R3C4A.FCI HeartBeatInst0/iCounter_cry[14]
+FCITOFCO_D  ---     0.317      R3C4A.FCI to      R3C4A.FCO HeartBeatInst0/SLICE_3
+ROUTE         1     0.000      R3C4A.FCO to      R3C4B.FCI HeartBeatInst0/iCounter_cry[16]
+FCITOF0_DE  ---     1.181      R3C4B.FCI to       R3C4B.F0 HeartBeatInst0/SLICE_2
+ROUTE         1     0.000       R3C4B.F0 to      R3C4B.DI0 HeartBeatInst0/iCounter_s[17] (to sys_clk)
+                  --------
+                    7.965   (81.2% logic, 18.8% route), 11 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_0:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C2A.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_2:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C4B.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Error: The following path exceeds requirements by 0.878ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[2]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[19]  (to sys_clk +)
+
+   Delay:               7.965ns  (81.2% logic, 18.8% route), 11 logic levels.
+
+ Constraint Details:
+
+      7.965ns physical path delay HeartBeatInst0/SLICE_10 to HeartBeatInst0/SLICE_1 exceeds
+      7.519ns delay constraint less
+      0.000ns skew and
+      0.432ns DIN_SET requirement (totaling 7.087ns) by 0.878ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_10 to HeartBeatInst0/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.955      R3C2B.CLK to       R3C2B.Q1 HeartBeatInst0/SLICE_10 (from sys_clk)
+ROUTE         1     1.498       R3C2B.Q1 to       R3C2B.A1 HeartBeatInst0/iCounter[2]
+C1TOFCO_DE  ---     1.795       R3C2B.A1 to      R3C2B.FCO HeartBeatInst0/SLICE_10
+ROUTE         1     0.000      R3C2B.FCO to      R3C2C.FCI HeartBeatInst0/iCounter_cry[2]
+FCITOFCO_D  ---     0.317      R3C2C.FCI to      R3C2C.FCO HeartBeatInst0/SLICE_9
+ROUTE         1     0.000      R3C2C.FCO to      R3C2D.FCI HeartBeatInst0/iCounter_cry[4]
+FCITOFCO_D  ---     0.317      R3C2D.FCI to      R3C2D.FCO HeartBeatInst0/SLICE_8
+ROUTE         1     0.000      R3C2D.FCO to      R3C3A.FCI HeartBeatInst0/iCounter_cry[6]
+FCITOFCO_D  ---     0.317      R3C3A.FCI to      R3C3A.FCO HeartBeatInst0/SLICE_7
+ROUTE         1     0.000      R3C3A.FCO to      R3C3B.FCI HeartBeatInst0/iCounter_cry[8]
+FCITOFCO_D  ---     0.317      R3C3B.FCI to      R3C3B.FCO HeartBeatInst0/SLICE_6
+ROUTE         1     0.000      R3C3B.FCO to      R3C3C.FCI HeartBeatInst0/iCounter_cry[10]
+FCITOFCO_D  ---     0.317      R3C3C.FCI to      R3C3C.FCO HeartBeatInst0/SLICE_5
+ROUTE         1     0.000      R3C3C.FCO to      R3C3D.FCI HeartBeatInst0/iCounter_cry[12]
+FCITOFCO_D  ---     0.317      R3C3D.FCI to      R3C3D.FCO HeartBeatInst0/SLICE_4
+ROUTE         1     0.000      R3C3D.FCO to      R3C4A.FCI HeartBeatInst0/iCounter_cry[14]
+FCITOFCO_D  ---     0.317      R3C4A.FCI to      R3C4A.FCO HeartBeatInst0/SLICE_3
+ROUTE         1     0.000      R3C4A.FCO to      R3C4B.FCI HeartBeatInst0/iCounter_cry[16]
+FCITOFCO_D  ---     0.317      R3C4B.FCI to      R3C4B.FCO HeartBeatInst0/SLICE_2
+ROUTE         1     0.000      R3C4B.FCO to      R3C4C.FCI HeartBeatInst0/iCounter_cry[18]
+FCITOF0_DE  ---     1.181      R3C4C.FCI to       R3C4C.F0 HeartBeatInst0/SLICE_1
+ROUTE         1     0.000       R3C4C.F0 to      R3C4C.DI0 HeartBeatInst0/iCounter_s[19] (to sys_clk)
+                  --------
+                    7.965   (81.2% logic, 18.8% route), 11 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_10:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C2B.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     7.878        OSC.OSC to      R3C4C.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+Warning: 113.237MHz is the maximum frequency for this preference.
+
+Report Summary
+--------------
+----------------------------------------------------------------------------
+Preference                              |   Constraint|       Actual|Levels
+----------------------------------------------------------------------------
+                                        |             |             |
+FREQUENCY NET "sys_clk" 133.000000 MHz  |             |             |
+;                                       |  133.000 MHz|  113.237 MHz|  12 *
+                                        |             |             |
+----------------------------------------------------------------------------
+
+
+1 preference(marked by "*" above) not met.
+
+----------------------------------------------------------------------------
+Critical Nets                           |   Loads|  Errors| % of total
+----------------------------------------------------------------------------
+HeartBeatInst0/iCounter_cry[8]          |       1|      45|    100.00%
+                                        |        |        |
+HeartBeatInst0/iCounter_cry[10]         |       1|      45|    100.00%
+                                        |        |        |
+HeartBeatInst0/iCounter_cry[12]         |       1|      44|     97.78%
+                                        |        |        |
+HeartBeatInst0/iCounter_cry[6]          |       1|      42|     93.33%
+                                        |        |        |
+HeartBeatInst0/iCounter_cry[14]         |       1|      39|     86.67%
+                                        |        |        |
+HeartBeatInst0/iCounter_cry[4]          |       1|      35|     77.78%
+                                        |        |        |
+HeartBeatInst0/iCounter_cry[16]         |       1|      30|     66.67%
+                                        |        |        |
+HeartBeatInst0/iCounter_cry[2]          |       1|      24|     53.33%
+                                        |        |        |
+HeartBeatInst0/iCounter_cry[18]         |       1|      17|     37.78%
+                                        |        |        |
+HeartBeatInst0/iCounter_s[20]           |       1|       9|     20.00%
+                                        |        |        |
+HeartBeatInst0/iCounter_cry[0]          |       1|       9|     20.00%
+                                        |        |        |
+HeartBeatInst0/iCounter[0]              |       1|       9|     20.00%
+                                        |        |        |
+HeartBeatInst0/iCounter_s[19]           |       1|       8|     17.78%
+                                        |        |        |
+HeartBeatInst0/iCounter[1]              |       1|       8|     17.78%
+                                        |        |        |
+HeartBeatInst0/iCounter_s[18]           |       1|       7|     15.56%
+                                        |        |        |
+HeartBeatInst0/iCounter[2]              |       1|       7|     15.56%
+                                        |        |        |
+HeartBeatInst0/iCounter_s[17]           |       1|       6|     13.33%
+                                        |        |        |
+HeartBeatInst0/iCounter[3]              |       1|       6|     13.33%
+                                        |        |        |
+HeartBeatInst0/iCounter_s[16]           |       1|       5|     11.11%
+                                        |        |        |
+HeartBeatInst0/iCounter[4]              |       1|       5|     11.11%
+                                        |        |        |
+----------------------------------------------------------------------------
+
+
+Clock Domains Analysis
+------------------------
+
+Found 1 clocks:
+
+Clock Domain: sys_clk   Source: OSCInst0.OSC   Loads: 11
+   Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;
+
+
+Timing summary (Setup):
+---------------
+
+Timing errors: 45  Score: 24040
+Cumulative negative slack: 24040
+
+Constraints cover 231 paths, 1 nets, and 66 connections (100.00% coverage)
+
+--------------------------------------------------------------------------------
+Lattice TRACE Report - Hold, Version Diamond (64-bit) 3.10.3.144
+Tue Sep 17 15:49:52 2019
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2017 Lattice Semiconductor Corporation,  All rights reserved.
+
+Report Information
+------------------
+Command line:    trce -v 10 -gt -sethld -sp 1 -sphld m -o pico_i2c_i2c_interface.twr -gui -msgset D:/WorkingDir/Fpga/pico_dev_test/promote.xml pico_i2c_i2c_interface.ncd pico_i2c_i2c_interface.prf 
+Design file:     pico_i2c_i2c_interface.ncd
+Preference file: pico_i2c_i2c_interface.prf
+Device,speed:    LCMXO2-1200ZE,m
+Report level:    verbose report, limited to 10 items per preference
+--------------------------------------------------------------------------------
+
+BLOCK ASYNCPATHS
+BLOCK RESETPATHS
+--------------------------------------------------------------------------------
+
+
+
+================================================================================
+Preference: FREQUENCY NET "sys_clk" 133.000000 MHz ;
+            231 items scored, 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+
+Passed: The following path meets requirements by 0.855ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[2]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[2]  (to sys_clk +)
+
+   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
+
+ Constraint Details:
+
+      0.823ns physical path delay HeartBeatInst0/SLICE_10 to HeartBeatInst0/SLICE_10 meets
+     -0.032ns DIN_HLD and
+      0.000ns delay constraint less
+      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_10 to HeartBeatInst0/SLICE_10:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.257      R3C2B.CLK to       R3C2B.Q1 HeartBeatInst0/SLICE_10 (from sys_clk)
+ROUTE         1     0.367       R3C2B.Q1 to       R3C2B.A1 HeartBeatInst0/iCounter[2]
+CTOF_DEL    ---     0.199       R3C2B.A1 to       R3C2B.F1 HeartBeatInst0/SLICE_10
+ROUTE         1     0.000       R3C2B.F1 to      R3C2B.DI1 HeartBeatInst0/iCounter_s[2] (to sys_clk)
+                  --------
+                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_10:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C2B.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_10:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C2B.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Passed: The following path meets requirements by 0.855ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[13]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[13]  (to sys_clk +)
+
+   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
+
+ Constraint Details:
+
+      0.823ns physical path delay HeartBeatInst0/SLICE_4 to HeartBeatInst0/SLICE_4 meets
+     -0.032ns DIN_HLD and
+      0.000ns delay constraint less
+      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_4 to HeartBeatInst0/SLICE_4:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.257      R3C3D.CLK to       R3C3D.Q0 HeartBeatInst0/SLICE_4 (from sys_clk)
+ROUTE         1     0.367       R3C3D.Q0 to       R3C3D.A0 HeartBeatInst0/iCounter[13]
+CTOF_DEL    ---     0.199       R3C3D.A0 to       R3C3D.F0 HeartBeatInst0/SLICE_4
+ROUTE         1     0.000       R3C3D.F0 to      R3C3D.DI0 HeartBeatInst0/iCounter_s[13] (to sys_clk)
+                  --------
+                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_4:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C3D.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_4:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C3D.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Passed: The following path meets requirements by 0.855ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[9]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[9]  (to sys_clk +)
+
+   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
+
+ Constraint Details:
+
+      0.823ns physical path delay HeartBeatInst0/SLICE_6 to HeartBeatInst0/SLICE_6 meets
+     -0.032ns DIN_HLD and
+      0.000ns delay constraint less
+      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_6 to HeartBeatInst0/SLICE_6:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.257      R3C3B.CLK to       R3C3B.Q0 HeartBeatInst0/SLICE_6 (from sys_clk)
+ROUTE         1     0.367       R3C3B.Q0 to       R3C3B.A0 HeartBeatInst0/iCounter[9]
+CTOF_DEL    ---     0.199       R3C3B.A0 to       R3C3B.F0 HeartBeatInst0/SLICE_6
+ROUTE         1     0.000       R3C3B.F0 to      R3C3B.DI0 HeartBeatInst0/iCounter_s[9] (to sys_clk)
+                  --------
+                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_6:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C3B.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_6:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C3B.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Passed: The following path meets requirements by 0.855ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[5]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[5]  (to sys_clk +)
+
+   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
+
+ Constraint Details:
+
+      0.823ns physical path delay HeartBeatInst0/SLICE_8 to HeartBeatInst0/SLICE_8 meets
+     -0.032ns DIN_HLD and
+      0.000ns delay constraint less
+      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_8 to HeartBeatInst0/SLICE_8:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.257      R3C2D.CLK to       R3C2D.Q0 HeartBeatInst0/SLICE_8 (from sys_clk)
+ROUTE         1     0.367       R3C2D.Q0 to       R3C2D.A0 HeartBeatInst0/iCounter[5]
+CTOF_DEL    ---     0.199       R3C2D.A0 to       R3C2D.F0 HeartBeatInst0/SLICE_8
+ROUTE         1     0.000       R3C2D.F0 to      R3C2D.DI0 HeartBeatInst0/iCounter_s[5] (to sys_clk)
+                  --------
+                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_8:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C2D.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_8:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C2D.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Passed: The following path meets requirements by 0.855ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[1]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[1]  (to sys_clk +)
+
+   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
+
+ Constraint Details:
+
+      0.823ns physical path delay HeartBeatInst0/SLICE_10 to HeartBeatInst0/SLICE_10 meets
+     -0.032ns DIN_HLD and
+      0.000ns delay constraint less
+      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_10 to HeartBeatInst0/SLICE_10:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.257      R3C2B.CLK to       R3C2B.Q0 HeartBeatInst0/SLICE_10 (from sys_clk)
+ROUTE         1     0.367       R3C2B.Q0 to       R3C2B.A0 HeartBeatInst0/iCounter[1]
+CTOF_DEL    ---     0.199       R3C2B.A0 to       R3C2B.F0 HeartBeatInst0/SLICE_10
+ROUTE         1     0.000       R3C2B.F0 to      R3C2B.DI0 HeartBeatInst0/iCounter_s[1] (to sys_clk)
+                  --------
+                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_10:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C2B.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_10:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C2B.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Passed: The following path meets requirements by 0.855ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[17]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[17]  (to sys_clk +)
+
+   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
+
+ Constraint Details:
+
+      0.823ns physical path delay HeartBeatInst0/SLICE_2 to HeartBeatInst0/SLICE_2 meets
+     -0.032ns DIN_HLD and
+      0.000ns delay constraint less
+      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_2 to HeartBeatInst0/SLICE_2:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.257      R3C4B.CLK to       R3C4B.Q0 HeartBeatInst0/SLICE_2 (from sys_clk)
+ROUTE         1     0.367       R3C4B.Q0 to       R3C4B.A0 HeartBeatInst0/iCounter[17]
+CTOF_DEL    ---     0.199       R3C4B.A0 to       R3C4B.F0 HeartBeatInst0/SLICE_2
+ROUTE         1     0.000       R3C4B.F0 to      R3C4B.DI0 HeartBeatInst0/iCounter_s[17] (to sys_clk)
+                  --------
+                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_2:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C4B.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_2:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C4B.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Passed: The following path meets requirements by 0.855ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[11]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[11]  (to sys_clk +)
+
+   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
+
+ Constraint Details:
+
+      0.823ns physical path delay HeartBeatInst0/SLICE_5 to HeartBeatInst0/SLICE_5 meets
+     -0.032ns DIN_HLD and
+      0.000ns delay constraint less
+      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_5 to HeartBeatInst0/SLICE_5:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.257      R3C3C.CLK to       R3C3C.Q0 HeartBeatInst0/SLICE_5 (from sys_clk)
+ROUTE         1     0.367       R3C3C.Q0 to       R3C3C.A0 HeartBeatInst0/iCounter[11]
+CTOF_DEL    ---     0.199       R3C3C.A0 to       R3C3C.F0 HeartBeatInst0/SLICE_5
+ROUTE         1     0.000       R3C3C.F0 to      R3C3C.DI0 HeartBeatInst0/iCounter_s[11] (to sys_clk)
+                  --------
+                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_5:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C3C.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_5:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C3C.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Passed: The following path meets requirements by 0.855ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[7]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[7]  (to sys_clk +)
+
+   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
+
+ Constraint Details:
+
+      0.823ns physical path delay HeartBeatInst0/SLICE_7 to HeartBeatInst0/SLICE_7 meets
+     -0.032ns DIN_HLD and
+      0.000ns delay constraint less
+      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_7 to HeartBeatInst0/SLICE_7:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.257      R3C3A.CLK to       R3C3A.Q0 HeartBeatInst0/SLICE_7 (from sys_clk)
+ROUTE         1     0.367       R3C3A.Q0 to       R3C3A.A0 HeartBeatInst0/iCounter[7]
+CTOF_DEL    ---     0.199       R3C3A.A0 to       R3C3A.F0 HeartBeatInst0/SLICE_7
+ROUTE         1     0.000       R3C3A.F0 to      R3C3A.DI0 HeartBeatInst0/iCounter_s[7] (to sys_clk)
+                  --------
+                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_7:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C3A.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_7:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C3A.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Passed: The following path meets requirements by 0.855ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[15]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[15]  (to sys_clk +)
+
+   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
+
+ Constraint Details:
+
+      0.823ns physical path delay HeartBeatInst0/SLICE_3 to HeartBeatInst0/SLICE_3 meets
+     -0.032ns DIN_HLD and
+      0.000ns delay constraint less
+      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_3 to HeartBeatInst0/SLICE_3:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.257      R3C4A.CLK to       R3C4A.Q0 HeartBeatInst0/SLICE_3 (from sys_clk)
+ROUTE         1     0.367       R3C4A.Q0 to       R3C4A.A0 HeartBeatInst0/iCounter[15]
+CTOF_DEL    ---     0.199       R3C4A.A0 to       R3C4A.F0 HeartBeatInst0/SLICE_3
+ROUTE         1     0.000       R3C4A.F0 to      R3C4A.DI0 HeartBeatInst0/iCounter_s[15] (to sys_clk)
+                  --------
+                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_3:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C4A.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_3:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C4A.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Passed: The following path meets requirements by 0.855ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              HeartBeatInst0/iCounter[19]  (from sys_clk +)
+   Destination:    FF         Data in        HeartBeatInst0/iCounter[19]  (to sys_clk +)
+
+   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
+
+ Constraint Details:
+
+      0.823ns physical path delay HeartBeatInst0/SLICE_1 to HeartBeatInst0/SLICE_1 meets
+     -0.032ns DIN_HLD and
+      0.000ns delay constraint less
+      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
+
+ Physical Path Details:
+
+      Data path HeartBeatInst0/SLICE_1 to HeartBeatInst0/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.257      R3C4C.CLK to       R3C4C.Q0 HeartBeatInst0/SLICE_1 (from sys_clk)
+ROUTE         1     0.367       R3C4C.Q0 to       R3C4C.A0 HeartBeatInst0/iCounter[19]
+CTOF_DEL    ---     0.199       R3C4C.A0 to       R3C4C.F0 HeartBeatInst0/SLICE_1
+ROUTE         1     0.000       R3C4C.F0 to      R3C4C.DI0 HeartBeatInst0/iCounter_s[19] (to sys_clk)
+                  --------
+                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C4C.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        11     2.481        OSC.OSC to      R3C4C.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+Report Summary
+--------------
+----------------------------------------------------------------------------
+Preference(MIN Delays)                  |   Constraint|       Actual|Levels
+----------------------------------------------------------------------------
+                                        |             |             |
+FREQUENCY NET "sys_clk" 133.000000 MHz  |             |             |
+;                                       |     0.000 ns|     0.855 ns|   2  
+                                        |             |             |
+----------------------------------------------------------------------------
+
+
+All preferences were met.
+
+
+Clock Domains Analysis
+------------------------
+
+Found 1 clocks:
+
+Clock Domain: sys_clk   Source: OSCInst0.OSC   Loads: 11
+   Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;
+
+
+Timing summary (Hold):
+---------------
+
+Timing errors: 0  Score: 0
+Cumulative negative slack: 0
+
+Constraints cover 231 paths, 1 nets, and 66 connections (100.00% coverage)
+
+
+
+Timing summary (Setup and Hold):
+---------------
+
+Timing errors: 45 (setup), 0 (hold)
+Score: 24040 (setup), 0 (hold)
+Cumulative negative slack: 24040 (24040+0)
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+

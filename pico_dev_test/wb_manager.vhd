@@ -11,10 +11,11 @@ entity wb_manager is
 	port(
 			clk_i		: in std_logic;
 			rst_n_i		: in std_logic;
-			data_io 	: inout std_logic_vector(7 downto 0);
+			data_i 		: in std_logic_vector(7 downto 0);
 			addr_i 		: in std_logic_vector(7 downto 0);
 			option		: in std_logic_vector(7 downto 0);
 			status		: out std_logic_vector(7 downto 0);
+			data_o 		: out std_logic_vector(7 downto 0);
 			scl      	: inout std_logic;			-- to connect hardware pin from top level
 			sda      	: inout std_logic			-- to connect hardware pin from top level
 	);
@@ -50,7 +51,7 @@ architecture rtl of wb_manager is
 	signal wb_read_complete : std_logic :=  '0';
 	signal wb_write_complete : std_logic := '0';
 	signal wb_timeout_err : std_logic := '0';
-	signal start_timeout_timer : std_logic := '0';
+	signal status_timer : std_logic := '0';
 
 	-- parameterized module component declaration
 	component efb_i2c_VHDL
@@ -85,9 +86,9 @@ begin
 		);
 		
 	rst_p <= not(rst_n_i);
-	wb_dat_i <= data_io when wb_active = '1' and option(1) = '1' else (others =>'0');
+	wb_dat_i <= data_i when wb_active = '1' and option(1) = '1' else (others =>'0');
 	wb_adr_i <= addr_i when wb_active ='1' else (others =>'0');
-	wb_dat_o <= data_io when wb_active = '1' and option(1) = '0' else (others =>'0');
+	data_o  <= wb_dat_o when wb_active = '1' and option(1) = '0' else (others =>'0');
 	
 		
 	reset_block : process(rst_n_i, clk_i)
@@ -96,6 +97,8 @@ begin
 		if( rst_n_i = '0') then
 			-- reset logic here
 			cState <= IDLE;
+			status <= ( others=> '0');
+			data_o <= ( others=> '0');
 		else
 			if rising_edge(clk_i) then
 				cState <= nState;
@@ -148,7 +151,7 @@ begin
 		wb_read_complete <= '0';
 		wb_write_complete <= '0';
 		wb_timeout_err <= '0';
-		start_timeout_timer <= '0';
+		status_timer <= '0';
 		
 		case (cState) is
 			when IDLE =>
@@ -160,7 +163,7 @@ begin
 						wb_read_complete <= '0';
 						wb_write_complete <= '0';
 						wb_timeout_err <= '0';
-						start_timeout_timer <= '0';
+						status_timer <= '0';
 			when ACTIVE_WB =>
 						wb_busy <= '1';
 						wb_active <= '1';
@@ -175,7 +178,7 @@ begin
 						
 						wb_cyc_i <= '1';
 						wb_stb_i <= '1';
-						start_timeout_timer <= '1';
+						status_timer <= '1';
 			when WAIT_ACK =>
 						wb_busy <= '1';
 						wb_active <= '1';
