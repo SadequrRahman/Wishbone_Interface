@@ -3,6 +3,7 @@
 #
 
 # Period Constraints 
+#FREQUENCY NET "sys_clk" 133.0 MHz;
 
 
 # Output Constraints 

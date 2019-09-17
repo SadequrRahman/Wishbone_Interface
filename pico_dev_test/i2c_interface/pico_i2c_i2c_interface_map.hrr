@@ -3,52 +3,19 @@ Report for cell top_module
    Instance path: top_module
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	      30.00        100.0
-                                  LUT4	      19.00        100.0
-                                 IOBUF	          5        100.0
-                                PFUREG	         57        100.0
+                                  SLIC	      12.00        100.0
+                                  LUT4	       1.00        100.0
+                                 IOBUF	          3        100.0
+                                PFUREG	         21        100.0
                                 RIPPLE	         11        100.0
 SUB MODULES
                                   cell	      count    SLC Usage(%)
-                 i2c_master_controller	          1        63.3
-                             HeartBeat	          1        35.6
----------------------------------------------------
-Report for cell i2c_master_controller
-   Instance path: top_module/i2c_master_controller_Inst0
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  SLIC	      19.00        63.3
-                                  LUT4	      18.00        94.7
-                                 IOBUF	          2        40.0
-                                PFUREG	         36        63.2
-SUB MODULES
-                                  cell	      count    SLC Usage(%)
-                            wb_manager	          1        27.8
----------------------------------------------------
-Report for cell wb_manager
-   Instance path: top_module/i2c_master_controller_Inst0/wb_manager0
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  SLIC	       8.33        27.8
-                                  LUT4	      14.00        73.7
-                                 IOBUF	          2        40.0
-                                PFUREG	         11        19.3
-SUB MODULES
-                                  cell	      count    SLC Usage(%)
-                          efb_i2c_VHDL	          1         0.8
----------------------------------------------------
-Report for cell efb_i2c_VHDL
-   Instance path: top_module/i2c_master_controller_Inst0/wb_manager0/efb_i2c_Inst0
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  SLIC	       0.25         0.8
-                                  LUT4	       1.00         5.3
-                                 IOBUF	          2        40.0
+                             HeartBeat	          1        91.7
 ---------------------------------------------------
 Report for cell HeartBeat
    Instance path: top_module/HeartBeatInst0
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	      10.67        35.6
-                                PFUREG	         21        36.8
+                                  SLIC	      11.00        91.7
+                                PFUREG	         21        100.0
                                 RIPPLE	         11        100.0

@@ -72,17 +72,17 @@ begin
 		LED =>heart_beat
 		);
 
-	i2c_master_controller_Inst0 : i2c_master_controller
-	PORT MAP (
-		rst_n=>rst_n,
-		clk=>sys_clk,
-		data_i=>i2c_data_i,
-		addr_i=>addr_i,
-		scl=>scl,		
-		sda=>sda,
-		data_o=>i2c_data_o,
-		ack_o=>i2c_ack_o
-	);
+	--i2c_master_controller_Inst0 : i2c_master_controller
+	--PORT MAP (
+		--rst_n=>rst_n,
+		--clk=>sys_clk,
+		--data_i=>i2c_data_i,
+		--addr_i=>addr_i,
+		--scl=>scl,		
+		--sda=>sda,
+		--data_o=>i2c_data_o,
+		--ack_o=>i2c_ack_o
+	--);
 	
 	stdby <= '0';
 	enI2C <= '1';

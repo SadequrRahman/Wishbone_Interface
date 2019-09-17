@@ -1,0 +1,17 @@
+[COMPILESTATUS|.\..\timeout.vhd]
+FileTimeLow=30764381
+Status=Compiled
+
+[COMPILESTATUS|.\..\timeout_tb.vhd]
+FileTimeLow=30764381
+Status=Compiled
+
+[General]
+CurrentVersion=103
+
+[CACHEDOC|Aldec.Project.Generic.7|.\timeout_tb.adf|]
+Path=/timeout_tb
+
+[Gui config]
+RunFor=100 ns
+
