@@ -2,8 +2,8 @@
 -- VHDL netlist produced by program ldbanno, Version Diamond (64-bit) 3.10.3.144
 
 -- ldbanno -n VHDL -o pico_i2c_i2c_interface_mapvho.vho -w -neg -gui -msgset D:/WorkingDir/Fpga/pico_dev_test/promote.xml pico_i2c_i2c_interface_map.ncd 
--- Netlist created on Tue Sep 17 17:12:43 2019
--- Netlist written on Tue Sep 17 17:12:44 2019
+-- Netlist created on Wed Sep 18 13:39:20 2019
+-- Netlist written on Wed Sep 18 13:39:21 2019
 -- Design is for device LCMXO2-1200ZE
 -- Design is for package TQFP144
 -- Design is for performance grade 1

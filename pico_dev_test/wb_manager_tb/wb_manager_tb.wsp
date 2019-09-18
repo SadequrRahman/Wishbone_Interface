@@ -3,11 +3,11 @@ FileTimeLow=30762771
 Status=Compiled
 
 [COMPILESTATUS|.\..\wb_manager.vhd]
-FileTimeLow=30764394
+FileTimeLow=30764564
 Status=Compiled
 
 [COMPILESTATUS|.\..\wb_manager_tb.vhd]
-FileTimeLow=30764394
+FileTimeLow=30764560
 Status=Warning
 
 [General]
@@ -20,6 +20,19 @@ Path=/wb_manager_tb
 RunFor=1000 ns
 
 [OPENDOC|Aldec.Hde.HdePlugIn.7|.\..\wb_manager_tb.vhd|]
+CurrentLine=0
+CurrentColumn=0
+Bookmarks=-1
+BookmarksLength=3
+CurrentFontSize=-13
+Frame=0
+WindowWorkspaceInfo="LAAAAAAAAAABAAAA/////////////////////zgBAAB6AAAAgAcAAEkDAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADIAAAAyAAAAAAAAAAAAAAAyAAAAMgAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAEAAAA="
+
+[COMPILESTATUS|.\..\timeout.vhd]
+FileTimeLow=30764381
+Status=Compiled
+
+[OPENDOC|Aldec.Hde.HdePlugIn.7|.\..\wb_manager.vhd|]
 CurrentLine=0
 CurrentColumn=0
 Bookmarks=-1

@@ -151,6 +151,7 @@ C:\lscc\diamond\3.10_x64\active-hdl/efb_src/cfg_gen.v=S
 C:\lscc\diamond\3.10_x64\active-hdl/efb_src/default.rbt.v=S
 C:\lscc\diamond\3.10_x64\active-hdl\vlib\machxo2/src/MACHXO2_IO.vhd=S
 C:\lscc\diamond\3.10_x64\active-hdl\vlib\machxo2/src/MACHXO2_CMB.vhd=S
+D:\WorkingDir\Fpga\pico_dev_test/timeout.vhd=S
 D:\WorkingDir\Fpga\pico_dev_test/efb_i2c_VHDL.vhd=S
 C:\lscc\diamond\3.10_x64\active-hdl\vlib\ovi_machxo2/src/OSCH.v=S
 D:\WorkingDir\Fpga\pico_dev_test/wb_manager.vhd=S

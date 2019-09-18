@@ -15,12 +15,14 @@ designverdefinemacro -clear
 if {$newDesign == 0} { 
   removefile -Y -D *
 }
+addfile "D:/WorkingDir/Fpga/pico_dev_test/timeout.vhd"
 addfile "D:/WorkingDir/Fpga/pico_dev_test/efb_i2c_VHDL.vhd"
 addfile "D:/WorkingDir/Fpga/pico_dev_test/wb_manager.vhd"
 addfile "D:/WorkingDir/Fpga/pico_dev_test/wb_manager_tb.vhd"
 vlib "D:/WorkingDir/Fpga/pico_dev_test/wb_manager_tb/work"
 set worklib work
 adel -all
+vcom -dbg "D:/WorkingDir/Fpga/pico_dev_test/timeout.vhd"
 vcom -dbg -work work "D:/WorkingDir/Fpga/pico_dev_test/efb_i2c_VHDL.vhd"
 vcom -dbg -work work "D:/WorkingDir/Fpga/pico_dev_test/wb_manager.vhd"
 vcom -dbg -work work "D:/WorkingDir/Fpga/pico_dev_test/wb_manager_tb.vhd"

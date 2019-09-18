@@ -1,3 +1,4 @@
+i<>.\..\timeout.vhd
 i<>.\..\efb_i2c_VHDL.vhd
 i<>.\..\wb_manager.vhd
 i<>.\..\wb_manager_tb.vhd

@@ -1,4 +1,4 @@
-library ieee;
+ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
 --use ieee.numeric_std.all;
@@ -40,6 +40,15 @@ architecture rtl of wb_manager is
 	signal i2c1_irqo: std_logic := 'Z';
 	signal rst_p 	: std_logic := '0';
 	
+	--**********************************************************
+	--
+	--	Time out Interface Signal
+	--
+	--**********************************************************
+	signal timeout_rst	: std_logic;
+	signal enTimeout	: std_logic;	
+	signal isTimeOut	: std_logic;
+	
 	-- Enumerated type declaration and state signal declaration
 	type state_t is (IDLE, ACTIVE_WB, ASSERT_CTRL, WAIT_ACK, UPDATE_STATUS_FLAG, TIMEOUT_ACK);
 	signal cState : state_t := IDLE; -- current state variable
@@ -51,7 +60,6 @@ architecture rtl of wb_manager is
 	signal wb_read_complete : std_logic :=  '0';
 	signal wb_write_complete : std_logic := '0';
 	signal wb_timeout_err : std_logic := '0';
-	signal status_timer : std_logic := '0';
 
 	-- parameterized module component declaration
 	component efb_i2c_VHDL
@@ -64,6 +72,19 @@ architecture rtl of wb_manager is
 			wb_dat_o: out  std_logic_vector(7 downto 0); 
 			wb_ack_o: out  std_logic; i2c1_scl: inout  std_logic; 
 			i2c1_sda: inout  std_logic; i2c1_irqo: out  std_logic);
+	end component;
+	
+	-- timeout component
+	component timeout
+	generic  (
+		DEFAULT: integer := 10 
+	);
+	port(
+		clk 		: in std_logic;
+		rst			: in std_logic;
+		en			: in std_logic;
+		timeout 	: out std_logic
+	);
 	end component;
 
 begin
@@ -85,6 +106,16 @@ begin
 				i2c1_irqo=>i2c1_irqo
 		);
 		
+	-- timeout instance
+	timeoutIns : timeout
+	generic map( DEFAULT => 50 )
+	port map(
+		clk => clk_i,
+		rst => timeout_rst,
+		en => enTimeout,
+		timeout => isTimeout
+	);
+		
 	rst_p <= not(rst_n_i);
 	wb_dat_i <= data_i when wb_active = '1' and option(1) = '1' else (others =>'0');
 	wb_adr_i <= addr_i when wb_active ='1' else (others =>'0');
@@ -102,12 +133,12 @@ begin
 		else
 			if rising_edge(clk_i) then
 				cState <= nState;
-				status <= ( 7 => wb_busy, 6 =>wb_read_complete, 5 => wb_write_complete, others=> '0');
+				status <= ( 7 => wb_busy, 6 =>wb_read_complete, 5 => wb_write_complete, 4 => wb_timeout_err,others=> '0');
 			end if;
 		end if;
 	end process reset_block;
 	
-	next_state_logic : process(cState, option(0),option(1),option(2), wb_ack_o)
+	next_state_logic : process(cState, option(0),option(1),option(2), wb_ack_o, isTimeout) 
 			begin
 		case (cState) is
 			when IDLE =>
@@ -123,6 +154,10 @@ begin
 			when WAIT_ACK =>
 						if wb_ack_o = '1' then 
 							nState <= UPDATE_STATUS_FLAG;
+						else
+							if isTimeout = '1' then
+								nState <= TIMEOUT_ACK;
+							end if;
 						end if;
 			when UPDATE_STATUS_FLAG =>
 						if option(1) = '0' then
@@ -135,7 +170,7 @@ begin
 							end if;
 						end if;
 			when TIMEOUT_ACK =>
-						
+					nState <= IDLE;	
 		end case; 
 
 	end process next_state_logic;
@@ -151,19 +186,12 @@ begin
 		wb_read_complete <= '0';
 		wb_write_complete <= '0';
 		wb_timeout_err <= '0';
-		status_timer <= '0';
+		enTimeout <= '0';
+		timeout_rst <= '1';
+		
 		
 		case (cState) is
 			when IDLE =>
-						wb_active <= '0';
-						wb_cyc_i <= '0';
-						wb_stb_i <= '0';
-						wb_we_i <= '0';
-						wb_busy <= '0';
-						wb_read_complete <= '0';
-						wb_write_complete <= '0';
-						wb_timeout_err <= '0';
-						status_timer <= '0';
 			when ACTIVE_WB =>
 						wb_busy <= '1';
 						wb_active <= '1';
@@ -175,15 +203,17 @@ begin
 						else
 							wb_we_i <= '1';
 						end if;
-						
 						wb_cyc_i <= '1';
 						wb_stb_i <= '1';
-						status_timer <= '1';
+						timeout_rst <= '0';
+						enTimeout <='1';
 			when WAIT_ACK =>
 						wb_busy <= '1';
 						wb_active <= '1';
 						wb_cyc_i <= '1';
 						wb_stb_i <= '1';
+						timeout_rst <= '0';
+						enTimeout <='1';
 			when UPDATE_STATUS_FLAG =>
 						wb_busy <= '1';
 						if option(1) = '0' then 

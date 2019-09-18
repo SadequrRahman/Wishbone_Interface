@@ -34,16 +34,18 @@ Count=0
 [DefineMacro]
 Global=
 [Files]
+/..\..\timeout.vhd=-1
 /..\..\efb_i2c_VHDL.vhd=-1
 /..\..\wb_manager.vhd=-1
 /..\..\wb_manager_tb.vhd=-1
 [Files.Data]
+.\..\timeout.vhd=VHDL Source Code
 .\..\efb_i2c_VHDL.vhd=VHDL Source Code
 .\..\wb_manager.vhd=VHDL Source Code
 .\..\wb_manager_tb.vhd=VHDL Source Code
 [SpecTracer]
 WindowVisible=0
 [HierarchyViewer]
-HierarchyInformation=wb_manager_tb|behavior|0        
+HierarchyInformation=wb_manager_tb|behavior|0   
 ShowHide=ShowTopLevel
 Selected=

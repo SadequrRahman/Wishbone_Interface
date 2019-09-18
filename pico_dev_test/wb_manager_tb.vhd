@@ -63,22 +63,29 @@ BEGIN
 		wait for CLK_PERIOD;
 		rst_n_i <= '1';
 		wait for CLK_PERIOD/2;
-		
+		-- send addr + wr bit for i2c bus (actually load the command and addr into the tx register in i2c efb)
 		addr_i <=  x"44";
 		data_i <= x"F3";
 		option <= x"03";
 		wait until (status(5) = '1');
 		option <= x"00";
+		wait for CLK_PERIOD/2;
+		-- send the data contain in the tx register
+		-- 1) send cmd to efb to genrerate start condition and send the contain data in tx reg
 		addr_i <=  x"41";
 		data_i <= x"94";
 		option <= x"03";
 		wait until (status(5) = '1');
 		option <= x"00";
+		wait for CLK_PERIOD/2;
+		-- 2) send cmd to efb to genrerate stop condition
 		addr_i <=  x"41";
 		data_i <= x"44";
 		option <= x"03";
 		wait until (status(5) = '1');
 		option <= x"00";
+		wait for CLK_PERIOD/2;
+		
 		
 		wait;
    END PROCESS stimuli_gen;
