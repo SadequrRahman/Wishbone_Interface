@@ -25,6 +25,16 @@ end wb_manager;
 
 architecture rtl of wb_manager is
 
+	--***********************************************************************
+	--	CONSTANT
+	--***********************************************************************
+	constant wb_busy_bit 				: integer := 7;
+	constant wb_read_complete_bit 		: integer := 6;
+	constant wb_write_complete_bit 		: integer := 5;
+	constant wb_timeout_bit 			: integer := 4;
+	constant wb_we_cmd_bit 				: integer := 1;
+	constant wb_init_cmd_bit 			: integer := 0;
+
 	--/***********************************************************************
 	 --*                                                                     *
 	 --* WISHBONE INTERFACE SIGNAL                                           *
@@ -45,14 +55,14 @@ architecture rtl of wb_manager is
 	--	Time out Interface Signal
 	--
 	--**********************************************************
-	signal timeout_rst	: std_logic;
-	signal enTimeout	: std_logic;	
-	signal isTimeOut	: std_logic;
+	signal timeout_rst	: std_logic := '1';
+	signal enTimeout	: std_logic := '0';	
+	signal isTimeOut	: std_logic := '0';
 	
 	-- Enumerated type declaration and state signal declaration
 	type state_t is (IDLE, ACTIVE_WB, ASSERT_CTRL, WAIT_ACK, UPDATE_STATUS_FLAG, TIMEOUT_ACK);
 	signal cState : state_t := IDLE; -- current state variable
-	signal nState : state_t;
+	signal nState : state_t := IDLE;
 	
 	-- internal signal
 	signal wb_active : std_logic :=  '0';
@@ -117,9 +127,9 @@ begin
 	);
 		
 	rst_p <= not(rst_n_i);
-	wb_dat_i <= data_i when wb_active = '1' and option(1) = '1' else (others =>'0');
-	wb_adr_i <= addr_i when wb_active ='1' else (others =>'0');
-	data_o  <= wb_dat_o when wb_active = '1' and option(1) = '0' else (others =>'0');
+	wb_dat_i <= data_i when wb_active = '1' and option(wb_we_cmd_bit) = '1' else (others =>'Z');
+	wb_adr_i <= addr_i when wb_active ='1' else (others =>'Z');
+	data_o  <= wb_dat_o when wb_active = '1' and option(wb_we_cmd_bit) = '0' else (others =>'Z');
 	
 		
 	reset_block : process(rst_n_i, clk_i)
@@ -129,11 +139,10 @@ begin
 			-- reset logic here
 			cState <= IDLE;
 			status <= ( others=> '0');
-			data_o <= ( others=> '0');
 		else
 			if rising_edge(clk_i) then
 				cState <= nState;
-				status <= ( 7 => wb_busy, 6 =>wb_read_complete, 5 => wb_write_complete, 4 => wb_timeout_err,others=> '0');
+				status <= ( wb_busy_bit => wb_busy, wb_read_complete_bit =>wb_read_complete, wb_write_complete_bit => wb_write_complete, wb_timeout_bit => wb_timeout_err,others=> '0');
 			end if;
 		end if;
 	end process reset_block;
@@ -142,7 +151,7 @@ begin
 			begin
 		case (cState) is
 			when IDLE =>
-					if option(0) = '1' then
+					if option(wb_init_cmd_bit) = '1' then
 						nState <= ACTIVE_WB;
 					else
 						nState <= IDLE;
@@ -160,7 +169,7 @@ begin
 							end if;
 						end if;
 			when UPDATE_STATUS_FLAG =>
-						if option(1) = '0' then
+						if option(wb_we_cmd_bit) = '0' then
 							nState <= UPDATE_STATUS_FLAG;
 						else
 							if option(2) = '1' then 
@@ -175,7 +184,7 @@ begin
 
 	end process next_state_logic;
 
-	output_logic : process(cState, option(1))
+	output_logic : process(cState, option(wb_we_cmd_bit))
 	begin
 		wb_active <= '0';
 		wb_cyc_i <= '0';
@@ -198,7 +207,7 @@ begin
 			when ASSERT_CTRL =>
 						wb_busy <= '1'; 
 						wb_active <= '1';
-						if option(1) = '0' then 
+						if option(wb_we_cmd_bit) = '0' then 
 							wb_we_i <= '0';
 						else
 							wb_we_i <= '1';
@@ -216,7 +225,7 @@ begin
 						enTimeout <='1';
 			when UPDATE_STATUS_FLAG =>
 						wb_busy <= '1';
-						if option(1) = '0' then 
+						if option(wb_we_cmd_bit) = '0' then 
 							wb_read_complete <= '1';
 						else
 							wb_write_complete <= '1';

@@ -1,1 +1,3 @@
-CKID0001:@|S:OSCInst0@|E:HeartBeatInst0.iCounter[20]@|F:@syn_sample_clock_path==CKID0001@|M:ClockId0001 
+CKID0001:@|S:OSCInst0@|E:i2c_controller_inst.cState_0[5]@|F:@syn_sample_clock_path==CKID0001@|M:ClockId0001 
+CKID0002:@|S:i2c_controller_inst.status_1_ret@|E:i2c_controller_inst.nState[0]@|F:@syn_sample_clock_path==CKID0002@|M:ClockId0002 
+CKID0003:@|S:wb_manager_inst.nState_1_sqmuxa_4_i@|E:wb_manager_inst.nState[0]@|F:@syn_sample_clock_path==CKID0003@|M:ClockId0003 

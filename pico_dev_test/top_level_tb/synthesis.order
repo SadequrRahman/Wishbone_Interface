@@ -1,0 +1,7 @@
+i<>.\..\i2c_interface\source\i2c_master_controller.vhd
+i<>.\..\timeout.vhd
+i<>.\..\efb_i2c_VHDL.vhd
+i<>.\..\wb_manager.vhd
+i<>.\..\HeartBeat.vhd
+i<>.\..\top_level.vhd
+i<>.\..\top_level_tb.vhd

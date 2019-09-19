@@ -1,0 +1,13 @@
+<BaliSimProject version="1.3" path="." stage="0" language="-1" name="top_level_tb" simType="Active-HDL">
+    <Source worklib="work" path="i2c_interface/source/i2c_master_controller.vhd" type="VHDL" include="none"/>
+    <Source worklib="work" path="timeout.vhd" type="VHDL" include="none"/>
+    <Source worklib="work" path="efb_i2c_VHDL.vhd" type="VHDL" include="none"/>
+    <Source worklib="work" path="wb_manager.vhd" type="VHDL" include="none"/>
+    <Source worklib="work" path="HeartBeat.vhd" type="VHDL" include="none"/>
+    <Source worklib="work" path="top_level.vhd" type="VHDL" include="none"/>
+    <Source worklib="" path="top_level_tb.vhd" type="none" include="none"/>
+    <SimLib value="pmi_work ovi_machxo2"/>
+    <GlbInc value=""/>
+    <Macro value=""/>
+    <TopModule instance="" language="VHDL" name="top_level_tb"/>
+</BaliSimProject>

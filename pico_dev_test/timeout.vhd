@@ -19,7 +19,7 @@ end entity;
 
 architecture rtl_timeout of timeout is
 
-signal clk_counter : unsigned ( 15 downto 0);
+signal clk_counter : unsigned ( 15 downto 0) := (others => '0');
 
 begin
 

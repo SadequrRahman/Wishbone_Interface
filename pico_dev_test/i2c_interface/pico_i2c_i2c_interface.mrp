@@ -15,27 +15,27 @@ Target Vendor:  LATTICE
 Target Device:  LCMXO2-1200ZETQFP144
 Target Performance:   1
 Mapper:  xo2c00,  version:  Diamond (64-bit) 3.10.3.144
-Mapped on:  09/18/19  13:39:20
+Mapped on:  09/19/19  14:02:40
 
 Design Summary
 --------------
 
-   Number of registers:     21 out of  1604 (1%)
-      PFU registers:           21 out of  1280 (2%)
+   Number of registers:     69 out of  1604 (4%)
+      PFU registers:           69 out of  1280 (5%)
       PIO registers:            0 out of   324 (0%)
-   Number of SLICEs:        12 out of   640 (2%)
-      SLICEs as Logic/ROM:     12 out of   640 (2%)
+   Number of SLICEs:        36 out of   640 (6%)
+      SLICEs as Logic/ROM:     36 out of   640 (6%)
       SLICEs as RAM:            0 out of   480 (0%)
-      SLICEs as Carry:         11 out of   640 (2%)
-   Number of LUT4s:         23 out of  1280 (2%)
-      Number used as logic LUTs:          1
+      SLICEs as Carry:         20 out of   640 (3%)
+   Number of LUT4s:         67 out of  1280 (5%)
+      Number used as logic LUTs:         27
       Number used as distributed RAM:     0
-      Number used as ripple logic:       22
+      Number used as ripple logic:       40
       Number used as shift registers:     0
-   Number of PIO sites used: 3 + 4(JTAG) out of 108 (6%)
+   Number of PIO sites used: 5 + 4(JTAG) out of 108 (8%)
    Number of block RAMs:  0 out of 7 (0%)
    Number of GSRs:  1 out of 1 (100%)
-   EFB used :       No
+   EFB used :       Yes
    JTAG used :      No
    Readback used :  No
    Oscillator used :  Yes
@@ -57,38 +57,47 @@ Design Summary
      distributed RAMs) + 2*(Number of ripple logic)
       2. Number of logic LUT4s does not include count of distributed RAM and
      ripple logic.
-   Number of clocks:  1
-     Net sys_clk: 11 loads, 11 rising, 0 falling (Driver: OSCInst0 )
-   Number of Clock Enables:  0
+   Number of clocks:  4
+     Net sys_clk: 30 loads, 30 rising, 0 falling (Driver: OSCInst0 )
+     Net i2c_controller_inst/un1_nState_1_sqmuxa_i_0: 4 loads, 4 rising, 0
 
                                     Page 1
 
 
 
 
-Design:  top_module                                    Date:  09/18/19  13:39:20
+Design:  top_module                                    Date:  09/19/19  14:02:40
 
 Design Summary (cont)
 ---------------------
-   Number of local set/reset loads for net rst_n_c merged into GSR:  21
-   Number of LSRs:  0
+     falling (Driver: i2c_controller_inst/status_1_ret )
+     Net wb_manager_inst/nState_1_sqmuxa_4_i: 3 loads, 3 rising, 0 falling
+     (Driver: wb_manager_inst/nState_1_sqmuxa_4_i )
+     Net wb_manager_inst/efb_i2c_Inst0/i2c1_scli: 1 loads, 1 rising, 0 falling
+     (Driver: PIO scl )
+   Number of Clock Enables:  1
+     Net wb_manager_inst/N_47_1_i: 9 loads, 9 LSLICEs
+   Number of local set/reset loads for net rst_n_c merged into GSR:  40
+   Number of LSRs:  2
+     Net rst_n_c: 1 loads, 0 LSLICEs
+     Net wb_manager_inst/N_47_1: 9 loads, 9 LSLICEs
    Number of nets driven by tri-state buffers:  0
    Top 10 highest fanout non-clock nets:
-     Net heart_beat_c: 2 loads
-     Net HeartBeatInst0/iCounter[0]: 1 loads
-     Net HeartBeatInst0/iCounter[1]: 1 loads
-     Net HeartBeatInst0/iCounter_cry[0]: 1 loads
-     Net HeartBeatInst0/iCounter_s[0]: 1 loads
-     Net HeartBeatInst0/iCounter_s[1]: 1 loads
-     Net HeartBeatInst0/iCounter_s[20]: 1 loads
-     Net HeartBeatInst0/iCounter_s[2]: 1 loads
-     Net rst_n_c: 1 loads
-     Net VCC: 1 loads
+     Net wb_manager_inst/N_47_1_i: 11 loads
+     Net wb_manager_inst/N_47_1: 9 loads
+     Net i2c_controller_inst.cState[6]: 8 loads
+     Net wb_manager_inst/cState[2]: 6 loads
+     Net wb_manager_inst/cState[3]: 6 loads
+     Net wb_manager_inst/N_28: 4 loads
+     Net i2c_controller_inst.nState[0]: 3 loads
+     Net i2c_controller_inst.nState[1]: 3 loads
+     Net i2c_controller_inst.nState[2]: 3 loads
+     Net i2c_controller_inst.nState[3]: 3 loads
 
 
 
 
-   Number of warnings:  10
+   Number of warnings:  8
    Number of errors:    0
      
 
@@ -104,43 +113,42 @@ WARNING - map: D:/WorkingDir/Fpga/pico_dev_test/pico_i2c.lpf(4): Semantic error
 WARNING - map: D:/WorkingDir/Fpga/pico_dev_test/pico_i2c.lpf(5): Semantic error
      in "IOBUF PORT "rst" IO_TYPE=LVCMOS33 ;": Port "rst" does not exist in the
      design. This preference has been disabled.
-WARNING - map: D:/WorkingDir/Fpga/pico_dev_test/pico_i2c.lpf(12): Semantic error
-     in "IOBUF PORT "scl" IO_TYPE=LVCMOS33 PULLMODE=DOWN SLEWRATE=SLOW ;": Port
-     "scl" does not exist in the design. This preference has been disabled.
-WARNING - map: D:/WorkingDir/Fpga/pico_dev_test/pico_i2c.lpf(13): Semantic error
-     in "IOBUF PORT "sda" IO_TYPE=LVCMOS33 PULLMODE=DOWN SLEWRATE=SLOW ;": Port
-     "sda" does not exist in the design. This preference has been disabled.
+WARNING - map: D:/WorkingDir/Fpga/pico_dev_test/pico_i2c.lpf(14): Semantic error
+     in "LOCATE COMP "usb_osc" SITE "128" ;": COMP "usb_osc" cannot be found in
+     design. This preference has been disabled.
 WARNING - map: D:/WorkingDir/Fpga/pico_dev_test/pico_i2c.lpf(15): Semantic error
      in "IOBUF PORT "usb_osc" IO_TYPE=LVCMOS33 ;": Port "usb_osc" does not exist
      in the design. This preference has been disabled.
 WARNING - map: Using local reset signal 'rst_n_c' to infer global GSR net.
-WARNING - map: IO buffer missing for top level port scl...logic will be
-     discarded.
-WARNING - map: IO buffer missing for top level port sda...logic will be
-     discarded.
-WARNING - map: IO buffer missing for top level port usb_osc...logic will be
-     discarded.
-
-IO (PIO) Attributes
--------------------
-
-+---------------------+-----------+-----------+------------+
-| IO Name             | Direction | Levelmode | IO         |
+WARNING - map: In "LOCATE COMP "scl" SITE "126" ;": Current SYS_CONFIG setting
+     prohibits pin "126" to be used as user IO. This preference has been
+     disabled.
+WARNING - map: In "LOCATE COMP "sda" SITE "125" ;": Current SYS_CONFIG setting
+     prohibits pin "125" to be used as user IO. This preference has been
+     disabled.
 
                                     Page 2
 
 
 
 
-Design:  top_module                                    Date:  09/18/19  13:39:20
+Design:  top_module                                    Date:  09/19/19  14:02:40
 
-IO (PIO) Attributes (cont)
---------------------------
+
+IO (PIO) Attributes
+-------------------
+
++---------------------+-----------+-----------+------------+
+| IO Name             | Direction | Levelmode | IO         |
 |                     |           |  IO_TYPE  | Register   |
 +---------------------+-----------+-----------+------------+
 | enI2C               | OUTPUT    | LVCMOS33  |            |
 +---------------------+-----------+-----------+------------+
 | rst_n               | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| scl                 | BIDIR     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| sda                 | BIDIR     | LVCMOS33  |            |
 +---------------------+-----------+-----------+------------+
 | heart_beat          | OUTPUT    | LVCMOS33  |            |
 +---------------------+-----------+-----------+------------+
@@ -148,24 +156,181 @@ IO (PIO) Attributes (cont)
 Removed logic
 -------------
 
+Block wb_manager_inst/VCC undriven or does not drive anything - clipped.
+Block wb_manager_inst/GND undriven or does not drive anything - clipped.
+Block i2c_controller_inst/GND undriven or does not drive anything - clipped.
+Block i2c_controller_inst/VCC undriven or does not drive anything - clipped.
 Signal rst_n_c_i was merged into signal rst_n_c
 Signal GND undriven or does not drive anything - clipped.
 Signal HeartBeatInst0/GND undriven or does not drive anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/VCC undriven or does not drive anything -
+     clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/GND undriven or does not drive anything -
+     clipped.
+Signal wb_manager_inst/timeoutIns/GND undriven or does not drive anything -
+     clipped.
 Signal HeartBeatInst0/iCounter_cry_0_COUT[19] undriven or does not drive
      anything - clipped.
 Signal HeartBeatInst0/iCounter_cry_0_S0[0] undriven or does not drive anything -
      clipped.
 Signal HeartBeatInst0/N_1 undriven or does not drive anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/CFGSTDBY undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/CFGWAKE undriven or does not drive anything
+     - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/WBCUFMIRQ undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/TCOC undriven or does not drive anything -
+     clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/TCINT undriven or does not drive anything -
+     clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/SPIIRQO undriven or does not drive anything
+     - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/SPICSNEN undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/SPIMCSN7 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/SPIMCSN6 undriven or does not drive
+     anything - clipped.
+
+                                    Page 3
+
+
+
+
+Design:  top_module                                    Date:  09/19/19  14:02:40
+
+Removed logic (cont)
+--------------------
+Signal wb_manager_inst/efb_i2c_Inst0/SPIMCSN5 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/SPIMCSN4 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/SPIMCSN3 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/SPIMCSN2 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/SPIMCSN1 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/SPIMCSN0 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/SPIMOSIEN undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/SPIMOSIO undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/SPIMISOEN undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/SPIMISOO undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/SPISCKEN undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/SPISCKO undriven or does not drive anything
+     - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/I2C2IRQO undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/i2c1_irqo undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/I2C2SDAOEN undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/I2C2SDAO undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/I2C2SCLOEN undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/I2C2SCLO undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/PLLDATO0 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/PLLDATO1 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/PLLDATO2 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/PLLDATO3 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/PLLDATO4 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/PLLDATO5 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/PLLDATO6 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/PLLDATO7 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/PLLADRO0 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/PLLADRO1 undriven or does not drive
+     anything - clipped.
+
+                                    Page 4
+
+
+
+
+Design:  top_module                                    Date:  09/19/19  14:02:40
+
+Removed logic (cont)
+--------------------
+Signal wb_manager_inst/efb_i2c_Inst0/PLLADRO2 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/PLLADRO3 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/PLLADRO4 undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/PLLWEO undriven or does not drive anything
+     - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/PLL1STBO undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/PLL0STBO undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/PLLRSTO undriven or does not drive anything
+     - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/PLLCLKO undriven or does not drive anything
+     - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/wb_dat_o_1[0] undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/wb_dat_o_1[1] undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/wb_dat_o_1[2] undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/wb_dat_o_1[3] undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/wb_dat_o_1[4] undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/wb_dat_o_1[5] undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/wb_dat_o_1[6] undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/wb_dat_o_1[7] undriven or does not drive
+     anything - clipped.
+Signal wb_manager_inst/timeoutIns/clk_counter_cry_0_S0[0] undriven or does not
+     drive anything - clipped.
+Signal wb_manager_inst/timeoutIns/N_1 undriven or does not drive anything -
+     clipped.
+Signal wb_manager_inst/timeoutIns/clk_counter_s_0_S1[15] undriven or does not
+     drive anything - clipped.
+Signal wb_manager_inst/timeoutIns/clk_counter_s_0_COUT[15] undriven or does not
+     drive anything - clipped.
 Signal stdby_sed undriven or does not drive anything - clipped.
-Block rst_n_c_i was optimized away.
+Block rst_n_pad_RNIQR5E was optimized away.
 Block GND was optimized away.
 Block HeartBeatInst0/GND was optimized away.
+Block wb_manager_inst/efb_i2c_Inst0/VCC was optimized away.
+Block wb_manager_inst/efb_i2c_Inst0/GND was optimized away.
+Block wb_manager_inst/timeoutIns/GND was optimized away.
 
 Memory Usage
 ------------
 
 
      
+
+
+
+
+                                    Page 5
+
+
+
+
+Design:  top_module                                    Date:  09/19/19  14:02:40
 
 OSC Summary
 -----------
@@ -177,11 +342,69 @@ OSC 1:                                     Pin/Node Value
   OSC Output:                              NODE     sys_clk
   OSC Nominal Frequency (MHz):                      133.00
 
+Embedded Functional Block Connection Summary:
+---------------------------------------------
+
+   Desired WISHBONE clock frequency: 133.0 MHz
+   Clock source:                     sys_clk
+   Reset source:                     rst_n_c
+   Functions mode:
+      I2C #1 (Primary) Function:     ENABLED
+      I2C #2 (Secondary) Function:   DISABLED
+      SPI Function:                  DISABLED
+      Timer/Counter Function:        DISABLED
+      Timer/Counter Mode:            WB
+      UFM Connection:                DISABLED
+      PLL0 Connection:               DISABLED
+      PLL1 Connection:               DISABLED
+   I2C Function Summary:
+   --------------------
+      I2C Component:          PRIMARY
+      I2C Addressing:         7BIT
+      I2C Performance:        400kHz
+      Slave Address:          0b1000001
+      General Call:           DISABLED
+      I2C Wake Up:            DISABLED
+      I2C Component:          UFM/Configuration
+      I2C Addressing:         7BIT
+      I2C Performance:        400kHz
+      Slave Address:          0b1000000
+   SPI Function Summary:
+   --------------------
+      None
+   Timer/Counter Function Summary:
+   ------------------------------
+      None
+   UFM Function Summary:
+   --------------------
+      UFM Utilization:        General Purpose Flash Memory
+      Available General
+      Purpose Flash Memory:   511 Pages (511*128 Bits)
+
+           EBR Blocks with Unique
+      Initialization Data:    0
+
+           WID		EBR Instance
+      ---		------------
+
+
+
+
+
+                                    Page 6
+
+
+
+
+Design:  top_module                                    Date:  09/19/19  14:02:40
+
 ASIC Components
 ---------------
 
 Instance Name: OSCInst0
          Type: OSCH
+Instance Name: wb_manager_inst/efb_i2c_Inst0/EFBInst_0
+         Type: EFB
 
 GSR Usage
 ---------
@@ -192,27 +415,30 @@ GSR Component:
         
 
      GSR Property:
-
-                                    Page 3
-
-
-
-
-Design:  top_module                                    Date:  09/18/19  13:39:20
-
-GSR Usage (cont)
-----------------
    The design components with GSR property set to ENABLED will respond to global
         set reset while the components with GSR property set to DISABLED will
         not.
         
+
+     Components on inferred reset domain with GSR Property disabled
+--------------------------------------------------------------
+
+     These components have the GSR property set to DISABLED and are on the
+     inferred reset domain. The components will respond to the reset signal
+     'rst_n_c' via the local reset on the component and not the GSR component.
+
+     Type and number of components of the type: 
+   EFB = 1
+
+     Type and instance name of component: 
+   EFB : wb_manager_inst/efb_i2c_Inst0/EFBInst_0
 
 Run Time and Memory Usage
 -------------------------
 
    Total CPU Time: 0 secs  
    Total REAL Time: 0 secs  
-   Peak Memory Usage: 38 MB
+   Peak Memory Usage: 39 MB
         
 
 
@@ -231,35 +457,7 @@ Run Time and Memory Usage
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                    Page 4
+                                    Page 7
 
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
