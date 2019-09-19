@@ -3,7 +3,7 @@ Running in Lattice mode
 Starting:    C:\lscc\diamond\3.10_x64\synpbase\bin64\mbin\synbatch.exe
 Install:     C:\lscc\diamond\3.10_x64\synpbase
 Hostname:    T5810JP
-Date:        Thu Sep 19 13:55:26 2019
+Date:        Thu Sep 19 15:21:45 2019
 Version:     M-2017.03L-SP1-1
 
 Arguments:   -product synplify_pro -batch pico_i2c_i2c_interface_synplify.tcl
@@ -17,14 +17,39 @@ Running: hdl_info_gen in foreground
 
 Generating HDL info...
 
-Job: "hdl_info_gen" terminated with error status: 2
-See log file: "D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\syntax.log"
-# Thu Sep 19 13:55:26 2019
+hdl_info_gen completed
+# Thu Sep 19 15:21:45 2019
 
-Return Code: 2
+Return Code: 0
 Run Time:00h:00m:00s
 Copied D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.srr to D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.srf
-Error: At line 67 while processing "pico_i2c_i2c_interface_synplify.tcl"
+log file: "D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.srr"
+Running: i2c_interface in foreground
+
+Running proj_1|i2c_interface
+
+Running: compile (Compile) on proj_1|i2c_interface
+# Thu Sep 19 15:21:46 2019
+
+Running: compile_flow (Compile Process) on proj_1|i2c_interface
+# Thu Sep 19 15:21:46 2019
+
+Running: compiler (Compile Input) on proj_1|i2c_interface
+# Thu Sep 19 15:21:46 2019
+compiler exited with errors
+Job failed on: proj_1|i2c_interface
+
+Job: "compiler" terminated with error status: 2
+See log file: "D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\synlog\pico_i2c_i2c_interface_compiler.srr"
+# Thu Sep 19 15:21:47 2019
+
+Return Code: 2
+Run Time:00h:00m:01s
+Complete: Compile Process on proj_1|i2c_interface
+Complete: Compile on proj_1|i2c_interface
+Complete: Logic Synthesis on proj_1|i2c_interface
+Copied D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.srr to D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.srf
+Error: At line 68 while processing "pico_i2c_i2c_interface_synplify.tcl"
 2
 TCL script complete: "pico_i2c_i2c_interface_synplify.tcl"
 TCL script had errors: "pico_i2c_i2c_interface_synplify.tcl"

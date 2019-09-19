@@ -1,25 +1,25 @@
 ----------------------------------------------------------------------
 Report for cell top_module.sample_arch
 
-Register bits: 56 of 1280 (4%)
+Register bits: 40 of 1280 (3%)
 Latch bits:      13
 PIC Latch:       0
 I/O cells:       5
                                           Cell usage:
                                cell       count    Res Usage(%)
                                  BB        2       100.0
-                              CCU2D       20       100.0
+                              CCU2D        9       100.0
                                 EFB        1       100.0
                             FD1P3DX       16       100.0
                              FD1S1A       11       100.0
                             FD1S1AY        2       100.0
-                            FD1S3BX        8       100.0
-                            FD1S3DX       32       100.0
+                            FD1S3BX        7       100.0
+                            FD1S3DX       17       100.0
                                 GSR        1       100.0
                                  IB        1       100.0
-                                INV        3       100.0
+                                INV        4       100.0
                                  OB        2       100.0
-                           ORCALUT4       24       100.0
+                           ORCALUT4       29       100.0
                                OSCH        1       100.0
                                 PUR        1       100.0
                                 VHI        6       100.0
@@ -31,7 +31,7 @@ SUB MODULES
                             timeout        1       100.0
                          wb_manager        1       100.0
                             
-                         TOTAL           142           
+                         TOTAL           121           
 ----------------------------------------------------------------------
 Report for cell i2c_master_controller.netlist
      Instance path:  i2c_controller_inst
@@ -39,10 +39,10 @@ Report for cell i2c_master_controller.netlist
                                cell       count    Res Usage(%)
                              FD1S1A        6        54.5
                             FD1S1AY        1        50.0
-                            FD1S3BX        4        50.0
-                            FD1S3DX        6        18.8
-                                INV        2        66.7
-                           ORCALUT4        2         8.3
+                            FD1S3BX        4        57.1
+                            FD1S3DX        6        35.3
+                                INV        2        50.0
+                           ORCALUT4        2         6.9
                                 VHI        1        16.7
                                 VLO        1        16.7
                             
@@ -53,29 +53,29 @@ Report for cell wb_manager.netlist
                                           Cell usage:
                                cell       count    Res Usage(%)
                                  BB        2       100.0
-                              CCU2D        9        45.0
+                              CCU2D        9       100.0
                                 EFB        1       100.0
                             FD1P3DX       16       100.0
                              FD1S1A        5        45.5
                             FD1S1AY        1        50.0
-                            FD1S3BX        4        50.0
-                            FD1S3DX        5        15.6
-                           ORCALUT4       22        91.7
+                            FD1S3BX        3        42.9
+                            FD1S3DX        7        41.2
+                           ORCALUT4       24        82.8
                                 VHI        3        50.0
                                 VLO        3        50.0
 SUB MODULES 
                        efb_i2c_VHDL        1       100.0
                             timeout        1       100.0
                             
-                         TOTAL            73           
+                         TOTAL            76           
 ----------------------------------------------------------------------
 Report for cell timeout.netlist
      Instance path:  wb_manager_inst.timeoutIns
                                           Cell usage:
                                cell       count    Res Usage(%)
-                              CCU2D        9        45.0
+                              CCU2D        9       100.0
                             FD1P3DX       16       100.0
-                           ORCALUT4        1         4.2
+                           ORCALUT4        1         3.4
                                 VHI        1        16.7
                                 VLO        1        16.7
                             
@@ -87,7 +87,7 @@ Report for cell efb_i2c_VHDL.netlist
                                cell       count    Res Usage(%)
                                  BB        2       100.0
                                 EFB        1       100.0
-                           ORCALUT4        6        25.0
+                           ORCALUT4        6        20.7
                                 VHI        1        16.7
                                 VLO        1        16.7
                             
@@ -97,9 +97,10 @@ Report for cell HeartBeat.netlist
      Instance path:  HeartBeatInst0
                                           Cell usage:
                                cell       count    Res Usage(%)
-                              CCU2D       11        55.0
-                            FD1S3DX       21        65.6
+                            FD1S3DX        4        23.5
+                                INV        1        25.0
+                           ORCALUT4        3        10.3
                                 VHI        1        16.7
                                 VLO        1        16.7
                             
-                         TOTAL            34           
+                         TOTAL            10           

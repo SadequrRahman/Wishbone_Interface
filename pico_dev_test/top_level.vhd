@@ -140,8 +140,8 @@ begin
 	main : process
 	begin
 		i2c_enable <= '0';
-		i2c_data_i <= x"34";
-		i2c_addr <= x"84";
+		i2c_data_i <= x"83";
+		i2c_addr <= x"F3";
 		i2c_enable <= '1';
 		wait until i2c_ack = '1';
 		i2c_enable <= '0';

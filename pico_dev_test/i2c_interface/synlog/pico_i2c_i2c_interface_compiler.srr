@@ -8,11 +8,9 @@ Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated
 
 @N: CD720 :"C:\lscc\diamond\3.10_x64\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ps
 @N:"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":8:7:8:16|Top entity is set to top_module.
-File D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd changed - recompiling
-File D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd changed - recompiling
+File D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd changed - recompiling
 VHDL syntax check successful!
-File D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd changed - recompiling
-File D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd changed - recompiling
+File D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd changed - recompiling
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":8:7:8:16|Synthesizing work.top_module.sample_arch.
 @N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":2291:10:2291:13|Synthesizing work.osch.syn_black_box.
 Post processing for work.osch.syn_black_box
@@ -51,7 +49,7 @@ Post processing for work.wb_manager.rtl
 @W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|All reachable assignments to status(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd":8:7:8:15|Synthesizing work.heartbeat.beh_arch.
 Post processing for work.heartbeat.beh_arch
-@W: CL271 :"D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd":30:1:30:2|Pruning unused bits 32 to 21 of iCounter(32 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL271 :"D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd":30:1:30:2|Pruning unused bits 32 to 4 of iCounter(32 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 Post processing for work.top_module.sample_arch
 @W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":29:3:29:8|Bit 0 of signal data_i is floating -- simulation mismatch possible.
 @W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":29:3:29:8|Bit 1 of signal data_i is floating -- simulation mismatch possible.
@@ -69,22 +67,22 @@ Post processing for work.top_module.sample_arch
 @W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":106:1:106:15|Bit 5 of input data_i of instance wb_manager_inst is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 @W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":106:1:106:15|Bit 6 of input data_i of instance wb_manager_inst is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 @W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":106:1:106:15|Bit 7 of input data_i of instance wb_manager_inst is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(0) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(1) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(2) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(0) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(1) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(2) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
 @W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(4) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(5) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(6) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(4) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(5) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(6) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
 @W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(7) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(0) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(1) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(2) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(0) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(1) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(2) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
 @W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(4) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(5) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(4) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(5) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
 @W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(6) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(7) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(7) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
 @W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":25:3:25:12|All reachable assignments to main.i2c_enable are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
 @W: CL246 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":16:3:16:8|Input port bits 7 to 3 of option(7 downto 0) are unused. Assign logic for all port bits or change the input port size.
 @W: CL158 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":21:2:21:11|Inout wbm_data_o is unused
@@ -94,7 +92,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memor
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Thu Sep 19 14:02:33 2019
+# Thu Sep 19 15:27:43 2019
 
 ###########################################################]
 Synopsys Netlist Linker, version comp2017q2p1, Build 190R, built Aug  4 2017
@@ -106,7 +104,7 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Thu Sep 19 14:02:33 2019
+# Thu Sep 19 15:27:43 2019
 
 ###########################################################]
 @END
@@ -116,6 +114,6 @@ At c_hdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Thu Sep 19 14:02:33 2019
+# Thu Sep 19 15:27:43 2019
 
 ###########################################################]

@@ -1,4 +1,4 @@
-# Thu Sep 19 14:02:34 2019
+# Thu Sep 19 15:27:44 2019
 
 Synopsys Lattice Technology Pre-mapping, Version maplat, Build 1796R, Built Aug  4 2017 11:10:16
 Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated documentation are proprietary to Synopsys, Inc. and may only be used pursuant to the terms and conditions of a written license agreement with Synopsys, Inc. All other use, reproduction, modification, or distribution of the Synopsys software or the associated documentation is strictly prohibited.
@@ -51,11 +51,11 @@ Level     Clock                                 Frequency     Period        Type
 ----------------------------------------------------------------------------------------------------------------------
 0 -       System                                1.0 MHz       1000.000      system       system_clkgroup         13   
                                                                                                                       
-0 -       top_module|sys_clk_inferred_clock     133.0 MHz     7.519         inferred     Inferred_clkgroup_0     54   
+0 -       top_module|sys_clk_inferred_clock     133.0 MHz     7.519         inferred     Inferred_clkgroup_0     37   
 ======================================================================================================================
 
 @W: MT531 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":153:2:153:5|Found signal identified as System clock which controls 13 sequential elements including wb_manager_inst.nState[5].  Using this clock, which has no specified timing constraint, can prevent conversion of gated or generated clocks and can adversely impact design performance. 
-@W: MT529 :"d:\workingdir\fpga\pico_dev_test\heartbeat.vhd":30:1:30:2|Found inferred clock top_module|sys_clk_inferred_clock which controls 54 sequential elements including HeartBeatInst0.iCounter[20:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
+@W: MT529 :"d:\workingdir\fpga\pico_dev_test\heartbeat.vhd":30:1:30:2|Found inferred clock top_module|sys_clk_inferred_clock which controls 37 sequential elements including HeartBeatInst0.iCounter[3:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
 
 Finished Pre Mapping Phase.
 
@@ -77,6 +77,6 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 55MB peak: 142MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu Sep 19 14:02:35 2019
+# Thu Sep 19 15:27:45 2019
 
 ###########################################################]

@@ -3,13 +3,9 @@ rst_n_c_i rst_n_c
 [ END MERGED ]
 [ START CLIPPED ]
 GND
-HeartBeatInst0/GND
 wb_manager_inst/efb_i2c_Inst0/VCC
 wb_manager_inst/efb_i2c_Inst0/GND
 wb_manager_inst/timeoutIns/GND
-HeartBeatInst0/iCounter_cry_0_COUT[19]
-HeartBeatInst0/iCounter_cry_0_S0[0]
-HeartBeatInst0/N_1
 wb_manager_inst/efb_i2c_Inst0/CFGSTDBY
 wb_manager_inst/efb_i2c_Inst0/CFGWAKE
 wb_manager_inst/efb_i2c_Inst0/WBCUFMIRQ
@@ -63,10 +59,10 @@ wb_manager_inst/efb_i2c_Inst0/wb_dat_o_1[4]
 wb_manager_inst/efb_i2c_Inst0/wb_dat_o_1[5]
 wb_manager_inst/efb_i2c_Inst0/wb_dat_o_1[6]
 wb_manager_inst/efb_i2c_Inst0/wb_dat_o_1[7]
-wb_manager_inst/timeoutIns/clk_counter_cry_0_S0[0]
-wb_manager_inst/timeoutIns/N_1
 wb_manager_inst/timeoutIns/clk_counter_s_0_S1[15]
 wb_manager_inst/timeoutIns/clk_counter_s_0_COUT[15]
+wb_manager_inst/timeoutIns/clk_counter_cry_0_S0[0]
+wb_manager_inst/timeoutIns/N_1
 stdby_sed
 [ END CLIPPED ]
 [ START OSC ]
@@ -74,7 +70,7 @@ sys_clk 133.00
 [ END OSC ]
 [ START DESIGN PREFS ]
 SCHEMATIC START ;
-# map:  version Diamond (64-bit) 3.10.3.144 -- WARNING: Map write only section -- Thu Sep 19 14:02:40 2019
+# map:  version Diamond (64-bit) 3.10.3.144 -- WARNING: Map write only section -- Thu Sep 19 15:27:50 2019
 
 SYSCONFIG SDM_PORT=DISABLE SLAVE_SPI_PORT=DISABLE I2C_PORT=ENABLE MASTER_SPI_PORT=DISABLE COMPRESS_CONFIG=ON CONFIGURATION=CFG MY_ASSP=OFF ONE_TIME_PROGRAM=OFF CONFIG_SECURE=OFF MCCLK_FREQ=2.08 JTAG_PORT=ENABLE ENABLE_TRANSFR=DISABLE SHAREDEBRINIT=DISABLE MUX_CONFIGURATION_PORTS=DISABLE BACKGROUND_RECONFIG=OFF INBUF=ON ;
 LOCATE COMP "enI2C" SITE "39" ;

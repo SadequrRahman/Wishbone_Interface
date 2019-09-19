@@ -2,8 +2,8 @@
 -- VHDL netlist produced by program ldbanno, Version Diamond (64-bit) 3.10.3.144
 
 -- ldbanno -n VHDL -o pico_i2c_i2c_interface_mapvho.vho -w -neg -gui -msgset D:/WorkingDir/Fpga/pico_dev_test/promote.xml pico_i2c_i2c_interface_map.ncd 
--- Netlist created on Thu Sep 19 14:02:40 2019
--- Netlist written on Thu Sep 19 14:02:41 2019
+-- Netlist created on Thu Sep 19 15:27:50 2019
+-- Netlist written on Thu Sep 19 15:27:51 2019
 -- Design is for device LCMXO2-1200ZE
 -- Design is for package TQFP144
 -- Design is for performance grade 1
@@ -68,7 +68,7 @@
   architecture Structure of ccu2B0 is
   begin
     inst1: CCU2D
-      generic map (INIT0 => X"5002", INIT1 => X"300A", INJECT1_0 => "NO", 
+      generic map (INIT0 => X"000A", INIT1 => X"300A", INJECT1_0 => "NO", 
                    INJECT1_1 => "NO")
       port map (CIN=>CI, A0=>A0, B0=>B0, C0=>C0, D0=>D0, A1=>A1, B1=>B1, 
                 C1=>C1, D1=>D1, S0=>S0, S1=>S1, COUT=>CO1);
@@ -107,6 +107,283 @@
       MsgOn         	: boolean := TRUE;
       InstancePath  	: string := "wb_manager_inst_timeoutIns_SLICE_0";
 
+      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_CE  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_LSR  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A1_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_LSR_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
+      ticd_CLK	: VitalDelayType := 0 ns;
+      tisd_DI1_CLK	: VitalDelayType := 0 ns;
+      tsetup_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      tisd_CE_CLK	: VitalDelayType := 0 ns;
+      tsetup_CE_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_CE_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      tisd_LSR_CLK	: VitalDelayType := 0 ns;
+      tsetup_LSR_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_LSR_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      tperiod_LSR 	: VitalDelayType := 0 ns;
+      tpw_LSR_posedge	: VitalDelayType := 0 ns;
+      tpw_LSR_negedge	: VitalDelayType := 0 ns;
+      tperiod_CLK 	: VitalDelayType := 0 ns;
+      tpw_CLK_posedge	: VitalDelayType := 0 ns;
+      tpw_CLK_negedge	: VitalDelayType := 0 ns);
+
+    port (A1: in Std_logic; DI1: in Std_logic; CE: in Std_logic; 
+          LSR: in Std_logic; CLK: in Std_logic; F1: out Std_logic; 
+          Q1: out Std_logic; FCO: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF wb_manager_inst_timeoutIns_SLICE_0 : ENTITY IS TRUE;
+
+  end wb_manager_inst_timeoutIns_SLICE_0;
+
+  architecture Structure of wb_manager_inst_timeoutIns_SLICE_0 is
+    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
+
+    signal A1_ipd 	: std_logic := 'X';
+    signal DI1_ipd 	: std_logic := 'X';
+    signal DI1_dly 	: std_logic := 'X';
+    signal CE_ipd 	: std_logic := 'X';
+    signal CE_dly 	: std_logic := 'X';
+    signal LSR_ipd 	: std_logic := 'X';
+    signal LSR_dly 	: std_logic := 'X';
+    signal CLK_ipd 	: std_logic := 'X';
+    signal CLK_dly 	: std_logic := 'X';
+    signal F1_out 	: std_logic := 'X';
+    signal Q1_out 	: std_logic := 'X';
+    signal FCO_out 	: std_logic := 'X';
+
+    signal VCCI: Std_logic;
+    signal GNDI: Std_logic;
+    component vmuxregsre
+      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
+            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
+            Q: out Std_logic);
+    end component;
+    component vcc
+      port (PWR1: out Std_logic);
+    end component;
+    component ccu2B0
+      port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
+            D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
+            C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
+            S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
+    end component;
+    component gnd
+      port (PWR0: out Std_logic);
+    end component;
+  begin
+    wb_manager_inst_timeoutIns_clk_counter_0: vmuxregsre
+      port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>CE_dly, CK=>CLK_dly, 
+                LSR=>LSR_dly, Q=>Q1_out);
+    DRIVEVCC: vcc
+      port map (PWR1=>VCCI);
+    wb_manager_inst_timeoutIns_clk_counter_cry_0_0: ccu2B0
+      port map (A0=>GNDI, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
+                C1=>GNDI, D1=>GNDI, CI=>GNDI, S0=>open, S1=>F1_out, 
+                CO1=>FCO_out);
+    DRIVEGND: gnd
+      port map (PWR0=>GNDI);
+
+    --  INPUT PATH DELAYs
+    WireDelay : BLOCK
+    BEGIN
+      VitalWireDelay(A1_ipd, A1, tipd_A1);
+      VitalWireDelay(DI1_ipd, DI1, tipd_DI1);
+      VitalWireDelay(CE_ipd, CE, tipd_CE);
+      VitalWireDelay(LSR_ipd, LSR, tipd_LSR);
+      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
+    END BLOCK;
+
+    --  Setup and Hold DELAYs
+    SignalDelay : BLOCK
+    BEGIN
+      VitalSignalDelay(DI1_dly, DI1_ipd, tisd_DI1_CLK);
+      VitalSignalDelay(CE_dly, CE_ipd, tisd_CE_CLK);
+      VitalSignalDelay(LSR_dly, LSR_ipd, tisd_LSR_CLK);
+      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
+    END BLOCK;
+
+    VitalBehavior : PROCESS (A1_ipd, DI1_dly, CE_dly, LSR_dly, CLK_dly, F1_out, 
+      Q1_out, FCO_out)
+    VARIABLE F1_zd         	: std_logic := 'X';
+    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
+    VARIABLE Q1_zd         	: std_logic := 'X';
+    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
+    VARIABLE FCO_zd         	: std_logic := 'X';
+    VARIABLE FCO_GlitchData 	: VitalGlitchDataType;
+
+    VARIABLE tviol_DI1_CLK       	: x01 := '0';
+    VARIABLE DI1_CLK_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_CE_CLK       	: x01 := '0';
+    VARIABLE CE_CLK_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_LSR_CLK       	: x01 := '0';
+    VARIABLE LSR_CLK_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_LSR_LSR          	: x01 := '0';
+    VARIABLE periodcheckinfo_LSR	: VitalPeriodDataType;
+    VARIABLE tviol_CLK_CLK          	: x01 := '0';
+    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
+
+    BEGIN
+
+    IF (TimingChecksOn) THEN
+      VitalSetupHoldCheck (
+        TestSignal => DI1_dly,
+        TestSignalName => "DI1",
+        TestDelay => tisd_DI1_CLK,
+        RefSignal => CLK_dly,
+        RefSignalName => "CLK",
+        RefDelay => ticd_CLK,
+        SetupHigh => tsetup_DI1_CLK_noedge_posedge,
+        SetupLow => tsetup_DI1_CLK_noedge_posedge,
+        HoldHigh => thold_DI1_CLK_noedge_posedge,
+        HoldLow => thold_DI1_CLK_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => DI1_CLK_TimingDatash,
+        Violation => tviol_DI1_CLK,
+        MsgSeverity => warning);
+      VitalSetupHoldCheck (
+        TestSignal => CE_dly,
+        TestSignalName => "CE",
+        TestDelay => tisd_CE_CLK,
+        RefSignal => CLK_dly,
+        RefSignalName => "CLK",
+        RefDelay => ticd_CLK,
+        SetupHigh => tsetup_CE_CLK_noedge_posedge,
+        SetupLow => tsetup_CE_CLK_noedge_posedge,
+        HoldHigh => thold_CE_CLK_noedge_posedge,
+        HoldLow => thold_CE_CLK_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => CE_CLK_TimingDatash,
+        Violation => tviol_CE_CLK,
+        MsgSeverity => warning);
+      VitalSetupHoldCheck (
+        TestSignal => LSR_dly,
+        TestSignalName => "LSR",
+        TestDelay => tisd_LSR_CLK,
+        RefSignal => CLK_dly,
+        RefSignalName => "CLK",
+        RefDelay => ticd_CLK,
+        SetupHigh => tsetup_LSR_CLK_noedge_posedge,
+        SetupLow => tsetup_LSR_CLK_noedge_posedge,
+        HoldHigh => thold_LSR_CLK_noedge_posedge,
+        HoldLow => thold_LSR_CLK_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => LSR_CLK_TimingDatash,
+        Violation => tviol_LSR_CLK,
+        MsgSeverity => warning);
+      VitalPeriodPulseCheck (
+        TestSignal => LSR_ipd,
+        TestSignalName => "LSR",
+        Period => tperiod_LSR,
+        PulseWidthHigh => tpw_LSR_posedge,
+        PulseWidthLow => tpw_LSR_negedge,
+        PeriodData => periodcheckinfo_LSR,
+        Violation => tviol_LSR_LSR,
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        CheckEnabled => TRUE,
+        MsgSeverity => warning);
+      VitalPeriodPulseCheck (
+        TestSignal => CLK_ipd,
+        TestSignalName => "CLK",
+        Period => tperiod_CLK,
+        PulseWidthHigh => tpw_CLK_posedge,
+        PulseWidthLow => tpw_CLK_negedge,
+        PeriodData => periodcheckinfo_CLK,
+        Violation => tviol_CLK_CLK,
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        CheckEnabled => TRUE,
+        MsgSeverity => warning);
+
+    END IF;
+
+    F1_zd 	:= F1_out;
+    Q1_zd 	:= Q1_out;
+    FCO_zd 	:= FCO_out;
+
+    VitalPathDelay01 (
+      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
+      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
+                           PathDelay => tpd_A1_F1,
+                           PathCondition => TRUE)),
+      GlitchData => F1_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
+      Paths      => (0 => (InputChangeTime => LSR_dly'last_event,
+                           PathDelay => tpd_LSR_Q1,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => CLK_dly'last_event,
+                           PathDelay => tpd_CLK_Q1,
+                           PathCondition => TRUE)),
+      GlitchData => Q1_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => FCO, OutSignalName => "FCO", OutTemp => FCO_zd,
+      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
+                           PathDelay => tpd_A1_FCO,
+                           PathCondition => TRUE)),
+      GlitchData => FCO_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+
+    END PROCESS;
+
+  end Structure;
+
+-- entity ccu20001
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity ccu20001 is
+    port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
+          D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
+          C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
+          S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF ccu20001 : ENTITY IS TRUE;
+
+  end ccu20001;
+
+  architecture Structure of ccu20001 is
+  begin
+    inst1: CCU2D
+      generic map (INIT0 => X"5002", INIT1 => X"300A", INJECT1_0 => "NO", 
+                   INJECT1_1 => "NO")
+      port map (CIN=>CI, A0=>A0, B0=>B0, C0=>C0, D0=>D0, A1=>A1, B1=>B1, 
+                C1=>C1, D1=>D1, S0=>S0, S1=>S1, COUT=>CO1);
+  end Structure;
+
+-- entity wb_manager_inst_timeoutIns_SLICE_1
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity wb_manager_inst_timeoutIns_SLICE_1 is
+    -- miscellaneous vital GENERICs
+    GENERIC (
+      TimingChecksOn	: boolean := TRUE;
+      XOn           	: boolean := FALSE;
+      MsgOn         	: boolean := TRUE;
+      InstancePath  	: string := "wb_manager_inst_timeoutIns_SLICE_1";
+
       tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_CE  	: VitalDelayType01 := (0 ns, 0 ns);
@@ -138,11 +415,11 @@
           LSR: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
           F0: out Std_logic; Q0: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF wb_manager_inst_timeoutIns_SLICE_0 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF wb_manager_inst_timeoutIns_SLICE_1 : ENTITY IS TRUE;
 
-  end wb_manager_inst_timeoutIns_SLICE_0;
+  end wb_manager_inst_timeoutIns_SLICE_1;
 
-  architecture Structure of wb_manager_inst_timeoutIns_SLICE_0 is
+  architecture Structure of wb_manager_inst_timeoutIns_SLICE_1 is
     ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
 
     signal A0_ipd 	: std_logic := 'X';
@@ -168,14 +445,14 @@
     component vcc
       port (PWR1: out Std_logic);
     end component;
-    component ccu2B0
+    component gnd
+      port (PWR0: out Std_logic);
+    end component;
+    component ccu20001
       port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
             D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
             C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
             S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
-    end component;
-    component gnd
-      port (PWR0: out Std_logic);
     end component;
   begin
     wb_manager_inst_timeoutIns_clk_counter_15: vmuxregsre
@@ -183,7 +460,7 @@
                 LSR=>LSR_dly, Q=>Q0_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
-    wb_manager_inst_timeoutIns_clk_counter_s_0_15: ccu2B0
+    wb_manager_inst_timeoutIns_clk_counter_s_0_15: ccu20001
       port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>GNDI, B1=>GNDI, 
                 C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>open, 
                 CO1=>open);
@@ -340,368 +617,29 @@
 
   end Structure;
 
--- entity ccu20001
+-- entity ccu20002
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity ccu20001 is
+  entity ccu20002 is
     port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
           D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
           C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
           S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF ccu20001 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF ccu20002 : ENTITY IS TRUE;
 
-  end ccu20001;
+  end ccu20002;
 
-  architecture Structure of ccu20001 is
+  architecture Structure of ccu20002 is
   begin
     inst1: CCU2D
       generic map (INIT0 => X"300A", INIT1 => X"300A", INJECT1_0 => "NO", 
                    INJECT1_1 => "NO")
       port map (CIN=>CI, A0=>A0, B0=>B0, C0=>C0, D0=>D0, A1=>A1, B1=>B1, 
                 C1=>C1, D1=>D1, S0=>S0, S1=>S1, COUT=>CO1);
-  end Structure;
-
--- entity wb_manager_inst_timeoutIns_SLICE_1
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity wb_manager_inst_timeoutIns_SLICE_1 is
-    -- miscellaneous vital GENERICs
-    GENERIC (
-      TimingChecksOn	: boolean := TRUE;
-      XOn           	: boolean := FALSE;
-      MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "wb_manager_inst_timeoutIns_SLICE_1";
-
-      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_CE  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_LSR  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_FCI  	: VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_LSR_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_LSR_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      ticd_CLK	: VitalDelayType := 0 ns;
-      tisd_DI1_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tisd_DI0_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tisd_CE_CLK	: VitalDelayType := 0 ns;
-      tsetup_CE_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_CE_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tisd_LSR_CLK	: VitalDelayType := 0 ns;
-      tsetup_LSR_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_LSR_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tperiod_LSR 	: VitalDelayType := 0 ns;
-      tpw_LSR_posedge	: VitalDelayType := 0 ns;
-      tpw_LSR_negedge	: VitalDelayType := 0 ns;
-      tperiod_CLK 	: VitalDelayType := 0 ns;
-      tpw_CLK_posedge	: VitalDelayType := 0 ns;
-      tpw_CLK_negedge	: VitalDelayType := 0 ns);
-
-    port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-          DI0: in Std_logic; CE: in Std_logic; LSR: in Std_logic; 
-          CLK: in Std_logic; FCI: in Std_logic; F0: out Std_logic; 
-          Q0: out Std_logic; F1: out Std_logic; Q1: out Std_logic; 
-          FCO: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF wb_manager_inst_timeoutIns_SLICE_1 : ENTITY IS TRUE;
-
-  end wb_manager_inst_timeoutIns_SLICE_1;
-
-  architecture Structure of wb_manager_inst_timeoutIns_SLICE_1 is
-    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
-
-    signal A1_ipd 	: std_logic := 'X';
-    signal A0_ipd 	: std_logic := 'X';
-    signal DI1_ipd 	: std_logic := 'X';
-    signal DI1_dly 	: std_logic := 'X';
-    signal DI0_ipd 	: std_logic := 'X';
-    signal DI0_dly 	: std_logic := 'X';
-    signal CE_ipd 	: std_logic := 'X';
-    signal CE_dly 	: std_logic := 'X';
-    signal LSR_ipd 	: std_logic := 'X';
-    signal LSR_dly 	: std_logic := 'X';
-    signal CLK_ipd 	: std_logic := 'X';
-    signal CLK_dly 	: std_logic := 'X';
-    signal FCI_ipd 	: std_logic := 'X';
-    signal F0_out 	: std_logic := 'X';
-    signal Q0_out 	: std_logic := 'X';
-    signal F1_out 	: std_logic := 'X';
-    signal Q1_out 	: std_logic := 'X';
-    signal FCO_out 	: std_logic := 'X';
-
-    signal VCCI: Std_logic;
-    signal GNDI: Std_logic;
-    component vmuxregsre
-      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-            Q: out Std_logic);
-    end component;
-    component vcc
-      port (PWR1: out Std_logic);
-    end component;
-    component gnd
-      port (PWR0: out Std_logic);
-    end component;
-    component ccu20001
-      port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
-            D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
-            C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
-            S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
-    end component;
-  begin
-    wb_manager_inst_timeoutIns_clk_counter_14: vmuxregsre
-      port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>CE_dly, CK=>CLK_dly, 
-                LSR=>LSR_dly, Q=>Q1_out);
-    DRIVEVCC: vcc
-      port map (PWR1=>VCCI);
-    wb_manager_inst_timeoutIns_clk_counter_13: vmuxregsre
-      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>CE_dly, CK=>CLK_dly, 
-                LSR=>LSR_dly, Q=>Q0_out);
-    wb_manager_inst_timeoutIns_clk_counter_cry_0_13: ccu20001
-      port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
-                C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
-                CO1=>FCO_out);
-    DRIVEGND: gnd
-      port map (PWR0=>GNDI);
-
-    --  INPUT PATH DELAYs
-    WireDelay : BLOCK
-    BEGIN
-      VitalWireDelay(A1_ipd, A1, tipd_A1);
-      VitalWireDelay(A0_ipd, A0, tipd_A0);
-      VitalWireDelay(DI1_ipd, DI1, tipd_DI1);
-      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
-      VitalWireDelay(CE_ipd, CE, tipd_CE);
-      VitalWireDelay(LSR_ipd, LSR, tipd_LSR);
-      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
-      VitalWireDelay(FCI_ipd, FCI, tipd_FCI);
-    END BLOCK;
-
-    --  Setup and Hold DELAYs
-    SignalDelay : BLOCK
-    BEGIN
-      VitalSignalDelay(DI1_dly, DI1_ipd, tisd_DI1_CLK);
-      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
-      VitalSignalDelay(CE_dly, CE_ipd, tisd_CE_CLK);
-      VitalSignalDelay(LSR_dly, LSR_ipd, tisd_LSR_CLK);
-      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
-    END BLOCK;
-
-    VitalBehavior : PROCESS (A1_ipd, A0_ipd, DI1_dly, DI0_dly, CE_dly, LSR_dly, 
-      CLK_dly, FCI_ipd, F0_out, Q0_out, F1_out, Q1_out, FCO_out)
-    VARIABLE F0_zd         	: std_logic := 'X';
-    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q0_zd         	: std_logic := 'X';
-    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE F1_zd         	: std_logic := 'X';
-    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q1_zd         	: std_logic := 'X';
-    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE FCO_zd         	: std_logic := 'X';
-    VARIABLE FCO_GlitchData 	: VitalGlitchDataType;
-
-    VARIABLE tviol_DI1_CLK       	: x01 := '0';
-    VARIABLE DI1_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_DI0_CLK       	: x01 := '0';
-    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_CE_CLK       	: x01 := '0';
-    VARIABLE CE_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_LSR_CLK       	: x01 := '0';
-    VARIABLE LSR_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_LSR_LSR          	: x01 := '0';
-    VARIABLE periodcheckinfo_LSR	: VitalPeriodDataType;
-    VARIABLE tviol_CLK_CLK          	: x01 := '0';
-    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
-
-    BEGIN
-
-    IF (TimingChecksOn) THEN
-      VitalSetupHoldCheck (
-        TestSignal => DI1_dly,
-        TestSignalName => "DI1",
-        TestDelay => tisd_DI1_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI1_CLK_noedge_posedge,
-        SetupLow => tsetup_DI1_CLK_noedge_posedge,
-        HoldHigh => thold_DI1_CLK_noedge_posedge,
-        HoldLow => thold_DI1_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI1_CLK_TimingDatash,
-        Violation => tviol_DI1_CLK,
-        MsgSeverity => warning);
-      VitalSetupHoldCheck (
-        TestSignal => DI0_dly,
-        TestSignalName => "DI0",
-        TestDelay => tisd_DI0_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
-        SetupLow => tsetup_DI0_CLK_noedge_posedge,
-        HoldHigh => thold_DI0_CLK_noedge_posedge,
-        HoldLow => thold_DI0_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI0_CLK_TimingDatash,
-        Violation => tviol_DI0_CLK,
-        MsgSeverity => warning);
-      VitalSetupHoldCheck (
-        TestSignal => CE_dly,
-        TestSignalName => "CE",
-        TestDelay => tisd_CE_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_CE_CLK_noedge_posedge,
-        SetupLow => tsetup_CE_CLK_noedge_posedge,
-        HoldHigh => thold_CE_CLK_noedge_posedge,
-        HoldLow => thold_CE_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => CE_CLK_TimingDatash,
-        Violation => tviol_CE_CLK,
-        MsgSeverity => warning);
-      VitalSetupHoldCheck (
-        TestSignal => LSR_dly,
-        TestSignalName => "LSR",
-        TestDelay => tisd_LSR_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_LSR_CLK_noedge_posedge,
-        SetupLow => tsetup_LSR_CLK_noedge_posedge,
-        HoldHigh => thold_LSR_CLK_noedge_posedge,
-        HoldLow => thold_LSR_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => LSR_CLK_TimingDatash,
-        Violation => tviol_LSR_CLK,
-        MsgSeverity => warning);
-      VitalPeriodPulseCheck (
-        TestSignal => LSR_ipd,
-        TestSignalName => "LSR",
-        Period => tperiod_LSR,
-        PulseWidthHigh => tpw_LSR_posedge,
-        PulseWidthLow => tpw_LSR_negedge,
-        PeriodData => periodcheckinfo_LSR,
-        Violation => tviol_LSR_LSR,
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        CheckEnabled => TRUE,
-        MsgSeverity => warning);
-      VitalPeriodPulseCheck (
-        TestSignal => CLK_ipd,
-        TestSignalName => "CLK",
-        Period => tperiod_CLK,
-        PulseWidthHigh => tpw_CLK_posedge,
-        PulseWidthLow => tpw_CLK_negedge,
-        PeriodData => periodcheckinfo_CLK,
-        Violation => tviol_CLK_CLK,
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        CheckEnabled => TRUE,
-        MsgSeverity => warning);
-
-    END IF;
-
-    F0_zd 	:= F0_out;
-    Q0_zd 	:= Q0_out;
-    F1_zd 	:= F1_out;
-    Q1_zd 	:= Q1_out;
-    FCO_zd 	:= FCO_out;
-
-    VitalPathDelay01 (
-      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
-      Paths      => (0 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F0,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F0,
-                           PathCondition => TRUE)),
-      GlitchData => F0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
-      Paths      => (0 => (InputChangeTime => LSR_dly'last_event,
-                           PathDelay => tpd_LSR_Q0,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q0,
-                           PathCondition => TRUE)),
-      GlitchData => Q0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_F1,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F1,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F1,
-                           PathCondition => TRUE)),
-      GlitchData => F1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
-      Paths      => (0 => (InputChangeTime => LSR_dly'last_event,
-                           PathDelay => tpd_LSR_Q1,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q1,
-                           PathCondition => TRUE)),
-      GlitchData => Q1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => FCO, OutSignalName => "FCO", OutTemp => FCO_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_FCO,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_FCO,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_FCO,
-                           PathCondition => TRUE)),
-      GlitchData => FCO_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-
-    END PROCESS;
-
   end Structure;
 
 -- entity wb_manager_inst_timeoutIns_SLICE_2
@@ -803,22 +741,22 @@
     component gnd
       port (PWR0: out Std_logic);
     end component;
-    component ccu20001
+    component ccu20002
       port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
             D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
             C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
             S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
     end component;
   begin
-    wb_manager_inst_timeoutIns_clk_counter_12: vmuxregsre
+    wb_manager_inst_timeoutIns_clk_counter_14: vmuxregsre
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>CE_dly, CK=>CLK_dly, 
                 LSR=>LSR_dly, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
-    wb_manager_inst_timeoutIns_clk_counter_11: vmuxregsre
+    wb_manager_inst_timeoutIns_clk_counter_13: vmuxregsre
       port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>CE_dly, CK=>CLK_dly, 
                 LSR=>LSR_dly, Q=>Q0_out);
-    wb_manager_inst_timeoutIns_clk_counter_cry_0_11: ccu20001
+    wb_manager_inst_timeoutIns_clk_counter_cry_0_13: ccu20002
       port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
                 C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
                 CO1=>FCO_out);
@@ -1142,22 +1080,22 @@
     component gnd
       port (PWR0: out Std_logic);
     end component;
-    component ccu20001
+    component ccu20002
       port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
             D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
             C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
             S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
     end component;
   begin
-    wb_manager_inst_timeoutIns_clk_counter_10: vmuxregsre
+    wb_manager_inst_timeoutIns_clk_counter_12: vmuxregsre
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>CE_dly, CK=>CLK_dly, 
                 LSR=>LSR_dly, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
-    wb_manager_inst_timeoutIns_clk_counter_9: vmuxregsre
+    wb_manager_inst_timeoutIns_clk_counter_11: vmuxregsre
       port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>CE_dly, CK=>CLK_dly, 
                 LSR=>LSR_dly, Q=>Q0_out);
-    wb_manager_inst_timeoutIns_clk_counter_cry_0_9: ccu20001
+    wb_manager_inst_timeoutIns_clk_counter_cry_0_11: ccu20002
       port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
                 C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
                 CO1=>FCO_out);
@@ -1481,22 +1419,22 @@
     component gnd
       port (PWR0: out Std_logic);
     end component;
-    component ccu20001
+    component ccu20002
       port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
             D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
             C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
             S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
     end component;
   begin
-    wb_manager_inst_timeoutIns_clk_counter_8: vmuxregsre
+    wb_manager_inst_timeoutIns_clk_counter_10: vmuxregsre
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>CE_dly, CK=>CLK_dly, 
                 LSR=>LSR_dly, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
-    wb_manager_inst_timeoutIns_clk_counter_7: vmuxregsre
+    wb_manager_inst_timeoutIns_clk_counter_9: vmuxregsre
       port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>CE_dly, CK=>CLK_dly, 
                 LSR=>LSR_dly, Q=>Q0_out);
-    wb_manager_inst_timeoutIns_clk_counter_cry_0_7: ccu20001
+    wb_manager_inst_timeoutIns_clk_counter_cry_0_9: ccu20002
       port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
                 C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
                 CO1=>FCO_out);
@@ -1820,22 +1758,22 @@
     component gnd
       port (PWR0: out Std_logic);
     end component;
-    component ccu20001
+    component ccu20002
       port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
             D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
             C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
             S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
     end component;
   begin
-    wb_manager_inst_timeoutIns_clk_counter_6: vmuxregsre
+    wb_manager_inst_timeoutIns_clk_counter_8: vmuxregsre
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>CE_dly, CK=>CLK_dly, 
                 LSR=>LSR_dly, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
-    wb_manager_inst_timeoutIns_clk_counter_5: vmuxregsre
+    wb_manager_inst_timeoutIns_clk_counter_7: vmuxregsre
       port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>CE_dly, CK=>CLK_dly, 
                 LSR=>LSR_dly, Q=>Q0_out);
-    wb_manager_inst_timeoutIns_clk_counter_cry_0_5: ccu20001
+    wb_manager_inst_timeoutIns_clk_counter_cry_0_7: ccu20002
       port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
                 C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
                 CO1=>FCO_out);
@@ -2159,22 +2097,22 @@
     component gnd
       port (PWR0: out Std_logic);
     end component;
-    component ccu20001
+    component ccu20002
       port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
             D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
             C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
             S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
     end component;
   begin
-    wb_manager_inst_timeoutIns_clk_counter_4: vmuxregsre
+    wb_manager_inst_timeoutIns_clk_counter_6: vmuxregsre
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>CE_dly, CK=>CLK_dly, 
                 LSR=>LSR_dly, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
-    wb_manager_inst_timeoutIns_clk_counter_3: vmuxregsre
+    wb_manager_inst_timeoutIns_clk_counter_5: vmuxregsre
       port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>CE_dly, CK=>CLK_dly, 
                 LSR=>LSR_dly, Q=>Q0_out);
-    wb_manager_inst_timeoutIns_clk_counter_cry_0_3: ccu20001
+    wb_manager_inst_timeoutIns_clk_counter_cry_0_5: ccu20002
       port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
                 C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
                 CO1=>FCO_out);
@@ -2498,22 +2436,22 @@
     component gnd
       port (PWR0: out Std_logic);
     end component;
-    component ccu20001
+    component ccu20002
       port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
             D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
             C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
             S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
     end component;
   begin
-    wb_manager_inst_timeoutIns_clk_counter_2: vmuxregsre
+    wb_manager_inst_timeoutIns_clk_counter_4: vmuxregsre
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>CE_dly, CK=>CLK_dly, 
                 LSR=>LSR_dly, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
-    wb_manager_inst_timeoutIns_clk_counter_1: vmuxregsre
+    wb_manager_inst_timeoutIns_clk_counter_3: vmuxregsre
       port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>CE_dly, CK=>CLK_dly, 
                 LSR=>LSR_dly, Q=>Q0_out);
-    wb_manager_inst_timeoutIns_clk_counter_cry_0_1: ccu20001
+    wb_manager_inst_timeoutIns_clk_counter_cry_0_3: ccu20002
       port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
                 C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
                 CO1=>FCO_out);
@@ -2738,31 +2676,6 @@
 
   end Structure;
 
--- entity ccu20002
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity ccu20002 is
-    port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
-          D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
-          C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
-          S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF ccu20002 : ENTITY IS TRUE;
-
-  end ccu20002;
-
-  architecture Structure of ccu20002 is
-  begin
-    inst1: CCU2D
-      generic map (INIT0 => X"000A", INIT1 => X"300A", INJECT1_0 => "NO", 
-                   INJECT1_1 => "NO")
-      port map (CIN=>CI, A0=>A0, B0=>B0, C0=>C0, D0=>D0, A1=>A1, B1=>B1, 
-                C1=>C1, D1=>D1, S0=>S0, S1=>S1, COUT=>CO1);
-  end Structure;
-
 -- entity wb_manager_inst_timeoutIns_SLICE_8
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
@@ -2778,18 +2691,32 @@
       InstancePath  	: string := "wb_manager_inst_timeoutIns_SLICE_8";
 
       tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_CE  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_LSR  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_FCI  	: VitalDelayType01 := (0 ns, 0 ns);
       tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_A1_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A0_F1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A0_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_LSR_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_LSR_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_FCI_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_FCI_F1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_FCI_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
       ticd_CLK	: VitalDelayType := 0 ns;
       tisd_DI1_CLK	: VitalDelayType := 0 ns;
       tsetup_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
       thold_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      tisd_DI0_CLK	: VitalDelayType := 0 ns;
+      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
       tisd_CE_CLK	: VitalDelayType := 0 ns;
       tsetup_CE_CLK_noedge_posedge	: VitalDelayType := 0 ns;
       thold_CE_CLK_noedge_posedge	: VitalDelayType := 0 ns;
@@ -2803,9 +2730,11 @@
       tpw_CLK_posedge	: VitalDelayType := 0 ns;
       tpw_CLK_negedge	: VitalDelayType := 0 ns);
 
-    port (A1: in Std_logic; DI1: in Std_logic; CE: in Std_logic; 
-          LSR: in Std_logic; CLK: in Std_logic; F1: out Std_logic; 
-          Q1: out Std_logic; FCO: out Std_logic);
+    port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
+          DI0: in Std_logic; CE: in Std_logic; LSR: in Std_logic; 
+          CLK: in Std_logic; FCI: in Std_logic; F0: out Std_logic; 
+          Q0: out Std_logic; F1: out Std_logic; Q1: out Std_logic; 
+          FCO: out Std_logic);
 
     ATTRIBUTE Vital_Level0 OF wb_manager_inst_timeoutIns_SLICE_8 : ENTITY IS TRUE;
 
@@ -2815,14 +2744,20 @@
     ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
 
     signal A1_ipd 	: std_logic := 'X';
+    signal A0_ipd 	: std_logic := 'X';
     signal DI1_ipd 	: std_logic := 'X';
     signal DI1_dly 	: std_logic := 'X';
+    signal DI0_ipd 	: std_logic := 'X';
+    signal DI0_dly 	: std_logic := 'X';
     signal CE_ipd 	: std_logic := 'X';
     signal CE_dly 	: std_logic := 'X';
     signal LSR_ipd 	: std_logic := 'X';
     signal LSR_dly 	: std_logic := 'X';
     signal CLK_ipd 	: std_logic := 'X';
     signal CLK_dly 	: std_logic := 'X';
+    signal FCI_ipd 	: std_logic := 'X';
+    signal F0_out 	: std_logic := 'X';
+    signal Q0_out 	: std_logic := 'X';
     signal F1_out 	: std_logic := 'X';
     signal Q1_out 	: std_logic := 'X';
     signal FCO_out 	: std_logic := 'X';
@@ -2847,14 +2782,17 @@
             S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
     end component;
   begin
-    wb_manager_inst_timeoutIns_clk_counter_0: vmuxregsre
+    wb_manager_inst_timeoutIns_clk_counter_2: vmuxregsre
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>CE_dly, CK=>CLK_dly, 
                 LSR=>LSR_dly, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
-    wb_manager_inst_timeoutIns_clk_counter_cry_0_0: ccu20002
-      port map (A0=>GNDI, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
-                C1=>GNDI, D1=>GNDI, CI=>GNDI, S0=>open, S1=>F1_out, 
+    wb_manager_inst_timeoutIns_clk_counter_1: vmuxregsre
+      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>CE_dly, CK=>CLK_dly, 
+                LSR=>LSR_dly, Q=>Q0_out);
+    wb_manager_inst_timeoutIns_clk_counter_cry_0_1: ccu20002
+      port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
+                C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
                 CO1=>FCO_out);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
@@ -2863,23 +2801,31 @@
     WireDelay : BLOCK
     BEGIN
       VitalWireDelay(A1_ipd, A1, tipd_A1);
+      VitalWireDelay(A0_ipd, A0, tipd_A0);
       VitalWireDelay(DI1_ipd, DI1, tipd_DI1);
+      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
       VitalWireDelay(CE_ipd, CE, tipd_CE);
       VitalWireDelay(LSR_ipd, LSR, tipd_LSR);
       VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
+      VitalWireDelay(FCI_ipd, FCI, tipd_FCI);
     END BLOCK;
 
     --  Setup and Hold DELAYs
     SignalDelay : BLOCK
     BEGIN
       VitalSignalDelay(DI1_dly, DI1_ipd, tisd_DI1_CLK);
+      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
       VitalSignalDelay(CE_dly, CE_ipd, tisd_CE_CLK);
       VitalSignalDelay(LSR_dly, LSR_ipd, tisd_LSR_CLK);
       VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
     END BLOCK;
 
-    VitalBehavior : PROCESS (A1_ipd, DI1_dly, CE_dly, LSR_dly, CLK_dly, F1_out, 
-      Q1_out, FCO_out)
+    VitalBehavior : PROCESS (A1_ipd, A0_ipd, DI1_dly, DI0_dly, CE_dly, LSR_dly, 
+      CLK_dly, FCI_ipd, F0_out, Q0_out, F1_out, Q1_out, FCO_out)
+    VARIABLE F0_zd         	: std_logic := 'X';
+    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
+    VARIABLE Q0_zd         	: std_logic := 'X';
+    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
     VARIABLE F1_zd         	: std_logic := 'X';
     VARIABLE F1_GlitchData 	: VitalGlitchDataType;
     VARIABLE Q1_zd         	: std_logic := 'X';
@@ -2889,6 +2835,8 @@
 
     VARIABLE tviol_DI1_CLK       	: x01 := '0';
     VARIABLE DI1_CLK_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_DI0_CLK       	: x01 := '0';
+    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
     VARIABLE tviol_CE_CLK       	: x01 := '0';
     VARIABLE CE_CLK_TimingDatash	: VitalTimingDataType;
     VARIABLE tviol_LSR_CLK       	: x01 := '0';
@@ -2918,6 +2866,24 @@
         HeaderMsg => InstancePath,
         TimingData => DI1_CLK_TimingDatash,
         Violation => tviol_DI1_CLK,
+        MsgSeverity => warning);
+      VitalSetupHoldCheck (
+        TestSignal => DI0_dly,
+        TestSignalName => "DI0",
+        TestDelay => tisd_DI0_CLK,
+        RefSignal => CLK_dly,
+        RefSignalName => "CLK",
+        RefDelay => ticd_CLK,
+        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
+        SetupLow => tsetup_DI0_CLK_noedge_posedge,
+        HoldHigh => thold_DI0_CLK_noedge_posedge,
+        HoldLow => thold_DI0_CLK_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => DI0_CLK_TimingDatash,
+        Violation => tviol_DI0_CLK,
         MsgSeverity => warning);
       VitalSetupHoldCheck (
         TestSignal => CE_dly,
@@ -2982,14 +2948,42 @@
 
     END IF;
 
+    F0_zd 	:= F0_out;
+    Q0_zd 	:= Q0_out;
     F1_zd 	:= F1_out;
     Q1_zd 	:= Q1_out;
     FCO_zd 	:= FCO_out;
 
     VitalPathDelay01 (
+      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
+      Paths      => (0 => (InputChangeTime => A0_ipd'last_event,
+                           PathDelay => tpd_A0_F0,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => FCI_ipd'last_event,
+                           PathDelay => tpd_FCI_F0,
+                           PathCondition => TRUE)),
+      GlitchData => F0_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
+      Paths      => (0 => (InputChangeTime => LSR_dly'last_event,
+                           PathDelay => tpd_LSR_Q0,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => CLK_dly'last_event,
+                           PathDelay => tpd_CLK_Q0,
+                           PathCondition => TRUE)),
+      GlitchData => Q0_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
       OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
       Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
                            PathDelay => tpd_A1_F1,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => A0_ipd'last_event,
+                           PathDelay => tpd_A0_F1,
+                           PathCondition => TRUE),
+                     2 => (InputChangeTime => FCI_ipd'last_event,
+                           PathDelay => tpd_FCI_F1,
                            PathCondition => TRUE)),
       GlitchData => F1_GlitchData,
       Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
@@ -2999,2815 +2993,6 @@
                            PathDelay => tpd_LSR_Q1,
                            PathCondition => TRUE),
                      1 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q1,
-                           PathCondition => TRUE)),
-      GlitchData => Q1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => FCO, OutSignalName => "FCO", OutTemp => FCO_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_FCO,
-                           PathCondition => TRUE)),
-      GlitchData => FCO_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-
-    END PROCESS;
-
-  end Structure;
-
--- entity vmuxregsre0003
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity vmuxregsre0003 is
-    port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-          SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-          Q: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF vmuxregsre0003 : ENTITY IS TRUE;
-
-  end vmuxregsre0003;
-
-  architecture Structure of vmuxregsre0003 is
-  begin
-    INST01: FL1P3DX
-      generic map (GSR => "ENABLED")
-      port map (D0=>D0, D1=>D1, SP=>SP, CK=>CK, SD=>SD, CD=>LSR, Q=>Q);
-  end Structure;
-
--- entity SLICE_9
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity SLICE_9 is
-    -- miscellaneous vital GENERICs
-    GENERIC (
-      TimingChecksOn	: boolean := TRUE;
-      XOn           	: boolean := FALSE;
-      MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "SLICE_9";
-
-      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_M0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
-      ticd_CLK	: VitalDelayType := 0 ns;
-      tisd_DI1_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tisd_M0_CLK	: VitalDelayType := 0 ns;
-      tsetup_M0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_M0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tperiod_CLK 	: VitalDelayType := 0 ns;
-      tpw_CLK_posedge	: VitalDelayType := 0 ns;
-      tpw_CLK_negedge	: VitalDelayType := 0 ns);
-
-    port (A1: in Std_logic; DI1: in Std_logic; M0: in Std_logic; 
-          CLK: in Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-          Q1: out Std_logic; FCO: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF SLICE_9 : ENTITY IS TRUE;
-
-  end SLICE_9;
-
-  architecture Structure of SLICE_9 is
-    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
-
-    signal A1_ipd 	: std_logic := 'X';
-    signal DI1_ipd 	: std_logic := 'X';
-    signal DI1_dly 	: std_logic := 'X';
-    signal M0_ipd 	: std_logic := 'X';
-    signal M0_dly 	: std_logic := 'X';
-    signal CLK_ipd 	: std_logic := 'X';
-    signal CLK_dly 	: std_logic := 'X';
-    signal Q0_out 	: std_logic := 'X';
-    signal F1_out 	: std_logic := 'X';
-    signal Q1_out 	: std_logic := 'X';
-    signal FCO_out 	: std_logic := 'X';
-
-    signal VCCI: Std_logic;
-    signal GNDI: Std_logic;
-    component vcc
-      port (PWR1: out Std_logic);
-    end component;
-    component gnd
-      port (PWR0: out Std_logic);
-    end component;
-    component ccu20002
-      port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
-            D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
-            C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
-            S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
-    end component;
-    component vmuxregsre0003
-      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-            Q: out Std_logic);
-    end component;
-  begin
-    HeartBeatInst0_iCounter_0: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q1_out);
-    DRIVEVCC: vcc
-      port map (PWR1=>VCCI);
-    DRIVEGND: gnd
-      port map (PWR0=>GNDI);
-    wb_manager_inst_cState_1: vmuxregsre0003
-      port map (D0=>M0_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_0: ccu20002
-      port map (A0=>GNDI, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
-                C1=>GNDI, D1=>GNDI, CI=>GNDI, S0=>open, S1=>F1_out, 
-                CO1=>FCO_out);
-
-    --  INPUT PATH DELAYs
-    WireDelay : BLOCK
-    BEGIN
-      VitalWireDelay(A1_ipd, A1, tipd_A1);
-      VitalWireDelay(DI1_ipd, DI1, tipd_DI1);
-      VitalWireDelay(M0_ipd, M0, tipd_M0);
-      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
-    END BLOCK;
-
-    --  Setup and Hold DELAYs
-    SignalDelay : BLOCK
-    BEGIN
-      VitalSignalDelay(DI1_dly, DI1_ipd, tisd_DI1_CLK);
-      VitalSignalDelay(M0_dly, M0_ipd, tisd_M0_CLK);
-      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
-    END BLOCK;
-
-    VitalBehavior : PROCESS (A1_ipd, DI1_dly, M0_dly, CLK_dly, Q0_out, F1_out, 
-      Q1_out, FCO_out)
-    VARIABLE Q0_zd         	: std_logic := 'X';
-    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE F1_zd         	: std_logic := 'X';
-    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q1_zd         	: std_logic := 'X';
-    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE FCO_zd         	: std_logic := 'X';
-    VARIABLE FCO_GlitchData 	: VitalGlitchDataType;
-
-    VARIABLE tviol_DI1_CLK       	: x01 := '0';
-    VARIABLE DI1_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_M0_CLK       	: x01 := '0';
-    VARIABLE M0_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_CLK_CLK          	: x01 := '0';
-    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
-
-    BEGIN
-
-    IF (TimingChecksOn) THEN
-      VitalSetupHoldCheck (
-        TestSignal => DI1_dly,
-        TestSignalName => "DI1",
-        TestDelay => tisd_DI1_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI1_CLK_noedge_posedge,
-        SetupLow => tsetup_DI1_CLK_noedge_posedge,
-        HoldHigh => thold_DI1_CLK_noedge_posedge,
-        HoldLow => thold_DI1_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI1_CLK_TimingDatash,
-        Violation => tviol_DI1_CLK,
-        MsgSeverity => warning);
-      VitalSetupHoldCheck (
-        TestSignal => M0_dly,
-        TestSignalName => "M0",
-        TestDelay => tisd_M0_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_M0_CLK_noedge_posedge,
-        SetupLow => tsetup_M0_CLK_noedge_posedge,
-        HoldHigh => thold_M0_CLK_noedge_posedge,
-        HoldLow => thold_M0_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => M0_CLK_TimingDatash,
-        Violation => tviol_M0_CLK,
-        MsgSeverity => warning);
-      VitalPeriodPulseCheck (
-        TestSignal => CLK_ipd,
-        TestSignalName => "CLK",
-        Period => tperiod_CLK,
-        PulseWidthHigh => tpw_CLK_posedge,
-        PulseWidthLow => tpw_CLK_negedge,
-        PeriodData => periodcheckinfo_CLK,
-        Violation => tviol_CLK_CLK,
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        CheckEnabled => TRUE,
-        MsgSeverity => warning);
-
-    END IF;
-
-    Q0_zd 	:= Q0_out;
-    F1_zd 	:= F1_out;
-    Q1_zd 	:= Q1_out;
-    FCO_zd 	:= FCO_out;
-
-    VitalPathDelay01 (
-      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q0,
-                           PathCondition => TRUE)),
-      GlitchData => Q0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_F1,
-                           PathCondition => TRUE)),
-      GlitchData => F1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q1,
-                           PathCondition => TRUE)),
-      GlitchData => Q1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => FCO, OutSignalName => "FCO", OutTemp => FCO_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_FCO,
-                           PathCondition => TRUE)),
-      GlitchData => FCO_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-
-    END PROCESS;
-
-  end Structure;
-
--- entity ccu20004
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity ccu20004 is
-    port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
-          D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
-          C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
-          S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF ccu20004 : ENTITY IS TRUE;
-
-  end ccu20004;
-
-  architecture Structure of ccu20004 is
-  begin
-    inst1: CCU2D
-      generic map (INIT0 => X"300A", INIT1 => X"5002", INJECT1_0 => "NO", 
-                   INJECT1_1 => "NO")
-      port map (CIN=>CI, A0=>A0, B0=>B0, C0=>C0, D0=>D0, A1=>A1, B1=>B1, 
-                C1=>C1, D1=>D1, S0=>S0, S1=>S1, COUT=>CO1);
-  end Structure;
-
--- entity HeartBeatInst0_SLICE_10
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity HeartBeatInst0_SLICE_10 is
-    -- miscellaneous vital GENERICs
-    GENERIC (
-      TimingChecksOn	: boolean := TRUE;
-      XOn           	: boolean := FALSE;
-      MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "HeartBeatInst0_SLICE_10";
-
-      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_FCI  	: VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      ticd_CLK	: VitalDelayType := 0 ns;
-      tisd_DI1_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tisd_DI0_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tperiod_CLK 	: VitalDelayType := 0 ns;
-      tpw_CLK_posedge	: VitalDelayType := 0 ns;
-      tpw_CLK_negedge	: VitalDelayType := 0 ns);
-
-    port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-          DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-          F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-          Q1: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF HeartBeatInst0_SLICE_10 : ENTITY IS TRUE;
-
-  end HeartBeatInst0_SLICE_10;
-
-  architecture Structure of HeartBeatInst0_SLICE_10 is
-    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
-
-    signal A1_ipd 	: std_logic := 'X';
-    signal A0_ipd 	: std_logic := 'X';
-    signal DI1_ipd 	: std_logic := 'X';
-    signal DI1_dly 	: std_logic := 'X';
-    signal DI0_ipd 	: std_logic := 'X';
-    signal DI0_dly 	: std_logic := 'X';
-    signal CLK_ipd 	: std_logic := 'X';
-    signal CLK_dly 	: std_logic := 'X';
-    signal FCI_ipd 	: std_logic := 'X';
-    signal F0_out 	: std_logic := 'X';
-    signal Q0_out 	: std_logic := 'X';
-    signal F1_out 	: std_logic := 'X';
-    signal Q1_out 	: std_logic := 'X';
-
-    signal VCCI: Std_logic;
-    signal GNDI: Std_logic;
-    component vcc
-      port (PWR1: out Std_logic);
-    end component;
-    component gnd
-      port (PWR0: out Std_logic);
-    end component;
-    component vmuxregsre0003
-      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-            Q: out Std_logic);
-    end component;
-    component ccu20004
-      port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
-            D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
-            C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
-            S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
-    end component;
-  begin
-    HeartBeatInst0_iCounter_20: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q1_out);
-    DRIVEVCC: vcc
-      port map (PWR1=>VCCI);
-    DRIVEGND: gnd
-      port map (PWR0=>GNDI);
-    HeartBeatInst0_iCounter_19: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_19: ccu20004
-      port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
-                C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
-                CO1=>open);
-
-    --  INPUT PATH DELAYs
-    WireDelay : BLOCK
-    BEGIN
-      VitalWireDelay(A1_ipd, A1, tipd_A1);
-      VitalWireDelay(A0_ipd, A0, tipd_A0);
-      VitalWireDelay(DI1_ipd, DI1, tipd_DI1);
-      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
-      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
-      VitalWireDelay(FCI_ipd, FCI, tipd_FCI);
-    END BLOCK;
-
-    --  Setup and Hold DELAYs
-    SignalDelay : BLOCK
-    BEGIN
-      VitalSignalDelay(DI1_dly, DI1_ipd, tisd_DI1_CLK);
-      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
-      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
-    END BLOCK;
-
-    VitalBehavior : PROCESS (A1_ipd, A0_ipd, DI1_dly, DI0_dly, CLK_dly, 
-      FCI_ipd, F0_out, Q0_out, F1_out, Q1_out)
-    VARIABLE F0_zd         	: std_logic := 'X';
-    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q0_zd         	: std_logic := 'X';
-    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE F1_zd         	: std_logic := 'X';
-    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q1_zd         	: std_logic := 'X';
-    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
-
-    VARIABLE tviol_DI1_CLK       	: x01 := '0';
-    VARIABLE DI1_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_DI0_CLK       	: x01 := '0';
-    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_CLK_CLK          	: x01 := '0';
-    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
-
-    BEGIN
-
-    IF (TimingChecksOn) THEN
-      VitalSetupHoldCheck (
-        TestSignal => DI1_dly,
-        TestSignalName => "DI1",
-        TestDelay => tisd_DI1_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI1_CLK_noedge_posedge,
-        SetupLow => tsetup_DI1_CLK_noedge_posedge,
-        HoldHigh => thold_DI1_CLK_noedge_posedge,
-        HoldLow => thold_DI1_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI1_CLK_TimingDatash,
-        Violation => tviol_DI1_CLK,
-        MsgSeverity => warning);
-      VitalSetupHoldCheck (
-        TestSignal => DI0_dly,
-        TestSignalName => "DI0",
-        TestDelay => tisd_DI0_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
-        SetupLow => tsetup_DI0_CLK_noedge_posedge,
-        HoldHigh => thold_DI0_CLK_noedge_posedge,
-        HoldLow => thold_DI0_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI0_CLK_TimingDatash,
-        Violation => tviol_DI0_CLK,
-        MsgSeverity => warning);
-      VitalPeriodPulseCheck (
-        TestSignal => CLK_ipd,
-        TestSignalName => "CLK",
-        Period => tperiod_CLK,
-        PulseWidthHigh => tpw_CLK_posedge,
-        PulseWidthLow => tpw_CLK_negedge,
-        PeriodData => periodcheckinfo_CLK,
-        Violation => tviol_CLK_CLK,
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        CheckEnabled => TRUE,
-        MsgSeverity => warning);
-
-    END IF;
-
-    F0_zd 	:= F0_out;
-    Q0_zd 	:= Q0_out;
-    F1_zd 	:= F1_out;
-    Q1_zd 	:= Q1_out;
-
-    VitalPathDelay01 (
-      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
-      Paths      => (0 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F0,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F0,
-                           PathCondition => TRUE)),
-      GlitchData => F0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q0,
-                           PathCondition => TRUE)),
-      GlitchData => Q0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_F1,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F1,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F1,
-                           PathCondition => TRUE)),
-      GlitchData => F1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q1,
-                           PathCondition => TRUE)),
-      GlitchData => Q1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-
-    END PROCESS;
-
-  end Structure;
-
--- entity HeartBeatInst0_SLICE_11
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity HeartBeatInst0_SLICE_11 is
-    -- miscellaneous vital GENERICs
-    GENERIC (
-      TimingChecksOn	: boolean := TRUE;
-      XOn           	: boolean := FALSE;
-      MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "HeartBeatInst0_SLICE_11";
-
-      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_FCI  	: VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      ticd_CLK	: VitalDelayType := 0 ns;
-      tisd_DI1_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tisd_DI0_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tperiod_CLK 	: VitalDelayType := 0 ns;
-      tpw_CLK_posedge	: VitalDelayType := 0 ns;
-      tpw_CLK_negedge	: VitalDelayType := 0 ns);
-
-    port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-          DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-          F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-          Q1: out Std_logic; FCO: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF HeartBeatInst0_SLICE_11 : ENTITY IS TRUE;
-
-  end HeartBeatInst0_SLICE_11;
-
-  architecture Structure of HeartBeatInst0_SLICE_11 is
-    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
-
-    signal A1_ipd 	: std_logic := 'X';
-    signal A0_ipd 	: std_logic := 'X';
-    signal DI1_ipd 	: std_logic := 'X';
-    signal DI1_dly 	: std_logic := 'X';
-    signal DI0_ipd 	: std_logic := 'X';
-    signal DI0_dly 	: std_logic := 'X';
-    signal CLK_ipd 	: std_logic := 'X';
-    signal CLK_dly 	: std_logic := 'X';
-    signal FCI_ipd 	: std_logic := 'X';
-    signal F0_out 	: std_logic := 'X';
-    signal Q0_out 	: std_logic := 'X';
-    signal F1_out 	: std_logic := 'X';
-    signal Q1_out 	: std_logic := 'X';
-    signal FCO_out 	: std_logic := 'X';
-
-    signal VCCI: Std_logic;
-    signal GNDI: Std_logic;
-    component vcc
-      port (PWR1: out Std_logic);
-    end component;
-    component gnd
-      port (PWR0: out Std_logic);
-    end component;
-    component ccu20001
-      port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
-            D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
-            C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
-            S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
-    end component;
-    component vmuxregsre0003
-      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-            Q: out Std_logic);
-    end component;
-  begin
-    HeartBeatInst0_iCounter_18: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q1_out);
-    DRIVEVCC: vcc
-      port map (PWR1=>VCCI);
-    DRIVEGND: gnd
-      port map (PWR0=>GNDI);
-    HeartBeatInst0_iCounter_17: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_17: ccu20001
-      port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
-                C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
-                CO1=>FCO_out);
-
-    --  INPUT PATH DELAYs
-    WireDelay : BLOCK
-    BEGIN
-      VitalWireDelay(A1_ipd, A1, tipd_A1);
-      VitalWireDelay(A0_ipd, A0, tipd_A0);
-      VitalWireDelay(DI1_ipd, DI1, tipd_DI1);
-      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
-      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
-      VitalWireDelay(FCI_ipd, FCI, tipd_FCI);
-    END BLOCK;
-
-    --  Setup and Hold DELAYs
-    SignalDelay : BLOCK
-    BEGIN
-      VitalSignalDelay(DI1_dly, DI1_ipd, tisd_DI1_CLK);
-      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
-      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
-    END BLOCK;
-
-    VitalBehavior : PROCESS (A1_ipd, A0_ipd, DI1_dly, DI0_dly, CLK_dly, 
-      FCI_ipd, F0_out, Q0_out, F1_out, Q1_out, FCO_out)
-    VARIABLE F0_zd         	: std_logic := 'X';
-    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q0_zd         	: std_logic := 'X';
-    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE F1_zd         	: std_logic := 'X';
-    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q1_zd         	: std_logic := 'X';
-    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE FCO_zd         	: std_logic := 'X';
-    VARIABLE FCO_GlitchData 	: VitalGlitchDataType;
-
-    VARIABLE tviol_DI1_CLK       	: x01 := '0';
-    VARIABLE DI1_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_DI0_CLK       	: x01 := '0';
-    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_CLK_CLK          	: x01 := '0';
-    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
-
-    BEGIN
-
-    IF (TimingChecksOn) THEN
-      VitalSetupHoldCheck (
-        TestSignal => DI1_dly,
-        TestSignalName => "DI1",
-        TestDelay => tisd_DI1_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI1_CLK_noedge_posedge,
-        SetupLow => tsetup_DI1_CLK_noedge_posedge,
-        HoldHigh => thold_DI1_CLK_noedge_posedge,
-        HoldLow => thold_DI1_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI1_CLK_TimingDatash,
-        Violation => tviol_DI1_CLK,
-        MsgSeverity => warning);
-      VitalSetupHoldCheck (
-        TestSignal => DI0_dly,
-        TestSignalName => "DI0",
-        TestDelay => tisd_DI0_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
-        SetupLow => tsetup_DI0_CLK_noedge_posedge,
-        HoldHigh => thold_DI0_CLK_noedge_posedge,
-        HoldLow => thold_DI0_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI0_CLK_TimingDatash,
-        Violation => tviol_DI0_CLK,
-        MsgSeverity => warning);
-      VitalPeriodPulseCheck (
-        TestSignal => CLK_ipd,
-        TestSignalName => "CLK",
-        Period => tperiod_CLK,
-        PulseWidthHigh => tpw_CLK_posedge,
-        PulseWidthLow => tpw_CLK_negedge,
-        PeriodData => periodcheckinfo_CLK,
-        Violation => tviol_CLK_CLK,
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        CheckEnabled => TRUE,
-        MsgSeverity => warning);
-
-    END IF;
-
-    F0_zd 	:= F0_out;
-    Q0_zd 	:= Q0_out;
-    F1_zd 	:= F1_out;
-    Q1_zd 	:= Q1_out;
-    FCO_zd 	:= FCO_out;
-
-    VitalPathDelay01 (
-      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
-      Paths      => (0 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F0,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F0,
-                           PathCondition => TRUE)),
-      GlitchData => F0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q0,
-                           PathCondition => TRUE)),
-      GlitchData => Q0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_F1,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F1,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F1,
-                           PathCondition => TRUE)),
-      GlitchData => F1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q1,
-                           PathCondition => TRUE)),
-      GlitchData => Q1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => FCO, OutSignalName => "FCO", OutTemp => FCO_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_FCO,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_FCO,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_FCO,
-                           PathCondition => TRUE)),
-      GlitchData => FCO_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-
-    END PROCESS;
-
-  end Structure;
-
--- entity HeartBeatInst0_SLICE_12
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity HeartBeatInst0_SLICE_12 is
-    -- miscellaneous vital GENERICs
-    GENERIC (
-      TimingChecksOn	: boolean := TRUE;
-      XOn           	: boolean := FALSE;
-      MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "HeartBeatInst0_SLICE_12";
-
-      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_FCI  	: VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      ticd_CLK	: VitalDelayType := 0 ns;
-      tisd_DI1_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tisd_DI0_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tperiod_CLK 	: VitalDelayType := 0 ns;
-      tpw_CLK_posedge	: VitalDelayType := 0 ns;
-      tpw_CLK_negedge	: VitalDelayType := 0 ns);
-
-    port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-          DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-          F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-          Q1: out Std_logic; FCO: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF HeartBeatInst0_SLICE_12 : ENTITY IS TRUE;
-
-  end HeartBeatInst0_SLICE_12;
-
-  architecture Structure of HeartBeatInst0_SLICE_12 is
-    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
-
-    signal A1_ipd 	: std_logic := 'X';
-    signal A0_ipd 	: std_logic := 'X';
-    signal DI1_ipd 	: std_logic := 'X';
-    signal DI1_dly 	: std_logic := 'X';
-    signal DI0_ipd 	: std_logic := 'X';
-    signal DI0_dly 	: std_logic := 'X';
-    signal CLK_ipd 	: std_logic := 'X';
-    signal CLK_dly 	: std_logic := 'X';
-    signal FCI_ipd 	: std_logic := 'X';
-    signal F0_out 	: std_logic := 'X';
-    signal Q0_out 	: std_logic := 'X';
-    signal F1_out 	: std_logic := 'X';
-    signal Q1_out 	: std_logic := 'X';
-    signal FCO_out 	: std_logic := 'X';
-
-    signal VCCI: Std_logic;
-    signal GNDI: Std_logic;
-    component vcc
-      port (PWR1: out Std_logic);
-    end component;
-    component gnd
-      port (PWR0: out Std_logic);
-    end component;
-    component ccu20001
-      port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
-            D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
-            C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
-            S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
-    end component;
-    component vmuxregsre0003
-      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-            Q: out Std_logic);
-    end component;
-  begin
-    HeartBeatInst0_iCounter_16: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q1_out);
-    DRIVEVCC: vcc
-      port map (PWR1=>VCCI);
-    DRIVEGND: gnd
-      port map (PWR0=>GNDI);
-    HeartBeatInst0_iCounter_15: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_15: ccu20001
-      port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
-                C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
-                CO1=>FCO_out);
-
-    --  INPUT PATH DELAYs
-    WireDelay : BLOCK
-    BEGIN
-      VitalWireDelay(A1_ipd, A1, tipd_A1);
-      VitalWireDelay(A0_ipd, A0, tipd_A0);
-      VitalWireDelay(DI1_ipd, DI1, tipd_DI1);
-      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
-      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
-      VitalWireDelay(FCI_ipd, FCI, tipd_FCI);
-    END BLOCK;
-
-    --  Setup and Hold DELAYs
-    SignalDelay : BLOCK
-    BEGIN
-      VitalSignalDelay(DI1_dly, DI1_ipd, tisd_DI1_CLK);
-      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
-      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
-    END BLOCK;
-
-    VitalBehavior : PROCESS (A1_ipd, A0_ipd, DI1_dly, DI0_dly, CLK_dly, 
-      FCI_ipd, F0_out, Q0_out, F1_out, Q1_out, FCO_out)
-    VARIABLE F0_zd         	: std_logic := 'X';
-    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q0_zd         	: std_logic := 'X';
-    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE F1_zd         	: std_logic := 'X';
-    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q1_zd         	: std_logic := 'X';
-    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE FCO_zd         	: std_logic := 'X';
-    VARIABLE FCO_GlitchData 	: VitalGlitchDataType;
-
-    VARIABLE tviol_DI1_CLK       	: x01 := '0';
-    VARIABLE DI1_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_DI0_CLK       	: x01 := '0';
-    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_CLK_CLK          	: x01 := '0';
-    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
-
-    BEGIN
-
-    IF (TimingChecksOn) THEN
-      VitalSetupHoldCheck (
-        TestSignal => DI1_dly,
-        TestSignalName => "DI1",
-        TestDelay => tisd_DI1_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI1_CLK_noedge_posedge,
-        SetupLow => tsetup_DI1_CLK_noedge_posedge,
-        HoldHigh => thold_DI1_CLK_noedge_posedge,
-        HoldLow => thold_DI1_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI1_CLK_TimingDatash,
-        Violation => tviol_DI1_CLK,
-        MsgSeverity => warning);
-      VitalSetupHoldCheck (
-        TestSignal => DI0_dly,
-        TestSignalName => "DI0",
-        TestDelay => tisd_DI0_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
-        SetupLow => tsetup_DI0_CLK_noedge_posedge,
-        HoldHigh => thold_DI0_CLK_noedge_posedge,
-        HoldLow => thold_DI0_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI0_CLK_TimingDatash,
-        Violation => tviol_DI0_CLK,
-        MsgSeverity => warning);
-      VitalPeriodPulseCheck (
-        TestSignal => CLK_ipd,
-        TestSignalName => "CLK",
-        Period => tperiod_CLK,
-        PulseWidthHigh => tpw_CLK_posedge,
-        PulseWidthLow => tpw_CLK_negedge,
-        PeriodData => periodcheckinfo_CLK,
-        Violation => tviol_CLK_CLK,
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        CheckEnabled => TRUE,
-        MsgSeverity => warning);
-
-    END IF;
-
-    F0_zd 	:= F0_out;
-    Q0_zd 	:= Q0_out;
-    F1_zd 	:= F1_out;
-    Q1_zd 	:= Q1_out;
-    FCO_zd 	:= FCO_out;
-
-    VitalPathDelay01 (
-      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
-      Paths      => (0 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F0,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F0,
-                           PathCondition => TRUE)),
-      GlitchData => F0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q0,
-                           PathCondition => TRUE)),
-      GlitchData => Q0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_F1,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F1,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F1,
-                           PathCondition => TRUE)),
-      GlitchData => F1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q1,
-                           PathCondition => TRUE)),
-      GlitchData => Q1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => FCO, OutSignalName => "FCO", OutTemp => FCO_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_FCO,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_FCO,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_FCO,
-                           PathCondition => TRUE)),
-      GlitchData => FCO_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-
-    END PROCESS;
-
-  end Structure;
-
--- entity HeartBeatInst0_SLICE_13
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity HeartBeatInst0_SLICE_13 is
-    -- miscellaneous vital GENERICs
-    GENERIC (
-      TimingChecksOn	: boolean := TRUE;
-      XOn           	: boolean := FALSE;
-      MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "HeartBeatInst0_SLICE_13";
-
-      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_FCI  	: VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      ticd_CLK	: VitalDelayType := 0 ns;
-      tisd_DI1_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tisd_DI0_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tperiod_CLK 	: VitalDelayType := 0 ns;
-      tpw_CLK_posedge	: VitalDelayType := 0 ns;
-      tpw_CLK_negedge	: VitalDelayType := 0 ns);
-
-    port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-          DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-          F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-          Q1: out Std_logic; FCO: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF HeartBeatInst0_SLICE_13 : ENTITY IS TRUE;
-
-  end HeartBeatInst0_SLICE_13;
-
-  architecture Structure of HeartBeatInst0_SLICE_13 is
-    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
-
-    signal A1_ipd 	: std_logic := 'X';
-    signal A0_ipd 	: std_logic := 'X';
-    signal DI1_ipd 	: std_logic := 'X';
-    signal DI1_dly 	: std_logic := 'X';
-    signal DI0_ipd 	: std_logic := 'X';
-    signal DI0_dly 	: std_logic := 'X';
-    signal CLK_ipd 	: std_logic := 'X';
-    signal CLK_dly 	: std_logic := 'X';
-    signal FCI_ipd 	: std_logic := 'X';
-    signal F0_out 	: std_logic := 'X';
-    signal Q0_out 	: std_logic := 'X';
-    signal F1_out 	: std_logic := 'X';
-    signal Q1_out 	: std_logic := 'X';
-    signal FCO_out 	: std_logic := 'X';
-
-    signal VCCI: Std_logic;
-    signal GNDI: Std_logic;
-    component vcc
-      port (PWR1: out Std_logic);
-    end component;
-    component gnd
-      port (PWR0: out Std_logic);
-    end component;
-    component ccu20001
-      port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
-            D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
-            C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
-            S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
-    end component;
-    component vmuxregsre0003
-      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-            Q: out Std_logic);
-    end component;
-  begin
-    HeartBeatInst0_iCounter_14: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q1_out);
-    DRIVEVCC: vcc
-      port map (PWR1=>VCCI);
-    DRIVEGND: gnd
-      port map (PWR0=>GNDI);
-    HeartBeatInst0_iCounter_13: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_13: ccu20001
-      port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
-                C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
-                CO1=>FCO_out);
-
-    --  INPUT PATH DELAYs
-    WireDelay : BLOCK
-    BEGIN
-      VitalWireDelay(A1_ipd, A1, tipd_A1);
-      VitalWireDelay(A0_ipd, A0, tipd_A0);
-      VitalWireDelay(DI1_ipd, DI1, tipd_DI1);
-      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
-      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
-      VitalWireDelay(FCI_ipd, FCI, tipd_FCI);
-    END BLOCK;
-
-    --  Setup and Hold DELAYs
-    SignalDelay : BLOCK
-    BEGIN
-      VitalSignalDelay(DI1_dly, DI1_ipd, tisd_DI1_CLK);
-      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
-      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
-    END BLOCK;
-
-    VitalBehavior : PROCESS (A1_ipd, A0_ipd, DI1_dly, DI0_dly, CLK_dly, 
-      FCI_ipd, F0_out, Q0_out, F1_out, Q1_out, FCO_out)
-    VARIABLE F0_zd         	: std_logic := 'X';
-    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q0_zd         	: std_logic := 'X';
-    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE F1_zd         	: std_logic := 'X';
-    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q1_zd         	: std_logic := 'X';
-    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE FCO_zd         	: std_logic := 'X';
-    VARIABLE FCO_GlitchData 	: VitalGlitchDataType;
-
-    VARIABLE tviol_DI1_CLK       	: x01 := '0';
-    VARIABLE DI1_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_DI0_CLK       	: x01 := '0';
-    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_CLK_CLK          	: x01 := '0';
-    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
-
-    BEGIN
-
-    IF (TimingChecksOn) THEN
-      VitalSetupHoldCheck (
-        TestSignal => DI1_dly,
-        TestSignalName => "DI1",
-        TestDelay => tisd_DI1_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI1_CLK_noedge_posedge,
-        SetupLow => tsetup_DI1_CLK_noedge_posedge,
-        HoldHigh => thold_DI1_CLK_noedge_posedge,
-        HoldLow => thold_DI1_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI1_CLK_TimingDatash,
-        Violation => tviol_DI1_CLK,
-        MsgSeverity => warning);
-      VitalSetupHoldCheck (
-        TestSignal => DI0_dly,
-        TestSignalName => "DI0",
-        TestDelay => tisd_DI0_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
-        SetupLow => tsetup_DI0_CLK_noedge_posedge,
-        HoldHigh => thold_DI0_CLK_noedge_posedge,
-        HoldLow => thold_DI0_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI0_CLK_TimingDatash,
-        Violation => tviol_DI0_CLK,
-        MsgSeverity => warning);
-      VitalPeriodPulseCheck (
-        TestSignal => CLK_ipd,
-        TestSignalName => "CLK",
-        Period => tperiod_CLK,
-        PulseWidthHigh => tpw_CLK_posedge,
-        PulseWidthLow => tpw_CLK_negedge,
-        PeriodData => periodcheckinfo_CLK,
-        Violation => tviol_CLK_CLK,
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        CheckEnabled => TRUE,
-        MsgSeverity => warning);
-
-    END IF;
-
-    F0_zd 	:= F0_out;
-    Q0_zd 	:= Q0_out;
-    F1_zd 	:= F1_out;
-    Q1_zd 	:= Q1_out;
-    FCO_zd 	:= FCO_out;
-
-    VitalPathDelay01 (
-      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
-      Paths      => (0 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F0,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F0,
-                           PathCondition => TRUE)),
-      GlitchData => F0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q0,
-                           PathCondition => TRUE)),
-      GlitchData => Q0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_F1,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F1,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F1,
-                           PathCondition => TRUE)),
-      GlitchData => F1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q1,
-                           PathCondition => TRUE)),
-      GlitchData => Q1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => FCO, OutSignalName => "FCO", OutTemp => FCO_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_FCO,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_FCO,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_FCO,
-                           PathCondition => TRUE)),
-      GlitchData => FCO_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-
-    END PROCESS;
-
-  end Structure;
-
--- entity HeartBeatInst0_SLICE_14
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity HeartBeatInst0_SLICE_14 is
-    -- miscellaneous vital GENERICs
-    GENERIC (
-      TimingChecksOn	: boolean := TRUE;
-      XOn           	: boolean := FALSE;
-      MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "HeartBeatInst0_SLICE_14";
-
-      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_FCI  	: VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      ticd_CLK	: VitalDelayType := 0 ns;
-      tisd_DI1_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tisd_DI0_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tperiod_CLK 	: VitalDelayType := 0 ns;
-      tpw_CLK_posedge	: VitalDelayType := 0 ns;
-      tpw_CLK_negedge	: VitalDelayType := 0 ns);
-
-    port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-          DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-          F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-          Q1: out Std_logic; FCO: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF HeartBeatInst0_SLICE_14 : ENTITY IS TRUE;
-
-  end HeartBeatInst0_SLICE_14;
-
-  architecture Structure of HeartBeatInst0_SLICE_14 is
-    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
-
-    signal A1_ipd 	: std_logic := 'X';
-    signal A0_ipd 	: std_logic := 'X';
-    signal DI1_ipd 	: std_logic := 'X';
-    signal DI1_dly 	: std_logic := 'X';
-    signal DI0_ipd 	: std_logic := 'X';
-    signal DI0_dly 	: std_logic := 'X';
-    signal CLK_ipd 	: std_logic := 'X';
-    signal CLK_dly 	: std_logic := 'X';
-    signal FCI_ipd 	: std_logic := 'X';
-    signal F0_out 	: std_logic := 'X';
-    signal Q0_out 	: std_logic := 'X';
-    signal F1_out 	: std_logic := 'X';
-    signal Q1_out 	: std_logic := 'X';
-    signal FCO_out 	: std_logic := 'X';
-
-    signal VCCI: Std_logic;
-    signal GNDI: Std_logic;
-    component vcc
-      port (PWR1: out Std_logic);
-    end component;
-    component gnd
-      port (PWR0: out Std_logic);
-    end component;
-    component ccu20001
-      port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
-            D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
-            C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
-            S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
-    end component;
-    component vmuxregsre0003
-      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-            Q: out Std_logic);
-    end component;
-  begin
-    HeartBeatInst0_iCounter_12: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q1_out);
-    DRIVEVCC: vcc
-      port map (PWR1=>VCCI);
-    DRIVEGND: gnd
-      port map (PWR0=>GNDI);
-    HeartBeatInst0_iCounter_11: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_11: ccu20001
-      port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
-                C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
-                CO1=>FCO_out);
-
-    --  INPUT PATH DELAYs
-    WireDelay : BLOCK
-    BEGIN
-      VitalWireDelay(A1_ipd, A1, tipd_A1);
-      VitalWireDelay(A0_ipd, A0, tipd_A0);
-      VitalWireDelay(DI1_ipd, DI1, tipd_DI1);
-      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
-      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
-      VitalWireDelay(FCI_ipd, FCI, tipd_FCI);
-    END BLOCK;
-
-    --  Setup and Hold DELAYs
-    SignalDelay : BLOCK
-    BEGIN
-      VitalSignalDelay(DI1_dly, DI1_ipd, tisd_DI1_CLK);
-      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
-      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
-    END BLOCK;
-
-    VitalBehavior : PROCESS (A1_ipd, A0_ipd, DI1_dly, DI0_dly, CLK_dly, 
-      FCI_ipd, F0_out, Q0_out, F1_out, Q1_out, FCO_out)
-    VARIABLE F0_zd         	: std_logic := 'X';
-    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q0_zd         	: std_logic := 'X';
-    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE F1_zd         	: std_logic := 'X';
-    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q1_zd         	: std_logic := 'X';
-    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE FCO_zd         	: std_logic := 'X';
-    VARIABLE FCO_GlitchData 	: VitalGlitchDataType;
-
-    VARIABLE tviol_DI1_CLK       	: x01 := '0';
-    VARIABLE DI1_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_DI0_CLK       	: x01 := '0';
-    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_CLK_CLK          	: x01 := '0';
-    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
-
-    BEGIN
-
-    IF (TimingChecksOn) THEN
-      VitalSetupHoldCheck (
-        TestSignal => DI1_dly,
-        TestSignalName => "DI1",
-        TestDelay => tisd_DI1_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI1_CLK_noedge_posedge,
-        SetupLow => tsetup_DI1_CLK_noedge_posedge,
-        HoldHigh => thold_DI1_CLK_noedge_posedge,
-        HoldLow => thold_DI1_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI1_CLK_TimingDatash,
-        Violation => tviol_DI1_CLK,
-        MsgSeverity => warning);
-      VitalSetupHoldCheck (
-        TestSignal => DI0_dly,
-        TestSignalName => "DI0",
-        TestDelay => tisd_DI0_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
-        SetupLow => tsetup_DI0_CLK_noedge_posedge,
-        HoldHigh => thold_DI0_CLK_noedge_posedge,
-        HoldLow => thold_DI0_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI0_CLK_TimingDatash,
-        Violation => tviol_DI0_CLK,
-        MsgSeverity => warning);
-      VitalPeriodPulseCheck (
-        TestSignal => CLK_ipd,
-        TestSignalName => "CLK",
-        Period => tperiod_CLK,
-        PulseWidthHigh => tpw_CLK_posedge,
-        PulseWidthLow => tpw_CLK_negedge,
-        PeriodData => periodcheckinfo_CLK,
-        Violation => tviol_CLK_CLK,
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        CheckEnabled => TRUE,
-        MsgSeverity => warning);
-
-    END IF;
-
-    F0_zd 	:= F0_out;
-    Q0_zd 	:= Q0_out;
-    F1_zd 	:= F1_out;
-    Q1_zd 	:= Q1_out;
-    FCO_zd 	:= FCO_out;
-
-    VitalPathDelay01 (
-      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
-      Paths      => (0 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F0,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F0,
-                           PathCondition => TRUE)),
-      GlitchData => F0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q0,
-                           PathCondition => TRUE)),
-      GlitchData => Q0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_F1,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F1,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F1,
-                           PathCondition => TRUE)),
-      GlitchData => F1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q1,
-                           PathCondition => TRUE)),
-      GlitchData => Q1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => FCO, OutSignalName => "FCO", OutTemp => FCO_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_FCO,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_FCO,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_FCO,
-                           PathCondition => TRUE)),
-      GlitchData => FCO_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-
-    END PROCESS;
-
-  end Structure;
-
--- entity HeartBeatInst0_SLICE_15
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity HeartBeatInst0_SLICE_15 is
-    -- miscellaneous vital GENERICs
-    GENERIC (
-      TimingChecksOn	: boolean := TRUE;
-      XOn           	: boolean := FALSE;
-      MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "HeartBeatInst0_SLICE_15";
-
-      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_FCI  	: VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      ticd_CLK	: VitalDelayType := 0 ns;
-      tisd_DI1_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tisd_DI0_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tperiod_CLK 	: VitalDelayType := 0 ns;
-      tpw_CLK_posedge	: VitalDelayType := 0 ns;
-      tpw_CLK_negedge	: VitalDelayType := 0 ns);
-
-    port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-          DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-          F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-          Q1: out Std_logic; FCO: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF HeartBeatInst0_SLICE_15 : ENTITY IS TRUE;
-
-  end HeartBeatInst0_SLICE_15;
-
-  architecture Structure of HeartBeatInst0_SLICE_15 is
-    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
-
-    signal A1_ipd 	: std_logic := 'X';
-    signal A0_ipd 	: std_logic := 'X';
-    signal DI1_ipd 	: std_logic := 'X';
-    signal DI1_dly 	: std_logic := 'X';
-    signal DI0_ipd 	: std_logic := 'X';
-    signal DI0_dly 	: std_logic := 'X';
-    signal CLK_ipd 	: std_logic := 'X';
-    signal CLK_dly 	: std_logic := 'X';
-    signal FCI_ipd 	: std_logic := 'X';
-    signal F0_out 	: std_logic := 'X';
-    signal Q0_out 	: std_logic := 'X';
-    signal F1_out 	: std_logic := 'X';
-    signal Q1_out 	: std_logic := 'X';
-    signal FCO_out 	: std_logic := 'X';
-
-    signal VCCI: Std_logic;
-    signal GNDI: Std_logic;
-    component vcc
-      port (PWR1: out Std_logic);
-    end component;
-    component gnd
-      port (PWR0: out Std_logic);
-    end component;
-    component ccu20001
-      port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
-            D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
-            C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
-            S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
-    end component;
-    component vmuxregsre0003
-      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-            Q: out Std_logic);
-    end component;
-  begin
-    HeartBeatInst0_iCounter_10: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q1_out);
-    DRIVEVCC: vcc
-      port map (PWR1=>VCCI);
-    DRIVEGND: gnd
-      port map (PWR0=>GNDI);
-    HeartBeatInst0_iCounter_9: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_9: ccu20001
-      port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
-                C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
-                CO1=>FCO_out);
-
-    --  INPUT PATH DELAYs
-    WireDelay : BLOCK
-    BEGIN
-      VitalWireDelay(A1_ipd, A1, tipd_A1);
-      VitalWireDelay(A0_ipd, A0, tipd_A0);
-      VitalWireDelay(DI1_ipd, DI1, tipd_DI1);
-      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
-      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
-      VitalWireDelay(FCI_ipd, FCI, tipd_FCI);
-    END BLOCK;
-
-    --  Setup and Hold DELAYs
-    SignalDelay : BLOCK
-    BEGIN
-      VitalSignalDelay(DI1_dly, DI1_ipd, tisd_DI1_CLK);
-      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
-      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
-    END BLOCK;
-
-    VitalBehavior : PROCESS (A1_ipd, A0_ipd, DI1_dly, DI0_dly, CLK_dly, 
-      FCI_ipd, F0_out, Q0_out, F1_out, Q1_out, FCO_out)
-    VARIABLE F0_zd         	: std_logic := 'X';
-    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q0_zd         	: std_logic := 'X';
-    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE F1_zd         	: std_logic := 'X';
-    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q1_zd         	: std_logic := 'X';
-    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE FCO_zd         	: std_logic := 'X';
-    VARIABLE FCO_GlitchData 	: VitalGlitchDataType;
-
-    VARIABLE tviol_DI1_CLK       	: x01 := '0';
-    VARIABLE DI1_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_DI0_CLK       	: x01 := '0';
-    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_CLK_CLK          	: x01 := '0';
-    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
-
-    BEGIN
-
-    IF (TimingChecksOn) THEN
-      VitalSetupHoldCheck (
-        TestSignal => DI1_dly,
-        TestSignalName => "DI1",
-        TestDelay => tisd_DI1_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI1_CLK_noedge_posedge,
-        SetupLow => tsetup_DI1_CLK_noedge_posedge,
-        HoldHigh => thold_DI1_CLK_noedge_posedge,
-        HoldLow => thold_DI1_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI1_CLK_TimingDatash,
-        Violation => tviol_DI1_CLK,
-        MsgSeverity => warning);
-      VitalSetupHoldCheck (
-        TestSignal => DI0_dly,
-        TestSignalName => "DI0",
-        TestDelay => tisd_DI0_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
-        SetupLow => tsetup_DI0_CLK_noedge_posedge,
-        HoldHigh => thold_DI0_CLK_noedge_posedge,
-        HoldLow => thold_DI0_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI0_CLK_TimingDatash,
-        Violation => tviol_DI0_CLK,
-        MsgSeverity => warning);
-      VitalPeriodPulseCheck (
-        TestSignal => CLK_ipd,
-        TestSignalName => "CLK",
-        Period => tperiod_CLK,
-        PulseWidthHigh => tpw_CLK_posedge,
-        PulseWidthLow => tpw_CLK_negedge,
-        PeriodData => periodcheckinfo_CLK,
-        Violation => tviol_CLK_CLK,
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        CheckEnabled => TRUE,
-        MsgSeverity => warning);
-
-    END IF;
-
-    F0_zd 	:= F0_out;
-    Q0_zd 	:= Q0_out;
-    F1_zd 	:= F1_out;
-    Q1_zd 	:= Q1_out;
-    FCO_zd 	:= FCO_out;
-
-    VitalPathDelay01 (
-      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
-      Paths      => (0 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F0,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F0,
-                           PathCondition => TRUE)),
-      GlitchData => F0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q0,
-                           PathCondition => TRUE)),
-      GlitchData => Q0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_F1,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F1,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F1,
-                           PathCondition => TRUE)),
-      GlitchData => F1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q1,
-                           PathCondition => TRUE)),
-      GlitchData => Q1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => FCO, OutSignalName => "FCO", OutTemp => FCO_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_FCO,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_FCO,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_FCO,
-                           PathCondition => TRUE)),
-      GlitchData => FCO_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-
-    END PROCESS;
-
-  end Structure;
-
--- entity HeartBeatInst0_SLICE_16
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity HeartBeatInst0_SLICE_16 is
-    -- miscellaneous vital GENERICs
-    GENERIC (
-      TimingChecksOn	: boolean := TRUE;
-      XOn           	: boolean := FALSE;
-      MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "HeartBeatInst0_SLICE_16";
-
-      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_FCI  	: VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      ticd_CLK	: VitalDelayType := 0 ns;
-      tisd_DI1_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tisd_DI0_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tperiod_CLK 	: VitalDelayType := 0 ns;
-      tpw_CLK_posedge	: VitalDelayType := 0 ns;
-      tpw_CLK_negedge	: VitalDelayType := 0 ns);
-
-    port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-          DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-          F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-          Q1: out Std_logic; FCO: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF HeartBeatInst0_SLICE_16 : ENTITY IS TRUE;
-
-  end HeartBeatInst0_SLICE_16;
-
-  architecture Structure of HeartBeatInst0_SLICE_16 is
-    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
-
-    signal A1_ipd 	: std_logic := 'X';
-    signal A0_ipd 	: std_logic := 'X';
-    signal DI1_ipd 	: std_logic := 'X';
-    signal DI1_dly 	: std_logic := 'X';
-    signal DI0_ipd 	: std_logic := 'X';
-    signal DI0_dly 	: std_logic := 'X';
-    signal CLK_ipd 	: std_logic := 'X';
-    signal CLK_dly 	: std_logic := 'X';
-    signal FCI_ipd 	: std_logic := 'X';
-    signal F0_out 	: std_logic := 'X';
-    signal Q0_out 	: std_logic := 'X';
-    signal F1_out 	: std_logic := 'X';
-    signal Q1_out 	: std_logic := 'X';
-    signal FCO_out 	: std_logic := 'X';
-
-    signal VCCI: Std_logic;
-    signal GNDI: Std_logic;
-    component vcc
-      port (PWR1: out Std_logic);
-    end component;
-    component gnd
-      port (PWR0: out Std_logic);
-    end component;
-    component ccu20001
-      port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
-            D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
-            C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
-            S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
-    end component;
-    component vmuxregsre0003
-      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-            Q: out Std_logic);
-    end component;
-  begin
-    HeartBeatInst0_iCounter_8: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q1_out);
-    DRIVEVCC: vcc
-      port map (PWR1=>VCCI);
-    DRIVEGND: gnd
-      port map (PWR0=>GNDI);
-    HeartBeatInst0_iCounter_7: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_7: ccu20001
-      port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
-                C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
-                CO1=>FCO_out);
-
-    --  INPUT PATH DELAYs
-    WireDelay : BLOCK
-    BEGIN
-      VitalWireDelay(A1_ipd, A1, tipd_A1);
-      VitalWireDelay(A0_ipd, A0, tipd_A0);
-      VitalWireDelay(DI1_ipd, DI1, tipd_DI1);
-      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
-      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
-      VitalWireDelay(FCI_ipd, FCI, tipd_FCI);
-    END BLOCK;
-
-    --  Setup and Hold DELAYs
-    SignalDelay : BLOCK
-    BEGIN
-      VitalSignalDelay(DI1_dly, DI1_ipd, tisd_DI1_CLK);
-      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
-      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
-    END BLOCK;
-
-    VitalBehavior : PROCESS (A1_ipd, A0_ipd, DI1_dly, DI0_dly, CLK_dly, 
-      FCI_ipd, F0_out, Q0_out, F1_out, Q1_out, FCO_out)
-    VARIABLE F0_zd         	: std_logic := 'X';
-    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q0_zd         	: std_logic := 'X';
-    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE F1_zd         	: std_logic := 'X';
-    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q1_zd         	: std_logic := 'X';
-    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE FCO_zd         	: std_logic := 'X';
-    VARIABLE FCO_GlitchData 	: VitalGlitchDataType;
-
-    VARIABLE tviol_DI1_CLK       	: x01 := '0';
-    VARIABLE DI1_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_DI0_CLK       	: x01 := '0';
-    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_CLK_CLK          	: x01 := '0';
-    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
-
-    BEGIN
-
-    IF (TimingChecksOn) THEN
-      VitalSetupHoldCheck (
-        TestSignal => DI1_dly,
-        TestSignalName => "DI1",
-        TestDelay => tisd_DI1_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI1_CLK_noedge_posedge,
-        SetupLow => tsetup_DI1_CLK_noedge_posedge,
-        HoldHigh => thold_DI1_CLK_noedge_posedge,
-        HoldLow => thold_DI1_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI1_CLK_TimingDatash,
-        Violation => tviol_DI1_CLK,
-        MsgSeverity => warning);
-      VitalSetupHoldCheck (
-        TestSignal => DI0_dly,
-        TestSignalName => "DI0",
-        TestDelay => tisd_DI0_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
-        SetupLow => tsetup_DI0_CLK_noedge_posedge,
-        HoldHigh => thold_DI0_CLK_noedge_posedge,
-        HoldLow => thold_DI0_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI0_CLK_TimingDatash,
-        Violation => tviol_DI0_CLK,
-        MsgSeverity => warning);
-      VitalPeriodPulseCheck (
-        TestSignal => CLK_ipd,
-        TestSignalName => "CLK",
-        Period => tperiod_CLK,
-        PulseWidthHigh => tpw_CLK_posedge,
-        PulseWidthLow => tpw_CLK_negedge,
-        PeriodData => periodcheckinfo_CLK,
-        Violation => tviol_CLK_CLK,
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        CheckEnabled => TRUE,
-        MsgSeverity => warning);
-
-    END IF;
-
-    F0_zd 	:= F0_out;
-    Q0_zd 	:= Q0_out;
-    F1_zd 	:= F1_out;
-    Q1_zd 	:= Q1_out;
-    FCO_zd 	:= FCO_out;
-
-    VitalPathDelay01 (
-      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
-      Paths      => (0 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F0,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F0,
-                           PathCondition => TRUE)),
-      GlitchData => F0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q0,
-                           PathCondition => TRUE)),
-      GlitchData => Q0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_F1,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F1,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F1,
-                           PathCondition => TRUE)),
-      GlitchData => F1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q1,
-                           PathCondition => TRUE)),
-      GlitchData => Q1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => FCO, OutSignalName => "FCO", OutTemp => FCO_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_FCO,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_FCO,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_FCO,
-                           PathCondition => TRUE)),
-      GlitchData => FCO_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-
-    END PROCESS;
-
-  end Structure;
-
--- entity HeartBeatInst0_SLICE_17
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity HeartBeatInst0_SLICE_17 is
-    -- miscellaneous vital GENERICs
-    GENERIC (
-      TimingChecksOn	: boolean := TRUE;
-      XOn           	: boolean := FALSE;
-      MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "HeartBeatInst0_SLICE_17";
-
-      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_FCI  	: VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      ticd_CLK	: VitalDelayType := 0 ns;
-      tisd_DI1_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tisd_DI0_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tperiod_CLK 	: VitalDelayType := 0 ns;
-      tpw_CLK_posedge	: VitalDelayType := 0 ns;
-      tpw_CLK_negedge	: VitalDelayType := 0 ns);
-
-    port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-          DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-          F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-          Q1: out Std_logic; FCO: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF HeartBeatInst0_SLICE_17 : ENTITY IS TRUE;
-
-  end HeartBeatInst0_SLICE_17;
-
-  architecture Structure of HeartBeatInst0_SLICE_17 is
-    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
-
-    signal A1_ipd 	: std_logic := 'X';
-    signal A0_ipd 	: std_logic := 'X';
-    signal DI1_ipd 	: std_logic := 'X';
-    signal DI1_dly 	: std_logic := 'X';
-    signal DI0_ipd 	: std_logic := 'X';
-    signal DI0_dly 	: std_logic := 'X';
-    signal CLK_ipd 	: std_logic := 'X';
-    signal CLK_dly 	: std_logic := 'X';
-    signal FCI_ipd 	: std_logic := 'X';
-    signal F0_out 	: std_logic := 'X';
-    signal Q0_out 	: std_logic := 'X';
-    signal F1_out 	: std_logic := 'X';
-    signal Q1_out 	: std_logic := 'X';
-    signal FCO_out 	: std_logic := 'X';
-
-    signal VCCI: Std_logic;
-    signal GNDI: Std_logic;
-    component vcc
-      port (PWR1: out Std_logic);
-    end component;
-    component gnd
-      port (PWR0: out Std_logic);
-    end component;
-    component ccu20001
-      port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
-            D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
-            C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
-            S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
-    end component;
-    component vmuxregsre0003
-      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-            Q: out Std_logic);
-    end component;
-  begin
-    HeartBeatInst0_iCounter_6: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q1_out);
-    DRIVEVCC: vcc
-      port map (PWR1=>VCCI);
-    DRIVEGND: gnd
-      port map (PWR0=>GNDI);
-    HeartBeatInst0_iCounter_5: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_5: ccu20001
-      port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
-                C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
-                CO1=>FCO_out);
-
-    --  INPUT PATH DELAYs
-    WireDelay : BLOCK
-    BEGIN
-      VitalWireDelay(A1_ipd, A1, tipd_A1);
-      VitalWireDelay(A0_ipd, A0, tipd_A0);
-      VitalWireDelay(DI1_ipd, DI1, tipd_DI1);
-      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
-      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
-      VitalWireDelay(FCI_ipd, FCI, tipd_FCI);
-    END BLOCK;
-
-    --  Setup and Hold DELAYs
-    SignalDelay : BLOCK
-    BEGIN
-      VitalSignalDelay(DI1_dly, DI1_ipd, tisd_DI1_CLK);
-      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
-      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
-    END BLOCK;
-
-    VitalBehavior : PROCESS (A1_ipd, A0_ipd, DI1_dly, DI0_dly, CLK_dly, 
-      FCI_ipd, F0_out, Q0_out, F1_out, Q1_out, FCO_out)
-    VARIABLE F0_zd         	: std_logic := 'X';
-    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q0_zd         	: std_logic := 'X';
-    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE F1_zd         	: std_logic := 'X';
-    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q1_zd         	: std_logic := 'X';
-    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE FCO_zd         	: std_logic := 'X';
-    VARIABLE FCO_GlitchData 	: VitalGlitchDataType;
-
-    VARIABLE tviol_DI1_CLK       	: x01 := '0';
-    VARIABLE DI1_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_DI0_CLK       	: x01 := '0';
-    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_CLK_CLK          	: x01 := '0';
-    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
-
-    BEGIN
-
-    IF (TimingChecksOn) THEN
-      VitalSetupHoldCheck (
-        TestSignal => DI1_dly,
-        TestSignalName => "DI1",
-        TestDelay => tisd_DI1_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI1_CLK_noedge_posedge,
-        SetupLow => tsetup_DI1_CLK_noedge_posedge,
-        HoldHigh => thold_DI1_CLK_noedge_posedge,
-        HoldLow => thold_DI1_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI1_CLK_TimingDatash,
-        Violation => tviol_DI1_CLK,
-        MsgSeverity => warning);
-      VitalSetupHoldCheck (
-        TestSignal => DI0_dly,
-        TestSignalName => "DI0",
-        TestDelay => tisd_DI0_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
-        SetupLow => tsetup_DI0_CLK_noedge_posedge,
-        HoldHigh => thold_DI0_CLK_noedge_posedge,
-        HoldLow => thold_DI0_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI0_CLK_TimingDatash,
-        Violation => tviol_DI0_CLK,
-        MsgSeverity => warning);
-      VitalPeriodPulseCheck (
-        TestSignal => CLK_ipd,
-        TestSignalName => "CLK",
-        Period => tperiod_CLK,
-        PulseWidthHigh => tpw_CLK_posedge,
-        PulseWidthLow => tpw_CLK_negedge,
-        PeriodData => periodcheckinfo_CLK,
-        Violation => tviol_CLK_CLK,
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        CheckEnabled => TRUE,
-        MsgSeverity => warning);
-
-    END IF;
-
-    F0_zd 	:= F0_out;
-    Q0_zd 	:= Q0_out;
-    F1_zd 	:= F1_out;
-    Q1_zd 	:= Q1_out;
-    FCO_zd 	:= FCO_out;
-
-    VitalPathDelay01 (
-      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
-      Paths      => (0 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F0,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F0,
-                           PathCondition => TRUE)),
-      GlitchData => F0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q0,
-                           PathCondition => TRUE)),
-      GlitchData => Q0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_F1,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F1,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F1,
-                           PathCondition => TRUE)),
-      GlitchData => F1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q1,
-                           PathCondition => TRUE)),
-      GlitchData => Q1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => FCO, OutSignalName => "FCO", OutTemp => FCO_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_FCO,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_FCO,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_FCO,
-                           PathCondition => TRUE)),
-      GlitchData => FCO_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-
-    END PROCESS;
-
-  end Structure;
-
--- entity HeartBeatInst0_SLICE_18
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity HeartBeatInst0_SLICE_18 is
-    -- miscellaneous vital GENERICs
-    GENERIC (
-      TimingChecksOn	: boolean := TRUE;
-      XOn           	: boolean := FALSE;
-      MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "HeartBeatInst0_SLICE_18";
-
-      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_FCI  	: VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      ticd_CLK	: VitalDelayType := 0 ns;
-      tisd_DI1_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tisd_DI0_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tperiod_CLK 	: VitalDelayType := 0 ns;
-      tpw_CLK_posedge	: VitalDelayType := 0 ns;
-      tpw_CLK_negedge	: VitalDelayType := 0 ns);
-
-    port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-          DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-          F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-          Q1: out Std_logic; FCO: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF HeartBeatInst0_SLICE_18 : ENTITY IS TRUE;
-
-  end HeartBeatInst0_SLICE_18;
-
-  architecture Structure of HeartBeatInst0_SLICE_18 is
-    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
-
-    signal A1_ipd 	: std_logic := 'X';
-    signal A0_ipd 	: std_logic := 'X';
-    signal DI1_ipd 	: std_logic := 'X';
-    signal DI1_dly 	: std_logic := 'X';
-    signal DI0_ipd 	: std_logic := 'X';
-    signal DI0_dly 	: std_logic := 'X';
-    signal CLK_ipd 	: std_logic := 'X';
-    signal CLK_dly 	: std_logic := 'X';
-    signal FCI_ipd 	: std_logic := 'X';
-    signal F0_out 	: std_logic := 'X';
-    signal Q0_out 	: std_logic := 'X';
-    signal F1_out 	: std_logic := 'X';
-    signal Q1_out 	: std_logic := 'X';
-    signal FCO_out 	: std_logic := 'X';
-
-    signal VCCI: Std_logic;
-    signal GNDI: Std_logic;
-    component vcc
-      port (PWR1: out Std_logic);
-    end component;
-    component gnd
-      port (PWR0: out Std_logic);
-    end component;
-    component ccu20001
-      port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
-            D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
-            C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
-            S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
-    end component;
-    component vmuxregsre0003
-      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-            Q: out Std_logic);
-    end component;
-  begin
-    HeartBeatInst0_iCounter_4: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q1_out);
-    DRIVEVCC: vcc
-      port map (PWR1=>VCCI);
-    DRIVEGND: gnd
-      port map (PWR0=>GNDI);
-    HeartBeatInst0_iCounter_3: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_3: ccu20001
-      port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
-                C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
-                CO1=>FCO_out);
-
-    --  INPUT PATH DELAYs
-    WireDelay : BLOCK
-    BEGIN
-      VitalWireDelay(A1_ipd, A1, tipd_A1);
-      VitalWireDelay(A0_ipd, A0, tipd_A0);
-      VitalWireDelay(DI1_ipd, DI1, tipd_DI1);
-      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
-      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
-      VitalWireDelay(FCI_ipd, FCI, tipd_FCI);
-    END BLOCK;
-
-    --  Setup and Hold DELAYs
-    SignalDelay : BLOCK
-    BEGIN
-      VitalSignalDelay(DI1_dly, DI1_ipd, tisd_DI1_CLK);
-      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
-      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
-    END BLOCK;
-
-    VitalBehavior : PROCESS (A1_ipd, A0_ipd, DI1_dly, DI0_dly, CLK_dly, 
-      FCI_ipd, F0_out, Q0_out, F1_out, Q1_out, FCO_out)
-    VARIABLE F0_zd         	: std_logic := 'X';
-    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q0_zd         	: std_logic := 'X';
-    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE F1_zd         	: std_logic := 'X';
-    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q1_zd         	: std_logic := 'X';
-    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE FCO_zd         	: std_logic := 'X';
-    VARIABLE FCO_GlitchData 	: VitalGlitchDataType;
-
-    VARIABLE tviol_DI1_CLK       	: x01 := '0';
-    VARIABLE DI1_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_DI0_CLK       	: x01 := '0';
-    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_CLK_CLK          	: x01 := '0';
-    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
-
-    BEGIN
-
-    IF (TimingChecksOn) THEN
-      VitalSetupHoldCheck (
-        TestSignal => DI1_dly,
-        TestSignalName => "DI1",
-        TestDelay => tisd_DI1_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI1_CLK_noedge_posedge,
-        SetupLow => tsetup_DI1_CLK_noedge_posedge,
-        HoldHigh => thold_DI1_CLK_noedge_posedge,
-        HoldLow => thold_DI1_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI1_CLK_TimingDatash,
-        Violation => tviol_DI1_CLK,
-        MsgSeverity => warning);
-      VitalSetupHoldCheck (
-        TestSignal => DI0_dly,
-        TestSignalName => "DI0",
-        TestDelay => tisd_DI0_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
-        SetupLow => tsetup_DI0_CLK_noedge_posedge,
-        HoldHigh => thold_DI0_CLK_noedge_posedge,
-        HoldLow => thold_DI0_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI0_CLK_TimingDatash,
-        Violation => tviol_DI0_CLK,
-        MsgSeverity => warning);
-      VitalPeriodPulseCheck (
-        TestSignal => CLK_ipd,
-        TestSignalName => "CLK",
-        Period => tperiod_CLK,
-        PulseWidthHigh => tpw_CLK_posedge,
-        PulseWidthLow => tpw_CLK_negedge,
-        PeriodData => periodcheckinfo_CLK,
-        Violation => tviol_CLK_CLK,
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        CheckEnabled => TRUE,
-        MsgSeverity => warning);
-
-    END IF;
-
-    F0_zd 	:= F0_out;
-    Q0_zd 	:= Q0_out;
-    F1_zd 	:= F1_out;
-    Q1_zd 	:= Q1_out;
-    FCO_zd 	:= FCO_out;
-
-    VitalPathDelay01 (
-      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
-      Paths      => (0 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F0,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F0,
-                           PathCondition => TRUE)),
-      GlitchData => F0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q0,
-                           PathCondition => TRUE)),
-      GlitchData => Q0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_F1,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F1,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F1,
-                           PathCondition => TRUE)),
-      GlitchData => F1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q1,
-                           PathCondition => TRUE)),
-      GlitchData => Q1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => FCO, OutSignalName => "FCO", OutTemp => FCO_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_FCO,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_FCO,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_FCO,
-                           PathCondition => TRUE)),
-      GlitchData => FCO_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-
-    END PROCESS;
-
-  end Structure;
-
--- entity HeartBeatInst0_SLICE_19
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity HeartBeatInst0_SLICE_19 is
-    -- miscellaneous vital GENERICs
-    GENERIC (
-      TimingChecksOn	: boolean := TRUE;
-      XOn           	: boolean := FALSE;
-      MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "HeartBeatInst0_SLICE_19";
-
-      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_FCI  	: VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_FCI_FCO	 : VitalDelayType01 := (0 ns, 0 ns);
-      ticd_CLK	: VitalDelayType := 0 ns;
-      tisd_DI1_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tisd_DI0_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tperiod_CLK 	: VitalDelayType := 0 ns;
-      tpw_CLK_posedge	: VitalDelayType := 0 ns;
-      tpw_CLK_negedge	: VitalDelayType := 0 ns);
-
-    port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-          DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-          F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-          Q1: out Std_logic; FCO: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF HeartBeatInst0_SLICE_19 : ENTITY IS TRUE;
-
-  end HeartBeatInst0_SLICE_19;
-
-  architecture Structure of HeartBeatInst0_SLICE_19 is
-    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
-
-    signal A1_ipd 	: std_logic := 'X';
-    signal A0_ipd 	: std_logic := 'X';
-    signal DI1_ipd 	: std_logic := 'X';
-    signal DI1_dly 	: std_logic := 'X';
-    signal DI0_ipd 	: std_logic := 'X';
-    signal DI0_dly 	: std_logic := 'X';
-    signal CLK_ipd 	: std_logic := 'X';
-    signal CLK_dly 	: std_logic := 'X';
-    signal FCI_ipd 	: std_logic := 'X';
-    signal F0_out 	: std_logic := 'X';
-    signal Q0_out 	: std_logic := 'X';
-    signal F1_out 	: std_logic := 'X';
-    signal Q1_out 	: std_logic := 'X';
-    signal FCO_out 	: std_logic := 'X';
-
-    signal VCCI: Std_logic;
-    signal GNDI: Std_logic;
-    component vcc
-      port (PWR1: out Std_logic);
-    end component;
-    component gnd
-      port (PWR0: out Std_logic);
-    end component;
-    component ccu20001
-      port (A0: in Std_logic; B0: in Std_logic; C0: in Std_logic; 
-            D0: in Std_logic; A1: in Std_logic; B1: in Std_logic; 
-            C1: in Std_logic; D1: in Std_logic; CI: in Std_logic; 
-            S0: out Std_logic; S1: out Std_logic; CO1: out Std_logic);
-    end component;
-    component vmuxregsre0003
-      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-            Q: out Std_logic);
-    end component;
-  begin
-    HeartBeatInst0_iCounter_2: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q1_out);
-    DRIVEVCC: vcc
-      port map (PWR1=>VCCI);
-    DRIVEGND: gnd
-      port map (PWR0=>GNDI);
-    HeartBeatInst0_iCounter_1: vmuxregsre0003
-      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q0_out);
-    HeartBeatInst0_iCounter_cry_0_1: ccu20001
-      port map (A0=>A0_ipd, B0=>GNDI, C0=>GNDI, D0=>GNDI, A1=>A1_ipd, B1=>GNDI, 
-                C1=>GNDI, D1=>GNDI, CI=>FCI_ipd, S0=>F0_out, S1=>F1_out, 
-                CO1=>FCO_out);
-
-    --  INPUT PATH DELAYs
-    WireDelay : BLOCK
-    BEGIN
-      VitalWireDelay(A1_ipd, A1, tipd_A1);
-      VitalWireDelay(A0_ipd, A0, tipd_A0);
-      VitalWireDelay(DI1_ipd, DI1, tipd_DI1);
-      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
-      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
-      VitalWireDelay(FCI_ipd, FCI, tipd_FCI);
-    END BLOCK;
-
-    --  Setup and Hold DELAYs
-    SignalDelay : BLOCK
-    BEGIN
-      VitalSignalDelay(DI1_dly, DI1_ipd, tisd_DI1_CLK);
-      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
-      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
-    END BLOCK;
-
-    VitalBehavior : PROCESS (A1_ipd, A0_ipd, DI1_dly, DI0_dly, CLK_dly, 
-      FCI_ipd, F0_out, Q0_out, F1_out, Q1_out, FCO_out)
-    VARIABLE F0_zd         	: std_logic := 'X';
-    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q0_zd         	: std_logic := 'X';
-    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE F1_zd         	: std_logic := 'X';
-    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q1_zd         	: std_logic := 'X';
-    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE FCO_zd         	: std_logic := 'X';
-    VARIABLE FCO_GlitchData 	: VitalGlitchDataType;
-
-    VARIABLE tviol_DI1_CLK       	: x01 := '0';
-    VARIABLE DI1_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_DI0_CLK       	: x01 := '0';
-    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_CLK_CLK          	: x01 := '0';
-    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
-
-    BEGIN
-
-    IF (TimingChecksOn) THEN
-      VitalSetupHoldCheck (
-        TestSignal => DI1_dly,
-        TestSignalName => "DI1",
-        TestDelay => tisd_DI1_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI1_CLK_noedge_posedge,
-        SetupLow => tsetup_DI1_CLK_noedge_posedge,
-        HoldHigh => thold_DI1_CLK_noedge_posedge,
-        HoldLow => thold_DI1_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI1_CLK_TimingDatash,
-        Violation => tviol_DI1_CLK,
-        MsgSeverity => warning);
-      VitalSetupHoldCheck (
-        TestSignal => DI0_dly,
-        TestSignalName => "DI0",
-        TestDelay => tisd_DI0_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
-        SetupLow => tsetup_DI0_CLK_noedge_posedge,
-        HoldHigh => thold_DI0_CLK_noedge_posedge,
-        HoldLow => thold_DI0_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI0_CLK_TimingDatash,
-        Violation => tviol_DI0_CLK,
-        MsgSeverity => warning);
-      VitalPeriodPulseCheck (
-        TestSignal => CLK_ipd,
-        TestSignalName => "CLK",
-        Period => tperiod_CLK,
-        PulseWidthHigh => tpw_CLK_posedge,
-        PulseWidthLow => tpw_CLK_negedge,
-        PeriodData => periodcheckinfo_CLK,
-        Violation => tviol_CLK_CLK,
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        CheckEnabled => TRUE,
-        MsgSeverity => warning);
-
-    END IF;
-
-    F0_zd 	:= F0_out;
-    Q0_zd 	:= Q0_out;
-    F1_zd 	:= F1_out;
-    Q1_zd 	:= Q1_out;
-    FCO_zd 	:= FCO_out;
-
-    VitalPathDelay01 (
-      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
-      Paths      => (0 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F0,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F0,
-                           PathCondition => TRUE)),
-      GlitchData => F0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q0,
-                           PathCondition => TRUE)),
-      GlitchData => Q0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
-      Paths      => (0 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_F1,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F1,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => FCI_ipd'last_event,
-                           PathDelay => tpd_FCI_F1,
-                           PathCondition => TRUE)),
-      GlitchData => F1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
                            PathDelay => tpd_CLK_Q1,
                            PathCondition => TRUE)),
       GlitchData => Q1_GlitchData,
@@ -5847,51 +3032,74 @@
   architecture Structure of lut4 is
   begin
     INST10: ROM16X1A
+      generic map (initval => X"6666")
+      port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
+  end Structure;
+
+-- entity lut40003
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity lut40003 is
+    port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+          Z: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF lut40003 : ENTITY IS TRUE;
+
+  end lut40003;
+
+  architecture Structure of lut40003 is
+  begin
+    INST10: ROM16X1A
       generic map (initval => X"5555")
       port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
   end Structure;
 
--- entity vmuxregsre0005
+-- entity vmuxregsre0004
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity vmuxregsre0005 is
+  entity vmuxregsre0004 is
     port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
           SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
           Q: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF vmuxregsre0005 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF vmuxregsre0004 : ENTITY IS TRUE;
 
-  end vmuxregsre0005;
+  end vmuxregsre0004;
 
-  architecture Structure of vmuxregsre0005 is
+  architecture Structure of vmuxregsre0004 is
   begin
-    INST01: FL1P3BX
+    INST01: FL1P3DX
       generic map (GSR => "ENABLED")
-      port map (D0=>D0, D1=>D1, SP=>SP, CK=>CK, SD=>SD, PD=>LSR, Q=>Q);
+      port map (D0=>D0, D1=>D1, SP=>SP, CK=>CK, SD=>SD, CD=>LSR, Q=>Q);
   end Structure;
 
--- entity i2c_controller_inst_SLICE_21
+-- entity HeartBeatInst0_SLICE_9
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity i2c_controller_inst_SLICE_21 is
+  entity HeartBeatInst0_SLICE_9 is
     -- miscellaneous vital GENERICs
     GENERIC (
       TimingChecksOn	: boolean := TRUE;
       XOn           	: boolean := FALSE;
       MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "i2c_controller_inst_SLICE_21";
+      InstancePath  	: string := "HeartBeatInst0_SLICE_9";
 
+      tipd_B1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
+      tpd_B1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
@@ -5907,17 +3115,19 @@
       tpw_CLK_posedge	: VitalDelayType := 0 ns;
       tpw_CLK_negedge	: VitalDelayType := 0 ns);
 
-    port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-          DI0: in Std_logic; CLK: in Std_logic; F0: out Std_logic; 
-          Q0: out Std_logic; F1: out Std_logic; Q1: out Std_logic);
+    port (B1: in Std_logic; A1: in Std_logic; A0: in Std_logic; 
+          DI1: in Std_logic; DI0: in Std_logic; CLK: in Std_logic; 
+          F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
+          Q1: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF i2c_controller_inst_SLICE_21 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF HeartBeatInst0_SLICE_9 : ENTITY IS TRUE;
 
-  end i2c_controller_inst_SLICE_21;
+  end HeartBeatInst0_SLICE_9;
 
-  architecture Structure of i2c_controller_inst_SLICE_21 is
+  architecture Structure of HeartBeatInst0_SLICE_9 is
     ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
 
+    signal B1_ipd 	: std_logic := 'X';
     signal A1_ipd 	: std_logic := 'X';
     signal A0_ipd 	: std_logic := 'X';
     signal DI1_ipd 	: std_logic := 'X';
@@ -5943,24 +3153,755 @@
       port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
             Z: out Std_logic);
     end component;
-    component vmuxregsre0005
+    component lut40003
+      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+            Z: out Std_logic);
+    end component;
+    component vmuxregsre0004
       port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
             SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
             Q: out Std_logic);
     end component;
   begin
-    i2c_controller_inst_cState_ret_RNO: lut4
-      port map (A=>A1_ipd, B=>GNDI, C=>GNDI, D=>GNDI, Z=>F1_out);
+    HeartBeatInst0_iCounter_RNO_1: lut4
+      port map (A=>A1_ipd, B=>B1_ipd, C=>GNDI, D=>GNDI, Z=>F1_out);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    i2c_controller_inst_cState_ret_1_RNO: lut4
+    HeartBeatInst0_iCounter_RNO_0: lut40003
       port map (A=>A0_ipd, B=>GNDI, C=>GNDI, D=>GNDI, Z=>F0_out);
-    i2c_controller_inst_cState_ret: vmuxregsre0005
+    HeartBeatInst0_iCounter_1: vmuxregsre0004
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
-    i2c_controller_inst_cState_ret_1: vmuxregsre0005
+    HeartBeatInst0_iCounter_0: vmuxregsre0004
+      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
+                LSR=>GNDI, Q=>Q0_out);
+
+    --  INPUT PATH DELAYs
+    WireDelay : BLOCK
+    BEGIN
+      VitalWireDelay(B1_ipd, B1, tipd_B1);
+      VitalWireDelay(A1_ipd, A1, tipd_A1);
+      VitalWireDelay(A0_ipd, A0, tipd_A0);
+      VitalWireDelay(DI1_ipd, DI1, tipd_DI1);
+      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
+      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
+    END BLOCK;
+
+    --  Setup and Hold DELAYs
+    SignalDelay : BLOCK
+    BEGIN
+      VitalSignalDelay(DI1_dly, DI1_ipd, tisd_DI1_CLK);
+      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
+      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
+    END BLOCK;
+
+    VitalBehavior : PROCESS (B1_ipd, A1_ipd, A0_ipd, DI1_dly, DI0_dly, CLK_dly, 
+      F0_out, Q0_out, F1_out, Q1_out)
+    VARIABLE F0_zd         	: std_logic := 'X';
+    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
+    VARIABLE Q0_zd         	: std_logic := 'X';
+    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
+    VARIABLE F1_zd         	: std_logic := 'X';
+    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
+    VARIABLE Q1_zd         	: std_logic := 'X';
+    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
+
+    VARIABLE tviol_DI1_CLK       	: x01 := '0';
+    VARIABLE DI1_CLK_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_DI0_CLK       	: x01 := '0';
+    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_CLK_CLK          	: x01 := '0';
+    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
+
+    BEGIN
+
+    IF (TimingChecksOn) THEN
+      VitalSetupHoldCheck (
+        TestSignal => DI1_dly,
+        TestSignalName => "DI1",
+        TestDelay => tisd_DI1_CLK,
+        RefSignal => CLK_dly,
+        RefSignalName => "CLK",
+        RefDelay => ticd_CLK,
+        SetupHigh => tsetup_DI1_CLK_noedge_posedge,
+        SetupLow => tsetup_DI1_CLK_noedge_posedge,
+        HoldHigh => thold_DI1_CLK_noedge_posedge,
+        HoldLow => thold_DI1_CLK_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => DI1_CLK_TimingDatash,
+        Violation => tviol_DI1_CLK,
+        MsgSeverity => warning);
+      VitalSetupHoldCheck (
+        TestSignal => DI0_dly,
+        TestSignalName => "DI0",
+        TestDelay => tisd_DI0_CLK,
+        RefSignal => CLK_dly,
+        RefSignalName => "CLK",
+        RefDelay => ticd_CLK,
+        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
+        SetupLow => tsetup_DI0_CLK_noedge_posedge,
+        HoldHigh => thold_DI0_CLK_noedge_posedge,
+        HoldLow => thold_DI0_CLK_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => DI0_CLK_TimingDatash,
+        Violation => tviol_DI0_CLK,
+        MsgSeverity => warning);
+      VitalPeriodPulseCheck (
+        TestSignal => CLK_ipd,
+        TestSignalName => "CLK",
+        Period => tperiod_CLK,
+        PulseWidthHigh => tpw_CLK_posedge,
+        PulseWidthLow => tpw_CLK_negedge,
+        PeriodData => periodcheckinfo_CLK,
+        Violation => tviol_CLK_CLK,
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        CheckEnabled => TRUE,
+        MsgSeverity => warning);
+
+    END IF;
+
+    F0_zd 	:= F0_out;
+    Q0_zd 	:= Q0_out;
+    F1_zd 	:= F1_out;
+    Q1_zd 	:= Q1_out;
+
+    VitalPathDelay01 (
+      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
+      Paths      => (0 => (InputChangeTime => A0_ipd'last_event,
+                           PathDelay => tpd_A0_F0,
+                           PathCondition => TRUE)),
+      GlitchData => F0_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
+      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
+                           PathDelay => tpd_CLK_Q0,
+                           PathCondition => TRUE)),
+      GlitchData => Q0_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
+      Paths      => (0 => (InputChangeTime => B1_ipd'last_event,
+                           PathDelay => tpd_B1_F1,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => A1_ipd'last_event,
+                           PathDelay => tpd_A1_F1,
+                           PathCondition => TRUE)),
+      GlitchData => F1_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
+      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
+                           PathDelay => tpd_CLK_Q1,
+                           PathCondition => TRUE)),
+      GlitchData => Q1_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+
+    END PROCESS;
+
+  end Structure;
+
+-- entity lut40005
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity lut40005 is
+    port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+          Z: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF lut40005 : ENTITY IS TRUE;
+
+  end lut40005;
+
+  architecture Structure of lut40005 is
+  begin
+    INST10: ROM16X1A
+      generic map (initval => X"7878")
+      port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
+  end Structure;
+
+-- entity SLICE_10
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity SLICE_10 is
+    -- miscellaneous vital GENERICs
+    GENERIC (
+      TimingChecksOn	: boolean := TRUE;
+      XOn           	: boolean := FALSE;
+      MsgOn         	: boolean := TRUE;
+      InstancePath  	: string := "SLICE_10";
+
+      tipd_C0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_B0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_M1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
+      tpd_C0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_B0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
+      ticd_CLK	: VitalDelayType := 0 ns;
+      tisd_DI0_CLK	: VitalDelayType := 0 ns;
+      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      tisd_M1_CLK	: VitalDelayType := 0 ns;
+      tsetup_M1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_M1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      tperiod_CLK 	: VitalDelayType := 0 ns;
+      tpw_CLK_posedge	: VitalDelayType := 0 ns;
+      tpw_CLK_negedge	: VitalDelayType := 0 ns);
+
+    port (C0: in Std_logic; B0: in Std_logic; A0: in Std_logic; 
+          DI0: in Std_logic; M1: in Std_logic; CLK: in Std_logic; 
+          F0: out Std_logic; Q0: out Std_logic; Q1: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF SLICE_10 : ENTITY IS TRUE;
+
+  end SLICE_10;
+
+  architecture Structure of SLICE_10 is
+    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
+
+    signal C0_ipd 	: std_logic := 'X';
+    signal B0_ipd 	: std_logic := 'X';
+    signal A0_ipd 	: std_logic := 'X';
+    signal DI0_ipd 	: std_logic := 'X';
+    signal DI0_dly 	: std_logic := 'X';
+    signal M1_ipd 	: std_logic := 'X';
+    signal M1_dly 	: std_logic := 'X';
+    signal CLK_ipd 	: std_logic := 'X';
+    signal CLK_dly 	: std_logic := 'X';
+    signal F0_out 	: std_logic := 'X';
+    signal Q0_out 	: std_logic := 'X';
+    signal Q1_out 	: std_logic := 'X';
+
+    signal GNDI: Std_logic;
+    signal VCCI: Std_logic;
+    component vcc
+      port (PWR1: out Std_logic);
+    end component;
+    component gnd
+      port (PWR0: out Std_logic);
+    end component;
+    component vmuxregsre0004
+      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
+            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
+            Q: out Std_logic);
+    end component;
+    component lut40005
+      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+            Z: out Std_logic);
+    end component;
+  begin
+    HeartBeatInst0_iCounter_RNO_2: lut40005
+      port map (A=>A0_ipd, B=>B0_ipd, C=>C0_ipd, D=>GNDI, Z=>F0_out);
+    DRIVEGND: gnd
+      port map (PWR0=>GNDI);
+    wb_manager_inst_cState_0: vmuxregsre0004
+      port map (D0=>M1_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
+                LSR=>GNDI, Q=>Q1_out);
+    DRIVEVCC: vcc
+      port map (PWR1=>VCCI);
+    HeartBeatInst0_iCounter_2: vmuxregsre0004
+      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
+                LSR=>GNDI, Q=>Q0_out);
+
+    --  INPUT PATH DELAYs
+    WireDelay : BLOCK
+    BEGIN
+      VitalWireDelay(C0_ipd, C0, tipd_C0);
+      VitalWireDelay(B0_ipd, B0, tipd_B0);
+      VitalWireDelay(A0_ipd, A0, tipd_A0);
+      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
+      VitalWireDelay(M1_ipd, M1, tipd_M1);
+      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
+    END BLOCK;
+
+    --  Setup and Hold DELAYs
+    SignalDelay : BLOCK
+    BEGIN
+      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
+      VitalSignalDelay(M1_dly, M1_ipd, tisd_M1_CLK);
+      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
+    END BLOCK;
+
+    VitalBehavior : PROCESS (C0_ipd, B0_ipd, A0_ipd, DI0_dly, M1_dly, CLK_dly, 
+      F0_out, Q0_out, Q1_out)
+    VARIABLE F0_zd         	: std_logic := 'X';
+    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
+    VARIABLE Q0_zd         	: std_logic := 'X';
+    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
+    VARIABLE Q1_zd         	: std_logic := 'X';
+    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
+
+    VARIABLE tviol_DI0_CLK       	: x01 := '0';
+    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_M1_CLK       	: x01 := '0';
+    VARIABLE M1_CLK_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_CLK_CLK          	: x01 := '0';
+    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
+
+    BEGIN
+
+    IF (TimingChecksOn) THEN
+      VitalSetupHoldCheck (
+        TestSignal => DI0_dly,
+        TestSignalName => "DI0",
+        TestDelay => tisd_DI0_CLK,
+        RefSignal => CLK_dly,
+        RefSignalName => "CLK",
+        RefDelay => ticd_CLK,
+        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
+        SetupLow => tsetup_DI0_CLK_noedge_posedge,
+        HoldHigh => thold_DI0_CLK_noedge_posedge,
+        HoldLow => thold_DI0_CLK_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => DI0_CLK_TimingDatash,
+        Violation => tviol_DI0_CLK,
+        MsgSeverity => warning);
+      VitalSetupHoldCheck (
+        TestSignal => M1_dly,
+        TestSignalName => "M1",
+        TestDelay => tisd_M1_CLK,
+        RefSignal => CLK_dly,
+        RefSignalName => "CLK",
+        RefDelay => ticd_CLK,
+        SetupHigh => tsetup_M1_CLK_noedge_posedge,
+        SetupLow => tsetup_M1_CLK_noedge_posedge,
+        HoldHigh => thold_M1_CLK_noedge_posedge,
+        HoldLow => thold_M1_CLK_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => M1_CLK_TimingDatash,
+        Violation => tviol_M1_CLK,
+        MsgSeverity => warning);
+      VitalPeriodPulseCheck (
+        TestSignal => CLK_ipd,
+        TestSignalName => "CLK",
+        Period => tperiod_CLK,
+        PulseWidthHigh => tpw_CLK_posedge,
+        PulseWidthLow => tpw_CLK_negedge,
+        PeriodData => periodcheckinfo_CLK,
+        Violation => tviol_CLK_CLK,
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        CheckEnabled => TRUE,
+        MsgSeverity => warning);
+
+    END IF;
+
+    F0_zd 	:= F0_out;
+    Q0_zd 	:= Q0_out;
+    Q1_zd 	:= Q1_out;
+
+    VitalPathDelay01 (
+      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
+      Paths      => (0 => (InputChangeTime => C0_ipd'last_event,
+                           PathDelay => tpd_C0_F0,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => B0_ipd'last_event,
+                           PathDelay => tpd_B0_F0,
+                           PathCondition => TRUE),
+                     2 => (InputChangeTime => A0_ipd'last_event,
+                           PathDelay => tpd_A0_F0,
+                           PathCondition => TRUE)),
+      GlitchData => F0_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
+      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
+                           PathDelay => tpd_CLK_Q0,
+                           PathCondition => TRUE)),
+      GlitchData => Q0_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
+      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
+                           PathDelay => tpd_CLK_Q1,
+                           PathCondition => TRUE)),
+      GlitchData => Q1_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+
+    END PROCESS;
+
+  end Structure;
+
+-- entity lut40006
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity lut40006 is
+    port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+          Z: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF lut40006 : ENTITY IS TRUE;
+
+  end lut40006;
+
+  architecture Structure of lut40006 is
+  begin
+    INST10: ROM16X1A
+      generic map (initval => X"7F80")
+      port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
+  end Structure;
+
+-- entity SLICE_11
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity SLICE_11 is
+    -- miscellaneous vital GENERICs
+    GENERIC (
+      TimingChecksOn	: boolean := TRUE;
+      XOn           	: boolean := FALSE;
+      MsgOn         	: boolean := TRUE;
+      InstancePath  	: string := "SLICE_11";
+
+      tipd_D0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_C0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_B0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_M1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
+      tpd_D0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_C0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_B0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
+      ticd_CLK	: VitalDelayType := 0 ns;
+      tisd_DI0_CLK	: VitalDelayType := 0 ns;
+      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      tisd_M1_CLK	: VitalDelayType := 0 ns;
+      tsetup_M1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_M1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      tperiod_CLK 	: VitalDelayType := 0 ns;
+      tpw_CLK_posedge	: VitalDelayType := 0 ns;
+      tpw_CLK_negedge	: VitalDelayType := 0 ns);
+
+    port (D0: in Std_logic; C0: in Std_logic; B0: in Std_logic; 
+          A0: in Std_logic; DI0: in Std_logic; M1: in Std_logic; 
+          CLK: in Std_logic; F0: out Std_logic; Q0: out Std_logic; 
+          Q1: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF SLICE_11 : ENTITY IS TRUE;
+
+  end SLICE_11;
+
+  architecture Structure of SLICE_11 is
+    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
+
+    signal D0_ipd 	: std_logic := 'X';
+    signal C0_ipd 	: std_logic := 'X';
+    signal B0_ipd 	: std_logic := 'X';
+    signal A0_ipd 	: std_logic := 'X';
+    signal DI0_ipd 	: std_logic := 'X';
+    signal DI0_dly 	: std_logic := 'X';
+    signal M1_ipd 	: std_logic := 'X';
+    signal M1_dly 	: std_logic := 'X';
+    signal CLK_ipd 	: std_logic := 'X';
+    signal CLK_dly 	: std_logic := 'X';
+    signal F0_out 	: std_logic := 'X';
+    signal Q0_out 	: std_logic := 'X';
+    signal Q1_out 	: std_logic := 'X';
+
+    signal VCCI: Std_logic;
+    signal GNDI: Std_logic;
+    component vcc
+      port (PWR1: out Std_logic);
+    end component;
+    component gnd
+      port (PWR0: out Std_logic);
+    end component;
+    component vmuxregsre0004
+      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
+            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
+            Q: out Std_logic);
+    end component;
+    component lut40006
+      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+            Z: out Std_logic);
+    end component;
+  begin
+    HeartBeatInst0_iCounter_RNO_3: lut40006
+      port map (A=>A0_ipd, B=>B0_ipd, C=>C0_ipd, D=>D0_ipd, Z=>F0_out);
+    wb_manager_inst_cState_1: vmuxregsre0004
+      port map (D0=>M1_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
+                LSR=>GNDI, Q=>Q1_out);
+    DRIVEVCC: vcc
+      port map (PWR1=>VCCI);
+    DRIVEGND: gnd
+      port map (PWR0=>GNDI);
+    HeartBeatInst0_iCounter_3: vmuxregsre0004
+      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
+                LSR=>GNDI, Q=>Q0_out);
+
+    --  INPUT PATH DELAYs
+    WireDelay : BLOCK
+    BEGIN
+      VitalWireDelay(D0_ipd, D0, tipd_D0);
+      VitalWireDelay(C0_ipd, C0, tipd_C0);
+      VitalWireDelay(B0_ipd, B0, tipd_B0);
+      VitalWireDelay(A0_ipd, A0, tipd_A0);
+      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
+      VitalWireDelay(M1_ipd, M1, tipd_M1);
+      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
+    END BLOCK;
+
+    --  Setup and Hold DELAYs
+    SignalDelay : BLOCK
+    BEGIN
+      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
+      VitalSignalDelay(M1_dly, M1_ipd, tisd_M1_CLK);
+      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
+    END BLOCK;
+
+    VitalBehavior : PROCESS (D0_ipd, C0_ipd, B0_ipd, A0_ipd, DI0_dly, M1_dly, 
+      CLK_dly, F0_out, Q0_out, Q1_out)
+    VARIABLE F0_zd         	: std_logic := 'X';
+    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
+    VARIABLE Q0_zd         	: std_logic := 'X';
+    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
+    VARIABLE Q1_zd         	: std_logic := 'X';
+    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
+
+    VARIABLE tviol_DI0_CLK       	: x01 := '0';
+    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_M1_CLK       	: x01 := '0';
+    VARIABLE M1_CLK_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_CLK_CLK          	: x01 := '0';
+    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
+
+    BEGIN
+
+    IF (TimingChecksOn) THEN
+      VitalSetupHoldCheck (
+        TestSignal => DI0_dly,
+        TestSignalName => "DI0",
+        TestDelay => tisd_DI0_CLK,
+        RefSignal => CLK_dly,
+        RefSignalName => "CLK",
+        RefDelay => ticd_CLK,
+        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
+        SetupLow => tsetup_DI0_CLK_noedge_posedge,
+        HoldHigh => thold_DI0_CLK_noedge_posedge,
+        HoldLow => thold_DI0_CLK_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => DI0_CLK_TimingDatash,
+        Violation => tviol_DI0_CLK,
+        MsgSeverity => warning);
+      VitalSetupHoldCheck (
+        TestSignal => M1_dly,
+        TestSignalName => "M1",
+        TestDelay => tisd_M1_CLK,
+        RefSignal => CLK_dly,
+        RefSignalName => "CLK",
+        RefDelay => ticd_CLK,
+        SetupHigh => tsetup_M1_CLK_noedge_posedge,
+        SetupLow => tsetup_M1_CLK_noedge_posedge,
+        HoldHigh => thold_M1_CLK_noedge_posedge,
+        HoldLow => thold_M1_CLK_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => M1_CLK_TimingDatash,
+        Violation => tviol_M1_CLK,
+        MsgSeverity => warning);
+      VitalPeriodPulseCheck (
+        TestSignal => CLK_ipd,
+        TestSignalName => "CLK",
+        Period => tperiod_CLK,
+        PulseWidthHigh => tpw_CLK_posedge,
+        PulseWidthLow => tpw_CLK_negedge,
+        PeriodData => periodcheckinfo_CLK,
+        Violation => tviol_CLK_CLK,
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        CheckEnabled => TRUE,
+        MsgSeverity => warning);
+
+    END IF;
+
+    F0_zd 	:= F0_out;
+    Q0_zd 	:= Q0_out;
+    Q1_zd 	:= Q1_out;
+
+    VitalPathDelay01 (
+      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
+      Paths      => (0 => (InputChangeTime => D0_ipd'last_event,
+                           PathDelay => tpd_D0_F0,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => C0_ipd'last_event,
+                           PathDelay => tpd_C0_F0,
+                           PathCondition => TRUE),
+                     2 => (InputChangeTime => B0_ipd'last_event,
+                           PathDelay => tpd_B0_F0,
+                           PathCondition => TRUE),
+                     3 => (InputChangeTime => A0_ipd'last_event,
+                           PathDelay => tpd_A0_F0,
+                           PathCondition => TRUE)),
+      GlitchData => F0_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
+      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
+                           PathDelay => tpd_CLK_Q0,
+                           PathCondition => TRUE)),
+      GlitchData => Q0_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
+      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
+                           PathDelay => tpd_CLK_Q1,
+                           PathCondition => TRUE)),
+      GlitchData => Q1_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+
+    END PROCESS;
+
+  end Structure;
+
+-- entity vmuxregsre0007
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity vmuxregsre0007 is
+    port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
+          SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
+          Q: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF vmuxregsre0007 : ENTITY IS TRUE;
+
+  end vmuxregsre0007;
+
+  architecture Structure of vmuxregsre0007 is
+  begin
+    INST01: FL1P3BX
+      generic map (GSR => "ENABLED")
+      port map (D0=>D0, D1=>D1, SP=>SP, CK=>CK, SD=>SD, PD=>LSR, Q=>Q);
+  end Structure;
+
+-- entity i2c_controller_inst_SLICE_13
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity i2c_controller_inst_SLICE_13 is
+    -- miscellaneous vital GENERICs
+    GENERIC (
+      TimingChecksOn	: boolean := TRUE;
+      XOn           	: boolean := FALSE;
+      MsgOn         	: boolean := TRUE;
+      InstancePath  	: string := "i2c_controller_inst_SLICE_13";
+
+      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
+      ticd_CLK	: VitalDelayType := 0 ns;
+      tisd_DI1_CLK	: VitalDelayType := 0 ns;
+      tsetup_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      tisd_DI0_CLK	: VitalDelayType := 0 ns;
+      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      tperiod_CLK 	: VitalDelayType := 0 ns;
+      tpw_CLK_posedge	: VitalDelayType := 0 ns;
+      tpw_CLK_negedge	: VitalDelayType := 0 ns);
+
+    port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
+          DI0: in Std_logic; CLK: in Std_logic; F0: out Std_logic; 
+          Q0: out Std_logic; F1: out Std_logic; Q1: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF i2c_controller_inst_SLICE_13 : ENTITY IS TRUE;
+
+  end i2c_controller_inst_SLICE_13;
+
+  architecture Structure of i2c_controller_inst_SLICE_13 is
+    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
+
+    signal A1_ipd 	: std_logic := 'X';
+    signal A0_ipd 	: std_logic := 'X';
+    signal DI1_ipd 	: std_logic := 'X';
+    signal DI1_dly 	: std_logic := 'X';
+    signal DI0_ipd 	: std_logic := 'X';
+    signal DI0_dly 	: std_logic := 'X';
+    signal CLK_ipd 	: std_logic := 'X';
+    signal CLK_dly 	: std_logic := 'X';
+    signal F0_out 	: std_logic := 'X';
+    signal Q0_out 	: std_logic := 'X';
+    signal F1_out 	: std_logic := 'X';
+    signal Q1_out 	: std_logic := 'X';
+
+    signal GNDI: Std_logic;
+    signal VCCI: Std_logic;
+    component vcc
+      port (PWR1: out Std_logic);
+    end component;
+    component gnd
+      port (PWR0: out Std_logic);
+    end component;
+    component lut40003
+      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+            Z: out Std_logic);
+    end component;
+    component vmuxregsre0007
+      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
+            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
+            Q: out Std_logic);
+    end component;
+  begin
+    i2c_controller_inst_cState_ret_RNO: lut40003
+      port map (A=>A1_ipd, B=>GNDI, C=>GNDI, D=>GNDI, Z=>F1_out);
+    DRIVEGND: gnd
+      port map (PWR0=>GNDI);
+    i2c_controller_inst_cState_ret_1_RNO: lut40003
+      port map (A=>A0_ipd, B=>GNDI, C=>GNDI, D=>GNDI, Z=>F0_out);
+    i2c_controller_inst_cState_ret: vmuxregsre0007
+      port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
+                LSR=>GNDI, Q=>Q1_out);
+    DRIVEVCC: vcc
+      port map (PWR1=>VCCI);
+    i2c_controller_inst_cState_ret_1: vmuxregsre0007
       port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
 
@@ -6092,62 +4033,63 @@
 
   end Structure;
 
--- entity lut40006
+-- entity lut40008
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity lut40006 is
+  entity lut40008 is
     port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
           Z: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF lut40006 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF lut40008 : ENTITY IS TRUE;
 
-  end lut40006;
+  end lut40008;
 
-  architecture Structure of lut40006 is
+  architecture Structure of lut40008 is
   begin
     INST10: ROM16X1A
-      generic map (initval => X"0101")
+      generic map (initval => X"0001")
       port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
   end Structure;
 
--- entity lut40007
+-- entity lut40009
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity lut40007 is
+  entity lut40009 is
     port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
           Z: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF lut40007 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF lut40009 : ENTITY IS TRUE;
 
-  end lut40007;
+  end lut40009;
 
-  architecture Structure of lut40007 is
+  architecture Structure of lut40009 is
   begin
     INST10: ROM16X1A
-      generic map (initval => X"B3A0")
+      generic map (initval => X"7350")
       port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
   end Structure;
 
--- entity i2c_controller_inst_SLICE_29
+-- entity i2c_controller_inst_SLICE_21
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity i2c_controller_inst_SLICE_29 is
+  entity i2c_controller_inst_SLICE_21 is
     -- miscellaneous vital GENERICs
     GENERIC (
       TimingChecksOn	: boolean := TRUE;
       XOn           	: boolean := FALSE;
       MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "i2c_controller_inst_SLICE_29";
+      InstancePath  	: string := "i2c_controller_inst_SLICE_21";
 
+      tipd_D1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_C1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_B1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
@@ -6158,6 +4100,7 @@
       tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_M1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
+      tpd_D1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_C1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_B1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
@@ -6178,19 +4121,20 @@
       tpw_CLK_posedge	: VitalDelayType := 0 ns;
       tpw_CLK_negedge	: VitalDelayType := 0 ns);
 
-    port (C1: in Std_logic; B1: in Std_logic; A1: in Std_logic; 
-          D0: in Std_logic; C0: in Std_logic; B0: in Std_logic; 
-          A0: in Std_logic; DI0: in Std_logic; M1: in Std_logic; 
-          CLK: in Std_logic; F0: out Std_logic; Q0: out Std_logic; 
-          F1: out Std_logic; Q1: out Std_logic);
+    port (D1: in Std_logic; C1: in Std_logic; B1: in Std_logic; 
+          A1: in Std_logic; D0: in Std_logic; C0: in Std_logic; 
+          B0: in Std_logic; A0: in Std_logic; DI0: in Std_logic; 
+          M1: in Std_logic; CLK: in Std_logic; F0: out Std_logic; 
+          Q0: out Std_logic; F1: out Std_logic; Q1: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF i2c_controller_inst_SLICE_29 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF i2c_controller_inst_SLICE_21 : ENTITY IS TRUE;
 
-  end i2c_controller_inst_SLICE_29;
+  end i2c_controller_inst_SLICE_21;
 
-  architecture Structure of i2c_controller_inst_SLICE_29 is
+  architecture Structure of i2c_controller_inst_SLICE_21 is
     ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
 
+    signal D1_ipd 	: std_logic := 'X';
     signal C1_ipd 	: std_logic := 'X';
     signal B1_ipd 	: std_logic := 'X';
     signal A1_ipd 	: std_logic := 'X';
@@ -6209,46 +4153,47 @@
     signal F1_out 	: std_logic := 'X';
     signal Q1_out 	: std_logic := 'X';
 
-    signal GNDI: Std_logic;
     signal VCCI: Std_logic;
+    signal GNDI: Std_logic;
     component vcc
       port (PWR1: out Std_logic);
     end component;
     component gnd
       port (PWR0: out Std_logic);
     end component;
-    component vmuxregsre0005
+    component vmuxregsre0007
       port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
             SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
             Q: out Std_logic);
     end component;
-    component lut40006
+    component lut40008
       port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
             Z: out Std_logic);
     end component;
-    component lut40007
+    component lut40009
       port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
             Z: out Std_logic);
     end component;
   begin
-    i2c_controller_inst_status_1_ret_RNO_0: lut40006
-      port map (A=>A1_ipd, B=>B1_ipd, C=>C1_ipd, D=>GNDI, Z=>F1_out);
-    DRIVEGND: gnd
-      port map (PWR0=>GNDI);
-    i2c_controller_inst_status_1_ret_RNO: lut40007
+    i2c_controller_inst_status_1_ret_RNO_0: lut40008
+      port map (A=>A1_ipd, B=>B1_ipd, C=>C1_ipd, D=>D1_ipd, Z=>F1_out);
+    i2c_controller_inst_status_1_ret_RNO: lut40009
       port map (A=>A0_ipd, B=>B0_ipd, C=>C0_ipd, D=>D0_ipd, Z=>F0_out);
-    i2c_controller_inst_cState_6: vmuxregsre0005
+    i2c_controller_inst_cState_6: vmuxregsre0007
       port map (D0=>M1_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
-    i2c_controller_inst_status_1_ret: vmuxregsre0005
+    DRIVEGND: gnd
+      port map (PWR0=>GNDI);
+    i2c_controller_inst_status_1_ret: vmuxregsre0007
       port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
 
     --  INPUT PATH DELAYs
     WireDelay : BLOCK
     BEGIN
+      VitalWireDelay(D1_ipd, D1, tipd_D1);
       VitalWireDelay(C1_ipd, C1, tipd_C1);
       VitalWireDelay(B1_ipd, B1, tipd_B1);
       VitalWireDelay(A1_ipd, A1, tipd_A1);
@@ -6269,8 +4214,8 @@
       VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
     END BLOCK;
 
-    VitalBehavior : PROCESS (C1_ipd, B1_ipd, A1_ipd, D0_ipd, C0_ipd, B0_ipd, 
-      A0_ipd, DI0_dly, M1_dly, CLK_dly, F0_out, Q0_out, F1_out, Q1_out)
+    VitalBehavior : PROCESS (D1_ipd, C1_ipd, B1_ipd, A1_ipd, D0_ipd, C0_ipd, 
+      B0_ipd, A0_ipd, DI0_dly, M1_dly, CLK_dly, F0_out, Q0_out, F1_out, Q1_out)
     VARIABLE F0_zd         	: std_logic := 'X';
     VARIABLE F0_GlitchData 	: VitalGlitchDataType;
     VARIABLE Q0_zd         	: std_logic := 'X';
@@ -6371,13 +4316,16 @@
       Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
     VitalPathDelay01 (
       OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
-      Paths      => (0 => (InputChangeTime => C1_ipd'last_event,
+      Paths      => (0 => (InputChangeTime => D1_ipd'last_event,
+                           PathDelay => tpd_D1_F1,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => C1_ipd'last_event,
                            PathDelay => tpd_C1_F1,
                            PathCondition => TRUE),
-                     1 => (InputChangeTime => B1_ipd'last_event,
+                     2 => (InputChangeTime => B1_ipd'last_event,
                            PathDelay => tpd_B1_F1,
                            PathCondition => TRUE),
-                     2 => (InputChangeTime => A1_ipd'last_event,
+                     3 => (InputChangeTime => A1_ipd'last_event,
                            PathDelay => tpd_A1_F1,
                            PathCondition => TRUE)),
       GlitchData => F1_GlitchData,
@@ -6394,19 +4342,19 @@
 
   end Structure;
 
--- entity wb_manager_inst_SLICE_32
+-- entity wb_manager_inst_SLICE_24
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity wb_manager_inst_SLICE_32 is
+  entity wb_manager_inst_SLICE_24 is
     -- miscellaneous vital GENERICs
     GENERIC (
       TimingChecksOn	: boolean := TRUE;
       XOn           	: boolean := FALSE;
       MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "wb_manager_inst_SLICE_32";
+      InstancePath  	: string := "wb_manager_inst_SLICE_24";
 
       tipd_M1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_M0  	: VitalDelayType01 := (0 ns, 0 ns);
@@ -6427,11 +4375,11 @@
     port (M1: in Std_logic; M0: in Std_logic; CLK: in Std_logic; 
           Q0: out Std_logic; Q1: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF wb_manager_inst_SLICE_32 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF wb_manager_inst_SLICE_24 : ENTITY IS TRUE;
 
-  end wb_manager_inst_SLICE_32;
+  end wb_manager_inst_SLICE_24;
 
-  architecture Structure of wb_manager_inst_SLICE_32 is
+  architecture Structure of wb_manager_inst_SLICE_24 is
     ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
 
     signal M1_ipd 	: std_logic := 'X';
@@ -6451,20 +4399,20 @@
     component gnd
       port (PWR0: out Std_logic);
     end component;
-    component vmuxregsre0003
+    component vmuxregsre0004
       port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
             SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
             Q: out Std_logic);
     end component;
   begin
-    wb_manager_inst_cState_2: vmuxregsre0003
+    wb_manager_inst_cState_2: vmuxregsre0004
       port map (D0=>M1_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    wb_manager_inst_cState_3: vmuxregsre0003
+    wb_manager_inst_cState_3: vmuxregsre0004
       port map (D0=>M0_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
 
@@ -6573,19 +4521,19 @@
 
   end Structure;
 
--- entity wb_manager_inst_SLICE_33
+-- entity wb_manager_inst_SLICE_25
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity wb_manager_inst_SLICE_33 is
+  entity wb_manager_inst_SLICE_25 is
     -- miscellaneous vital GENERICs
     GENERIC (
       TimingChecksOn	: boolean := TRUE;
       XOn           	: boolean := FALSE;
       MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "wb_manager_inst_SLICE_33";
+      InstancePath  	: string := "wb_manager_inst_SLICE_25";
 
       tipd_M1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_M0  	: VitalDelayType01 := (0 ns, 0 ns);
@@ -6606,11 +4554,11 @@
     port (M1: in Std_logic; M0: in Std_logic; CLK: in Std_logic; 
           Q0: out Std_logic; Q1: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF wb_manager_inst_SLICE_33 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF wb_manager_inst_SLICE_25 : ENTITY IS TRUE;
 
-  end wb_manager_inst_SLICE_33;
+  end wb_manager_inst_SLICE_25;
 
-  architecture Structure of wb_manager_inst_SLICE_33 is
+  architecture Structure of wb_manager_inst_SLICE_25 is
     ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
 
     signal M1_ipd 	: std_logic := 'X';
@@ -6630,25 +4578,25 @@
     component gnd
       port (PWR0: out Std_logic);
     end component;
-    component vmuxregsre0003
+    component vmuxregsre0004
       port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
             SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
             Q: out Std_logic);
     end component;
-    component vmuxregsre0005
+    component vmuxregsre0007
       port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
             SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
             Q: out Std_logic);
     end component;
   begin
-    wb_manager_inst_cState_4: vmuxregsre0003
+    wb_manager_inst_cState_4: vmuxregsre0004
       port map (D0=>M1_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    wb_manager_inst_cState_5: vmuxregsre0005
+    wb_manager_inst_cState_5: vmuxregsre0007
       port map (D0=>M0_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
 
@@ -6755,507 +4703,6 @@
 
     END PROCESS;
 
-  end Structure;
-
--- entity lut40008
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity lut40008 is
-    port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
-          Z: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF lut40008 : ENTITY IS TRUE;
-
-  end lut40008;
-
-  architecture Structure of lut40008 is
-  begin
-    INST10: ROM16X1A
-      generic map (initval => X"1111")
-      port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
-  end Structure;
-
--- entity SLICE_34
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity SLICE_34 is
-    -- miscellaneous vital GENERICs
-    GENERIC (
-      TimingChecksOn	: boolean := TRUE;
-      XOn           	: boolean := FALSE;
-      MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "SLICE_34";
-
-      tipd_B0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_M1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
-      tpd_B0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
-      ticd_CLK	: VitalDelayType := 0 ns;
-      tisd_DI0_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tisd_M1_CLK	: VitalDelayType := 0 ns;
-      tsetup_M1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_M1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tperiod_CLK 	: VitalDelayType := 0 ns;
-      tpw_CLK_posedge	: VitalDelayType := 0 ns;
-      tpw_CLK_negedge	: VitalDelayType := 0 ns);
-
-    port (B0: in Std_logic; A0: in Std_logic; DI0: in Std_logic; 
-          M1: in Std_logic; CLK: in Std_logic; F0: out Std_logic; 
-          Q0: out Std_logic; Q1: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF SLICE_34 : ENTITY IS TRUE;
-
-  end SLICE_34;
-
-  architecture Structure of SLICE_34 is
-    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
-
-    signal B0_ipd 	: std_logic := 'X';
-    signal A0_ipd 	: std_logic := 'X';
-    signal DI0_ipd 	: std_logic := 'X';
-    signal DI0_dly 	: std_logic := 'X';
-    signal M1_ipd 	: std_logic := 'X';
-    signal M1_dly 	: std_logic := 'X';
-    signal CLK_ipd 	: std_logic := 'X';
-    signal CLK_dly 	: std_logic := 'X';
-    signal F0_out 	: std_logic := 'X';
-    signal Q0_out 	: std_logic := 'X';
-    signal Q1_out 	: std_logic := 'X';
-
-    signal GNDI: Std_logic;
-    signal VCCI: Std_logic;
-    component vcc
-      port (PWR1: out Std_logic);
-    end component;
-    component gnd
-      port (PWR0: out Std_logic);
-    end component;
-    component vmuxregsre0003
-      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-            Q: out Std_logic);
-    end component;
-    component vmuxregsre0005
-      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-            Q: out Std_logic);
-    end component;
-    component lut40008
-      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
-            Z: out Std_logic);
-    end component;
-  begin
-    wb_manager_inst_cState_ret_RNO: lut40008
-      port map (A=>A0_ipd, B=>B0_ipd, C=>GNDI, D=>GNDI, Z=>F0_out);
-    DRIVEGND: gnd
-      port map (PWR0=>GNDI);
-    i2c_controller_inst_cState_0_0: vmuxregsre0003
-      port map (D0=>M1_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q1_out);
-    DRIVEVCC: vcc
-      port map (PWR1=>VCCI);
-    wb_manager_inst_cState_ret: vmuxregsre0005
-      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q0_out);
-
-    --  INPUT PATH DELAYs
-    WireDelay : BLOCK
-    BEGIN
-      VitalWireDelay(B0_ipd, B0, tipd_B0);
-      VitalWireDelay(A0_ipd, A0, tipd_A0);
-      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
-      VitalWireDelay(M1_ipd, M1, tipd_M1);
-      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
-    END BLOCK;
-
-    --  Setup and Hold DELAYs
-    SignalDelay : BLOCK
-    BEGIN
-      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
-      VitalSignalDelay(M1_dly, M1_ipd, tisd_M1_CLK);
-      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
-    END BLOCK;
-
-    VitalBehavior : PROCESS (B0_ipd, A0_ipd, DI0_dly, M1_dly, CLK_dly, F0_out, 
-      Q0_out, Q1_out)
-    VARIABLE F0_zd         	: std_logic := 'X';
-    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q0_zd         	: std_logic := 'X';
-    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q1_zd         	: std_logic := 'X';
-    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
-
-    VARIABLE tviol_DI0_CLK       	: x01 := '0';
-    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_M1_CLK       	: x01 := '0';
-    VARIABLE M1_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_CLK_CLK          	: x01 := '0';
-    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
-
-    BEGIN
-
-    IF (TimingChecksOn) THEN
-      VitalSetupHoldCheck (
-        TestSignal => DI0_dly,
-        TestSignalName => "DI0",
-        TestDelay => tisd_DI0_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
-        SetupLow => tsetup_DI0_CLK_noedge_posedge,
-        HoldHigh => thold_DI0_CLK_noedge_posedge,
-        HoldLow => thold_DI0_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI0_CLK_TimingDatash,
-        Violation => tviol_DI0_CLK,
-        MsgSeverity => warning);
-      VitalSetupHoldCheck (
-        TestSignal => M1_dly,
-        TestSignalName => "M1",
-        TestDelay => tisd_M1_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_M1_CLK_noedge_posedge,
-        SetupLow => tsetup_M1_CLK_noedge_posedge,
-        HoldHigh => thold_M1_CLK_noedge_posedge,
-        HoldLow => thold_M1_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => M1_CLK_TimingDatash,
-        Violation => tviol_M1_CLK,
-        MsgSeverity => warning);
-      VitalPeriodPulseCheck (
-        TestSignal => CLK_ipd,
-        TestSignalName => "CLK",
-        Period => tperiod_CLK,
-        PulseWidthHigh => tpw_CLK_posedge,
-        PulseWidthLow => tpw_CLK_negedge,
-        PeriodData => periodcheckinfo_CLK,
-        Violation => tviol_CLK_CLK,
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        CheckEnabled => TRUE,
-        MsgSeverity => warning);
-
-    END IF;
-
-    F0_zd 	:= F0_out;
-    Q0_zd 	:= Q0_out;
-    Q1_zd 	:= Q1_out;
-
-    VitalPathDelay01 (
-      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
-      Paths      => (0 => (InputChangeTime => B0_ipd'last_event,
-                           PathDelay => tpd_B0_F0,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F0,
-                           PathCondition => TRUE)),
-      GlitchData => F0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q0,
-                           PathCondition => TRUE)),
-      GlitchData => Q0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q1,
-                           PathCondition => TRUE)),
-      GlitchData => Q1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-
-    END PROCESS;
-
-  end Structure;
-
--- entity wb_manager_inst_SLICE_35
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity wb_manager_inst_SLICE_35 is
-    -- miscellaneous vital GENERICs
-    GENERIC (
-      TimingChecksOn	: boolean := TRUE;
-      XOn           	: boolean := FALSE;
-      MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "wb_manager_inst_SLICE_35";
-
-      tipd_C1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_B1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_B0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
-      tpd_C1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_B1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_B0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
-      ticd_CLK	: VitalDelayType := 0 ns;
-      tisd_DI1_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tisd_DI0_CLK	: VitalDelayType := 0 ns;
-      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tperiod_CLK 	: VitalDelayType := 0 ns;
-      tpw_CLK_posedge	: VitalDelayType := 0 ns;
-      tpw_CLK_negedge	: VitalDelayType := 0 ns);
-
-    port (C1: in Std_logic; B1: in Std_logic; A1: in Std_logic; 
-          B0: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-          DI0: in Std_logic; CLK: in Std_logic; F0: out Std_logic; 
-          Q0: out Std_logic; F1: out Std_logic; Q1: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF wb_manager_inst_SLICE_35 : ENTITY IS TRUE;
-
-  end wb_manager_inst_SLICE_35;
-
-  architecture Structure of wb_manager_inst_SLICE_35 is
-    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
-
-    signal C1_ipd 	: std_logic := 'X';
-    signal B1_ipd 	: std_logic := 'X';
-    signal A1_ipd 	: std_logic := 'X';
-    signal B0_ipd 	: std_logic := 'X';
-    signal A0_ipd 	: std_logic := 'X';
-    signal DI1_ipd 	: std_logic := 'X';
-    signal DI1_dly 	: std_logic := 'X';
-    signal DI0_ipd 	: std_logic := 'X';
-    signal DI0_dly 	: std_logic := 'X';
-    signal CLK_ipd 	: std_logic := 'X';
-    signal CLK_dly 	: std_logic := 'X';
-    signal F0_out 	: std_logic := 'X';
-    signal Q0_out 	: std_logic := 'X';
-    signal F1_out 	: std_logic := 'X';
-    signal Q1_out 	: std_logic := 'X';
-
-    signal GNDI: Std_logic;
-    signal VCCI: Std_logic;
-    component vcc
-      port (PWR1: out Std_logic);
-    end component;
-    component gnd
-      port (PWR0: out Std_logic);
-    end component;
-    component vmuxregsre0005
-      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-            Q: out Std_logic);
-    end component;
-    component lut40006
-      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
-            Z: out Std_logic);
-    end component;
-    component lut40008
-      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
-            Z: out Std_logic);
-    end component;
-  begin
-    wb_manager_inst_wb_adr_i_0_i_a2_0_4: lut40006
-      port map (A=>A1_ipd, B=>B1_ipd, C=>C1_ipd, D=>GNDI, Z=>F1_out);
-    DRIVEGND: gnd
-      port map (PWR0=>GNDI);
-    wb_manager_inst_cState_ret_1_RNO: lut40008
-      port map (A=>A0_ipd, B=>B0_ipd, C=>GNDI, D=>GNDI, Z=>F0_out);
-    wb_manager_inst_cState_ret_2: vmuxregsre0005
-      port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q1_out);
-    DRIVEVCC: vcc
-      port map (PWR1=>VCCI);
-    wb_manager_inst_cState_ret_1: vmuxregsre0005
-      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q0_out);
-
-    --  INPUT PATH DELAYs
-    WireDelay : BLOCK
-    BEGIN
-      VitalWireDelay(C1_ipd, C1, tipd_C1);
-      VitalWireDelay(B1_ipd, B1, tipd_B1);
-      VitalWireDelay(A1_ipd, A1, tipd_A1);
-      VitalWireDelay(B0_ipd, B0, tipd_B0);
-      VitalWireDelay(A0_ipd, A0, tipd_A0);
-      VitalWireDelay(DI1_ipd, DI1, tipd_DI1);
-      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
-      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
-    END BLOCK;
-
-    --  Setup and Hold DELAYs
-    SignalDelay : BLOCK
-    BEGIN
-      VitalSignalDelay(DI1_dly, DI1_ipd, tisd_DI1_CLK);
-      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
-      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
-    END BLOCK;
-
-    VitalBehavior : PROCESS (C1_ipd, B1_ipd, A1_ipd, B0_ipd, A0_ipd, DI1_dly, 
-      DI0_dly, CLK_dly, F0_out, Q0_out, F1_out, Q1_out)
-    VARIABLE F0_zd         	: std_logic := 'X';
-    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q0_zd         	: std_logic := 'X';
-    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE F1_zd         	: std_logic := 'X';
-    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q1_zd         	: std_logic := 'X';
-    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
-
-    VARIABLE tviol_DI1_CLK       	: x01 := '0';
-    VARIABLE DI1_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_DI0_CLK       	: x01 := '0';
-    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_CLK_CLK          	: x01 := '0';
-    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
-
-    BEGIN
-
-    IF (TimingChecksOn) THEN
-      VitalSetupHoldCheck (
-        TestSignal => DI1_dly,
-        TestSignalName => "DI1",
-        TestDelay => tisd_DI1_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI1_CLK_noedge_posedge,
-        SetupLow => tsetup_DI1_CLK_noedge_posedge,
-        HoldHigh => thold_DI1_CLK_noedge_posedge,
-        HoldLow => thold_DI1_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI1_CLK_TimingDatash,
-        Violation => tviol_DI1_CLK,
-        MsgSeverity => warning);
-      VitalSetupHoldCheck (
-        TestSignal => DI0_dly,
-        TestSignalName => "DI0",
-        TestDelay => tisd_DI0_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
-        SetupLow => tsetup_DI0_CLK_noedge_posedge,
-        HoldHigh => thold_DI0_CLK_noedge_posedge,
-        HoldLow => thold_DI0_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => DI0_CLK_TimingDatash,
-        Violation => tviol_DI0_CLK,
-        MsgSeverity => warning);
-      VitalPeriodPulseCheck (
-        TestSignal => CLK_ipd,
-        TestSignalName => "CLK",
-        Period => tperiod_CLK,
-        PulseWidthHigh => tpw_CLK_posedge,
-        PulseWidthLow => tpw_CLK_negedge,
-        PeriodData => periodcheckinfo_CLK,
-        Violation => tviol_CLK_CLK,
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        CheckEnabled => TRUE,
-        MsgSeverity => warning);
-
-    END IF;
-
-    F0_zd 	:= F0_out;
-    Q0_zd 	:= Q0_out;
-    F1_zd 	:= F1_out;
-    Q1_zd 	:= Q1_out;
-
-    VitalPathDelay01 (
-      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
-      Paths      => (0 => (InputChangeTime => B0_ipd'last_event,
-                           PathDelay => tpd_B0_F0,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F0,
-                           PathCondition => TRUE)),
-      GlitchData => F0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q0,
-                           PathCondition => TRUE)),
-      GlitchData => Q0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
-      Paths      => (0 => (InputChangeTime => C1_ipd'last_event,
-                           PathDelay => tpd_C1_F1,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => B1_ipd'last_event,
-                           PathDelay => tpd_B1_F1,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_F1,
-                           PathCondition => TRUE)),
-      GlitchData => F1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q1,
-                           PathCondition => TRUE)),
-      GlitchData => Q1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-
-    END PROCESS;
-
-  end Structure;
-
--- entity lut40009
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity lut40009 is
-    port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
-          Z: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF lut40009 : ENTITY IS TRUE;
-
-  end lut40009;
-
-  architecture Structure of lut40009 is
-  begin
-    INST10: ROM16X1A
-      generic map (initval => X"F888")
-      port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
   end Structure;
 
 -- entity lut40010
@@ -7275,51 +4722,45 @@
   architecture Structure of lut40010 is
   begin
     INST10: ROM16X1A
-      generic map (initval => X"2222")
+      generic map (initval => X"EEEE")
       port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
   end Structure;
 
--- entity vmuxregsre0011
+-- entity lut40011
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity vmuxregsre0011 is
-    port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-          SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-          Q: out Std_logic);
+  entity lut40011 is
+    port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+          Z: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF vmuxregsre0011 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF lut40011 : ENTITY IS TRUE;
 
-  end vmuxregsre0011;
+  end lut40011;
 
-  architecture Structure of vmuxregsre0011 is
-    signal GATE: Std_logic;
+  architecture Structure of lut40011 is
   begin
-    INST50: AND2
-      port map (A=>SP, B=>CK, Z=>GATE);
-    INST01: FL1S1D
-      generic map (GSR => "DISABLED")
-      port map (D0=>D0, D1=>D1, CK=>GATE, SD=>SD, CD=>LSR, Q=>Q);
+    INST10: ROM16X1A
+      generic map (initval => X"1111")
+      port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
   end Structure;
 
--- entity wb_manager_inst_SLICE_36
+-- entity wb_manager_inst_SLICE_26
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity wb_manager_inst_SLICE_36 is
+  entity wb_manager_inst_SLICE_26 is
     -- miscellaneous vital GENERICs
     GENERIC (
       TimingChecksOn	: boolean := TRUE;
       XOn           	: boolean := FALSE;
       MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "wb_manager_inst_SLICE_36";
+      InstancePath  	: string := "wb_manager_inst_SLICE_26";
 
-      tipd_D1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_C1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_B1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_B0  	: VitalDelayType01 := (0 ns, 0 ns);
@@ -7327,8 +4768,6 @@
       tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
-      tpd_D1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_C1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_B1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_B0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
@@ -7346,21 +4785,18 @@
       tpw_CLK_posedge	: VitalDelayType := 0 ns;
       tpw_CLK_negedge	: VitalDelayType := 0 ns);
 
-    port (D1: in Std_logic; C1: in Std_logic; B1: in Std_logic; 
-          A1: in Std_logic; B0: in Std_logic; A0: in Std_logic; 
-          DI1: in Std_logic; DI0: in Std_logic; CLK: in Std_logic; 
-          F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-          Q1: out Std_logic);
+    port (B1: in Std_logic; A1: in Std_logic; B0: in Std_logic; 
+          A0: in Std_logic; DI1: in Std_logic; DI0: in Std_logic; 
+          CLK: in Std_logic; F0: out Std_logic; Q0: out Std_logic; 
+          F1: out Std_logic; Q1: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF wb_manager_inst_SLICE_36 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF wb_manager_inst_SLICE_26 : ENTITY IS TRUE;
 
-  end wb_manager_inst_SLICE_36;
+  end wb_manager_inst_SLICE_26;
 
-  architecture Structure of wb_manager_inst_SLICE_36 is
+  architecture Structure of wb_manager_inst_SLICE_26 is
     ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
 
-    signal D1_ipd 	: std_logic := 'X';
-    signal C1_ipd 	: std_logic := 'X';
     signal B1_ipd 	: std_logic := 'X';
     signal A1_ipd 	: std_logic := 'X';
     signal B0_ipd 	: std_logic := 'X';
@@ -7384,40 +4820,43 @@
     component gnd
       port (PWR0: out Std_logic);
     end component;
-    component lut40009
-      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
-            Z: out Std_logic);
+    component vmuxregsre0004
+      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
+            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
+            Q: out Std_logic);
+    end component;
+    component vmuxregsre0007
+      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
+            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
+            Q: out Std_logic);
     end component;
     component lut40010
       port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
             Z: out Std_logic);
     end component;
-    component vmuxregsre0011
-      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-            Q: out Std_logic);
+    component lut40011
+      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+            Z: out Std_logic);
     end component;
   begin
-    wb_manager_inst_nState_1_0_0_1: lut40009
-      port map (A=>A1_ipd, B=>B1_ipd, C=>C1_ipd, D=>D1_ipd, Z=>F1_out);
-    wb_manager_inst_nState_1_sqmuxa_2_0_a2: lut40010
-      port map (A=>A0_ipd, B=>B0_ipd, C=>GNDI, D=>GNDI, Z=>F0_out);
+    wb_manager_inst_wb_adr_i_0_i_o2_0_7: lut40010
+      port map (A=>A1_ipd, B=>B1_ipd, C=>GNDI, D=>GNDI, Z=>F1_out);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    wb_manager_inst_nState_1: vmuxregsre0011
+    wb_manager_inst_cState_ret_1_RNO: lut40011
+      port map (A=>A0_ipd, B=>B0_ipd, C=>GNDI, D=>GNDI, Z=>F0_out);
+    wb_manager_inst_cState_ret_2: vmuxregsre0004
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
-    wb_manager_inst_nState_0: vmuxregsre0011
+    wb_manager_inst_cState_ret_1: vmuxregsre0007
       port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
 
     --  INPUT PATH DELAYs
     WireDelay : BLOCK
     BEGIN
-      VitalWireDelay(D1_ipd, D1, tipd_D1);
-      VitalWireDelay(C1_ipd, C1, tipd_C1);
       VitalWireDelay(B1_ipd, B1, tipd_B1);
       VitalWireDelay(A1_ipd, A1, tipd_A1);
       VitalWireDelay(B0_ipd, B0, tipd_B0);
@@ -7435,8 +4874,8 @@
       VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
     END BLOCK;
 
-    VitalBehavior : PROCESS (D1_ipd, C1_ipd, B1_ipd, A1_ipd, B0_ipd, A0_ipd, 
-      DI1_dly, DI0_dly, CLK_dly, F0_out, Q0_out, F1_out, Q1_out)
+    VitalBehavior : PROCESS (B1_ipd, A1_ipd, B0_ipd, A0_ipd, DI1_dly, DI0_dly, 
+      CLK_dly, F0_out, Q0_out, F1_out, Q1_out)
     VARIABLE F0_zd         	: std_logic := 'X';
     VARIABLE F0_GlitchData 	: VitalGlitchDataType;
     VARIABLE Q0_zd         	: std_logic := 'X';
@@ -7531,16 +4970,253 @@
       Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
     VitalPathDelay01 (
       OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
-      Paths      => (0 => (InputChangeTime => D1_ipd'last_event,
-                           PathDelay => tpd_D1_F1,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => C1_ipd'last_event,
-                           PathDelay => tpd_C1_F1,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => B1_ipd'last_event,
+      Paths      => (0 => (InputChangeTime => B1_ipd'last_event,
                            PathDelay => tpd_B1_F1,
                            PathCondition => TRUE),
-                     3 => (InputChangeTime => A1_ipd'last_event,
+                     1 => (InputChangeTime => A1_ipd'last_event,
+                           PathDelay => tpd_A1_F1,
+                           PathCondition => TRUE)),
+      GlitchData => F1_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
+      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
+                           PathDelay => tpd_CLK_Q1,
+                           PathCondition => TRUE)),
+      GlitchData => Q1_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+
+    END PROCESS;
+
+  end Structure;
+
+-- entity wb_manager_inst_SLICE_27
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity wb_manager_inst_SLICE_27 is
+    -- miscellaneous vital GENERICs
+    GENERIC (
+      TimingChecksOn	: boolean := TRUE;
+      XOn           	: boolean := FALSE;
+      MsgOn         	: boolean := TRUE;
+      InstancePath  	: string := "wb_manager_inst_SLICE_27";
+
+      tipd_B1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_B0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_DI1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
+      tpd_B1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_B0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
+      ticd_CLK	: VitalDelayType := 0 ns;
+      tisd_DI1_CLK	: VitalDelayType := 0 ns;
+      tsetup_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_DI1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      tisd_DI0_CLK	: VitalDelayType := 0 ns;
+      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      tperiod_CLK 	: VitalDelayType := 0 ns;
+      tpw_CLK_posedge	: VitalDelayType := 0 ns;
+      tpw_CLK_negedge	: VitalDelayType := 0 ns);
+
+    port (B1: in Std_logic; A1: in Std_logic; B0: in Std_logic; 
+          A0: in Std_logic; DI1: in Std_logic; DI0: in Std_logic; 
+          CLK: in Std_logic; F0: out Std_logic; Q0: out Std_logic; 
+          F1: out Std_logic; Q1: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF wb_manager_inst_SLICE_27 : ENTITY IS TRUE;
+
+  end wb_manager_inst_SLICE_27;
+
+  architecture Structure of wb_manager_inst_SLICE_27 is
+    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
+
+    signal B1_ipd 	: std_logic := 'X';
+    signal A1_ipd 	: std_logic := 'X';
+    signal B0_ipd 	: std_logic := 'X';
+    signal A0_ipd 	: std_logic := 'X';
+    signal DI1_ipd 	: std_logic := 'X';
+    signal DI1_dly 	: std_logic := 'X';
+    signal DI0_ipd 	: std_logic := 'X';
+    signal DI0_dly 	: std_logic := 'X';
+    signal CLK_ipd 	: std_logic := 'X';
+    signal CLK_dly 	: std_logic := 'X';
+    signal F0_out 	: std_logic := 'X';
+    signal Q0_out 	: std_logic := 'X';
+    signal F1_out 	: std_logic := 'X';
+    signal Q1_out 	: std_logic := 'X';
+
+    signal GNDI: Std_logic;
+    signal VCCI: Std_logic;
+    component vcc
+      port (PWR1: out Std_logic);
+    end component;
+    component gnd
+      port (PWR0: out Std_logic);
+    end component;
+    component vmuxregsre0004
+      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
+            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
+            Q: out Std_logic);
+    end component;
+    component vmuxregsre0007
+      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
+            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
+            Q: out Std_logic);
+    end component;
+    component lut40010
+      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+            Z: out Std_logic);
+    end component;
+    component lut40011
+      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+            Z: out Std_logic);
+    end component;
+  begin
+    wb_manager_inst_cState_ret_4_RNO: lut40011
+      port map (A=>A1_ipd, B=>B1_ipd, C=>GNDI, D=>GNDI, Z=>F1_out);
+    DRIVEGND: gnd
+      port map (PWR0=>GNDI);
+    wb_manager_inst_cState_ret_3_RNO: lut40010
+      port map (A=>A0_ipd, B=>B0_ipd, C=>GNDI, D=>GNDI, Z=>F0_out);
+    wb_manager_inst_cState_ret_4: vmuxregsre0007
+      port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
+                LSR=>GNDI, Q=>Q1_out);
+    DRIVEVCC: vcc
+      port map (PWR1=>VCCI);
+    wb_manager_inst_cState_ret_3: vmuxregsre0004
+      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
+                LSR=>GNDI, Q=>Q0_out);
+
+    --  INPUT PATH DELAYs
+    WireDelay : BLOCK
+    BEGIN
+      VitalWireDelay(B1_ipd, B1, tipd_B1);
+      VitalWireDelay(A1_ipd, A1, tipd_A1);
+      VitalWireDelay(B0_ipd, B0, tipd_B0);
+      VitalWireDelay(A0_ipd, A0, tipd_A0);
+      VitalWireDelay(DI1_ipd, DI1, tipd_DI1);
+      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
+      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
+    END BLOCK;
+
+    --  Setup and Hold DELAYs
+    SignalDelay : BLOCK
+    BEGIN
+      VitalSignalDelay(DI1_dly, DI1_ipd, tisd_DI1_CLK);
+      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
+      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
+    END BLOCK;
+
+    VitalBehavior : PROCESS (B1_ipd, A1_ipd, B0_ipd, A0_ipd, DI1_dly, DI0_dly, 
+      CLK_dly, F0_out, Q0_out, F1_out, Q1_out)
+    VARIABLE F0_zd         	: std_logic := 'X';
+    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
+    VARIABLE Q0_zd         	: std_logic := 'X';
+    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
+    VARIABLE F1_zd         	: std_logic := 'X';
+    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
+    VARIABLE Q1_zd         	: std_logic := 'X';
+    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
+
+    VARIABLE tviol_DI1_CLK       	: x01 := '0';
+    VARIABLE DI1_CLK_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_DI0_CLK       	: x01 := '0';
+    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_CLK_CLK          	: x01 := '0';
+    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
+
+    BEGIN
+
+    IF (TimingChecksOn) THEN
+      VitalSetupHoldCheck (
+        TestSignal => DI1_dly,
+        TestSignalName => "DI1",
+        TestDelay => tisd_DI1_CLK,
+        RefSignal => CLK_dly,
+        RefSignalName => "CLK",
+        RefDelay => ticd_CLK,
+        SetupHigh => tsetup_DI1_CLK_noedge_posedge,
+        SetupLow => tsetup_DI1_CLK_noedge_posedge,
+        HoldHigh => thold_DI1_CLK_noedge_posedge,
+        HoldLow => thold_DI1_CLK_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => DI1_CLK_TimingDatash,
+        Violation => tviol_DI1_CLK,
+        MsgSeverity => warning);
+      VitalSetupHoldCheck (
+        TestSignal => DI0_dly,
+        TestSignalName => "DI0",
+        TestDelay => tisd_DI0_CLK,
+        RefSignal => CLK_dly,
+        RefSignalName => "CLK",
+        RefDelay => ticd_CLK,
+        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
+        SetupLow => tsetup_DI0_CLK_noedge_posedge,
+        HoldHigh => thold_DI0_CLK_noedge_posedge,
+        HoldLow => thold_DI0_CLK_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => DI0_CLK_TimingDatash,
+        Violation => tviol_DI0_CLK,
+        MsgSeverity => warning);
+      VitalPeriodPulseCheck (
+        TestSignal => CLK_ipd,
+        TestSignalName => "CLK",
+        Period => tperiod_CLK,
+        PulseWidthHigh => tpw_CLK_posedge,
+        PulseWidthLow => tpw_CLK_negedge,
+        PeriodData => periodcheckinfo_CLK,
+        Violation => tviol_CLK_CLK,
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        CheckEnabled => TRUE,
+        MsgSeverity => warning);
+
+    END IF;
+
+    F0_zd 	:= F0_out;
+    Q0_zd 	:= Q0_out;
+    F1_zd 	:= F1_out;
+    Q1_zd 	:= Q1_out;
+
+    VitalPathDelay01 (
+      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
+      Paths      => (0 => (InputChangeTime => B0_ipd'last_event,
+                           PathDelay => tpd_B0_F0,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => A0_ipd'last_event,
+                           PathDelay => tpd_A0_F0,
+                           PathCondition => TRUE)),
+      GlitchData => F0_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
+      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
+                           PathDelay => tpd_CLK_Q0,
+                           PathCondition => TRUE)),
+      GlitchData => Q0_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
+      Paths      => (0 => (InputChangeTime => B1_ipd'last_event,
+                           PathDelay => tpd_B1_F1,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => A1_ipd'last_event,
                            PathDelay => tpd_A1_F1,
                            PathCondition => TRUE)),
       GlitchData => F1_GlitchData,
@@ -7574,225 +5250,8 @@
   architecture Structure of lut40012 is
   begin
     INST10: ROM16X1A
-      generic map (initval => X"FFFF")
+      generic map (initval => X"F888")
       port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
-  end Structure;
-
--- entity SLICE_37
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity SLICE_37 is
-    -- miscellaneous vital GENERICs
-    GENERIC (
-      TimingChecksOn	: boolean := TRUE;
-      XOn           	: boolean := FALSE;
-      MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "SLICE_37";
-
-      tipd_B0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_M1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_M0  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
-      tpd_B0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
-      ticd_CLK	: VitalDelayType := 0 ns;
-      tisd_M1_CLK	: VitalDelayType := 0 ns;
-      tsetup_M1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_M1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tisd_M0_CLK	: VitalDelayType := 0 ns;
-      tsetup_M0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_M0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tperiod_CLK 	: VitalDelayType := 0 ns;
-      tpw_CLK_posedge	: VitalDelayType := 0 ns;
-      tpw_CLK_negedge	: VitalDelayType := 0 ns);
-
-    port (B0: in Std_logic; A0: in Std_logic; M1: in Std_logic; 
-          M0: in Std_logic; CLK: in Std_logic; F0: out Std_logic; 
-          Q0: out Std_logic; F1: out Std_logic; Q1: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF SLICE_37 : ENTITY IS TRUE;
-
-  end SLICE_37;
-
-  architecture Structure of SLICE_37 is
-    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
-
-    signal B0_ipd 	: std_logic := 'X';
-    signal A0_ipd 	: std_logic := 'X';
-    signal M1_ipd 	: std_logic := 'X';
-    signal M1_dly 	: std_logic := 'X';
-    signal M0_ipd 	: std_logic := 'X';
-    signal M0_dly 	: std_logic := 'X';
-    signal CLK_ipd 	: std_logic := 'X';
-    signal CLK_dly 	: std_logic := 'X';
-    signal F0_out 	: std_logic := 'X';
-    signal Q0_out 	: std_logic := 'X';
-    signal F1_out 	: std_logic := 'X';
-    signal Q1_out 	: std_logic := 'X';
-
-    signal GNDI: Std_logic;
-    signal VCCIS: Std_logic;
-    component vcc
-      port (PWR1: out Std_logic);
-    end component;
-    component gnd
-      port (PWR0: out Std_logic);
-    end component;
-    component lut40008
-      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
-            Z: out Std_logic);
-    end component;
-    component vmuxregsre0011
-      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-            Q: out Std_logic);
-    end component;
-    component lut40012
-      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
-            Z: out Std_logic);
-    end component;
-  begin
-    VCCI: lut40012
-      port map (A=>GNDI, B=>GNDI, C=>GNDI, D=>GNDI, Z=>F1_out);
-    DRIVEGND: gnd
-      port map (PWR0=>GNDI);
-    wb_manager_inst_efb_i2c_Inst0_EFBInst_0_RNO_2: lut40008
-      port map (A=>A0_ipd, B=>B0_ipd, C=>GNDI, D=>GNDI, Z=>F0_out);
-    wb_manager_inst_nState_3: vmuxregsre0011
-      port map (D0=>M1_dly, D1=>VCCIS, SD=>GNDI, SP=>VCCIS, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q1_out);
-    DRIVEVCC: vcc
-      port map (PWR1=>VCCIS);
-    wb_manager_inst_nState_2: vmuxregsre0011
-      port map (D0=>M0_dly, D1=>VCCIS, SD=>GNDI, SP=>VCCIS, CK=>CLK_dly, 
-                LSR=>GNDI, Q=>Q0_out);
-
-    --  INPUT PATH DELAYs
-    WireDelay : BLOCK
-    BEGIN
-      VitalWireDelay(B0_ipd, B0, tipd_B0);
-      VitalWireDelay(A0_ipd, A0, tipd_A0);
-      VitalWireDelay(M1_ipd, M1, tipd_M1);
-      VitalWireDelay(M0_ipd, M0, tipd_M0);
-      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
-    END BLOCK;
-
-    --  Setup and Hold DELAYs
-    SignalDelay : BLOCK
-    BEGIN
-      VitalSignalDelay(M1_dly, M1_ipd, tisd_M1_CLK);
-      VitalSignalDelay(M0_dly, M0_ipd, tisd_M0_CLK);
-      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
-    END BLOCK;
-
-    VitalBehavior : PROCESS (B0_ipd, A0_ipd, M1_dly, M0_dly, CLK_dly, F0_out, 
-      Q0_out, F1_out, Q1_out)
-    VARIABLE F0_zd         	: std_logic := 'X';
-    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q0_zd         	: std_logic := 'X';
-    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
-    VARIABLE Q1_zd         	: std_logic := 'X';
-    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
-
-    VARIABLE tviol_M1_CLK       	: x01 := '0';
-    VARIABLE M1_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_M0_CLK       	: x01 := '0';
-    VARIABLE M0_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_CLK_CLK          	: x01 := '0';
-    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
-
-    BEGIN
-
-    IF (TimingChecksOn) THEN
-      VitalSetupHoldCheck (
-        TestSignal => M1_dly,
-        TestSignalName => "M1",
-        TestDelay => tisd_M1_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_M1_CLK_noedge_posedge,
-        SetupLow => tsetup_M1_CLK_noedge_posedge,
-        HoldHigh => thold_M1_CLK_noedge_posedge,
-        HoldLow => thold_M1_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => M1_CLK_TimingDatash,
-        Violation => tviol_M1_CLK,
-        MsgSeverity => warning);
-      VitalSetupHoldCheck (
-        TestSignal => M0_dly,
-        TestSignalName => "M0",
-        TestDelay => tisd_M0_CLK,
-        RefSignal => CLK_dly,
-        RefSignalName => "CLK",
-        RefDelay => ticd_CLK,
-        SetupHigh => tsetup_M0_CLK_noedge_posedge,
-        SetupLow => tsetup_M0_CLK_noedge_posedge,
-        HoldHigh => thold_M0_CLK_noedge_posedge,
-        HoldLow => thold_M0_CLK_noedge_posedge,
-        CheckEnabled => TRUE,
-        RefTransition => '/',
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        TimingData => M0_CLK_TimingDatash,
-        Violation => tviol_M0_CLK,
-        MsgSeverity => warning);
-      VitalPeriodPulseCheck (
-        TestSignal => CLK_ipd,
-        TestSignalName => "CLK",
-        Period => tperiod_CLK,
-        PulseWidthHigh => tpw_CLK_posedge,
-        PulseWidthLow => tpw_CLK_negedge,
-        PeriodData => periodcheckinfo_CLK,
-        Violation => tviol_CLK_CLK,
-        MsgOn => MsgOn, XOn => XOn,
-        HeaderMsg => InstancePath,
-        CheckEnabled => TRUE,
-        MsgSeverity => warning);
-
-    END IF;
-
-    F0_zd 	:= F0_out;
-    Q0_zd 	:= Q0_out;
-    F1 	<= F1_out;
-    Q1_zd 	:= Q1_out;
-
-    VitalPathDelay01 (
-      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
-      Paths      => (0 => (InputChangeTime => B0_ipd'last_event,
-                           PathDelay => tpd_B0_F0,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F0,
-                           PathCondition => TRUE)),
-      GlitchData => F0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q0,
-                           PathCondition => TRUE)),
-      GlitchData => Q0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q1,
-                           PathCondition => TRUE)),
-      GlitchData => Q1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-
-    END PROCESS;
-
   end Structure;
 
 -- entity lut40013
@@ -7812,69 +5271,48 @@
   architecture Structure of lut40013 is
   begin
     INST10: ROM16X1A
-      generic map (initval => X"FEDC")
+      generic map (initval => X"2222")
       port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
   end Structure;
 
--- entity lut40014
+-- entity vmuxregsre0014
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity lut40014 is
-    port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
-          Z: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF lut40014 : ENTITY IS TRUE;
-
-  end lut40014;
-
-  architecture Structure of lut40014 is
-  begin
-    INST10: ROM16X1A
-      generic map (initval => X"4444")
-      port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
-  end Structure;
-
--- entity vmuxregsre0015
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity vmuxregsre0015 is
+  entity vmuxregsre0014 is
     port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
           SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
           Q: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF vmuxregsre0015 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF vmuxregsre0014 : ENTITY IS TRUE;
 
-  end vmuxregsre0015;
+  end vmuxregsre0014;
 
-  architecture Structure of vmuxregsre0015 is
+  architecture Structure of vmuxregsre0014 is
     signal GATE: Std_logic;
   begin
     INST50: AND2
       port map (A=>SP, B=>CK, Z=>GATE);
-    INST01: FL1S1B
+    INST01: FL1S1D
       generic map (GSR => "DISABLED")
-      port map (D0=>D0, D1=>D1, CK=>GATE, SD=>SD, PD=>LSR, Q=>Q);
+      port map (D0=>D0, D1=>D1, CK=>GATE, SD=>SD, CD=>LSR, Q=>Q);
   end Structure;
 
--- entity wb_manager_inst_SLICE_38
+-- entity wb_manager_inst_SLICE_28
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity wb_manager_inst_SLICE_38 is
+  entity wb_manager_inst_SLICE_28 is
     -- miscellaneous vital GENERICs
     GENERIC (
       TimingChecksOn	: boolean := TRUE;
       XOn           	: boolean := FALSE;
       MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "wb_manager_inst_SLICE_38";
+      InstancePath  	: string := "wb_manager_inst_SLICE_28";
 
       tipd_D1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_C1  	: VitalDelayType01 := (0 ns, 0 ns);
@@ -7910,11 +5348,11 @@
           F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
           Q1: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF wb_manager_inst_SLICE_38 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF wb_manager_inst_SLICE_28 : ENTITY IS TRUE;
 
-  end wb_manager_inst_SLICE_38;
+  end wb_manager_inst_SLICE_28;
 
-  architecture Structure of wb_manager_inst_SLICE_38 is
+  architecture Structure of wb_manager_inst_SLICE_28 is
     ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
 
     signal D1_ipd 	: std_logic := 'X';
@@ -7942,37 +5380,32 @@
     component gnd
       port (PWR0: out Std_logic);
     end component;
-    component vmuxregsre0011
-      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
-            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
-            Q: out Std_logic);
+    component lut40012
+      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+            Z: out Std_logic);
     end component;
     component lut40013
       port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
             Z: out Std_logic);
     end component;
-    component lut40014
-      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
-            Z: out Std_logic);
-    end component;
-    component vmuxregsre0015
+    component vmuxregsre0014
       port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
             SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
             Q: out Std_logic);
     end component;
   begin
-    wb_manager_inst_nState_1_0_5: lut40013
+    wb_manager_inst_nState_1_0_0_1: lut40012
       port map (A=>A1_ipd, B=>B1_ipd, C=>C1_ipd, D=>D1_ipd, Z=>F1_out);
-    wb_manager_inst_nState_RNO_4: lut40014
+    wb_manager_inst_nState_1_sqmuxa_2_0_a2: lut40013
       port map (A=>A0_ipd, B=>B0_ipd, C=>GNDI, D=>GNDI, Z=>F0_out);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    wb_manager_inst_nState_5: vmuxregsre0015
+    wb_manager_inst_nState_1: vmuxregsre0014
       port map (D0=>VCCI, D1=>DI1_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
-    wb_manager_inst_nState_4: vmuxregsre0011
+    wb_manager_inst_nState_0: vmuxregsre0014
       port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
 
@@ -8120,95 +5553,85 @@
 
   end Structure;
 
--- entity lut40016
+-- entity lut40015
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity lut40016 is
+  entity lut40015 is
     port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
           Z: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF lut40016 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF lut40015 : ENTITY IS TRUE;
 
-  end lut40016;
+  end lut40015;
 
-  architecture Structure of lut40016 is
+  architecture Structure of lut40015 is
   begin
     INST10: ROM16X1A
-      generic map (initval => X"AA2A")
+      generic map (initval => X"4444")
       port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
   end Structure;
 
--- entity SLICE_39
+-- entity wb_manager_inst_SLICE_30
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity SLICE_39 is
+  entity wb_manager_inst_SLICE_30 is
     -- miscellaneous vital GENERICs
     GENERIC (
       TimingChecksOn	: boolean := TRUE;
       XOn           	: boolean := FALSE;
       MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "SLICE_39";
+      InstancePath  	: string := "wb_manager_inst_SLICE_30";
 
-      tipd_D1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_C1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_B1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_C0  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_B0  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_M1  	: VitalDelayType01 := (0 ns, 0 ns);
-      tipd_M0  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
-      tpd_D1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_C1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_B1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
-      tpd_C0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_B0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
       ticd_CLK	: VitalDelayType := 0 ns;
+      tisd_DI0_CLK	: VitalDelayType := 0 ns;
+      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
       tisd_M1_CLK	: VitalDelayType := 0 ns;
       tsetup_M1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
       thold_M1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      tisd_M0_CLK	: VitalDelayType := 0 ns;
-      tsetup_M0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
-      thold_M0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
       tperiod_CLK 	: VitalDelayType := 0 ns;
       tpw_CLK_posedge	: VitalDelayType := 0 ns;
       tpw_CLK_negedge	: VitalDelayType := 0 ns);
 
-    port (D1: in Std_logic; C1: in Std_logic; B1: in Std_logic; 
-          A1: in Std_logic; C0: in Std_logic; B0: in Std_logic; 
-          A0: in Std_logic; M1: in Std_logic; M0: in Std_logic; 
+    port (B1: in Std_logic; A1: in Std_logic; B0: in Std_logic; 
+          A0: in Std_logic; DI0: in Std_logic; M1: in Std_logic; 
           CLK: in Std_logic; F0: out Std_logic; Q0: out Std_logic; 
           F1: out Std_logic; Q1: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF SLICE_39 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF wb_manager_inst_SLICE_30 : ENTITY IS TRUE;
 
-  end SLICE_39;
+  end wb_manager_inst_SLICE_30;
 
-  architecture Structure of SLICE_39 is
+  architecture Structure of wb_manager_inst_SLICE_30 is
     ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
 
-    signal D1_ipd 	: std_logic := 'X';
-    signal C1_ipd 	: std_logic := 'X';
     signal B1_ipd 	: std_logic := 'X';
     signal A1_ipd 	: std_logic := 'X';
-    signal C0_ipd 	: std_logic := 'X';
     signal B0_ipd 	: std_logic := 'X';
     signal A0_ipd 	: std_logic := 'X';
+    signal DI0_ipd 	: std_logic := 'X';
+    signal DI0_dly 	: std_logic := 'X';
     signal M1_ipd 	: std_logic := 'X';
     signal M1_dly 	: std_logic := 'X';
-    signal M0_ipd 	: std_logic := 'X';
-    signal M0_dly 	: std_logic := 'X';
     signal CLK_ipd 	: std_logic := 'X';
     signal CLK_dly 	: std_logic := 'X';
     signal F0_out 	: std_logic := 'X';
@@ -8224,60 +5647,57 @@
     component gnd
       port (PWR0: out Std_logic);
     end component;
-    component vmuxregsre0003
+    component lut40011
+      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+            Z: out Std_logic);
+    end component;
+    component vmuxregsre0014
       port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
             SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
             Q: out Std_logic);
     end component;
-    component lut40006
-      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
-            Z: out Std_logic);
-    end component;
-    component lut40016
+    component lut40015
       port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
             Z: out Std_logic);
     end component;
   begin
-    wb_manager_inst_nState_1_sqmuxa_4_2: lut40016
-      port map (A=>A1_ipd, B=>B1_ipd, C=>C1_ipd, D=>D1_ipd, Z=>F1_out);
-    wb_manager_inst_timeoutIns_op_ge_un3_timeoutlto3: lut40006
-      port map (A=>A0_ipd, B=>B0_ipd, C=>C0_ipd, D=>GNDI, Z=>F0_out);
+    wb_manager_inst_efb_i2c_Inst0_EFBInst_0_RNO_4: lut40011
+      port map (A=>A1_ipd, B=>B1_ipd, C=>GNDI, D=>GNDI, Z=>F1_out);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    wb_manager_inst_cState_0: vmuxregsre0003
+    wb_manager_inst_nState_RNO_4: lut40015
+      port map (A=>A0_ipd, B=>B0_ipd, C=>GNDI, D=>GNDI, Z=>F0_out);
+    wb_manager_inst_nState_3: vmuxregsre0014
       port map (D0=>M1_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
-    i2c_controller_inst_cState_0_5: vmuxregsre0003
-      port map (D0=>M0_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
+    wb_manager_inst_nState_4: vmuxregsre0014
+      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
 
     --  INPUT PATH DELAYs
     WireDelay : BLOCK
     BEGIN
-      VitalWireDelay(D1_ipd, D1, tipd_D1);
-      VitalWireDelay(C1_ipd, C1, tipd_C1);
       VitalWireDelay(B1_ipd, B1, tipd_B1);
       VitalWireDelay(A1_ipd, A1, tipd_A1);
-      VitalWireDelay(C0_ipd, C0, tipd_C0);
       VitalWireDelay(B0_ipd, B0, tipd_B0);
       VitalWireDelay(A0_ipd, A0, tipd_A0);
+      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
       VitalWireDelay(M1_ipd, M1, tipd_M1);
-      VitalWireDelay(M0_ipd, M0, tipd_M0);
       VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
     END BLOCK;
 
     --  Setup and Hold DELAYs
     SignalDelay : BLOCK
     BEGIN
+      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
       VitalSignalDelay(M1_dly, M1_ipd, tisd_M1_CLK);
-      VitalSignalDelay(M0_dly, M0_ipd, tisd_M0_CLK);
       VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
     END BLOCK;
 
-    VitalBehavior : PROCESS (D1_ipd, C1_ipd, B1_ipd, A1_ipd, C0_ipd, B0_ipd, 
-      A0_ipd, M1_dly, M0_dly, CLK_dly, F0_out, Q0_out, F1_out, Q1_out)
+    VitalBehavior : PROCESS (B1_ipd, A1_ipd, B0_ipd, A0_ipd, DI0_dly, M1_dly, 
+      CLK_dly, F0_out, Q0_out, F1_out, Q1_out)
     VARIABLE F0_zd         	: std_logic := 'X';
     VARIABLE F0_GlitchData 	: VitalGlitchDataType;
     VARIABLE Q0_zd         	: std_logic := 'X';
@@ -8287,16 +5707,34 @@
     VARIABLE Q1_zd         	: std_logic := 'X';
     VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
 
+    VARIABLE tviol_DI0_CLK       	: x01 := '0';
+    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
     VARIABLE tviol_M1_CLK       	: x01 := '0';
     VARIABLE M1_CLK_TimingDatash	: VitalTimingDataType;
-    VARIABLE tviol_M0_CLK       	: x01 := '0';
-    VARIABLE M0_CLK_TimingDatash	: VitalTimingDataType;
     VARIABLE tviol_CLK_CLK          	: x01 := '0';
     VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
 
     BEGIN
 
     IF (TimingChecksOn) THEN
+      VitalSetupHoldCheck (
+        TestSignal => DI0_dly,
+        TestSignalName => "DI0",
+        TestDelay => tisd_DI0_CLK,
+        RefSignal => CLK_dly,
+        RefSignalName => "CLK",
+        RefDelay => ticd_CLK,
+        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
+        SetupLow => tsetup_DI0_CLK_noedge_posedge,
+        HoldHigh => thold_DI0_CLK_noedge_posedge,
+        HoldLow => thold_DI0_CLK_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => DI0_CLK_TimingDatash,
+        Violation => tviol_DI0_CLK,
+        MsgSeverity => warning);
       VitalSetupHoldCheck (
         TestSignal => M1_dly,
         TestSignalName => "M1",
@@ -8315,6 +5753,182 @@
         TimingData => M1_CLK_TimingDatash,
         Violation => tviol_M1_CLK,
         MsgSeverity => warning);
+      VitalPeriodPulseCheck (
+        TestSignal => CLK_ipd,
+        TestSignalName => "CLK",
+        Period => tperiod_CLK,
+        PulseWidthHigh => tpw_CLK_posedge,
+        PulseWidthLow => tpw_CLK_negedge,
+        PeriodData => periodcheckinfo_CLK,
+        Violation => tviol_CLK_CLK,
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        CheckEnabled => TRUE,
+        MsgSeverity => warning);
+
+    END IF;
+
+    F0_zd 	:= F0_out;
+    Q0_zd 	:= Q0_out;
+    F1_zd 	:= F1_out;
+    Q1_zd 	:= Q1_out;
+
+    VitalPathDelay01 (
+      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
+      Paths      => (0 => (InputChangeTime => B0_ipd'last_event,
+                           PathDelay => tpd_B0_F0,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => A0_ipd'last_event,
+                           PathDelay => tpd_A0_F0,
+                           PathCondition => TRUE)),
+      GlitchData => F0_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
+      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
+                           PathDelay => tpd_CLK_Q0,
+                           PathCondition => TRUE)),
+      GlitchData => Q0_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
+      Paths      => (0 => (InputChangeTime => B1_ipd'last_event,
+                           PathDelay => tpd_B1_F1,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => A1_ipd'last_event,
+                           PathDelay => tpd_A1_F1,
+                           PathCondition => TRUE)),
+      GlitchData => F1_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
+      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
+                           PathDelay => tpd_CLK_Q1,
+                           PathCondition => TRUE)),
+      GlitchData => Q1_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+
+    END PROCESS;
+
+  end Structure;
+
+-- entity lut40016
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity lut40016 is
+    port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+          Z: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF lut40016 : ENTITY IS TRUE;
+
+  end lut40016;
+
+  architecture Structure of lut40016 is
+  begin
+    INST10: ROM16X1A
+      generic map (initval => X"FFFF")
+      port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
+  end Structure;
+
+-- entity SLICE_31
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity SLICE_31 is
+    -- miscellaneous vital GENERICs
+    GENERIC (
+      TimingChecksOn	: boolean := TRUE;
+      XOn           	: boolean := FALSE;
+      MsgOn         	: boolean := TRUE;
+      InstancePath  	: string := "SLICE_31";
+
+      tipd_M0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
+      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
+      ticd_CLK	: VitalDelayType := 0 ns;
+      tisd_M0_CLK	: VitalDelayType := 0 ns;
+      tsetup_M0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_M0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      tperiod_CLK 	: VitalDelayType := 0 ns;
+      tpw_CLK_posedge	: VitalDelayType := 0 ns;
+      tpw_CLK_negedge	: VitalDelayType := 0 ns);
+
+    port (M0: in Std_logic; CLK: in Std_logic; F0: out Std_logic; 
+          Q0: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF SLICE_31 : ENTITY IS TRUE;
+
+  end SLICE_31;
+
+  architecture Structure of SLICE_31 is
+    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
+
+    signal M0_ipd 	: std_logic := 'X';
+    signal M0_dly 	: std_logic := 'X';
+    signal CLK_ipd 	: std_logic := 'X';
+    signal CLK_dly 	: std_logic := 'X';
+    signal F0_out 	: std_logic := 'X';
+    signal Q0_out 	: std_logic := 'X';
+
+    signal GNDI: Std_logic;
+    signal VCCIS: Std_logic;
+    component vcc
+      port (PWR1: out Std_logic);
+    end component;
+    component gnd
+      port (PWR0: out Std_logic);
+    end component;
+    component vmuxregsre0014
+      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
+            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
+            Q: out Std_logic);
+    end component;
+    component lut40016
+      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+            Z: out Std_logic);
+    end component;
+  begin
+    VCCI: lut40016
+      port map (A=>GNDI, B=>GNDI, C=>GNDI, D=>GNDI, Z=>F0_out);
+    DRIVEGND: gnd
+      port map (PWR0=>GNDI);
+    wb_manager_inst_nState_2: vmuxregsre0014
+      port map (D0=>M0_dly, D1=>VCCIS, SD=>GNDI, SP=>VCCIS, CK=>CLK_dly, 
+                LSR=>GNDI, Q=>Q0_out);
+    DRIVEVCC: vcc
+      port map (PWR1=>VCCIS);
+
+    --  INPUT PATH DELAYs
+    WireDelay : BLOCK
+    BEGIN
+      VitalWireDelay(M0_ipd, M0, tipd_M0);
+      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
+    END BLOCK;
+
+    --  Setup and Hold DELAYs
+    SignalDelay : BLOCK
+    BEGIN
+      VitalSignalDelay(M0_dly, M0_ipd, tisd_M0_CLK);
+      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
+    END BLOCK;
+
+    VitalBehavior : PROCESS (M0_dly, CLK_dly, F0_out, Q0_out)
+    VARIABLE Q0_zd         	: std_logic := 'X';
+    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
+
+    VARIABLE tviol_M0_CLK       	: x01 := '0';
+    VARIABLE M0_CLK_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_CLK_CLK          	: x01 := '0';
+    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
+
+    BEGIN
+
+    IF (TimingChecksOn) THEN
       VitalSetupHoldCheck (
         TestSignal => M0_dly,
         TestSignalName => "M0",
@@ -8348,53 +5962,15 @@
 
     END IF;
 
-    F0_zd 	:= F0_out;
+    F0 	<= F0_out;
     Q0_zd 	:= Q0_out;
-    F1_zd 	:= F1_out;
-    Q1_zd 	:= Q1_out;
 
-    VitalPathDelay01 (
-      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
-      Paths      => (0 => (InputChangeTime => C0_ipd'last_event,
-                           PathDelay => tpd_C0_F0,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => B0_ipd'last_event,
-                           PathDelay => tpd_B0_F0,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => A0_ipd'last_event,
-                           PathDelay => tpd_A0_F0,
-                           PathCondition => TRUE)),
-      GlitchData => F0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
     VitalPathDelay01 (
       OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
       Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
                            PathDelay => tpd_CLK_Q0,
                            PathCondition => TRUE)),
       GlitchData => Q0_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
-      Paths      => (0 => (InputChangeTime => D1_ipd'last_event,
-                           PathDelay => tpd_D1_F1,
-                           PathCondition => TRUE),
-                     1 => (InputChangeTime => C1_ipd'last_event,
-                           PathDelay => tpd_C1_F1,
-                           PathCondition => TRUE),
-                     2 => (InputChangeTime => B1_ipd'last_event,
-                           PathDelay => tpd_B1_F1,
-                           PathCondition => TRUE),
-                     3 => (InputChangeTime => A1_ipd'last_event,
-                           PathDelay => tpd_A1_F1,
-                           PathCondition => TRUE)),
-      GlitchData => F1_GlitchData,
-      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
-    VitalPathDelay01 (
-      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
-      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
-                           PathDelay => tpd_CLK_Q1,
-                           PathCondition => TRUE)),
-      GlitchData => Q1_GlitchData,
       Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
 
     END PROCESS;
@@ -8418,44 +5994,299 @@
   architecture Structure of lut40017 is
   begin
     INST10: ROM16X1A
-      generic map (initval => X"CCCD")
+      generic map (initval => X"FEDC")
       port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
   end Structure;
 
--- entity lut40018
+-- entity vmuxregsre0018
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity lut40018 is
-    port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
-          Z: out Std_logic);
+  entity vmuxregsre0018 is
+    port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
+          SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
+          Q: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF lut40018 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF vmuxregsre0018 : ENTITY IS TRUE;
 
-  end lut40018;
+  end vmuxregsre0018;
 
-  architecture Structure of lut40018 is
+  architecture Structure of vmuxregsre0018 is
+    signal GATE: Std_logic;
   begin
-    INST10: ROM16X1A
-      generic map (initval => X"1515")
-      port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
+    INST50: AND2
+      port map (A=>SP, B=>CK, Z=>GATE);
+    INST01: FL1S1B
+      generic map (GSR => "DISABLED")
+      port map (D0=>D0, D1=>D1, CK=>GATE, SD=>SD, PD=>LSR, Q=>Q);
   end Structure;
 
--- entity SLICE_40
+-- entity wb_manager_inst_SLICE_32
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity SLICE_40 is
+  entity wb_manager_inst_SLICE_32 is
     -- miscellaneous vital GENERICs
     GENERIC (
       TimingChecksOn	: boolean := TRUE;
       XOn           	: boolean := FALSE;
       MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "SLICE_40";
+      InstancePath  	: string := "wb_manager_inst_SLICE_32";
+
+      tipd_B1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_D0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_C0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_B0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_DI0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
+      tpd_B1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_D0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_C0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_B0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
+      ticd_CLK	: VitalDelayType := 0 ns;
+      tisd_DI0_CLK	: VitalDelayType := 0 ns;
+      tsetup_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_DI0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      tperiod_CLK 	: VitalDelayType := 0 ns;
+      tpw_CLK_posedge	: VitalDelayType := 0 ns;
+      tpw_CLK_negedge	: VitalDelayType := 0 ns);
+
+    port (B1: in Std_logic; A1: in Std_logic; D0: in Std_logic; 
+          C0: in Std_logic; B0: in Std_logic; A0: in Std_logic; 
+          DI0: in Std_logic; CLK: in Std_logic; F0: out Std_logic; 
+          Q0: out Std_logic; F1: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF wb_manager_inst_SLICE_32 : ENTITY IS TRUE;
+
+  end wb_manager_inst_SLICE_32;
+
+  architecture Structure of wb_manager_inst_SLICE_32 is
+    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
+
+    signal B1_ipd 	: std_logic := 'X';
+    signal A1_ipd 	: std_logic := 'X';
+    signal D0_ipd 	: std_logic := 'X';
+    signal C0_ipd 	: std_logic := 'X';
+    signal B0_ipd 	: std_logic := 'X';
+    signal A0_ipd 	: std_logic := 'X';
+    signal DI0_ipd 	: std_logic := 'X';
+    signal DI0_dly 	: std_logic := 'X';
+    signal CLK_ipd 	: std_logic := 'X';
+    signal CLK_dly 	: std_logic := 'X';
+    signal F0_out 	: std_logic := 'X';
+    signal Q0_out 	: std_logic := 'X';
+    signal F1_out 	: std_logic := 'X';
+
+    signal GNDI: Std_logic;
+    signal VCCI: Std_logic;
+    component vcc
+      port (PWR1: out Std_logic);
+    end component;
+    component gnd
+      port (PWR0: out Std_logic);
+    end component;
+    component lut40015
+      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+            Z: out Std_logic);
+    end component;
+    component lut40017
+      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+            Z: out Std_logic);
+    end component;
+    component vmuxregsre0018
+      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
+            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
+            Q: out Std_logic);
+    end component;
+  begin
+    wb_manager_inst_efb_i2c_Inst0_EFBInst_0_RNO: lut40015
+      port map (A=>A1_ipd, B=>B1_ipd, C=>GNDI, D=>GNDI, Z=>F1_out);
+    DRIVEGND: gnd
+      port map (PWR0=>GNDI);
+    wb_manager_inst_nState_1_0_5: lut40017
+      port map (A=>A0_ipd, B=>B0_ipd, C=>C0_ipd, D=>D0_ipd, Z=>F0_out);
+    wb_manager_inst_nState_5: vmuxregsre0018
+      port map (D0=>VCCI, D1=>DI0_dly, SD=>VCCI, SP=>VCCI, CK=>CLK_dly, 
+                LSR=>GNDI, Q=>Q0_out);
+    DRIVEVCC: vcc
+      port map (PWR1=>VCCI);
+
+    --  INPUT PATH DELAYs
+    WireDelay : BLOCK
+    BEGIN
+      VitalWireDelay(B1_ipd, B1, tipd_B1);
+      VitalWireDelay(A1_ipd, A1, tipd_A1);
+      VitalWireDelay(D0_ipd, D0, tipd_D0);
+      VitalWireDelay(C0_ipd, C0, tipd_C0);
+      VitalWireDelay(B0_ipd, B0, tipd_B0);
+      VitalWireDelay(A0_ipd, A0, tipd_A0);
+      VitalWireDelay(DI0_ipd, DI0, tipd_DI0);
+      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
+    END BLOCK;
+
+    --  Setup and Hold DELAYs
+    SignalDelay : BLOCK
+    BEGIN
+      VitalSignalDelay(DI0_dly, DI0_ipd, tisd_DI0_CLK);
+      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
+    END BLOCK;
+
+    VitalBehavior : PROCESS (B1_ipd, A1_ipd, D0_ipd, C0_ipd, B0_ipd, A0_ipd, 
+      DI0_dly, CLK_dly, F0_out, Q0_out, F1_out)
+    VARIABLE F0_zd         	: std_logic := 'X';
+    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
+    VARIABLE Q0_zd         	: std_logic := 'X';
+    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
+    VARIABLE F1_zd         	: std_logic := 'X';
+    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
+
+    VARIABLE tviol_DI0_CLK       	: x01 := '0';
+    VARIABLE DI0_CLK_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_CLK_CLK          	: x01 := '0';
+    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
+
+    BEGIN
+
+    IF (TimingChecksOn) THEN
+      VitalSetupHoldCheck (
+        TestSignal => DI0_dly,
+        TestSignalName => "DI0",
+        TestDelay => tisd_DI0_CLK,
+        RefSignal => CLK_dly,
+        RefSignalName => "CLK",
+        RefDelay => ticd_CLK,
+        SetupHigh => tsetup_DI0_CLK_noedge_posedge,
+        SetupLow => tsetup_DI0_CLK_noedge_posedge,
+        HoldHigh => thold_DI0_CLK_noedge_posedge,
+        HoldLow => thold_DI0_CLK_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => DI0_CLK_TimingDatash,
+        Violation => tviol_DI0_CLK,
+        MsgSeverity => warning);
+      VitalPeriodPulseCheck (
+        TestSignal => CLK_ipd,
+        TestSignalName => "CLK",
+        Period => tperiod_CLK,
+        PulseWidthHigh => tpw_CLK_posedge,
+        PulseWidthLow => tpw_CLK_negedge,
+        PeriodData => periodcheckinfo_CLK,
+        Violation => tviol_CLK_CLK,
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        CheckEnabled => TRUE,
+        MsgSeverity => warning);
+
+    END IF;
+
+    F0_zd 	:= F0_out;
+    Q0_zd 	:= Q0_out;
+    F1_zd 	:= F1_out;
+
+    VitalPathDelay01 (
+      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
+      Paths      => (0 => (InputChangeTime => D0_ipd'last_event,
+                           PathDelay => tpd_D0_F0,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => C0_ipd'last_event,
+                           PathDelay => tpd_C0_F0,
+                           PathCondition => TRUE),
+                     2 => (InputChangeTime => B0_ipd'last_event,
+                           PathDelay => tpd_B0_F0,
+                           PathCondition => TRUE),
+                     3 => (InputChangeTime => A0_ipd'last_event,
+                           PathDelay => tpd_A0_F0,
+                           PathCondition => TRUE)),
+      GlitchData => F0_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
+      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
+                           PathDelay => tpd_CLK_Q0,
+                           PathCondition => TRUE)),
+      GlitchData => Q0_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
+      Paths      => (0 => (InputChangeTime => B1_ipd'last_event,
+                           PathDelay => tpd_B1_F1,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => A1_ipd'last_event,
+                           PathDelay => tpd_A1_F1,
+                           PathCondition => TRUE)),
+      GlitchData => F1_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+
+    END PROCESS;
+
+  end Structure;
+
+-- entity lut40019
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity lut40019 is
+    port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+          Z: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF lut40019 : ENTITY IS TRUE;
+
+  end lut40019;
+
+  architecture Structure of lut40019 is
+  begin
+    INST10: ROM16X1A
+      generic map (initval => X"AA2A")
+      port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
+  end Structure;
+
+-- entity lut40020
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity lut40020 is
+    port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+          Z: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF lut40020 : ENTITY IS TRUE;
+
+  end lut40020;
+
+  architecture Structure of lut40020 is
+  begin
+    INST10: ROM16X1A
+      generic map (initval => X"0101")
+      port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
+  end Structure;
+
+-- entity SLICE_33
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity SLICE_33 is
+    -- miscellaneous vital GENERICs
+    GENERIC (
+      TimingChecksOn	: boolean := TRUE;
+      XOn           	: boolean := FALSE;
+      MsgOn         	: boolean := TRUE;
+      InstancePath  	: string := "SLICE_33";
 
       tipd_D1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_C1  	: VitalDelayType01 := (0 ns, 0 ns);
@@ -8493,11 +6324,11 @@
           CLK: in Std_logic; F0: out Std_logic; Q0: out Std_logic; 
           F1: out Std_logic; Q1: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF SLICE_40 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF SLICE_33 : ENTITY IS TRUE;
 
-  end SLICE_40;
+  end SLICE_33;
 
-  architecture Structure of SLICE_40 is
+  architecture Structure of SLICE_33 is
     ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
 
     signal D1_ipd 	: std_logic := 'X';
@@ -8526,32 +6357,32 @@
     component gnd
       port (PWR0: out Std_logic);
     end component;
-    component vmuxregsre0011
+    component vmuxregsre0004
       port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
             SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
             Q: out Std_logic);
     end component;
-    component lut40017
+    component lut40019
       port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
             Z: out Std_logic);
     end component;
-    component lut40018
+    component lut40020
       port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
             Z: out Std_logic);
     end component;
   begin
-    wb_manager_inst_cState_RNI5UMA_4: lut40017
+    wb_manager_inst_nState_1_sqmuxa_4_2: lut40019
       port map (A=>A1_ipd, B=>B1_ipd, C=>C1_ipd, D=>D1_ipd, Z=>F1_out);
-    wb_manager_inst_efb_i2c_Inst0_EFBInst_0_RNO_0: lut40018
+    wb_manager_inst_timeoutIns_op_ge_un3_timeoutlto3: lut40020
       port map (A=>A0_ipd, B=>B0_ipd, C=>C0_ipd, D=>GNDI, Z=>F0_out);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    i2c_controller_inst_nState_5: vmuxregsre0011
+    i2c_controller_inst_cState_0_5: vmuxregsre0004
       port map (D0=>M1_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
-    i2c_controller_inst_nState_4: vmuxregsre0011
+    i2c_controller_inst_cState_0_4: vmuxregsre0004
       port map (D0=>M0_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
 
@@ -8703,40 +6534,314 @@
 
   end Structure;
 
--- entity lut40019
+-- entity lut40021
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity lut40019 is
+  entity lut40021 is
     port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
           Z: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF lut40019 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF lut40021 : ENTITY IS TRUE;
 
-  end lut40019;
+  end lut40021;
 
-  architecture Structure of lut40019 is
+  architecture Structure of lut40021 is
+  begin
+    INST10: ROM16X1A
+      generic map (initval => X"CCCD")
+      port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
+  end Structure;
+
+-- entity SLICE_34
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity SLICE_34 is
+    -- miscellaneous vital GENERICs
+    GENERIC (
+      TimingChecksOn	: boolean := TRUE;
+      XOn           	: boolean := FALSE;
+      MsgOn         	: boolean := TRUE;
+      InstancePath  	: string := "SLICE_34";
+
+      tipd_D1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_C1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_B1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_B0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_M1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_M0  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_CLK  	: VitalDelayType01 := (0 ns, 0 ns);
+      tpd_D1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_C1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_B1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_B0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_CLK_Q1	 : VitalDelayType01 := (0 ns, 0 ns);
+      ticd_CLK	: VitalDelayType := 0 ns;
+      tisd_M1_CLK	: VitalDelayType := 0 ns;
+      tsetup_M1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_M1_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      tisd_M0_CLK	: VitalDelayType := 0 ns;
+      tsetup_M0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_M0_CLK_noedge_posedge	: VitalDelayType := 0 ns;
+      tperiod_CLK 	: VitalDelayType := 0 ns;
+      tpw_CLK_posedge	: VitalDelayType := 0 ns;
+      tpw_CLK_negedge	: VitalDelayType := 0 ns);
+
+    port (D1: in Std_logic; C1: in Std_logic; B1: in Std_logic; 
+          A1: in Std_logic; B0: in Std_logic; A0: in Std_logic; 
+          M1: in Std_logic; M0: in Std_logic; CLK: in Std_logic; 
+          F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
+          Q1: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF SLICE_34 : ENTITY IS TRUE;
+
+  end SLICE_34;
+
+  architecture Structure of SLICE_34 is
+    ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
+
+    signal D1_ipd 	: std_logic := 'X';
+    signal C1_ipd 	: std_logic := 'X';
+    signal B1_ipd 	: std_logic := 'X';
+    signal A1_ipd 	: std_logic := 'X';
+    signal B0_ipd 	: std_logic := 'X';
+    signal A0_ipd 	: std_logic := 'X';
+    signal M1_ipd 	: std_logic := 'X';
+    signal M1_dly 	: std_logic := 'X';
+    signal M0_ipd 	: std_logic := 'X';
+    signal M0_dly 	: std_logic := 'X';
+    signal CLK_ipd 	: std_logic := 'X';
+    signal CLK_dly 	: std_logic := 'X';
+    signal F0_out 	: std_logic := 'X';
+    signal Q0_out 	: std_logic := 'X';
+    signal F1_out 	: std_logic := 'X';
+    signal Q1_out 	: std_logic := 'X';
+
+    signal GNDI: Std_logic;
+    signal VCCI: Std_logic;
+    component vcc
+      port (PWR1: out Std_logic);
+    end component;
+    component gnd
+      port (PWR0: out Std_logic);
+    end component;
+    component lut40011
+      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+            Z: out Std_logic);
+    end component;
+    component vmuxregsre0014
+      port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
+            SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
+            Q: out Std_logic);
+    end component;
+    component lut40021
+      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+            Z: out Std_logic);
+    end component;
+  begin
+    wb_manager_inst_cState_RNI5UMA_4: lut40021
+      port map (A=>A1_ipd, B=>B1_ipd, C=>C1_ipd, D=>D1_ipd, Z=>F1_out);
+    wb_manager_inst_efb_i2c_Inst0_EFBInst_0_RNO_0: lut40011
+      port map (A=>A0_ipd, B=>B0_ipd, C=>GNDI, D=>GNDI, Z=>F0_out);
+    DRIVEGND: gnd
+      port map (PWR0=>GNDI);
+    i2c_controller_inst_nState_3: vmuxregsre0014
+      port map (D0=>M1_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
+                LSR=>GNDI, Q=>Q1_out);
+    DRIVEVCC: vcc
+      port map (PWR1=>VCCI);
+    i2c_controller_inst_nState_2: vmuxregsre0014
+      port map (D0=>M0_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
+                LSR=>GNDI, Q=>Q0_out);
+
+    --  INPUT PATH DELAYs
+    WireDelay : BLOCK
+    BEGIN
+      VitalWireDelay(D1_ipd, D1, tipd_D1);
+      VitalWireDelay(C1_ipd, C1, tipd_C1);
+      VitalWireDelay(B1_ipd, B1, tipd_B1);
+      VitalWireDelay(A1_ipd, A1, tipd_A1);
+      VitalWireDelay(B0_ipd, B0, tipd_B0);
+      VitalWireDelay(A0_ipd, A0, tipd_A0);
+      VitalWireDelay(M1_ipd, M1, tipd_M1);
+      VitalWireDelay(M0_ipd, M0, tipd_M0);
+      VitalWireDelay(CLK_ipd, CLK, tipd_CLK);
+    END BLOCK;
+
+    --  Setup and Hold DELAYs
+    SignalDelay : BLOCK
+    BEGIN
+      VitalSignalDelay(M1_dly, M1_ipd, tisd_M1_CLK);
+      VitalSignalDelay(M0_dly, M0_ipd, tisd_M0_CLK);
+      VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
+    END BLOCK;
+
+    VitalBehavior : PROCESS (D1_ipd, C1_ipd, B1_ipd, A1_ipd, B0_ipd, A0_ipd, 
+      M1_dly, M0_dly, CLK_dly, F0_out, Q0_out, F1_out, Q1_out)
+    VARIABLE F0_zd         	: std_logic := 'X';
+    VARIABLE F0_GlitchData 	: VitalGlitchDataType;
+    VARIABLE Q0_zd         	: std_logic := 'X';
+    VARIABLE Q0_GlitchData 	: VitalGlitchDataType;
+    VARIABLE F1_zd         	: std_logic := 'X';
+    VARIABLE F1_GlitchData 	: VitalGlitchDataType;
+    VARIABLE Q1_zd         	: std_logic := 'X';
+    VARIABLE Q1_GlitchData 	: VitalGlitchDataType;
+
+    VARIABLE tviol_M1_CLK       	: x01 := '0';
+    VARIABLE M1_CLK_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_M0_CLK       	: x01 := '0';
+    VARIABLE M0_CLK_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_CLK_CLK          	: x01 := '0';
+    VARIABLE periodcheckinfo_CLK	: VitalPeriodDataType;
+
+    BEGIN
+
+    IF (TimingChecksOn) THEN
+      VitalSetupHoldCheck (
+        TestSignal => M1_dly,
+        TestSignalName => "M1",
+        TestDelay => tisd_M1_CLK,
+        RefSignal => CLK_dly,
+        RefSignalName => "CLK",
+        RefDelay => ticd_CLK,
+        SetupHigh => tsetup_M1_CLK_noedge_posedge,
+        SetupLow => tsetup_M1_CLK_noedge_posedge,
+        HoldHigh => thold_M1_CLK_noedge_posedge,
+        HoldLow => thold_M1_CLK_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => M1_CLK_TimingDatash,
+        Violation => tviol_M1_CLK,
+        MsgSeverity => warning);
+      VitalSetupHoldCheck (
+        TestSignal => M0_dly,
+        TestSignalName => "M0",
+        TestDelay => tisd_M0_CLK,
+        RefSignal => CLK_dly,
+        RefSignalName => "CLK",
+        RefDelay => ticd_CLK,
+        SetupHigh => tsetup_M0_CLK_noedge_posedge,
+        SetupLow => tsetup_M0_CLK_noedge_posedge,
+        HoldHigh => thold_M0_CLK_noedge_posedge,
+        HoldLow => thold_M0_CLK_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => M0_CLK_TimingDatash,
+        Violation => tviol_M0_CLK,
+        MsgSeverity => warning);
+      VitalPeriodPulseCheck (
+        TestSignal => CLK_ipd,
+        TestSignalName => "CLK",
+        Period => tperiod_CLK,
+        PulseWidthHigh => tpw_CLK_posedge,
+        PulseWidthLow => tpw_CLK_negedge,
+        PeriodData => periodcheckinfo_CLK,
+        Violation => tviol_CLK_CLK,
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        CheckEnabled => TRUE,
+        MsgSeverity => warning);
+
+    END IF;
+
+    F0_zd 	:= F0_out;
+    Q0_zd 	:= Q0_out;
+    F1_zd 	:= F1_out;
+    Q1_zd 	:= Q1_out;
+
+    VitalPathDelay01 (
+      OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
+      Paths      => (0 => (InputChangeTime => B0_ipd'last_event,
+                           PathDelay => tpd_B0_F0,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => A0_ipd'last_event,
+                           PathDelay => tpd_A0_F0,
+                           PathCondition => TRUE)),
+      GlitchData => F0_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => Q0, OutSignalName => "Q0", OutTemp => Q0_zd,
+      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
+                           PathDelay => tpd_CLK_Q0,
+                           PathCondition => TRUE)),
+      GlitchData => Q0_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => F1, OutSignalName => "F1", OutTemp => F1_zd,
+      Paths      => (0 => (InputChangeTime => D1_ipd'last_event,
+                           PathDelay => tpd_D1_F1,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => C1_ipd'last_event,
+                           PathDelay => tpd_C1_F1,
+                           PathCondition => TRUE),
+                     2 => (InputChangeTime => B1_ipd'last_event,
+                           PathDelay => tpd_B1_F1,
+                           PathCondition => TRUE),
+                     3 => (InputChangeTime => A1_ipd'last_event,
+                           PathDelay => tpd_A1_F1,
+                           PathCondition => TRUE)),
+      GlitchData => F1_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+    VitalPathDelay01 (
+      OutSignal => Q1, OutSignalName => "Q1", OutTemp => Q1_zd,
+      Paths      => (0 => (InputChangeTime => CLK_dly'last_event,
+                           PathDelay => tpd_CLK_Q1,
+                           PathCondition => TRUE)),
+      GlitchData => Q1_GlitchData,
+      Mode       => ondetect, XOn => XOn, MsgOn => MsgOn);
+
+    END PROCESS;
+
+  end Structure;
+
+-- entity lut40022
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity lut40022 is
+    port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+          Z: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF lut40022 : ENTITY IS TRUE;
+
+  end lut40022;
+
+  architecture Structure of lut40022 is
   begin
     INST10: ROM16X1A
       generic map (initval => X"7FFF")
       port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
   end Structure;
 
--- entity SLICE_41
+-- entity SLICE_35
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity SLICE_41 is
+  entity SLICE_35 is
     -- miscellaneous vital GENERICs
     GENERIC (
       TimingChecksOn	: boolean := TRUE;
       XOn           	: boolean := FALSE;
       MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "SLICE_41";
+      InstancePath  	: string := "SLICE_35";
 
       tipd_B1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
@@ -8772,11 +6877,11 @@
           F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
           Q1: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF SLICE_41 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF SLICE_35 : ENTITY IS TRUE;
 
-  end SLICE_41;
+  end SLICE_35;
 
-  architecture Structure of SLICE_41 is
+  architecture Structure of SLICE_35 is
     ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
 
     signal B1_ipd 	: std_logic := 'X';
@@ -8804,32 +6909,32 @@
     component gnd
       port (PWR0: out Std_logic);
     end component;
-    component vmuxregsre0003
+    component vmuxregsre0004
       port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
             SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
             Q: out Std_logic);
     end component;
-    component lut40008
+    component lut40011
       port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
             Z: out Std_logic);
     end component;
-    component lut40019
+    component lut40022
       port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
             Z: out Std_logic);
     end component;
   begin
-    wb_manager_inst_nState_1_sqmuxa_4_3: lut40008
+    wb_manager_inst_nState_1_sqmuxa_4_3: lut40011
       port map (A=>A1_ipd, B=>B1_ipd, C=>GNDI, D=>GNDI, Z=>F1_out);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    wb_manager_inst_nState_1_sqmuxa_4_i: lut40019
+    wb_manager_inst_nState_1_sqmuxa_4_i: lut40022
       port map (A=>A0_ipd, B=>B0_ipd, C=>C0_ipd, D=>D0_ipd, Z=>F0_out);
-    i2c_controller_inst_cState_0_4: vmuxregsre0003
+    i2c_controller_inst_cState_0_3: vmuxregsre0004
       port map (D0=>M1_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
-    i2c_controller_inst_cState_0_3: vmuxregsre0003
+    i2c_controller_inst_cState_0_2: vmuxregsre0004
       port map (D0=>M0_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
 
@@ -8977,45 +7082,67 @@
 
   end Structure;
 
--- entity lut40020
+-- entity lut40023
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity lut40020 is
+  entity lut40023 is
     port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
           Z: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF lut40020 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF lut40023 : ENTITY IS TRUE;
 
-  end lut40020;
+  end lut40023;
 
-  architecture Structure of lut40020 is
+  architecture Structure of lut40023 is
   begin
     INST10: ROM16X1A
-      generic map (initval => X"0F0E")
+      generic map (initval => X"4555")
       port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
   end Structure;
 
--- entity SLICE_42
+-- entity lut40024
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity SLICE_42 is
+  entity lut40024 is
+    port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+          Z: out Std_logic);
+
+    ATTRIBUTE Vital_Level0 OF lut40024 : ENTITY IS TRUE;
+
+  end lut40024;
+
+  architecture Structure of lut40024 is
+  begin
+    INST10: ROM16X1A
+      generic map (initval => X"5151")
+      port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
+  end Structure;
+
+-- entity SLICE_36
+  library IEEE, vital2000, MACHXO2;
+  use IEEE.STD_LOGIC_1164.all;
+  use vital2000.vital_timing.all;
+  use MACHXO2.COMPONENTS.ALL;
+
+  entity SLICE_36 is
     -- miscellaneous vital GENERICs
     GENERIC (
       TimingChecksOn	: boolean := TRUE;
       XOn           	: boolean := FALSE;
       MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "SLICE_42";
+      InstancePath  	: string := "SLICE_36";
 
       tipd_D1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_C1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_B1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
+      tipd_C0  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_B0  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_A0  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_M1  	: VitalDelayType01 := (0 ns, 0 ns);
@@ -9025,6 +7152,7 @@
       tpd_C1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_B1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_A1_F1	 : VitalDelayType01 := (0 ns, 0 ns);
+      tpd_C0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_B0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_A0_F0	 : VitalDelayType01 := (0 ns, 0 ns);
       tpd_CLK_Q0	 : VitalDelayType01 := (0 ns, 0 ns);
@@ -9041,22 +7169,23 @@
       tpw_CLK_negedge	: VitalDelayType := 0 ns);
 
     port (D1: in Std_logic; C1: in Std_logic; B1: in Std_logic; 
-          A1: in Std_logic; B0: in Std_logic; A0: in Std_logic; 
-          M1: in Std_logic; M0: in Std_logic; CLK: in Std_logic; 
-          F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-          Q1: out Std_logic);
+          A1: in Std_logic; C0: in Std_logic; B0: in Std_logic; 
+          A0: in Std_logic; M1: in Std_logic; M0: in Std_logic; 
+          CLK: in Std_logic; F0: out Std_logic; Q0: out Std_logic; 
+          F1: out Std_logic; Q1: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF SLICE_42 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF SLICE_36 : ENTITY IS TRUE;
 
-  end SLICE_42;
+  end SLICE_36;
 
-  architecture Structure of SLICE_42 is
+  architecture Structure of SLICE_36 is
     ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
 
     signal D1_ipd 	: std_logic := 'X';
     signal C1_ipd 	: std_logic := 'X';
     signal B1_ipd 	: std_logic := 'X';
     signal A1_ipd 	: std_logic := 'X';
+    signal C0_ipd 	: std_logic := 'X';
     signal B0_ipd 	: std_logic := 'X';
     signal A0_ipd 	: std_logic := 'X';
     signal M1_ipd 	: std_logic := 'X';
@@ -9078,32 +7207,32 @@
     component gnd
       port (PWR0: out Std_logic);
     end component;
-    component vmuxregsre0011
+    component vmuxregsre0014
       port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
             SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
             Q: out Std_logic);
     end component;
-    component lut40014
+    component lut40023
       port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
             Z: out Std_logic);
     end component;
-    component lut40020
+    component lut40024
       port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
             Z: out Std_logic);
     end component;
   begin
-    wb_manager_inst_efb_i2c_Inst0_EFBInst_0_RNO_4: lut40020
+    wb_manager_inst_efb_i2c_Inst0_EFBInst_0_RNO_3: lut40023
       port map (A=>A1_ipd, B=>B1_ipd, C=>C1_ipd, D=>D1_ipd, Z=>F1_out);
-    wb_manager_inst_efb_i2c_Inst0_EFBInst_0_RNO: lut40014
-      port map (A=>A0_ipd, B=>B0_ipd, C=>GNDI, D=>GNDI, Z=>F0_out);
+    wb_manager_inst_efb_i2c_Inst0_EFBInst_0_RNO_1: lut40024
+      port map (A=>A0_ipd, B=>B0_ipd, C=>C0_ipd, D=>GNDI, Z=>F0_out);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    i2c_controller_inst_nState_3: vmuxregsre0011
+    i2c_controller_inst_nState_5: vmuxregsre0014
       port map (D0=>M1_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
-    i2c_controller_inst_nState_2: vmuxregsre0011
+    i2c_controller_inst_nState_4: vmuxregsre0014
       port map (D0=>M0_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
 
@@ -9114,6 +7243,7 @@
       VitalWireDelay(C1_ipd, C1, tipd_C1);
       VitalWireDelay(B1_ipd, B1, tipd_B1);
       VitalWireDelay(A1_ipd, A1, tipd_A1);
+      VitalWireDelay(C0_ipd, C0, tipd_C0);
       VitalWireDelay(B0_ipd, B0, tipd_B0);
       VitalWireDelay(A0_ipd, A0, tipd_A0);
       VitalWireDelay(M1_ipd, M1, tipd_M1);
@@ -9129,8 +7259,8 @@
       VitalSignalDelay(CLK_dly, CLK_ipd, ticd_CLK);
     END BLOCK;
 
-    VitalBehavior : PROCESS (D1_ipd, C1_ipd, B1_ipd, A1_ipd, B0_ipd, A0_ipd, 
-      M1_dly, M0_dly, CLK_dly, F0_out, Q0_out, F1_out, Q1_out)
+    VitalBehavior : PROCESS (D1_ipd, C1_ipd, B1_ipd, A1_ipd, C0_ipd, B0_ipd, 
+      A0_ipd, M1_dly, M0_dly, CLK_dly, F0_out, Q0_out, F1_out, Q1_out)
     VARIABLE F0_zd         	: std_logic := 'X';
     VARIABLE F0_GlitchData 	: VitalGlitchDataType;
     VARIABLE Q0_zd         	: std_logic := 'X';
@@ -9208,10 +7338,13 @@
 
     VitalPathDelay01 (
       OutSignal => F0, OutSignalName => "F0", OutTemp => F0_zd,
-      Paths      => (0 => (InputChangeTime => B0_ipd'last_event,
+      Paths      => (0 => (InputChangeTime => C0_ipd'last_event,
+                           PathDelay => tpd_C0_F0,
+                           PathCondition => TRUE),
+                     1 => (InputChangeTime => B0_ipd'last_event,
                            PathDelay => tpd_B0_F0,
                            PathCondition => TRUE),
-                     1 => (InputChangeTime => A0_ipd'last_event,
+                     2 => (InputChangeTime => A0_ipd'last_event,
                            PathDelay => tpd_A0_F0,
                            PathCondition => TRUE)),
       GlitchData => F0_GlitchData,
@@ -9251,40 +7384,19 @@
 
   end Structure;
 
--- entity lut40021
+-- entity SLICE_37
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity lut40021 is
-    port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
-          Z: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF lut40021 : ENTITY IS TRUE;
-
-  end lut40021;
-
-  architecture Structure of lut40021 is
-  begin
-    INST10: ROM16X1A
-      generic map (initval => X"EEEE")
-      port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
-  end Structure;
-
--- entity SLICE_43
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity SLICE_43 is
+  entity SLICE_37 is
     -- miscellaneous vital GENERICs
     GENERIC (
       TimingChecksOn	: boolean := TRUE;
       XOn           	: boolean := FALSE;
       MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "SLICE_43";
+      InstancePath  	: string := "SLICE_37";
 
       tipd_B1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
@@ -9315,11 +7427,11 @@
           CLK: in Std_logic; F0: out Std_logic; Q0: out Std_logic; 
           F1: out Std_logic; Q1: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF SLICE_43 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF SLICE_37 : ENTITY IS TRUE;
 
-  end SLICE_43;
+  end SLICE_37;
 
-  architecture Structure of SLICE_43 is
+  architecture Structure of SLICE_37 is
     ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
 
     signal B1_ipd 	: std_logic := 'X';
@@ -9345,32 +7457,32 @@
     component gnd
       port (PWR0: out Std_logic);
     end component;
-    component lut40008
+    component lut40010
       port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
             Z: out Std_logic);
     end component;
-    component vmuxregsre0011
+    component lut40011
+      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+            Z: out Std_logic);
+    end component;
+    component vmuxregsre0014
       port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
             SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
             Q: out Std_logic);
     end component;
-    component lut40021
-      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
-            Z: out Std_logic);
-    end component;
   begin
-    wb_manager_inst_timeout_rst_0_a2_0_a2: lut40008
+    wb_manager_inst_timeout_rst_0_a2_0_a3: lut40011
       port map (A=>A1_ipd, B=>B1_ipd, C=>GNDI, D=>GNDI, Z=>F1_out);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    wb_manager_inst_cState_RNIPLK1_2: lut40021
+    wb_manager_inst_cState_RNIPLK1_2: lut40010
       port map (A=>A0_ipd, B=>B0_ipd, C=>GNDI, D=>GNDI, Z=>F0_out);
-    i2c_controller_inst_nState_1: vmuxregsre0011
+    i2c_controller_inst_nState_1: vmuxregsre0014
       port map (D0=>M1_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
-    i2c_controller_inst_nState_0: vmuxregsre0011
+    i2c_controller_inst_nState_0: vmuxregsre0014
       port map (D0=>M0_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
 
@@ -9510,19 +7622,19 @@
 
   end Structure;
 
--- entity SLICE_44
+-- entity SLICE_38
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity SLICE_44 is
+  entity SLICE_38 is
     -- miscellaneous vital GENERICs
     GENERIC (
       TimingChecksOn	: boolean := TRUE;
       XOn           	: boolean := FALSE;
       MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "SLICE_44";
+      InstancePath  	: string := "SLICE_38";
 
       tipd_B1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_A1  	: VitalDelayType01 := (0 ns, 0 ns);
@@ -9547,11 +7659,11 @@
           A0: in Std_logic; M0: in Std_logic; CLK: in Std_logic; 
           F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF SLICE_44 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF SLICE_38 : ENTITY IS TRUE;
 
-  end SLICE_44;
+  end SLICE_38;
 
-  architecture Structure of SLICE_44 is
+  architecture Structure of SLICE_38 is
     ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
 
     signal B1_ipd 	: std_logic := 'X';
@@ -9574,23 +7686,27 @@
     component gnd
       port (PWR0: out Std_logic);
     end component;
-    component lut40008
+    component lut40011
       port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
             Z: out Std_logic);
     end component;
-    component vmuxregsre0015
+    component lut40015
+      port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
+            Z: out Std_logic);
+    end component;
+    component vmuxregsre0018
       port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
             SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
             Q: out Std_logic);
     end component;
   begin
-    wb_manager_inst_efb_i2c_Inst0_EFBInst_0_RNO_3: lut40008
+    wb_manager_inst_cState_ret_4_RNI4ASN: lut40011
       port map (A=>A1_ipd, B=>B1_ipd, C=>GNDI, D=>GNDI, Z=>F1_out);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    wb_manager_inst_efb_i2c_Inst0_EFBInst_0_RNO_1: lut40008
+    wb_manager_inst_efb_i2c_Inst0_EFBInst_0_RNO_2: lut40015
       port map (A=>A0_ipd, B=>B0_ipd, C=>GNDI, D=>GNDI, Z=>F0_out);
-    i2c_controller_inst_nState_6: vmuxregsre0015
+    i2c_controller_inst_nState_6: vmuxregsre0018
       port map (D0=>M0_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
     DRIVEVCC: vcc
@@ -9700,40 +7816,19 @@
 
   end Structure;
 
--- entity lut40022
+-- entity SLICE_39
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity lut40022 is
-    port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
-          Z: out Std_logic);
-
-    ATTRIBUTE Vital_Level0 OF lut40022 : ENTITY IS TRUE;
-
-  end lut40022;
-
-  architecture Structure of lut40022 is
-  begin
-    INST10: ROM16X1A
-      generic map (initval => X"0001")
-      port map (AD0=>A, AD1=>B, AD2=>C, AD3=>D, DO0=>Z);
-  end Structure;
-
--- entity SLICE_45
-  library IEEE, vital2000, MACHXO2;
-  use IEEE.STD_LOGIC_1164.all;
-  use vital2000.vital_timing.all;
-  use MACHXO2.COMPONENTS.ALL;
-
-  entity SLICE_45 is
+  entity SLICE_39 is
     -- miscellaneous vital GENERICs
     GENERIC (
       TimingChecksOn	: boolean := TRUE;
       XOn           	: boolean := FALSE;
       MsgOn         	: boolean := TRUE;
-      InstancePath  	: string := "SLICE_45";
+      InstancePath  	: string := "SLICE_39";
 
       tipd_D1  	: VitalDelayType01 := (0 ns, 0 ns);
       tipd_C1  	: VitalDelayType01 := (0 ns, 0 ns);
@@ -9773,11 +7868,11 @@
           M0: in Std_logic; CLK: in Std_logic; F0: out Std_logic; 
           Q0: out Std_logic; F1: out Std_logic; Q1: out Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF SLICE_45 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF SLICE_39 : ENTITY IS TRUE;
 
-  end SLICE_45;
+  end SLICE_39;
 
-  architecture Structure of SLICE_45 is
+  architecture Structure of SLICE_39 is
     ATTRIBUTE Vital_Level0 OF Structure : ARCHITECTURE IS TRUE;
 
     signal D1_ipd 	: std_logic := 'X';
@@ -9807,28 +7902,28 @@
     component gnd
       port (PWR0: out Std_logic);
     end component;
-    component vmuxregsre0003
+    component vmuxregsre0004
       port (D0: in Std_logic; D1: in Std_logic; SD: in Std_logic; 
             SP: in Std_logic; CK: in Std_logic; LSR: in Std_logic; 
             Q: out Std_logic);
     end component;
-    component lut40022
+    component lut40008
       port (A: in Std_logic; B: in Std_logic; C: in Std_logic; D: in Std_logic; 
             Z: out Std_logic);
     end component;
   begin
-    wb_manager_inst_nState_1_sqmuxa_4_6: lut40022
+    wb_manager_inst_nState_1_sqmuxa_4_6: lut40008
       port map (A=>A1_ipd, B=>B1_ipd, C=>C1_ipd, D=>D1_ipd, Z=>F1_out);
-    wb_manager_inst_nState_1_sqmuxa_4_8: lut40022
+    wb_manager_inst_nState_1_sqmuxa_4_8: lut40008
       port map (A=>A0_ipd, B=>B0_ipd, C=>C0_ipd, D=>D0_ipd, Z=>F0_out);
-    i2c_controller_inst_cState_0_2: vmuxregsre0003
+    i2c_controller_inst_cState_0_1: vmuxregsre0004
       port map (D0=>M1_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q1_out);
     DRIVEVCC: vcc
       port map (PWR1=>VCCI);
     DRIVEGND: gnd
       port map (PWR0=>GNDI);
-    i2c_controller_inst_cState_0_1: vmuxregsre0003
+    i2c_controller_inst_cState_0_0: vmuxregsre0004
       port map (D0=>M0_dly, D1=>VCCI, SD=>GNDI, SP=>VCCI, CK=>CLK_dly, 
                 LSR=>GNDI, Q=>Q0_out);
 
@@ -10076,20 +8171,20 @@
 
   end Structure;
 
--- entity xo2iobuf0023
+-- entity xo2iobuf0025
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity xo2iobuf0023 is
+  entity xo2iobuf0025 is
     port (Z: out Std_logic; PAD: in Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF xo2iobuf0023 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF xo2iobuf0025 : ENTITY IS TRUE;
 
-  end xo2iobuf0023;
+  end xo2iobuf0025;
 
-  architecture Structure of xo2iobuf0023 is
+  architecture Structure of xo2iobuf0025 is
   begin
     INST1: IBPD
       port map (I=>PAD, O=>Z);
@@ -10127,11 +8222,11 @@
     signal PADDI_out 	: std_logic := 'X';
     signal rstn_ipd 	: std_logic := 'X';
 
-    component xo2iobuf0023
+    component xo2iobuf0025
       port (Z: out Std_logic; PAD: in Std_logic);
     end component;
   begin
-    rst_n_pad: xo2iobuf0023
+    rst_n_pad: xo2iobuf0025
       port map (Z=>PADDI_out, PAD=>rstn_ipd);
 
     --  INPUT PATH DELAYs
@@ -10179,21 +8274,21 @@
 
   end Structure;
 
--- entity xo2iobuf0024
+-- entity xo2iobuf0026
   library IEEE, vital2000, MACHXO2;
   use IEEE.STD_LOGIC_1164.all;
   use vital2000.vital_timing.all;
   use MACHXO2.COMPONENTS.ALL;
 
-  entity xo2iobuf0024 is
+  entity xo2iobuf0026 is
     port (I: in Std_logic; T: in Std_logic; Z: out Std_logic; 
           PAD: out Std_logic; PADI: in Std_logic);
 
-    ATTRIBUTE Vital_Level0 OF xo2iobuf0024 : ENTITY IS TRUE;
+    ATTRIBUTE Vital_Level0 OF xo2iobuf0026 : ENTITY IS TRUE;
 
-  end xo2iobuf0024;
+  end xo2iobuf0026;
 
-  architecture Structure of xo2iobuf0024 is
+  architecture Structure of xo2iobuf0026 is
   begin
     INST1: IBPD
       port map (I=>PADI, O=>Z);
@@ -10242,12 +8337,12 @@
     signal sclS_ipd 	: std_logic := 'X';
     signal sclS_out 	: std_logic := 'Z';
 
-    component xo2iobuf0024
+    component xo2iobuf0026
       port (I: in Std_logic; T: in Std_logic; Z: out Std_logic; 
             PAD: out Std_logic; PADI: in Std_logic);
     end component;
   begin
-    wb_manager_inst_efb_i2c_Inst0_BB1_scl: xo2iobuf0024
+    wb_manager_inst_efb_i2c_Inst0_BB1_scl: xo2iobuf0026
       port map (I=>PADDO_ipd, T=>PADDT_ipd, Z=>PADDI_out, PAD=>sclS_out, 
                 PADI=>sclS_ipd);
 
@@ -10353,12 +8448,12 @@
     signal sdaS_ipd 	: std_logic := 'X';
     signal sdaS_out 	: std_logic := 'Z';
 
-    component xo2iobuf0024
+    component xo2iobuf0026
       port (I: in Std_logic; T: in Std_logic; Z: out Std_logic; 
             PAD: out Std_logic; PADI: in Std_logic);
     end component;
   begin
-    wb_manager_inst_efb_i2c_Inst0_BB1_sda: xo2iobuf0024
+    wb_manager_inst_efb_i2c_Inst0_BB1_sda: xo2iobuf0026
       port map (I=>PADDO_ipd, T=>PADDT_ipd, Z=>PADDI_out, PAD=>sdaS_out, 
                 PADI=>sdaS_ipd);
 
@@ -10715,6 +8810,12 @@
       tisd_WBWEIin_WBCLKIin	: VitalDelayType := 0 ns;
       tsetup_WBWEIin_WBCLKIin_noedge_posedge	: VitalDelayType := 0 ns;
       thold_WBWEIin_WBCLKIin_noedge_posedge	: VitalDelayType := 0 ns;
+      tisd_WBADRI0in_WBCLKIin	: VitalDelayType := 0 ns;
+      tsetup_WBADRI0in_WBCLKIin_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_WBADRI0in_WBCLKIin_noedge_posedge	: VitalDelayType := 0 ns;
+      tisd_WBADRI1in_WBCLKIin	: VitalDelayType := 0 ns;
+      tsetup_WBADRI1in_WBCLKIin_noedge_posedge	: VitalDelayType := 0 ns;
+      thold_WBADRI1in_WBCLKIin_noedge_posedge	: VitalDelayType := 0 ns;
       tisd_WBADRI2in_WBCLKIin	: VitalDelayType := 0 ns;
       tsetup_WBADRI2in_WBCLKIin_noedge_posedge	: VitalDelayType := 0 ns;
       thold_WBADRI2in_WBCLKIin_noedge_posedge	: VitalDelayType := 0 ns;
@@ -10893,8 +8994,10 @@
     signal WBADRI2in_dly 	: std_logic := 'X';
     signal WBADRI2out_out 	: std_logic := 'X';
     signal WBADRI1in_ipd 	: std_logic := 'X';
+    signal WBADRI1in_dly 	: std_logic := 'X';
     signal WBADRI1out_out 	: std_logic := 'X';
     signal WBADRI0in_ipd 	: std_logic := 'X';
+    signal WBADRI0in_dly 	: std_logic := 'X';
     signal WBADRI0out_out 	: std_logic := 'X';
     signal WBDATI7in_ipd 	: std_logic := 'X';
     signal WBDATI7out_out 	: std_logic := 'X';
@@ -11115,9 +9218,9 @@
     WBADRI2_buf: BUFBA
       port map (A=>WBADRI2in_dly, Z=>WBADRI2out_out);
     WBADRI1_buf: BUFBA
-      port map (A=>WBADRI1in_ipd, Z=>WBADRI1out_out);
+      port map (A=>WBADRI1in_dly, Z=>WBADRI1out_out);
     WBADRI0_buf: BUFBA
-      port map (A=>WBADRI0in_ipd, Z=>WBADRI0out_out);
+      port map (A=>WBADRI0in_dly, Z=>WBADRI0out_out);
     WBDATI7_buf: BUFBA
       port map (A=>WBDATI7in_ipd, Z=>WBDATI7out_out);
     WBDATI6_buf: BUFBA
@@ -11438,6 +9541,8 @@
       VitalSignalDelay(WBADRI5in_dly, WBADRI5in_ipd, tisd_WBADRI5in_WBCLKIin);
       VitalSignalDelay(WBADRI4in_dly, WBADRI4in_ipd, tisd_WBADRI4in_WBCLKIin);
       VitalSignalDelay(WBADRI2in_dly, WBADRI2in_ipd, tisd_WBADRI2in_WBCLKIin);
+      VitalSignalDelay(WBADRI1in_dly, WBADRI1in_ipd, tisd_WBADRI1in_WBCLKIin);
+      VitalSignalDelay(WBADRI0in_dly, WBADRI0in_ipd, tisd_WBADRI0in_WBCLKIin);
       VitalSignalDelay(I2C1SCLIin_dly, I2C1SCLIin_ipd, ticd_I2C1SCLIin);
       VitalSignalDelay(I2C1SDAIin_dly, I2C1SDAIin_ipd, tisd_I2C1SDAIin_I2C1SCLIin);
     END BLOCK;
@@ -11447,7 +9552,7 @@
       WBWEIin_dly, WBWEIout_out, WBADRI7in_dly, WBADRI7out_out, WBADRI6in_dly, 
       WBADRI6out_out, WBADRI5in_dly, WBADRI5out_out, WBADRI4in_dly, 
       WBADRI4out_out, WBADRI3in_ipd, WBADRI3out_out, WBADRI2in_dly, 
-      WBADRI2out_out, WBADRI1in_ipd, WBADRI1out_out, WBADRI0in_ipd, 
+      WBADRI2out_out, WBADRI1in_dly, WBADRI1out_out, WBADRI0in_dly, 
       WBADRI0out_out, WBDATI7in_ipd, WBDATI7out_out, WBDATI6in_ipd, 
       WBDATI6out_out, WBDATI5in_ipd, WBDATI5out_out, WBDATI4in_ipd, 
       WBDATI4out_out, WBDATI3in_ipd, WBDATI3out_out, WBDATI2in_ipd, 
@@ -11513,6 +9618,10 @@
     VARIABLE WBSTBIin_WBCLKIin_TimingDatash	: VitalTimingDataType;
     VARIABLE tviol_WBWEIin_WBCLKIin       	: x01 := '0';
     VARIABLE WBWEIin_WBCLKIin_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_WBADRI0in_WBCLKIin       	: x01 := '0';
+    VARIABLE WBADRI0in_WBCLKIin_TimingDatash	: VitalTimingDataType;
+    VARIABLE tviol_WBADRI1in_WBCLKIin       	: x01 := '0';
+    VARIABLE WBADRI1in_WBCLKIin_TimingDatash	: VitalTimingDataType;
     VARIABLE tviol_WBADRI2in_WBCLKIin       	: x01 := '0';
     VARIABLE WBADRI2in_WBCLKIin_TimingDatash	: VitalTimingDataType;
     VARIABLE tviol_WBADRI4in_WBCLKIin       	: x01 := '0';
@@ -11606,6 +9715,42 @@
         HeaderMsg => InstancePath,
         TimingData => WBWEIin_WBCLKIin_TimingDatash,
         Violation => tviol_WBWEIin_WBCLKIin,
+        MsgSeverity => warning);
+      VitalSetupHoldCheck (
+        TestSignal => WBADRI0in_dly,
+        TestSignalName => "WBADRI0in",
+        TestDelay => tisd_WBADRI0in_WBCLKIin,
+        RefSignal => WBCLKIin_dly,
+        RefSignalName => "WBCLKIin",
+        RefDelay => ticd_WBCLKIin,
+        SetupHigh => tsetup_WBADRI0in_WBCLKIin_noedge_posedge,
+        SetupLow => tsetup_WBADRI0in_WBCLKIin_noedge_posedge,
+        HoldHigh => thold_WBADRI0in_WBCLKIin_noedge_posedge,
+        HoldLow => thold_WBADRI0in_WBCLKIin_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => WBADRI0in_WBCLKIin_TimingDatash,
+        Violation => tviol_WBADRI0in_WBCLKIin,
+        MsgSeverity => warning);
+      VitalSetupHoldCheck (
+        TestSignal => WBADRI1in_dly,
+        TestSignalName => "WBADRI1in",
+        TestDelay => tisd_WBADRI1in_WBCLKIin,
+        RefSignal => WBCLKIin_dly,
+        RefSignalName => "WBCLKIin",
+        RefDelay => ticd_WBCLKIin,
+        SetupHigh => tsetup_WBADRI1in_WBCLKIin_noedge_posedge,
+        SetupLow => tsetup_WBADRI1in_WBCLKIin_noedge_posedge,
+        HoldHigh => thold_WBADRI1in_WBCLKIin_noedge_posedge,
+        HoldLow => thold_WBADRI1in_WBCLKIin_noedge_posedge,
+        CheckEnabled => TRUE,
+        RefTransition => '/',
+        MsgOn => MsgOn, XOn => XOn,
+        HeaderMsg => InstancePath,
+        TimingData => WBADRI1in_WBCLKIin_TimingDatash,
+        Violation => tviol_WBADRI1in_WBCLKIin,
         MsgSeverity => warning);
       VitalSetupHoldCheck (
         TestSignal => WBADRI2in_dly,
@@ -12403,12 +10548,13 @@
 
   entity wb_manager_inst_efb_i2c_Inst0_EFBInst_0 is
     port (WBCLKI: in Std_logic; WBRSTI: in Std_logic; WBCYCI: in Std_logic; 
-          WBSTBI: in Std_logic; WBWEI: in Std_logic; WBADRI2: in Std_logic; 
-          WBADRI4: in Std_logic; WBADRI5: in Std_logic; WBADRI6: in Std_logic; 
-          WBADRI7: in Std_logic; WBACKO: out Std_logic; 
-          I2C1SDAOEN: out Std_logic; I2C1SDAO: out Std_logic; 
-          I2C1SDAI: in Std_logic; I2C1SCLOEN: out Std_logic; 
-          I2C1SCLO: out Std_logic; I2C1SCLI: in Std_logic);
+          WBSTBI: in Std_logic; WBWEI: in Std_logic; WBADRI0: in Std_logic; 
+          WBADRI1: in Std_logic; WBADRI2: in Std_logic; WBADRI4: in Std_logic; 
+          WBADRI5: in Std_logic; WBADRI6: in Std_logic; WBADRI7: in Std_logic; 
+          WBACKO: out Std_logic; I2C1SDAOEN: out Std_logic; 
+          I2C1SDAO: out Std_logic; I2C1SDAI: in Std_logic; 
+          I2C1SCLOEN: out Std_logic; I2C1SCLO: out Std_logic; 
+          I2C1SCLI: in Std_logic);
 
 
 
@@ -12485,37 +10631,37 @@
   begin
     wb_manager_inst_efb_i2c_Inst0_EFBInst_0_EFB: EFBB
       port map (WBCLKI=>WBCLKI, WBRSTI=>WBRSTI_NOTIN, WBCYCI=>WBCYCI, 
-                WBSTBI=>WBSTBI, WBWEI=>WBWEI, WBADRI0=>GNDI, WBADRI1=>GNDI, 
-                WBADRI2=>WBADRI2, WBADRI3=>GNDI, WBADRI4=>WBADRI4, 
-                WBADRI5=>WBADRI5, WBADRI6=>WBADRI6, WBADRI7=>WBADRI7, 
-                WBDATI0=>GNDI, WBDATI1=>GNDI, WBDATI2=>GNDI, WBDATI3=>GNDI, 
-                WBDATI4=>GNDI, WBDATI5=>GNDI, WBDATI6=>GNDI, WBDATI7=>GNDI, 
-                WBDATO0=>open, WBDATO1=>open, WBDATO2=>open, WBDATO3=>open, 
-                WBDATO4=>open, WBDATO5=>open, WBDATO6=>open, WBDATO7=>open, 
-                WBACKO=>WBACKO, WBCUFMIRQ=>open, UFMSN=>VCCI, CFGWAKE=>open, 
-                CFGSTDBY=>open, I2C1SCLI=>I2C1SCLI, I2C1SCLO=>I2C1SCLO, 
-                I2C1SCLOEN=>I2C1SCLOEN, I2C1SDAI=>I2C1SDAI, I2C1SDAO=>I2C1SDAO, 
-                I2C1SDAOEN=>I2C1SDAOEN, I2C2SCLI=>GNDI, I2C2SCLO=>open, 
-                I2C2SCLOEN=>open, I2C2SDAI=>GNDI, I2C2SDAO=>open, 
-                I2C2SDAOEN=>open, I2C1IRQO=>open, I2C2IRQO=>open, 
-                SPISCKI=>GNDI, SPISCKO=>open, SPISCKEN=>open, SPIMISOI=>GNDI, 
-                SPIMISOO=>open, SPIMISOEN=>open, SPIMOSII=>GNDI, 
-                SPIMOSIO=>open, SPIMOSIEN=>open, SPIMCSN0=>open, 
-                SPIMCSN1=>open, SPIMCSN2=>open, SPIMCSN3=>open, SPIMCSN4=>open, 
-                SPIMCSN5=>open, SPIMCSN6=>open, SPIMCSN7=>open, SPICSNEN=>open, 
-                SPISCSN=>GNDI, SPIIRQO=>open, TCCLKI=>GNDI, TCRSTN=>GNDI, 
-                TCIC=>GNDI, TCINT=>open, TCOC=>open, PLLCLKO=>open, 
-                PLLRSTO=>open, PLL0STBO=>open, PLL1STBO=>open, PLLWEO=>open, 
-                PLLADRO0=>open, PLLADRO1=>open, PLLADRO2=>open, PLLADRO3=>open, 
-                PLLADRO4=>open, PLLDATO0=>open, PLLDATO1=>open, PLLDATO2=>open, 
-                PLLDATO3=>open, PLLDATO4=>open, PLLDATO5=>open, PLLDATO6=>open, 
-                PLLDATO7=>open, PLL0DATI0=>GNDI, PLL0DATI1=>GNDI, 
-                PLL0DATI2=>GNDI, PLL0DATI3=>GNDI, PLL0DATI4=>GNDI, 
-                PLL0DATI5=>GNDI, PLL0DATI6=>GNDI, PLL0DATI7=>GNDI, 
-                PLL0ACKI=>GNDI, PLL1DATI0=>GNDI, PLL1DATI1=>GNDI, 
-                PLL1DATI2=>GNDI, PLL1DATI3=>GNDI, PLL1DATI4=>GNDI, 
-                PLL1DATI5=>GNDI, PLL1DATI6=>GNDI, PLL1DATI7=>GNDI, 
-                PLL1ACKI=>GNDI);
+                WBSTBI=>WBSTBI, WBWEI=>WBWEI, WBADRI0=>WBADRI0, 
+                WBADRI1=>WBADRI1, WBADRI2=>WBADRI2, WBADRI3=>GNDI, 
+                WBADRI4=>WBADRI4, WBADRI5=>WBADRI5, WBADRI6=>WBADRI6, 
+                WBADRI7=>WBADRI7, WBDATI0=>GNDI, WBDATI1=>GNDI, WBDATI2=>GNDI, 
+                WBDATI3=>GNDI, WBDATI4=>GNDI, WBDATI5=>GNDI, WBDATI6=>GNDI, 
+                WBDATI7=>GNDI, WBDATO0=>open, WBDATO1=>open, WBDATO2=>open, 
+                WBDATO3=>open, WBDATO4=>open, WBDATO5=>open, WBDATO6=>open, 
+                WBDATO7=>open, WBACKO=>WBACKO, WBCUFMIRQ=>open, UFMSN=>VCCI, 
+                CFGWAKE=>open, CFGSTDBY=>open, I2C1SCLI=>I2C1SCLI, 
+                I2C1SCLO=>I2C1SCLO, I2C1SCLOEN=>I2C1SCLOEN, I2C1SDAI=>I2C1SDAI, 
+                I2C1SDAO=>I2C1SDAO, I2C1SDAOEN=>I2C1SDAOEN, I2C2SCLI=>GNDI, 
+                I2C2SCLO=>open, I2C2SCLOEN=>open, I2C2SDAI=>GNDI, 
+                I2C2SDAO=>open, I2C2SDAOEN=>open, I2C1IRQO=>open, 
+                I2C2IRQO=>open, SPISCKI=>GNDI, SPISCKO=>open, SPISCKEN=>open, 
+                SPIMISOI=>GNDI, SPIMISOO=>open, SPIMISOEN=>open, 
+                SPIMOSII=>GNDI, SPIMOSIO=>open, SPIMOSIEN=>open, 
+                SPIMCSN0=>open, SPIMCSN1=>open, SPIMCSN2=>open, SPIMCSN3=>open, 
+                SPIMCSN4=>open, SPIMCSN5=>open, SPIMCSN6=>open, SPIMCSN7=>open, 
+                SPICSNEN=>open, SPISCSN=>GNDI, SPIIRQO=>open, TCCLKI=>GNDI, 
+                TCRSTN=>GNDI, TCIC=>GNDI, TCINT=>open, TCOC=>open, 
+                PLLCLKO=>open, PLLRSTO=>open, PLL0STBO=>open, PLL1STBO=>open, 
+                PLLWEO=>open, PLLADRO0=>open, PLLADRO1=>open, PLLADRO2=>open, 
+                PLLADRO3=>open, PLLADRO4=>open, PLLDATO0=>open, PLLDATO1=>open, 
+                PLLDATO2=>open, PLLDATO3=>open, PLLDATO4=>open, PLLDATO5=>open, 
+                PLLDATO6=>open, PLLDATO7=>open, PLL0DATI0=>GNDI, 
+                PLL0DATI1=>GNDI, PLL0DATI2=>GNDI, PLL0DATI3=>GNDI, 
+                PLL0DATI4=>GNDI, PLL0DATI5=>GNDI, PLL0DATI6=>GNDI, 
+                PLL0DATI7=>GNDI, PLL0ACKI=>GNDI, PLL1DATI0=>GNDI, 
+                PLL1DATI1=>GNDI, PLL1DATI2=>GNDI, PLL1DATI3=>GNDI, 
+                PLL1DATI4=>GNDI, PLL1DATI5=>GNDI, PLL1DATI6=>GNDI, 
+                PLL1DATI7=>GNDI, PLL1ACKI=>GNDI);
     WBRSTI_INVERTERIN: inverter
       port map (I=>WBRSTI, Z=>WBRSTI_NOTIN);
     DRIVEGND: gnd
@@ -12616,11 +10762,14 @@
   end top_module;
 
   architecture Structure of top_module is
-    signal wb_manager_inst_clk_counter_15: Std_logic;
-    signal wb_manager_inst_timeoutIns_clk_counter_s_15: Std_logic;
+    signal wb_manager_inst_timeoutIns_clk_counter_0: Std_logic;
+    signal wb_manager_inst_timeoutIns_clk_counter_s_0: Std_logic;
     signal wb_manager_inst_N_47_1_i: Std_logic;
     signal wb_manager_inst_N_47_1: Std_logic;
     signal sys_clk: Std_logic;
+    signal wb_manager_inst_timeoutIns_clk_counter_cry_0: Std_logic;
+    signal wb_manager_inst_clk_counter_15: Std_logic;
+    signal wb_manager_inst_timeoutIns_clk_counter_s_15: Std_logic;
     signal wb_manager_inst_timeoutIns_clk_counter_cry_14: Std_logic;
     signal wb_manager_inst_clk_counter_14: Std_logic;
     signal wb_manager_inst_clk_counter_13: Std_logic;
@@ -12656,119 +10805,75 @@
     signal wb_manager_inst_timeoutIns_clk_counter_1: Std_logic;
     signal wb_manager_inst_timeoutIns_clk_counter_s_2: Std_logic;
     signal wb_manager_inst_timeoutIns_clk_counter_s_1: Std_logic;
-    signal wb_manager_inst_timeoutIns_clk_counter_cry_0: Std_logic;
-    signal wb_manager_inst_timeoutIns_clk_counter_0: Std_logic;
-    signal wb_manager_inst_timeoutIns_clk_counter_s_0: Std_logic;
+    signal HeartBeatInst0_iCounter_1: Std_logic;
     signal HeartBeatInst0_iCounter_0: Std_logic;
-    signal HeartBeatInst0_iCounter_s_0: Std_logic;
+    signal HeartBeatInst0_iCounter_RNO_1: Std_logic;
+    signal HeartBeatInst0_iCounter_i_0: Std_logic;
+    signal HeartBeatInst0_iCounter_2: Std_logic;
+    signal HeartBeatInst0_iCounter_RNO_2: Std_logic;
+    signal wb_manager_inst_nState_0: Std_logic;
+    signal wb_manager_inst_cState_0: Std_logic;
+    signal heart_beat_c: Std_logic;
+    signal HeartBeatInst0_iCounter_RNO_3: Std_logic;
     signal wb_manager_inst_nState_1: Std_logic;
     signal wb_manager_inst_cState_1: Std_logic;
-    signal HeartBeatInst0_iCounter_cry_0: Std_logic;
-    signal heart_beat_c: Std_logic;
-    signal HeartBeatInst0_iCounter_19: Std_logic;
-    signal HeartBeatInst0_iCounter_s_20: Std_logic;
-    signal HeartBeatInst0_iCounter_s_19: Std_logic;
-    signal HeartBeatInst0_iCounter_cry_18: Std_logic;
-    signal HeartBeatInst0_iCounter_18: Std_logic;
-    signal HeartBeatInst0_iCounter_17: Std_logic;
-    signal HeartBeatInst0_iCounter_s_18: Std_logic;
-    signal HeartBeatInst0_iCounter_s_17: Std_logic;
-    signal HeartBeatInst0_iCounter_cry_16: Std_logic;
-    signal HeartBeatInst0_iCounter_16: Std_logic;
-    signal HeartBeatInst0_iCounter_15: Std_logic;
-    signal HeartBeatInst0_iCounter_s_16: Std_logic;
-    signal HeartBeatInst0_iCounter_s_15: Std_logic;
-    signal HeartBeatInst0_iCounter_cry_14: Std_logic;
-    signal HeartBeatInst0_iCounter_14: Std_logic;
-    signal HeartBeatInst0_iCounter_13: Std_logic;
-    signal HeartBeatInst0_iCounter_s_14: Std_logic;
-    signal HeartBeatInst0_iCounter_s_13: Std_logic;
-    signal HeartBeatInst0_iCounter_cry_12: Std_logic;
-    signal HeartBeatInst0_iCounter_12: Std_logic;
-    signal HeartBeatInst0_iCounter_11: Std_logic;
-    signal HeartBeatInst0_iCounter_s_12: Std_logic;
-    signal HeartBeatInst0_iCounter_s_11: Std_logic;
-    signal HeartBeatInst0_iCounter_cry_10: Std_logic;
-    signal HeartBeatInst0_iCounter_10: Std_logic;
-    signal HeartBeatInst0_iCounter_9: Std_logic;
-    signal HeartBeatInst0_iCounter_s_10: Std_logic;
-    signal HeartBeatInst0_iCounter_s_9: Std_logic;
-    signal HeartBeatInst0_iCounter_cry_8: Std_logic;
-    signal HeartBeatInst0_iCounter_8: Std_logic;
-    signal HeartBeatInst0_iCounter_7: Std_logic;
-    signal HeartBeatInst0_iCounter_s_8: Std_logic;
-    signal HeartBeatInst0_iCounter_s_7: Std_logic;
-    signal HeartBeatInst0_iCounter_cry_6: Std_logic;
-    signal HeartBeatInst0_iCounter_6: Std_logic;
-    signal HeartBeatInst0_iCounter_5: Std_logic;
-    signal HeartBeatInst0_iCounter_s_6: Std_logic;
-    signal HeartBeatInst0_iCounter_s_5: Std_logic;
-    signal HeartBeatInst0_iCounter_cry_4: Std_logic;
-    signal HeartBeatInst0_iCounter_4: Std_logic;
-    signal HeartBeatInst0_iCounter_3: Std_logic;
-    signal HeartBeatInst0_iCounter_s_4: Std_logic;
-    signal HeartBeatInst0_iCounter_s_3: Std_logic;
-    signal HeartBeatInst0_iCounter_cry_2: Std_logic;
-    signal HeartBeatInst0_iCounter_2: Std_logic;
-    signal HeartBeatInst0_iCounter_1: Std_logic;
-    signal HeartBeatInst0_iCounter_s_2: Std_logic;
-    signal HeartBeatInst0_iCounter_s_1: Std_logic;
-    signal i2c_controller_inst_nState_5: Std_logic;
+    signal i2c_controller_inst_nState_4: Std_logic;
+    signal i2c_controller_inst_nState_1: Std_logic;
+    signal i2c_controller_inst_nState_i_4: Std_logic;
+    signal i2c_controller_inst_nState_i_1: Std_logic;
+    signal i2c_controller_inst_cState_i_0_1: Std_logic;
+    signal i2c_controller_inst_cState_i_0_4: Std_logic;
     signal i2c_controller_inst_nState_2: Std_logic;
-    signal i2c_controller_inst_nState_i_5: Std_logic;
-    signal i2c_controller_inst_nState_i_2: Std_logic;
-    signal i2c_controller_inst_cState_i_0_2: Std_logic;
-    signal i2c_controller_inst_cState_i_0_5: Std_logic;
-    signal i2c_controller_inst_nState_0: Std_logic;
-    signal i2c_controller_inst_nState_3: Std_logic;
-    signal i2c_controller_inst_un1_nState_1_sqmuxa_i_0_a2_0_0: Std_logic;
+    signal i2c_controller_inst_nState_5: Std_logic;
+    signal i2c_controller_inst_un1_nState_1_sqmuxa_i_0_a2_4_1: Std_logic;
     signal i2c_controller_inst_cState_6: Std_logic;
-    signal N_45_reti: Std_logic;
+    signal N_32_reti: Std_logic;
     signal i2c_controller_inst_un1_nState_1_sqmuxa_i_0_reti: Std_logic;
     signal i2c_controller_inst_nState_6: Std_logic;
     signal i2c_controller_inst_un1_nState_1_sqmuxa_i_0: Std_logic;
-    signal wb_manager_inst_nState_2: Std_logic;
+    signal wb_manager_inst_nState_0_2: Std_logic;
     signal wb_manager_inst_nState_3: Std_logic;
     signal wb_manager_inst_cState_3: Std_logic;
     signal wb_manager_inst_cState_2: Std_logic;
     signal wb_manager_inst_nState_4: Std_logic;
-    signal wb_manager_inst_nState_5: Std_logic;
+    signal wb_manager_inst_nState_0_5: Std_logic;
     signal wb_manager_inst_cState_5: Std_logic;
     signal wb_manager_inst_cState_4: Std_logic;
-    signal wb_manager_inst_N_42i: Std_logic;
-    signal wb_manager_inst_cState_ret: Std_logic;
-    signal i2c_controller_inst_cState_0: Std_logic;
-    signal i2c_controller_inst_nState_1: Std_logic;
-    signal i2c_controller_inst_nState_4: Std_logic;
-    signal wb_manager_inst_N_44_reti: Std_logic;
+    signal i2c_controller_inst_nState_3: Std_logic;
+    signal i2c_controller_inst_nState_0: Std_logic;
+    signal wb_manager_inst_N_32_reti_i: Std_logic;
     signal wb_manager_inst_cState_ret_1: Std_logic;
     signal wb_manager_inst_cState_ret_2: Std_logic;
+    signal wb_manager_inst_N_28_reti_i: Std_logic;
+    signal wb_manager_inst_N_28_reti: Std_logic;
+    signal wb_manager_inst_cState_ret_3: Std_logic;
+    signal wb_manager_inst_cState_ret_4: Std_logic;
     signal wb_manager_inst_wb_ack_o: Std_logic;
     signal wb_manager_inst_nState_1_1: Std_logic;
     signal wb_manager_inst_nState_1_sqmuxa_2: Std_logic;
     signal wb_manager_inst_nState_1_sqmuxa_4_i: Std_logic;
-    signal wb_manager_inst_nState_0: Std_logic;
-    signal wb_manager_inst_N_28: Std_logic;
-    signal wb_manager_inst_efb_i2c_Inst0_N_10_i: Std_logic;
-    signal VCCS: Std_logic;
-    signal wb_manager_inst_cState_0: Std_logic;
-    signal wb_manager_inst_nState_1_5: Std_logic;
+    signal wb_manager_inst_N_27: Std_logic;
     signal wb_manager_inst_N_23_i: Std_logic;
+    signal wb_manager_inst_efb_i2c_Inst0_N_18_i: Std_logic;
+    signal VCCS: Std_logic;
+    signal wb_manager_inst_nState_1_5: Std_logic;
+    signal wb_manager_inst_efb_i2c_Inst0_N_25_i: Std_logic;
     signal wb_manager_inst_un3_timeoutlt5: Std_logic;
-    signal i2c_controller_inst_cState_5: Std_logic;
+    signal i2c_controller_inst_cState_4: Std_logic;
     signal wb_manager_inst_nState_1_sqmuxa_4_2: Std_logic;
+    signal i2c_controller_inst_cState_5: Std_logic;
+    signal i2c_controller_inst_cState_3: Std_logic;
     signal wb_manager_inst_efb_i2c_Inst0_N_14_i: Std_logic;
     signal wb_manager_inst_nState_1_sqmuxa_4_8: Std_logic;
     signal wb_manager_inst_nState_1_sqmuxa_4_6: Std_logic;
     signal wb_manager_inst_nState_1_sqmuxa_4_3: Std_logic;
-    signal i2c_controller_inst_cState_3: Std_logic;
-    signal i2c_controller_inst_cState_4: Std_logic;
-    signal wb_manager_inst_efb_i2c_Inst0_N_26_i: Std_logic;
-    signal wb_manager_inst_efb_i2c_Inst0_N_28_i: Std_logic;
     signal i2c_controller_inst_cState_2: Std_logic;
-    signal i2c_controller_inst_cState_1: Std_logic;
     signal wb_manager_inst_efb_i2c_Inst0_N_12_i: Std_logic;
-    signal wb_manager_inst_efb_i2c_Inst0_N_19_i: Std_logic;
+    signal wb_manager_inst_efb_i2c_Inst0_N_20_i: Std_logic;
+    signal i2c_controller_inst_cState_1: Std_logic;
+    signal i2c_controller_inst_cState_0: Std_logic;
+    signal wb_manager_inst_efb_i2c_Inst0_N_10_i: Std_logic;
+    signal wb_manager_inst_N_16_i: Std_logic;
     signal rst_n_c: Std_logic;
     signal wb_manager_inst_efb_i2c_Inst0_i2c1_scli: Std_logic;
     signal wb_manager_inst_efb_i2c_Inst0_i2c1_scloen: Std_logic;
@@ -12778,16 +10883,14 @@
     signal wb_manager_inst_efb_i2c_Inst0_i2c1_sdao: Std_logic;
     signal VCCI: Std_logic;
     component wb_manager_inst_timeoutIns_SLICE_0
+      port (A1: in Std_logic; DI1: in Std_logic; CE: in Std_logic; 
+            LSR: in Std_logic; CLK: in Std_logic; F1: out Std_logic; 
+            Q1: out Std_logic; FCO: out Std_logic);
+    end component;
+    component wb_manager_inst_timeoutIns_SLICE_1
       port (A0: in Std_logic; DI0: in Std_logic; CE: in Std_logic; 
             LSR: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
             F0: out Std_logic; Q0: out Std_logic);
-    end component;
-    component wb_manager_inst_timeoutIns_SLICE_1
-      port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-            DI0: in Std_logic; CE: in Std_logic; LSR: in Std_logic; 
-            CLK: in Std_logic; FCI: in Std_logic; F0: out Std_logic; 
-            Q0: out Std_logic; F1: out Std_logic; Q1: out Std_logic; 
-            FCO: out Std_logic);
     end component;
     component wb_manager_inst_timeoutIns_SLICE_2
       port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
@@ -12832,165 +10935,124 @@
             FCO: out Std_logic);
     end component;
     component wb_manager_inst_timeoutIns_SLICE_8
-      port (A1: in Std_logic; DI1: in Std_logic; CE: in Std_logic; 
-            LSR: in Std_logic; CLK: in Std_logic; F1: out Std_logic; 
-            Q1: out Std_logic; FCO: out Std_logic);
-    end component;
-    component SLICE_9
-      port (A1: in Std_logic; DI1: in Std_logic; M0: in Std_logic; 
-            CLK: in Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-            Q1: out Std_logic; FCO: out Std_logic);
-    end component;
-    component HeartBeatInst0_SLICE_10
       port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-            DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
+            DI0: in Std_logic; CE: in Std_logic; LSR: in Std_logic; 
+            CLK: in Std_logic; FCI: in Std_logic; F0: out Std_logic; 
+            Q0: out Std_logic; F1: out Std_logic; Q1: out Std_logic; 
+            FCO: out Std_logic);
+    end component;
+    component HeartBeatInst0_SLICE_9
+      port (B1: in Std_logic; A1: in Std_logic; A0: in Std_logic; 
+            DI1: in Std_logic; DI0: in Std_logic; CLK: in Std_logic; 
             F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
             Q1: out Std_logic);
     end component;
-    component HeartBeatInst0_SLICE_11
-      port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-            DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-            F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-            Q1: out Std_logic; FCO: out Std_logic);
+    component SLICE_10
+      port (C0: in Std_logic; B0: in Std_logic; A0: in Std_logic; 
+            DI0: in Std_logic; M1: in Std_logic; CLK: in Std_logic; 
+            F0: out Std_logic; Q0: out Std_logic; Q1: out Std_logic);
     end component;
-    component HeartBeatInst0_SLICE_12
-      port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-            DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-            F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-            Q1: out Std_logic; FCO: out Std_logic);
+    component SLICE_11
+      port (D0: in Std_logic; C0: in Std_logic; B0: in Std_logic; 
+            A0: in Std_logic; DI0: in Std_logic; M1: in Std_logic; 
+            CLK: in Std_logic; F0: out Std_logic; Q0: out Std_logic; 
+            Q1: out Std_logic);
     end component;
-    component HeartBeatInst0_SLICE_13
-      port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-            DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-            F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-            Q1: out Std_logic; FCO: out Std_logic);
-    end component;
-    component HeartBeatInst0_SLICE_14
-      port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-            DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-            F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-            Q1: out Std_logic; FCO: out Std_logic);
-    end component;
-    component HeartBeatInst0_SLICE_15
-      port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-            DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-            F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-            Q1: out Std_logic; FCO: out Std_logic);
-    end component;
-    component HeartBeatInst0_SLICE_16
-      port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-            DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-            F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-            Q1: out Std_logic; FCO: out Std_logic);
-    end component;
-    component HeartBeatInst0_SLICE_17
-      port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-            DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-            F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-            Q1: out Std_logic; FCO: out Std_logic);
-    end component;
-    component HeartBeatInst0_SLICE_18
-      port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-            DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-            F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-            Q1: out Std_logic; FCO: out Std_logic);
-    end component;
-    component HeartBeatInst0_SLICE_19
-      port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-            DI0: in Std_logic; CLK: in Std_logic; FCI: in Std_logic; 
-            F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-            Q1: out Std_logic; FCO: out Std_logic);
-    end component;
-    component i2c_controller_inst_SLICE_21
+    component i2c_controller_inst_SLICE_13
       port (A1: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
             DI0: in Std_logic; CLK: in Std_logic; F0: out Std_logic; 
             Q0: out Std_logic; F1: out Std_logic; Q1: out Std_logic);
     end component;
-    component i2c_controller_inst_SLICE_29
-      port (C1: in Std_logic; B1: in Std_logic; A1: in Std_logic; 
-            D0: in Std_logic; C0: in Std_logic; B0: in Std_logic; 
+    component i2c_controller_inst_SLICE_21
+      port (D1: in Std_logic; C1: in Std_logic; B1: in Std_logic; 
+            A1: in Std_logic; D0: in Std_logic; C0: in Std_logic; 
+            B0: in Std_logic; A0: in Std_logic; DI0: in Std_logic; 
+            M1: in Std_logic; CLK: in Std_logic; F0: out Std_logic; 
+            Q0: out Std_logic; F1: out Std_logic; Q1: out Std_logic);
+    end component;
+    component wb_manager_inst_SLICE_24
+      port (M1: in Std_logic; M0: in Std_logic; CLK: in Std_logic; 
+            Q0: out Std_logic; Q1: out Std_logic);
+    end component;
+    component wb_manager_inst_SLICE_25
+      port (M1: in Std_logic; M0: in Std_logic; CLK: in Std_logic; 
+            Q0: out Std_logic; Q1: out Std_logic);
+    end component;
+    component wb_manager_inst_SLICE_26
+      port (B1: in Std_logic; A1: in Std_logic; B0: in Std_logic; 
+            A0: in Std_logic; DI1: in Std_logic; DI0: in Std_logic; 
+            CLK: in Std_logic; F0: out Std_logic; Q0: out Std_logic; 
+            F1: out Std_logic; Q1: out Std_logic);
+    end component;
+    component wb_manager_inst_SLICE_27
+      port (B1: in Std_logic; A1: in Std_logic; B0: in Std_logic; 
+            A0: in Std_logic; DI1: in Std_logic; DI0: in Std_logic; 
+            CLK: in Std_logic; F0: out Std_logic; Q0: out Std_logic; 
+            F1: out Std_logic; Q1: out Std_logic);
+    end component;
+    component wb_manager_inst_SLICE_28
+      port (D1: in Std_logic; C1: in Std_logic; B1: in Std_logic; 
+            A1: in Std_logic; B0: in Std_logic; A0: in Std_logic; 
+            DI1: in Std_logic; DI0: in Std_logic; CLK: in Std_logic; 
+            F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
+            Q1: out Std_logic);
+    end component;
+    component wb_manager_inst_SLICE_30
+      port (B1: in Std_logic; A1: in Std_logic; B0: in Std_logic; 
             A0: in Std_logic; DI0: in Std_logic; M1: in Std_logic; 
             CLK: in Std_logic; F0: out Std_logic; Q0: out Std_logic; 
             F1: out Std_logic; Q1: out Std_logic);
     end component;
-    component wb_manager_inst_SLICE_32
-      port (M1: in Std_logic; M0: in Std_logic; CLK: in Std_logic; 
-            Q0: out Std_logic; Q1: out Std_logic);
+    component SLICE_31
+      port (M0: in Std_logic; CLK: in Std_logic; F0: out Std_logic; 
+            Q0: out Std_logic);
     end component;
-    component wb_manager_inst_SLICE_33
-      port (M1: in Std_logic; M0: in Std_logic; CLK: in Std_logic; 
-            Q0: out Std_logic; Q1: out Std_logic);
+    component wb_manager_inst_SLICE_32
+      port (B1: in Std_logic; A1: in Std_logic; D0: in Std_logic; 
+            C0: in Std_logic; B0: in Std_logic; A0: in Std_logic; 
+            DI0: in Std_logic; CLK: in Std_logic; F0: out Std_logic; 
+            Q0: out Std_logic; F1: out Std_logic);
+    end component;
+    component SLICE_33
+      port (D1: in Std_logic; C1: in Std_logic; B1: in Std_logic; 
+            A1: in Std_logic; C0: in Std_logic; B0: in Std_logic; 
+            A0: in Std_logic; M1: in Std_logic; M0: in Std_logic; 
+            CLK: in Std_logic; F0: out Std_logic; Q0: out Std_logic; 
+            F1: out Std_logic; Q1: out Std_logic);
     end component;
     component SLICE_34
-      port (B0: in Std_logic; A0: in Std_logic; DI0: in Std_logic; 
-            M1: in Std_logic; CLK: in Std_logic; F0: out Std_logic; 
-            Q0: out Std_logic; Q1: out Std_logic);
-    end component;
-    component wb_manager_inst_SLICE_35
-      port (C1: in Std_logic; B1: in Std_logic; A1: in Std_logic; 
-            B0: in Std_logic; A0: in Std_logic; DI1: in Std_logic; 
-            DI0: in Std_logic; CLK: in Std_logic; F0: out Std_logic; 
-            Q0: out Std_logic; F1: out Std_logic; Q1: out Std_logic);
-    end component;
-    component wb_manager_inst_SLICE_36
       port (D1: in Std_logic; C1: in Std_logic; B1: in Std_logic; 
             A1: in Std_logic; B0: in Std_logic; A0: in Std_logic; 
-            DI1: in Std_logic; DI0: in Std_logic; CLK: in Std_logic; 
+            M1: in Std_logic; M0: in Std_logic; CLK: in Std_logic; 
             F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
             Q1: out Std_logic);
     end component;
-    component SLICE_37
-      port (B0: in Std_logic; A0: in Std_logic; M1: in Std_logic; 
-            M0: in Std_logic; CLK: in Std_logic; F0: out Std_logic; 
-            Q0: out Std_logic; F1: out Std_logic; Q1: out Std_logic);
-    end component;
-    component wb_manager_inst_SLICE_38
-      port (D1: in Std_logic; C1: in Std_logic; B1: in Std_logic; 
-            A1: in Std_logic; B0: in Std_logic; A0: in Std_logic; 
-            DI1: in Std_logic; DI0: in Std_logic; CLK: in Std_logic; 
-            F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-            Q1: out Std_logic);
-    end component;
-    component SLICE_39
-      port (D1: in Std_logic; C1: in Std_logic; B1: in Std_logic; 
-            A1: in Std_logic; C0: in Std_logic; B0: in Std_logic; 
-            A0: in Std_logic; M1: in Std_logic; M0: in Std_logic; 
-            CLK: in Std_logic; F0: out Std_logic; Q0: out Std_logic; 
-            F1: out Std_logic; Q1: out Std_logic);
-    end component;
-    component SLICE_40
-      port (D1: in Std_logic; C1: in Std_logic; B1: in Std_logic; 
-            A1: in Std_logic; C0: in Std_logic; B0: in Std_logic; 
-            A0: in Std_logic; M1: in Std_logic; M0: in Std_logic; 
-            CLK: in Std_logic; F0: out Std_logic; Q0: out Std_logic; 
-            F1: out Std_logic; Q1: out Std_logic);
-    end component;
-    component SLICE_41
+    component SLICE_35
       port (B1: in Std_logic; A1: in Std_logic; D0: in Std_logic; 
             C0: in Std_logic; B0: in Std_logic; A0: in Std_logic; 
             M1: in Std_logic; M0: in Std_logic; CLK: in Std_logic; 
             F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
             Q1: out Std_logic);
     end component;
-    component SLICE_42
+    component SLICE_36
       port (D1: in Std_logic; C1: in Std_logic; B1: in Std_logic; 
-            A1: in Std_logic; B0: in Std_logic; A0: in Std_logic; 
-            M1: in Std_logic; M0: in Std_logic; CLK: in Std_logic; 
-            F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic; 
-            Q1: out Std_logic);
+            A1: in Std_logic; C0: in Std_logic; B0: in Std_logic; 
+            A0: in Std_logic; M1: in Std_logic; M0: in Std_logic; 
+            CLK: in Std_logic; F0: out Std_logic; Q0: out Std_logic; 
+            F1: out Std_logic; Q1: out Std_logic);
     end component;
-    component SLICE_43
+    component SLICE_37
       port (B1: in Std_logic; A1: in Std_logic; B0: in Std_logic; 
             A0: in Std_logic; M1: in Std_logic; M0: in Std_logic; 
             CLK: in Std_logic; F0: out Std_logic; Q0: out Std_logic; 
             F1: out Std_logic; Q1: out Std_logic);
     end component;
-    component SLICE_44
+    component SLICE_38
       port (B1: in Std_logic; A1: in Std_logic; B0: in Std_logic; 
             A0: in Std_logic; M0: in Std_logic; CLK: in Std_logic; 
             F0: out Std_logic; Q0: out Std_logic; F1: out Std_logic);
     end component;
-    component SLICE_45
+    component SLICE_39
       port (D1: in Std_logic; C1: in Std_logic; B1: in Std_logic; 
             A1: in Std_logic; D0: in Std_logic; C0: in Std_logic; 
             B0: in Std_logic; A0: in Std_logic; M1: in Std_logic; 
@@ -13019,7 +11081,8 @@
     end component;
     component wb_manager_inst_efb_i2c_Inst0_EFBInst_0
       port (WBCLKI: in Std_logic; WBRSTI: in Std_logic; WBCYCI: in Std_logic; 
-            WBSTBI: in Std_logic; WBWEI: in Std_logic; WBADRI2: in Std_logic; 
+            WBSTBI: in Std_logic; WBWEI: in Std_logic; WBADRI0: in Std_logic; 
+            WBADRI1: in Std_logic; WBADRI2: in Std_logic; 
             WBADRI4: in Std_logic; WBADRI5: in Std_logic; 
             WBADRI6: in Std_logic; WBADRI7: in Std_logic; 
             WBACKO: out Std_logic; I2C1SDAOEN: out Std_logic; 
@@ -13032,6 +11095,13 @@
     end component;
   begin
     wb_manager_inst_timeoutIns_SLICE_0I: wb_manager_inst_timeoutIns_SLICE_0
+      port map (A1=>wb_manager_inst_timeoutIns_clk_counter_0, 
+                DI1=>wb_manager_inst_timeoutIns_clk_counter_s_0, 
+                CE=>wb_manager_inst_N_47_1_i, LSR=>wb_manager_inst_N_47_1, 
+                CLK=>sys_clk, F1=>wb_manager_inst_timeoutIns_clk_counter_s_0, 
+                Q1=>wb_manager_inst_timeoutIns_clk_counter_0, 
+                FCO=>wb_manager_inst_timeoutIns_clk_counter_cry_0);
+    wb_manager_inst_timeoutIns_SLICE_1I: wb_manager_inst_timeoutIns_SLICE_1
       port map (A0=>wb_manager_inst_clk_counter_15, 
                 DI0=>wb_manager_inst_timeoutIns_clk_counter_s_15, 
                 CE=>wb_manager_inst_N_47_1_i, LSR=>wb_manager_inst_N_47_1, 
@@ -13039,7 +11109,7 @@
                 FCI=>wb_manager_inst_timeoutIns_clk_counter_cry_14, 
                 F0=>wb_manager_inst_timeoutIns_clk_counter_s_15, 
                 Q0=>wb_manager_inst_clk_counter_15);
-    wb_manager_inst_timeoutIns_SLICE_1I: wb_manager_inst_timeoutIns_SLICE_1
+    wb_manager_inst_timeoutIns_SLICE_2I: wb_manager_inst_timeoutIns_SLICE_2
       port map (A1=>wb_manager_inst_clk_counter_14, 
                 A0=>wb_manager_inst_clk_counter_13, 
                 DI1=>wb_manager_inst_timeoutIns_clk_counter_s_14, 
@@ -13052,7 +11122,7 @@
                 F1=>wb_manager_inst_timeoutIns_clk_counter_s_14, 
                 Q1=>wb_manager_inst_clk_counter_14, 
                 FCO=>wb_manager_inst_timeoutIns_clk_counter_cry_14);
-    wb_manager_inst_timeoutIns_SLICE_2I: wb_manager_inst_timeoutIns_SLICE_2
+    wb_manager_inst_timeoutIns_SLICE_3I: wb_manager_inst_timeoutIns_SLICE_3
       port map (A1=>wb_manager_inst_clk_counter_12, 
                 A0=>wb_manager_inst_clk_counter_11, 
                 DI1=>wb_manager_inst_timeoutIns_clk_counter_s_12, 
@@ -13065,7 +11135,7 @@
                 F1=>wb_manager_inst_timeoutIns_clk_counter_s_12, 
                 Q1=>wb_manager_inst_clk_counter_12, 
                 FCO=>wb_manager_inst_timeoutIns_clk_counter_cry_12);
-    wb_manager_inst_timeoutIns_SLICE_3I: wb_manager_inst_timeoutIns_SLICE_3
+    wb_manager_inst_timeoutIns_SLICE_4I: wb_manager_inst_timeoutIns_SLICE_4
       port map (A1=>wb_manager_inst_clk_counter_10, 
                 A0=>wb_manager_inst_clk_counter_9, 
                 DI1=>wb_manager_inst_timeoutIns_clk_counter_s_10, 
@@ -13078,7 +11148,7 @@
                 F1=>wb_manager_inst_timeoutIns_clk_counter_s_10, 
                 Q1=>wb_manager_inst_clk_counter_10, 
                 FCO=>wb_manager_inst_timeoutIns_clk_counter_cry_10);
-    wb_manager_inst_timeoutIns_SLICE_4I: wb_manager_inst_timeoutIns_SLICE_4
+    wb_manager_inst_timeoutIns_SLICE_5I: wb_manager_inst_timeoutIns_SLICE_5
       port map (A1=>wb_manager_inst_clk_counter_8, 
                 A0=>wb_manager_inst_clk_counter_7, 
                 DI1=>wb_manager_inst_timeoutIns_clk_counter_s_8, 
@@ -13091,7 +11161,7 @@
                 F1=>wb_manager_inst_timeoutIns_clk_counter_s_8, 
                 Q1=>wb_manager_inst_clk_counter_8, 
                 FCO=>wb_manager_inst_timeoutIns_clk_counter_cry_8);
-    wb_manager_inst_timeoutIns_SLICE_5I: wb_manager_inst_timeoutIns_SLICE_5
+    wb_manager_inst_timeoutIns_SLICE_6I: wb_manager_inst_timeoutIns_SLICE_6
       port map (A1=>wb_manager_inst_clk_counter_6, 
                 A0=>wb_manager_inst_clk_counter_5, 
                 DI1=>wb_manager_inst_timeoutIns_clk_counter_s_6, 
@@ -13104,7 +11174,7 @@
                 F1=>wb_manager_inst_timeoutIns_clk_counter_s_6, 
                 Q1=>wb_manager_inst_clk_counter_6, 
                 FCO=>wb_manager_inst_timeoutIns_clk_counter_cry_6);
-    wb_manager_inst_timeoutIns_SLICE_6I: wb_manager_inst_timeoutIns_SLICE_6
+    wb_manager_inst_timeoutIns_SLICE_7I: wb_manager_inst_timeoutIns_SLICE_7
       port map (A1=>wb_manager_inst_clk_counter_4, 
                 A0=>wb_manager_inst_timeoutIns_clk_counter_3, 
                 DI1=>wb_manager_inst_timeoutIns_clk_counter_s_4, 
@@ -13117,7 +11187,7 @@
                 F1=>wb_manager_inst_timeoutIns_clk_counter_s_4, 
                 Q1=>wb_manager_inst_clk_counter_4, 
                 FCO=>wb_manager_inst_timeoutIns_clk_counter_cry_4);
-    wb_manager_inst_timeoutIns_SLICE_7I: wb_manager_inst_timeoutIns_SLICE_7
+    wb_manager_inst_timeoutIns_SLICE_8I: wb_manager_inst_timeoutIns_SLICE_8
       port map (A1=>wb_manager_inst_timeoutIns_clk_counter_2, 
                 A0=>wb_manager_inst_timeoutIns_clk_counter_1, 
                 DI1=>wb_manager_inst_timeoutIns_clk_counter_s_2, 
@@ -13130,154 +11200,79 @@
                 F1=>wb_manager_inst_timeoutIns_clk_counter_s_2, 
                 Q1=>wb_manager_inst_timeoutIns_clk_counter_2, 
                 FCO=>wb_manager_inst_timeoutIns_clk_counter_cry_2);
-    wb_manager_inst_timeoutIns_SLICE_8I: wb_manager_inst_timeoutIns_SLICE_8
-      port map (A1=>wb_manager_inst_timeoutIns_clk_counter_0, 
-                DI1=>wb_manager_inst_timeoutIns_clk_counter_s_0, 
-                CE=>wb_manager_inst_N_47_1_i, LSR=>wb_manager_inst_N_47_1, 
-                CLK=>sys_clk, F1=>wb_manager_inst_timeoutIns_clk_counter_s_0, 
-                Q1=>wb_manager_inst_timeoutIns_clk_counter_0, 
-                FCO=>wb_manager_inst_timeoutIns_clk_counter_cry_0);
-    SLICE_9I: SLICE_9
-      port map (A1=>HeartBeatInst0_iCounter_0, 
-                DI1=>HeartBeatInst0_iCounter_s_0, M0=>wb_manager_inst_nState_1, 
-                CLK=>sys_clk, Q0=>wb_manager_inst_cState_1, 
-                F1=>HeartBeatInst0_iCounter_s_0, Q1=>HeartBeatInst0_iCounter_0, 
-                FCO=>HeartBeatInst0_iCounter_cry_0);
-    HeartBeatInst0_SLICE_10I: HeartBeatInst0_SLICE_10
-      port map (A1=>heart_beat_c, A0=>HeartBeatInst0_iCounter_19, 
-                DI1=>HeartBeatInst0_iCounter_s_20, 
-                DI0=>HeartBeatInst0_iCounter_s_19, CLK=>sys_clk, 
-                FCI=>HeartBeatInst0_iCounter_cry_18, 
-                F0=>HeartBeatInst0_iCounter_s_19, 
-                Q0=>HeartBeatInst0_iCounter_19, 
-                F1=>HeartBeatInst0_iCounter_s_20, Q1=>heart_beat_c);
-    HeartBeatInst0_SLICE_11I: HeartBeatInst0_SLICE_11
-      port map (A1=>HeartBeatInst0_iCounter_18, A0=>HeartBeatInst0_iCounter_17, 
-                DI1=>HeartBeatInst0_iCounter_s_18, 
-                DI0=>HeartBeatInst0_iCounter_s_17, CLK=>sys_clk, 
-                FCI=>HeartBeatInst0_iCounter_cry_16, 
-                F0=>HeartBeatInst0_iCounter_s_17, 
-                Q0=>HeartBeatInst0_iCounter_17, 
-                F1=>HeartBeatInst0_iCounter_s_18, 
-                Q1=>HeartBeatInst0_iCounter_18, 
-                FCO=>HeartBeatInst0_iCounter_cry_18);
-    HeartBeatInst0_SLICE_12I: HeartBeatInst0_SLICE_12
-      port map (A1=>HeartBeatInst0_iCounter_16, A0=>HeartBeatInst0_iCounter_15, 
-                DI1=>HeartBeatInst0_iCounter_s_16, 
-                DI0=>HeartBeatInst0_iCounter_s_15, CLK=>sys_clk, 
-                FCI=>HeartBeatInst0_iCounter_cry_14, 
-                F0=>HeartBeatInst0_iCounter_s_15, 
-                Q0=>HeartBeatInst0_iCounter_15, 
-                F1=>HeartBeatInst0_iCounter_s_16, 
-                Q1=>HeartBeatInst0_iCounter_16, 
-                FCO=>HeartBeatInst0_iCounter_cry_16);
-    HeartBeatInst0_SLICE_13I: HeartBeatInst0_SLICE_13
-      port map (A1=>HeartBeatInst0_iCounter_14, A0=>HeartBeatInst0_iCounter_13, 
-                DI1=>HeartBeatInst0_iCounter_s_14, 
-                DI0=>HeartBeatInst0_iCounter_s_13, CLK=>sys_clk, 
-                FCI=>HeartBeatInst0_iCounter_cry_12, 
-                F0=>HeartBeatInst0_iCounter_s_13, 
-                Q0=>HeartBeatInst0_iCounter_13, 
-                F1=>HeartBeatInst0_iCounter_s_14, 
-                Q1=>HeartBeatInst0_iCounter_14, 
-                FCO=>HeartBeatInst0_iCounter_cry_14);
-    HeartBeatInst0_SLICE_14I: HeartBeatInst0_SLICE_14
-      port map (A1=>HeartBeatInst0_iCounter_12, A0=>HeartBeatInst0_iCounter_11, 
-                DI1=>HeartBeatInst0_iCounter_s_12, 
-                DI0=>HeartBeatInst0_iCounter_s_11, CLK=>sys_clk, 
-                FCI=>HeartBeatInst0_iCounter_cry_10, 
-                F0=>HeartBeatInst0_iCounter_s_11, 
-                Q0=>HeartBeatInst0_iCounter_11, 
-                F1=>HeartBeatInst0_iCounter_s_12, 
-                Q1=>HeartBeatInst0_iCounter_12, 
-                FCO=>HeartBeatInst0_iCounter_cry_12);
-    HeartBeatInst0_SLICE_15I: HeartBeatInst0_SLICE_15
-      port map (A1=>HeartBeatInst0_iCounter_10, A0=>HeartBeatInst0_iCounter_9, 
-                DI1=>HeartBeatInst0_iCounter_s_10, 
-                DI0=>HeartBeatInst0_iCounter_s_9, CLK=>sys_clk, 
-                FCI=>HeartBeatInst0_iCounter_cry_8, 
-                F0=>HeartBeatInst0_iCounter_s_9, Q0=>HeartBeatInst0_iCounter_9, 
-                F1=>HeartBeatInst0_iCounter_s_10, 
-                Q1=>HeartBeatInst0_iCounter_10, 
-                FCO=>HeartBeatInst0_iCounter_cry_10);
-    HeartBeatInst0_SLICE_16I: HeartBeatInst0_SLICE_16
-      port map (A1=>HeartBeatInst0_iCounter_8, A0=>HeartBeatInst0_iCounter_7, 
-                DI1=>HeartBeatInst0_iCounter_s_8, 
-                DI0=>HeartBeatInst0_iCounter_s_7, CLK=>sys_clk, 
-                FCI=>HeartBeatInst0_iCounter_cry_6, 
-                F0=>HeartBeatInst0_iCounter_s_7, Q0=>HeartBeatInst0_iCounter_7, 
-                F1=>HeartBeatInst0_iCounter_s_8, Q1=>HeartBeatInst0_iCounter_8, 
-                FCO=>HeartBeatInst0_iCounter_cry_8);
-    HeartBeatInst0_SLICE_17I: HeartBeatInst0_SLICE_17
-      port map (A1=>HeartBeatInst0_iCounter_6, A0=>HeartBeatInst0_iCounter_5, 
-                DI1=>HeartBeatInst0_iCounter_s_6, 
-                DI0=>HeartBeatInst0_iCounter_s_5, CLK=>sys_clk, 
-                FCI=>HeartBeatInst0_iCounter_cry_4, 
-                F0=>HeartBeatInst0_iCounter_s_5, Q0=>HeartBeatInst0_iCounter_5, 
-                F1=>HeartBeatInst0_iCounter_s_6, Q1=>HeartBeatInst0_iCounter_6, 
-                FCO=>HeartBeatInst0_iCounter_cry_6);
-    HeartBeatInst0_SLICE_18I: HeartBeatInst0_SLICE_18
-      port map (A1=>HeartBeatInst0_iCounter_4, A0=>HeartBeatInst0_iCounter_3, 
-                DI1=>HeartBeatInst0_iCounter_s_4, 
-                DI0=>HeartBeatInst0_iCounter_s_3, CLK=>sys_clk, 
-                FCI=>HeartBeatInst0_iCounter_cry_2, 
-                F0=>HeartBeatInst0_iCounter_s_3, Q0=>HeartBeatInst0_iCounter_3, 
-                F1=>HeartBeatInst0_iCounter_s_4, Q1=>HeartBeatInst0_iCounter_4, 
-                FCO=>HeartBeatInst0_iCounter_cry_4);
-    HeartBeatInst0_SLICE_19I: HeartBeatInst0_SLICE_19
-      port map (A1=>HeartBeatInst0_iCounter_2, A0=>HeartBeatInst0_iCounter_1, 
-                DI1=>HeartBeatInst0_iCounter_s_2, 
-                DI0=>HeartBeatInst0_iCounter_s_1, CLK=>sys_clk, 
-                FCI=>HeartBeatInst0_iCounter_cry_0, 
-                F0=>HeartBeatInst0_iCounter_s_1, Q0=>HeartBeatInst0_iCounter_1, 
-                F1=>HeartBeatInst0_iCounter_s_2, Q1=>HeartBeatInst0_iCounter_2, 
-                FCO=>HeartBeatInst0_iCounter_cry_2);
+    HeartBeatInst0_SLICE_9I: HeartBeatInst0_SLICE_9
+      port map (B1=>HeartBeatInst0_iCounter_1, A1=>HeartBeatInst0_iCounter_0, 
+                A0=>HeartBeatInst0_iCounter_0, 
+                DI1=>HeartBeatInst0_iCounter_RNO_1, 
+                DI0=>HeartBeatInst0_iCounter_i_0, CLK=>sys_clk, 
+                F0=>HeartBeatInst0_iCounter_i_0, Q0=>HeartBeatInst0_iCounter_0, 
+                F1=>HeartBeatInst0_iCounter_RNO_1, 
+                Q1=>HeartBeatInst0_iCounter_1);
+    SLICE_10I: SLICE_10
+      port map (C0=>HeartBeatInst0_iCounter_2, B0=>HeartBeatInst0_iCounter_1, 
+                A0=>HeartBeatInst0_iCounter_0, 
+                DI0=>HeartBeatInst0_iCounter_RNO_2, 
+                M1=>wb_manager_inst_nState_0, CLK=>sys_clk, 
+                F0=>HeartBeatInst0_iCounter_RNO_2, 
+                Q0=>HeartBeatInst0_iCounter_2, Q1=>wb_manager_inst_cState_0);
+    SLICE_11I: SLICE_11
+      port map (D0=>heart_beat_c, C0=>HeartBeatInst0_iCounter_2, 
+                B0=>HeartBeatInst0_iCounter_1, A0=>HeartBeatInst0_iCounter_0, 
+                DI0=>HeartBeatInst0_iCounter_RNO_3, 
+                M1=>wb_manager_inst_nState_1, CLK=>sys_clk, 
+                F0=>HeartBeatInst0_iCounter_RNO_3, Q0=>heart_beat_c, 
+                Q1=>wb_manager_inst_cState_1);
+    i2c_controller_inst_SLICE_13I: i2c_controller_inst_SLICE_13
+      port map (A1=>i2c_controller_inst_nState_4, 
+                A0=>i2c_controller_inst_nState_1, 
+                DI1=>i2c_controller_inst_nState_i_4, 
+                DI0=>i2c_controller_inst_nState_i_1, CLK=>sys_clk, 
+                F0=>i2c_controller_inst_nState_i_1, 
+                Q0=>i2c_controller_inst_cState_i_0_1, 
+                F1=>i2c_controller_inst_nState_i_4, 
+                Q1=>i2c_controller_inst_cState_i_0_4);
     i2c_controller_inst_SLICE_21I: i2c_controller_inst_SLICE_21
-      port map (A1=>i2c_controller_inst_nState_5, 
-                A0=>i2c_controller_inst_nState_2, 
-                DI1=>i2c_controller_inst_nState_i_5, 
-                DI0=>i2c_controller_inst_nState_i_2, CLK=>sys_clk, 
-                F0=>i2c_controller_inst_nState_i_2, 
-                Q0=>i2c_controller_inst_cState_i_0_2, 
-                F1=>i2c_controller_inst_nState_i_5, 
-                Q1=>i2c_controller_inst_cState_i_0_5);
-    i2c_controller_inst_SLICE_29I: i2c_controller_inst_SLICE_29
-      port map (C1=>i2c_controller_inst_nState_0, 
-                B1=>i2c_controller_inst_nState_3, 
-                A1=>i2c_controller_inst_nState_5, D0=>wb_manager_inst_cState_1, 
-                C0=>i2c_controller_inst_un1_nState_1_sqmuxa_i_0_a2_0_0, 
-                B0=>i2c_controller_inst_cState_6, A0=>N_45_reti, 
+      port map (D1=>i2c_controller_inst_nState_2, 
+                C1=>i2c_controller_inst_nState_5, 
+                B1=>i2c_controller_inst_nState_1, 
+                A1=>i2c_controller_inst_nState_4, D0=>wb_manager_inst_cState_1, 
+                C0=>i2c_controller_inst_un1_nState_1_sqmuxa_i_0_a2_4_1, 
+                B0=>i2c_controller_inst_cState_6, A0=>N_32_reti, 
                 DI0=>i2c_controller_inst_un1_nState_1_sqmuxa_i_0_reti, 
                 M1=>i2c_controller_inst_nState_6, CLK=>sys_clk, 
                 F0=>i2c_controller_inst_un1_nState_1_sqmuxa_i_0_reti, 
                 Q0=>i2c_controller_inst_un1_nState_1_sqmuxa_i_0, 
-                F1=>i2c_controller_inst_un1_nState_1_sqmuxa_i_0_a2_0_0, 
+                F1=>i2c_controller_inst_un1_nState_1_sqmuxa_i_0_a2_4_1, 
                 Q1=>i2c_controller_inst_cState_6);
-    wb_manager_inst_SLICE_32I: wb_manager_inst_SLICE_32
-      port map (M1=>wb_manager_inst_nState_2, M0=>wb_manager_inst_nState_3, 
+    wb_manager_inst_SLICE_24I: wb_manager_inst_SLICE_24
+      port map (M1=>wb_manager_inst_nState_0_2, M0=>wb_manager_inst_nState_3, 
                 CLK=>sys_clk, Q0=>wb_manager_inst_cState_3, 
                 Q1=>wb_manager_inst_cState_2);
-    wb_manager_inst_SLICE_33I: wb_manager_inst_SLICE_33
-      port map (M1=>wb_manager_inst_nState_4, M0=>wb_manager_inst_nState_5, 
+    wb_manager_inst_SLICE_25I: wb_manager_inst_SLICE_25
+      port map (M1=>wb_manager_inst_nState_4, M0=>wb_manager_inst_nState_0_5, 
                 CLK=>sys_clk, Q0=>wb_manager_inst_cState_5, 
                 Q1=>wb_manager_inst_cState_4);
-    SLICE_34I: SLICE_34
-      port map (B0=>i2c_controller_inst_nState_3, 
-                A0=>i2c_controller_inst_nState_0, DI0=>wb_manager_inst_N_42i, 
-                M1=>i2c_controller_inst_nState_0, CLK=>sys_clk, 
-                F0=>wb_manager_inst_N_42i, Q0=>wb_manager_inst_cState_ret, 
-                Q1=>i2c_controller_inst_cState_0);
-    wb_manager_inst_SLICE_35I: wb_manager_inst_SLICE_35
-      port map (C1=>i2c_controller_inst_nState_1, 
-                B1=>i2c_controller_inst_nState_4, 
-                A1=>i2c_controller_inst_nState_2, 
-                B0=>i2c_controller_inst_nState_4, 
-                A0=>i2c_controller_inst_nState_1, DI1=>N_45_reti, 
-                DI0=>wb_manager_inst_N_44_reti, CLK=>sys_clk, 
-                F0=>wb_manager_inst_N_44_reti, 
-                Q0=>wb_manager_inst_cState_ret_1, F1=>N_45_reti, 
+    wb_manager_inst_SLICE_26I: wb_manager_inst_SLICE_26
+      port map (B1=>i2c_controller_inst_nState_3, 
+                A1=>i2c_controller_inst_nState_0, 
+                B0=>i2c_controller_inst_nState_0, 
+                A0=>i2c_controller_inst_nState_3, DI1=>N_32_reti, 
+                DI0=>wb_manager_inst_N_32_reti_i, CLK=>sys_clk, 
+                F0=>wb_manager_inst_N_32_reti_i, 
+                Q0=>wb_manager_inst_cState_ret_1, F1=>N_32_reti, 
                 Q1=>wb_manager_inst_cState_ret_2);
-    wb_manager_inst_SLICE_36I: wb_manager_inst_SLICE_36
+    wb_manager_inst_SLICE_27I: wb_manager_inst_SLICE_27
+      port map (B1=>i2c_controller_inst_nState_2, 
+                A1=>i2c_controller_inst_nState_5, 
+                B0=>i2c_controller_inst_nState_5, 
+                A0=>i2c_controller_inst_nState_2, 
+                DI1=>wb_manager_inst_N_28_reti_i, 
+                DI0=>wb_manager_inst_N_28_reti, CLK=>sys_clk, 
+                F0=>wb_manager_inst_N_28_reti, 
+                Q0=>wb_manager_inst_cState_ret_3, 
+                F1=>wb_manager_inst_N_28_reti_i, 
+                Q1=>wb_manager_inst_cState_ret_4);
+    wb_manager_inst_SLICE_28I: wb_manager_inst_SLICE_28
       port map (D1=>wb_manager_inst_wb_ack_o, C1=>wb_manager_inst_cState_2, 
                 B1=>wb_manager_inst_cState_1, A1=>i2c_controller_inst_cState_6, 
                 B0=>wb_manager_inst_wb_ack_o, A0=>wb_manager_inst_cState_2, 
@@ -13287,22 +11282,27 @@
                 F0=>wb_manager_inst_nState_1_sqmuxa_2, 
                 Q0=>wb_manager_inst_nState_0, F1=>wb_manager_inst_nState_1_1, 
                 Q1=>wb_manager_inst_nState_1);
-    SLICE_37I: SLICE_37
-      port map (B0=>i2c_controller_inst_cState_i_0_2, A0=>wb_manager_inst_N_28, 
-                M1=>wb_manager_inst_cState_4, M0=>wb_manager_inst_cState_3, 
-                CLK=>wb_manager_inst_nState_1_sqmuxa_4_i, 
-                F0=>wb_manager_inst_efb_i2c_Inst0_N_10_i, 
-                Q0=>wb_manager_inst_nState_2, F1=>VCCS, 
-                Q1=>wb_manager_inst_nState_3);
-    wb_manager_inst_SLICE_38I: wb_manager_inst_SLICE_38
-      port map (D1=>wb_manager_inst_cState_5, C1=>wb_manager_inst_cState_1, 
-                B1=>wb_manager_inst_cState_0, A1=>i2c_controller_inst_cState_6, 
+    wb_manager_inst_SLICE_30I: wb_manager_inst_SLICE_30
+      port map (B1=>wb_manager_inst_cState_ret_3, A1=>wb_manager_inst_N_27, 
                 B0=>wb_manager_inst_cState_5, A0=>i2c_controller_inst_cState_6, 
-                DI1=>wb_manager_inst_nState_1_5, DI0=>wb_manager_inst_N_23_i, 
+                DI0=>wb_manager_inst_N_23_i, M1=>wb_manager_inst_cState_4, 
                 CLK=>wb_manager_inst_nState_1_sqmuxa_4_i, 
                 F0=>wb_manager_inst_N_23_i, Q0=>wb_manager_inst_nState_4, 
-                F1=>wb_manager_inst_nState_1_5, Q1=>wb_manager_inst_nState_5);
-    SLICE_39I: SLICE_39
+                F1=>wb_manager_inst_efb_i2c_Inst0_N_18_i, 
+                Q1=>wb_manager_inst_nState_3);
+    SLICE_31I: SLICE_31
+      port map (M0=>wb_manager_inst_cState_3, 
+                CLK=>wb_manager_inst_nState_1_sqmuxa_4_i, F0=>VCCS, 
+                Q0=>wb_manager_inst_nState_0_2);
+    wb_manager_inst_SLICE_32I: wb_manager_inst_SLICE_32
+      port map (B1=>wb_manager_inst_cState_3, A1=>i2c_controller_inst_cState_6, 
+                D0=>wb_manager_inst_cState_5, C0=>wb_manager_inst_cState_1, 
+                B0=>wb_manager_inst_cState_0, A0=>i2c_controller_inst_cState_6, 
+                DI0=>wb_manager_inst_nState_1_5, 
+                CLK=>wb_manager_inst_nState_1_sqmuxa_4_i, 
+                F0=>wb_manager_inst_nState_1_5, Q0=>wb_manager_inst_nState_0_5, 
+                F1=>wb_manager_inst_efb_i2c_Inst0_N_25_i);
+    SLICE_33I: SLICE_33
       port map (D1=>wb_manager_inst_un3_timeoutlt5, 
                 C1=>wb_manager_inst_clk_counter_5, 
                 B1=>wb_manager_inst_clk_counter_4, 
@@ -13310,47 +11310,49 @@
                 C0=>wb_manager_inst_timeoutIns_clk_counter_3, 
                 B0=>wb_manager_inst_timeoutIns_clk_counter_2, 
                 A0=>wb_manager_inst_timeoutIns_clk_counter_1, 
-                M1=>wb_manager_inst_nState_0, M0=>i2c_controller_inst_nState_5, 
-                CLK=>sys_clk, F0=>wb_manager_inst_un3_timeoutlt5, 
-                Q0=>i2c_controller_inst_cState_5, 
+                M1=>i2c_controller_inst_nState_5, 
+                M0=>i2c_controller_inst_nState_4, CLK=>sys_clk, 
+                F0=>wb_manager_inst_un3_timeoutlt5, 
+                Q0=>i2c_controller_inst_cState_4, 
                 F1=>wb_manager_inst_nState_1_sqmuxa_4_2, 
-                Q1=>wb_manager_inst_cState_0);
-    SLICE_40I: SLICE_40
+                Q1=>i2c_controller_inst_cState_5);
+    SLICE_34I: SLICE_34
       port map (D1=>wb_manager_inst_cState_2, C1=>wb_manager_inst_cState_3, 
                 B1=>i2c_controller_inst_cState_6, A1=>wb_manager_inst_cState_4, 
-                C0=>i2c_controller_inst_cState_i_0_5, 
-                B0=>wb_manager_inst_cState_ret_1, A0=>wb_manager_inst_N_28, 
-                M1=>i2c_controller_inst_cState_6, 
-                M0=>i2c_controller_inst_cState_5, 
+                B0=>wb_manager_inst_cState_ret_2, A0=>wb_manager_inst_N_27, 
+                M1=>i2c_controller_inst_cState_4, 
+                M0=>i2c_controller_inst_cState_3, 
                 CLK=>i2c_controller_inst_un1_nState_1_sqmuxa_i_0, 
                 F0=>wb_manager_inst_efb_i2c_Inst0_N_14_i, 
-                Q0=>i2c_controller_inst_nState_4, F1=>wb_manager_inst_N_28, 
-                Q1=>i2c_controller_inst_nState_5);
-    SLICE_41I: SLICE_41
+                Q0=>i2c_controller_inst_nState_2, F1=>wb_manager_inst_N_27, 
+                Q1=>i2c_controller_inst_nState_3);
+    SLICE_35I: SLICE_35
       port map (B1=>wb_manager_inst_clk_counter_7, 
                 A1=>wb_manager_inst_clk_counter_6, 
                 D0=>wb_manager_inst_nState_1_sqmuxa_4_8, 
                 C0=>wb_manager_inst_nState_1_sqmuxa_4_6, 
                 B0=>wb_manager_inst_nState_1_sqmuxa_4_3, 
                 A0=>wb_manager_inst_nState_1_sqmuxa_4_2, 
-                M1=>i2c_controller_inst_nState_4, 
-                M0=>i2c_controller_inst_nState_3, CLK=>sys_clk, 
+                M1=>i2c_controller_inst_nState_3, 
+                M0=>i2c_controller_inst_nState_2, CLK=>sys_clk, 
                 F0=>wb_manager_inst_nState_1_sqmuxa_4_i, 
-                Q0=>i2c_controller_inst_cState_3, 
+                Q0=>i2c_controller_inst_cState_2, 
                 F1=>wb_manager_inst_nState_1_sqmuxa_4_3, 
-                Q1=>i2c_controller_inst_cState_4);
-    SLICE_42I: SLICE_42
-      port map (D1=>wb_manager_inst_cState_4, C1=>i2c_controller_inst_cState_6, 
-                B1=>wb_manager_inst_cState_3, A1=>wb_manager_inst_cState_2, 
-                B0=>wb_manager_inst_cState_3, A0=>i2c_controller_inst_cState_6, 
-                M1=>i2c_controller_inst_cState_4, 
-                M0=>i2c_controller_inst_cState_3, 
+                Q1=>i2c_controller_inst_cState_3);
+    SLICE_36I: SLICE_36
+      port map (D1=>i2c_controller_inst_cState_i_0_4, 
+                C1=>i2c_controller_inst_cState_i_0_1, 
+                B1=>i2c_controller_inst_cState_5, A1=>wb_manager_inst_N_27, 
+                C0=>i2c_controller_inst_cState_5, 
+                B0=>wb_manager_inst_cState_ret_1, A0=>wb_manager_inst_N_27, 
+                M1=>i2c_controller_inst_cState_6, 
+                M0=>i2c_controller_inst_cState_5, 
                 CLK=>i2c_controller_inst_un1_nState_1_sqmuxa_i_0, 
-                F0=>wb_manager_inst_efb_i2c_Inst0_N_26_i, 
-                Q0=>i2c_controller_inst_nState_2, 
-                F1=>wb_manager_inst_efb_i2c_Inst0_N_28_i, 
-                Q1=>i2c_controller_inst_nState_3);
-    SLICE_43I: SLICE_43
+                F0=>wb_manager_inst_efb_i2c_Inst0_N_12_i, 
+                Q0=>i2c_controller_inst_nState_4, 
+                F1=>wb_manager_inst_efb_i2c_Inst0_N_20_i, 
+                Q1=>i2c_controller_inst_nState_5);
+    SLICE_37I: SLICE_37
       port map (B1=>wb_manager_inst_cState_3, A1=>wb_manager_inst_cState_2, 
                 B0=>wb_manager_inst_cState_2, A0=>wb_manager_inst_cState_3, 
                 M1=>i2c_controller_inst_cState_2, 
@@ -13358,15 +11360,14 @@
                 CLK=>i2c_controller_inst_un1_nState_1_sqmuxa_i_0, 
                 F0=>wb_manager_inst_N_47_1_i, Q0=>i2c_controller_inst_nState_0, 
                 F1=>wb_manager_inst_N_47_1, Q1=>i2c_controller_inst_nState_1);
-    SLICE_44I: SLICE_44
-      port map (B1=>wb_manager_inst_cState_ret_2, A1=>wb_manager_inst_N_28, 
-                B0=>wb_manager_inst_cState_ret, A0=>wb_manager_inst_N_28, 
+    SLICE_38I: SLICE_38
+      port map (B1=>wb_manager_inst_cState_ret_4, A1=>wb_manager_inst_N_27, 
+                B0=>i2c_controller_inst_cState_5, A0=>wb_manager_inst_N_27, 
                 M0=>i2c_controller_inst_cState_0, 
                 CLK=>i2c_controller_inst_un1_nState_1_sqmuxa_i_0, 
-                F0=>wb_manager_inst_efb_i2c_Inst0_N_12_i, 
-                Q0=>i2c_controller_inst_nState_6, 
-                F1=>wb_manager_inst_efb_i2c_Inst0_N_19_i);
-    SLICE_45I: SLICE_45
+                F0=>wb_manager_inst_efb_i2c_Inst0_N_10_i, 
+                Q0=>i2c_controller_inst_nState_6, F1=>wb_manager_inst_N_16_i);
+    SLICE_39I: SLICE_39
       port map (D1=>wb_manager_inst_clk_counter_15, 
                 C1=>wb_manager_inst_clk_counter_14, 
                 B1=>wb_manager_inst_clk_counter_13, 
@@ -13375,12 +11376,12 @@
                 C0=>wb_manager_inst_clk_counter_10, 
                 B0=>wb_manager_inst_clk_counter_9, 
                 A0=>wb_manager_inst_clk_counter_8, 
-                M1=>i2c_controller_inst_nState_2, 
-                M0=>i2c_controller_inst_nState_1, CLK=>sys_clk, 
+                M1=>i2c_controller_inst_nState_1, 
+                M0=>i2c_controller_inst_nState_0, CLK=>sys_clk, 
                 F0=>wb_manager_inst_nState_1_sqmuxa_4_8, 
-                Q0=>i2c_controller_inst_cState_1, 
+                Q0=>i2c_controller_inst_cState_0, 
                 F1=>wb_manager_inst_nState_1_sqmuxa_4_6, 
-                Q1=>i2c_controller_inst_cState_2);
+                Q1=>i2c_controller_inst_cState_1);
     enI2CI: enI2CB
       port map (PADDO=>VCCS, enI2CS=>enI2C);
     rst_nI: rst_nB
@@ -13402,9 +11403,11 @@
       port map (WBCLKI=>sys_clk, WBRSTI=>rst_n_c, 
                 WBCYCI=>wb_manager_inst_N_47_1_i, 
                 WBSTBI=>wb_manager_inst_N_47_1_i, 
-                WBWEI=>wb_manager_inst_efb_i2c_Inst0_N_26_i, 
-                WBADRI2=>wb_manager_inst_efb_i2c_Inst0_N_28_i, 
-                WBADRI4=>wb_manager_inst_efb_i2c_Inst0_N_19_i, 
+                WBWEI=>wb_manager_inst_efb_i2c_Inst0_N_25_i, 
+                WBADRI0=>wb_manager_inst_N_16_i, 
+                WBADRI1=>wb_manager_inst_N_16_i, 
+                WBADRI2=>wb_manager_inst_efb_i2c_Inst0_N_18_i, 
+                WBADRI4=>wb_manager_inst_efb_i2c_Inst0_N_20_i, 
                 WBADRI5=>wb_manager_inst_efb_i2c_Inst0_N_10_i, 
                 WBADRI6=>wb_manager_inst_efb_i2c_Inst0_N_12_i, 
                 WBADRI7=>wb_manager_inst_efb_i2c_Inst0_N_14_i, 

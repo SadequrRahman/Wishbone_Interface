@@ -3,60 +3,60 @@ Report for cell top_module
    Instance path: top_module
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	      36.00        100.0
-                                  LUT4	      27.00        100.0
+                                  SLIC	      29.00        100.0
+                                  LUT4	      33.00        100.0
                                  IOBUF	          5        100.0
-                                PFUREG	         69        100.0
-                                RIPPLE	         20        100.0
+                                PFUREG	         53        100.0
+                                RIPPLE	          9        100.0
 SUB MODULES
                                   cell	      count    SLC Usage(%)
-                            wb_manager	          1        54.6
-                 i2c_master_controller	          1        15.0
-                             HeartBeat	          1        29.6
+                            wb_manager	          1        71.8
+                 i2c_master_controller	          1        18.4
+                             HeartBeat	          1         8.0
 ---------------------------------------------------
 Report for cell i2c_master_controller
    Instance path: top_module/i2c_controller_inst
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	       5.42        15.0
-                                  LUT4	       4.00        14.8
-                                PFUREG	         17        24.6
+                                  SLIC	       5.33        18.4
+                                  LUT4	       4.00        12.1
+                                PFUREG	         17        32.1
 ---------------------------------------------------
 Report for cell wb_manager
    Instance path: top_module/wb_manager_inst
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	      19.67        54.6
-                                  LUT4	      22.00        81.5
+                                  SLIC	      20.83        71.8
+                                  LUT4	      24.00        72.7
                                  IOBUF	          2        40.0
-                                PFUREG	         31        44.9
-                                RIPPLE	          9        45.0
+                                PFUREG	         32        60.4
+                                RIPPLE	          9        100.0
 SUB MODULES
                                   cell	      count    SLC Usage(%)
-                               timeout	          1        25.7
-                          efb_i2c_VHDL	          1         4.6
+                               timeout	          1        31.9
+                          efb_i2c_VHDL	          1         5.7
 ---------------------------------------------------
 Report for cell timeout
    Instance path: top_module/wb_manager_inst/timeoutIns
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	       9.25        25.7
-                                  LUT4	       1.00         3.7
-                                PFUREG	         16        23.2
-                                RIPPLE	          9        45.0
+                                  SLIC	       9.25        31.9
+                                  LUT4	       1.00         3.0
+                                PFUREG	         16        30.2
+                                RIPPLE	          9        100.0
 ---------------------------------------------------
 Report for cell efb_i2c_VHDL
    Instance path: top_module/wb_manager_inst/efb_i2c_Inst0
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	       1.67         4.6
-                                  LUT4	       6.00        22.2
+                                  SLIC	       1.67         5.7
+                                  LUT4	       6.00        18.2
                                  IOBUF	          2        40.0
 ---------------------------------------------------
 Report for cell HeartBeat
    Instance path: top_module/HeartBeatInst0
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	      10.67        29.6
-                                PFUREG	         21        30.4
-                                RIPPLE	         11        55.0
+                                  SLIC	       2.33         8.0
+                                  LUT4	       4.00        12.1
+                                PFUREG	          4         7.5

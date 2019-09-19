@@ -3,7 +3,7 @@
 #OS: Windows 8 6.2
 #Hostname: T5810JP
 
-# Thu Sep 19 14:02:32 2019
+# Thu Sep 19 15:27:42 2019
 
 #Implementation: i2c_interface
 
@@ -17,11 +17,9 @@ Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated
 
 @N: CD720 :"C:\lscc\diamond\3.10_x64\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ps
 @N:"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":8:7:8:16|Top entity is set to top_module.
-File D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd changed - recompiling
-File D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd changed - recompiling
+File D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd changed - recompiling
 VHDL syntax check successful!
-File D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd changed - recompiling
-File D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd changed - recompiling
+File D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd changed - recompiling
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":8:7:8:16|Synthesizing work.top_module.sample_arch.
 @N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":2291:10:2291:13|Synthesizing work.osch.syn_black_box.
 Post processing for work.osch.syn_black_box
@@ -60,7 +58,7 @@ Post processing for work.wb_manager.rtl
 @W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|All reachable assignments to status(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd":8:7:8:15|Synthesizing work.heartbeat.beh_arch.
 Post processing for work.heartbeat.beh_arch
-@W: CL271 :"D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd":30:1:30:2|Pruning unused bits 32 to 21 of iCounter(32 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL271 :"D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd":30:1:30:2|Pruning unused bits 32 to 4 of iCounter(32 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 Post processing for work.top_module.sample_arch
 @W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":29:3:29:8|Bit 0 of signal data_i is floating -- simulation mismatch possible.
 @W: CL252 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":29:3:29:8|Bit 1 of signal data_i is floating -- simulation mismatch possible.
@@ -78,22 +76,22 @@ Post processing for work.top_module.sample_arch
 @W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":106:1:106:15|Bit 5 of input data_i of instance wb_manager_inst is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 @W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":106:1:106:15|Bit 6 of input data_i of instance wb_manager_inst is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 @W: CL245 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":106:1:106:15|Bit 7 of input data_i of instance wb_manager_inst is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(0) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(1) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(2) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(0) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(1) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(2) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
 @W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(4) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(5) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(6) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(4) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(5) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(6) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
 @W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":35:3:35:10|All reachable assignments to main.i2c_addr(7) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(0) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(1) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(2) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(0) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(1) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(2) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
 @W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(4) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(5) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(4) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(5) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
 @W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(6) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(7) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":34:3:34:12|All reachable assignments to main.i2c_data_i(7) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
 @W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":25:3:25:12|All reachable assignments to main.i2c_enable are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
 @W: CL246 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":16:3:16:8|Input port bits 7 to 3 of option(7 downto 0) are unused. Assign logic for all port bits or change the input port size.
 @W: CL158 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":21:2:21:11|Inout wbm_data_o is unused
@@ -103,7 +101,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memor
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Thu Sep 19 14:02:33 2019
+# Thu Sep 19 15:27:43 2019
 
 ###########################################################]
 Synopsys Netlist Linker, version comp2017q2p1, Build 190R, built Aug  4 2017
@@ -115,7 +113,7 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Thu Sep 19 14:02:33 2019
+# Thu Sep 19 15:27:43 2019
 
 ###########################################################]
 @END
@@ -125,7 +123,7 @@ At c_hdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Thu Sep 19 14:02:33 2019
+# Thu Sep 19 15:27:43 2019
 
 ###########################################################]
 Synopsys Netlist Linker, version comp2017q2p1, Build 190R, built Aug  4 2017
@@ -137,12 +135,12 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Thu Sep 19 14:02:34 2019
+# Thu Sep 19 15:27:44 2019
 
 ###########################################################]
 Pre-mapping Report
 
-# Thu Sep 19 14:02:34 2019
+# Thu Sep 19 15:27:44 2019
 
 Synopsys Lattice Technology Pre-mapping, Version maplat, Build 1796R, Built Aug  4 2017 11:10:16
 Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated documentation are proprietary to Synopsys, Inc. and may only be used pursuant to the terms and conditions of a written license agreement with Synopsys, Inc. All other use, reproduction, modification, or distribution of the Synopsys software or the associated documentation is strictly prohibited.
@@ -195,11 +193,11 @@ Level     Clock                                 Frequency     Period        Type
 ----------------------------------------------------------------------------------------------------------------------
 0 -       System                                1.0 MHz       1000.000      system       system_clkgroup         13   
                                                                                                                       
-0 -       top_module|sys_clk_inferred_clock     133.0 MHz     7.519         inferred     Inferred_clkgroup_0     54   
+0 -       top_module|sys_clk_inferred_clock     133.0 MHz     7.519         inferred     Inferred_clkgroup_0     37   
 ======================================================================================================================
 
 @W: MT531 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":153:2:153:5|Found signal identified as System clock which controls 13 sequential elements including wb_manager_inst.nState[5].  Using this clock, which has no specified timing constraint, can prevent conversion of gated or generated clocks and can adversely impact design performance. 
-@W: MT529 :"d:\workingdir\fpga\pico_dev_test\heartbeat.vhd":30:1:30:2|Found inferred clock top_module|sys_clk_inferred_clock which controls 54 sequential elements including HeartBeatInst0.iCounter[20:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
+@W: MT529 :"d:\workingdir\fpga\pico_dev_test\heartbeat.vhd":30:1:30:2|Found inferred clock top_module|sys_clk_inferred_clock which controls 37 sequential elements including HeartBeatInst0.iCounter[3:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
 
 Finished Pre Mapping Phase.
 
@@ -221,12 +219,12 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 55MB peak: 142MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu Sep 19 14:02:35 2019
+# Thu Sep 19 15:27:45 2019
 
 ###########################################################]
 Map & Optimize Report
 
-# Thu Sep 19 14:02:35 2019
+# Thu Sep 19 15:27:45 2019
 
 Synopsys Lattice Technology Mapper, Version maplat, Build 1796R, Built Aug  4 2017 11:10:16
 Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated documentation are proprietary to Synopsys, Inc. and may only be used pursuant to the terms and conditions of a written license agreement with Synopsys, Inc. All other use, reproduction, modification, or distribution of the Synopsys software or the associated documentation is strictly prohibited.
@@ -260,16 +258,15 @@ Available hyper_sources - for debug and ip models
 @A: BN323 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":92:2:92:5|Bus conflict on tristate i2c_controller_inst.output_logic\.wbm_addr_4[6] (net addr_i[6] (in view: work.top_module(sample_arch)))
 @A: BN323 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":92:2:92:5|Bus conflict on tristate i2c_controller_inst.output_logic\.wbm_addr_4[7] (net addr_i[7] (in view: work.top_module(sample_arch)))
 @A: BN323 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":92:2:92:5|Bus conflict on tristate i2c_controller_inst.output_logic\.wbm_addr_4[0] (net addr_i[0] (in view: work.top_module(sample_arch)))
+@A: BN323 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":92:2:92:5|Bus conflict on tristate i2c_controller_inst.output_logic\.wbm_addr_4[1] (net addr_i[1] (in view: work.top_module(sample_arch)))
 @A: BN323 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":92:2:92:5|Bus conflict on tristate i2c_controller_inst.output_logic\.wbm_addr_4[2] (net addr_i[2] (in view: work.top_module(sample_arch)))
 @A: BN323 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":92:2:92:5|Bus conflict on tristate i2c_controller_inst.output_logic\.wbm_addr_4[5] (net addr_i[5] (in view: work.top_module(sample_arch)))
-@W: BN124 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":92:2:92:5|Disconnecting duplicate driver pin:OUT[0] inst:i2c_controller_inst.output_logic\.wbm_addr_4[1] of PrimLib.tri(prim) on net addr_i[1] (in view: work.top_module(sample_arch)). Duplication of drivers is frequently used in ASIC designs to increase drive strength. This form of duplication is not permitted in FPGA designs. 
 @W: BN124 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":92:2:92:5|Disconnecting duplicate driver pin:OUT[0] inst:i2c_controller_inst.output_logic\.wbm_addr_4[3] of PrimLib.tri(prim) on net addr_i[3] (in view: work.top_module(sample_arch)). Duplication of drivers is frequently used in ASIC designs to increase drive strength. This form of duplication is not permitted in FPGA designs. 
 @N: FX493 |Applying initial value "000001" on instance wb_manager_inst.nState[0:5].
 @N: FX493 |Applying initial value "0000001" on instance i2c_controller_inst.nState[0:6].
 
 Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
 
-@N: MO231 :"d:\workingdir\fpga\pico_dev_test\heartbeat.vhd":30:1:30:2|Found counter in view:work.top_module(sample_arch) instance HeartBeatInst0.iCounter[20:0] 
 @W: MO125 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":92:2:92:5|*Duplicate enable for tristate driver i2c_controller_inst.output_logic\.wbm_data_i_4[7] on net addr_i[7]!
 @W: MO125 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":92:2:92:5|*Duplicate enable for tristate driver i2c_controller_inst.output_logic\.wbm_addr_4[7] on net addr_i[7]!
 @W: MO125 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":92:2:92:5|*Duplicate enable for tristate driver i2c_controller_inst.output_logic\.wbm_data_i_4[6] on net addr_i[6]!
@@ -280,6 +277,8 @@ Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00
 @W: MO125 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":92:2:92:5|*Duplicate enable for tristate driver i2c_controller_inst.output_logic\.wbm_addr_4[4] on net addr_i[4]!
 @W: MO125 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":92:2:92:5|*Duplicate enable for tristate driver i2c_controller_inst.output_logic\.wbm_data_i_4[2] on net addr_i[2]!
 @W: MO125 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":92:2:92:5|*Duplicate enable for tristate driver i2c_controller_inst.output_logic\.wbm_addr_4[2] on net addr_i[2]!
+@W: MO125 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":92:2:92:5|*Duplicate enable for tristate driver i2c_controller_inst.output_logic\.wbm_data_i_4[1] on net addr_i[1]!
+@W: MO125 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":92:2:92:5|*Duplicate enable for tristate driver i2c_controller_inst.output_logic\.wbm_addr_4[1] on net addr_i[1]!
 @W: MO125 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":92:2:92:5|*Duplicate enable for tristate driver i2c_controller_inst.output_logic\.wbm_data_i_4[0] on net addr_i[0]!
 @W: MO125 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":92:2:92:5|*Duplicate enable for tristate driver i2c_controller_inst.output_logic\.wbm_addr_4[0] on net addr_i[0]!
 @N: MO231 :"d:\workingdir\fpga\pico_dev_test\timeout.vhd":30:2:30:3|Found counter in view:work.wb_manager(rtl) instance timeoutIns.clk_counter[15:0] 
@@ -287,7 +286,7 @@ Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00
 @N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|Removing sequential instance status_1[6] (in view: work.wb_manager(rtl)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
 @N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|Removing sequential instance status_1[4] (in view: work.wb_manager(rtl)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
 
-Starting factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
+Starting factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
 
 
 Finished factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
@@ -326,7 +325,7 @@ Finished technology mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:0
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
-   1		0h:00m:00s		   995.11ns		  27 /        56
+   1		0h:00m:00s		   995.40ns		  33 /        40
 
 Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
 
@@ -344,13 +343,13 @@ Finished restoring hierarchy (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:
 #### START OF CLOCK OPTIMIZATION REPORT #####[
 
 0 non-gated/non-generated clock tree(s) driving 0 clock pin(s) of sequential element(s)
-3 gated/generated clock tree(s) driving 69 clock pin(s) of sequential element(s)
-0 instances converted, 69 sequential instances remain driven by gated/generated clocks
+3 gated/generated clock tree(s) driving 53 clock pin(s) of sequential element(s)
+0 instances converted, 53 sequential instances remain driven by gated/generated clocks
 
 ======================================================================================== Gated/Generated Clocks ========================================================================================
 Clock Tree ID     Driving Element                         Drive Element Type     Fanout     Sample Instance                     Explanation                                                             
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-@K:CKID0001       OSCInst0                                OSCH                   56         i2c_controller_inst.cState_0[5]     No gated clock conversion method for cell cell:LUCENT.FD1S3DX           
+@K:CKID0001       OSCInst0                                OSCH                   40         i2c_controller_inst.cState_0[5]     No gated clock conversion method for cell cell:LUCENT.FD1S3DX           
 @K:CKID0002       i2c_controller_inst.status_1_ret        FD1S3BX                7          i2c_controller_inst.nState[0]       No generated or derived clock directive on output of sequential instance
 @K:CKID0003       wb_manager_inst.nState_1_sqmuxa_4_i     ORCALUT4               6          wb_manager_inst.nState[0]           No clocks found on inputs                                               
 ========================================================================================================================================================================================================
@@ -370,7 +369,7 @@ Writing EDIF Netlist and constraint files
 M-2017.03L-SP1-1
 @N: BW106 |Synplicity Constraint File capacitance units using default value of 1pF 
 
-Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 143MB peak: 145MB)
+Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 144MB peak: 145MB)
 
 
 Start final timing analysis (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 144MB peak: 145MB)
@@ -379,7 +378,7 @@ Start final timing analysis (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:0
 
 
 ##### START OF TIMING REPORT #####[
-# Timing Report written on Thu Sep 19 14:02:37 2019
+# Timing Report written on Thu Sep 19 15:27:47 2019
 #
 
 
@@ -398,12 +397,12 @@ Performance Summary
 *******************
 
 
-Worst slack in design: 994.544
+Worst slack in design: 994.830
 
                    Requested     Estimated     Requested     Estimated                 Clock      Clock          
 Starting Clock     Frequency     Frequency     Period        Period        Slack       Type       Group          
 -----------------------------------------------------------------------------------------------------------------
-System             1.0 MHz       183.3 MHz     1000.000      5.456         994.544     system     system_clkgroup
+System             1.0 MHz       193.4 MHz     1000.000      5.170         994.830     system     system_clkgroup
 =================================================================================================================
 
 
@@ -417,7 +416,7 @@ Clocks            |    rise  to  rise     |    fall  to  fall   |    rise  to  f
 ----------------------------------------------------------------------------------------------------------
 Starting  Ending  |  constraint  slack    |  constraint  slack  |  constraint  slack  |  constraint  slack
 ----------------------------------------------------------------------------------------------------------
-System    System  |  1000.000    994.544  |  No paths    -      |  No paths    -      |  No paths    -    
+System    System  |  1000.000    994.830  |  No paths    -      |  No paths    -      |  No paths    -    
 ==========================================================================================================
  Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
        'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
@@ -444,16 +443,16 @@ Starting Points with Worst Slack
 Instance                                      Reference     Type        Pin     Net                Time        Slack  
                                               Clock                                                                   
 ----------------------------------------------------------------------------------------------------------------------
-HeartBeatInst0.iCounter[0]                    System        FD1S3DX     Q       iCounter[0]        0.972       994.544
-HeartBeatInst0.iCounter[1]                    System        FD1S3DX     Q       iCounter[1]        0.972       994.687
-HeartBeatInst0.iCounter[2]                    System        FD1S3DX     Q       iCounter[2]        0.972       994.687
 wb_manager_inst.timeoutIns.clk_counter[0]     System        FD1P3DX     Q       clk_counter[0]     0.972       994.830
-HeartBeatInst0.iCounter[3]                    System        FD1S3DX     Q       iCounter[3]        0.972       994.830
-HeartBeatInst0.iCounter[4]                    System        FD1S3DX     Q       iCounter[4]        0.972       994.830
 wb_manager_inst.timeoutIns.clk_counter[1]     System        FD1P3DX     Q       clk_counter[1]     1.044       994.900
 wb_manager_inst.timeoutIns.clk_counter[2]     System        FD1P3DX     Q       clk_counter[2]     1.044       994.900
-HeartBeatInst0.iCounter[5]                    System        FD1S3DX     Q       iCounter[5]        0.972       994.972
-HeartBeatInst0.iCounter[6]                    System        FD1S3DX     Q       iCounter[6]        0.972       994.972
+wb_manager_inst.timeoutIns.clk_counter[3]     System        FD1P3DX     Q       clk_counter[3]     1.044       995.043
+wb_manager_inst.timeoutIns.clk_counter[4]     System        FD1P3DX     Q       clk_counter[4]     1.044       995.043
+wb_manager_inst.timeoutIns.clk_counter[5]     System        FD1P3DX     Q       clk_counter[5]     1.044       995.186
+wb_manager_inst.timeoutIns.clk_counter[6]     System        FD1P3DX     Q       clk_counter[6]     1.044       995.186
+wb_manager_inst.timeoutIns.clk_counter[7]     System        FD1P3DX     Q       clk_counter[7]     1.044       995.329
+wb_manager_inst.timeoutIns.clk_counter[8]     System        FD1P3DX     Q       clk_counter[8]     1.044       995.329
+wb_manager_inst.timeoutIns.clk_counter[9]     System        FD1P3DX     Q       clk_counter[9]     1.044       995.471
 ======================================================================================================================
 
 
@@ -464,16 +463,16 @@ Ending Points with Worst Slack
 Instance                                       Reference     Type        Pin     Net                   Time         Slack  
                                                Clock                                                                       
 ---------------------------------------------------------------------------------------------------------------------------
-HeartBeatInst0.iCounter[19]                    System        FD1S3DX     D       iCounter_s[19]        999.894      994.544
-HeartBeatInst0.iCounter[20]                    System        FD1S3DX     D       iCounter_s[20]        999.894      994.544
-HeartBeatInst0.iCounter[17]                    System        FD1S3DX     D       iCounter_s[17]        999.894      994.687
-HeartBeatInst0.iCounter[18]                    System        FD1S3DX     D       iCounter_s[18]        999.894      994.687
 wb_manager_inst.timeoutIns.clk_counter[15]     System        FD1P3DX     D       clk_counter_s[15]     999.894      994.830
-HeartBeatInst0.iCounter[15]                    System        FD1S3DX     D       iCounter_s[15]        999.894      994.830
-HeartBeatInst0.iCounter[16]                    System        FD1S3DX     D       iCounter_s[16]        999.894      994.830
 wb_manager_inst.timeoutIns.clk_counter[13]     System        FD1P3DX     D       clk_counter_s[13]     999.894      994.972
 wb_manager_inst.timeoutIns.clk_counter[14]     System        FD1P3DX     D       clk_counter_s[14]     999.894      994.972
-HeartBeatInst0.iCounter[13]                    System        FD1S3DX     D       iCounter_s[13]        999.894      994.972
+wb_manager_inst.timeoutIns.clk_counter[11]     System        FD1P3DX     D       clk_counter_s[11]     999.894      995.115
+wb_manager_inst.timeoutIns.clk_counter[12]     System        FD1P3DX     D       clk_counter_s[12]     999.894      995.115
+wb_manager_inst.timeoutIns.clk_counter[9]      System        FD1P3DX     D       clk_counter_s[9]      999.894      995.258
+wb_manager_inst.timeoutIns.clk_counter[10]     System        FD1P3DX     D       clk_counter_s[10]     999.894      995.258
+wb_manager_inst.timeoutIns.clk_counter[7]      System        FD1P3DX     D       clk_counter_s[7]      999.894      995.401
+wb_manager_inst.timeoutIns.clk_counter[8]      System        FD1P3DX     D       clk_counter_s[8]      999.894      995.401
+wb_manager_inst.timeoutIns.clk_counter[5]      System        FD1P3DX     D       clk_counter_s[5]      999.894      995.543
 ===========================================================================================================================
 
 
@@ -489,57 +488,51 @@ Path information for path number 1:
     + Estimated clock delay at ending point: 0.000
     = Required time:                         999.894
 
-    - Propagation time:                      5.351
+    - Propagation time:                      5.065
     - Clock delay at starting point:         0.000 (ideal)
     - Estimated clock delay at start point:  -0.000
-    = Slack (critical) :                     994.544
+    = Slack (critical) :                     994.830
 
-    Number of logic level(s):                11
-    Starting point:                          HeartBeatInst0.iCounter[0] / Q
-    Ending point:                            HeartBeatInst0.iCounter[20] / D
+    Number of logic level(s):                9
+    Starting point:                          wb_manager_inst.timeoutIns.clk_counter[0] / Q
+    Ending point:                            wb_manager_inst.timeoutIns.clk_counter[15] / D
     The start point is clocked by            System [rising] on pin CK
     The end   point is clocked by            System [rising] on pin CK
 
-Instance / Net                                    Pin      Pin               Arrival     No. of    
-Name                                  Type        Name     Dir     Delay     Time        Fan Out(s)
----------------------------------------------------------------------------------------------------
-HeartBeatInst0.iCounter[0]            FD1S3DX     Q        Out     0.972     0.972       -         
-iCounter[0]                           Net         -        -       -         -           1         
-HeartBeatInst0.iCounter_cry_0[0]      CCU2D       A1       In      0.000     0.972       -         
-HeartBeatInst0.iCounter_cry_0[0]      CCU2D       COUT     Out     1.544     2.516       -         
-iCounter_cry[0]                       Net         -        -       -         -           1         
-HeartBeatInst0.iCounter_cry_0[1]      CCU2D       CIN      In      0.000     2.516       -         
-HeartBeatInst0.iCounter_cry_0[1]      CCU2D       COUT     Out     0.143     2.659       -         
-iCounter_cry[2]                       Net         -        -       -         -           1         
-HeartBeatInst0.iCounter_cry_0[3]      CCU2D       CIN      In      0.000     2.659       -         
-HeartBeatInst0.iCounter_cry_0[3]      CCU2D       COUT     Out     0.143     2.802       -         
-iCounter_cry[4]                       Net         -        -       -         -           1         
-HeartBeatInst0.iCounter_cry_0[5]      CCU2D       CIN      In      0.000     2.802       -         
-HeartBeatInst0.iCounter_cry_0[5]      CCU2D       COUT     Out     0.143     2.945       -         
-iCounter_cry[6]                       Net         -        -       -         -           1         
-HeartBeatInst0.iCounter_cry_0[7]      CCU2D       CIN      In      0.000     2.945       -         
-HeartBeatInst0.iCounter_cry_0[7]      CCU2D       COUT     Out     0.143     3.087       -         
-iCounter_cry[8]                       Net         -        -       -         -           1         
-HeartBeatInst0.iCounter_cry_0[9]      CCU2D       CIN      In      0.000     3.087       -         
-HeartBeatInst0.iCounter_cry_0[9]      CCU2D       COUT     Out     0.143     3.230       -         
-iCounter_cry[10]                      Net         -        -       -         -           1         
-HeartBeatInst0.iCounter_cry_0[11]     CCU2D       CIN      In      0.000     3.230       -         
-HeartBeatInst0.iCounter_cry_0[11]     CCU2D       COUT     Out     0.143     3.373       -         
-iCounter_cry[12]                      Net         -        -       -         -           1         
-HeartBeatInst0.iCounter_cry_0[13]     CCU2D       CIN      In      0.000     3.373       -         
-HeartBeatInst0.iCounter_cry_0[13]     CCU2D       COUT     Out     0.143     3.516       -         
-iCounter_cry[14]                      Net         -        -       -         -           1         
-HeartBeatInst0.iCounter_cry_0[15]     CCU2D       CIN      In      0.000     3.516       -         
-HeartBeatInst0.iCounter_cry_0[15]     CCU2D       COUT     Out     0.143     3.659       -         
-iCounter_cry[16]                      Net         -        -       -         -           1         
-HeartBeatInst0.iCounter_cry_0[17]     CCU2D       CIN      In      0.000     3.659       -         
-HeartBeatInst0.iCounter_cry_0[17]     CCU2D       COUT     Out     0.143     3.801       -         
-iCounter_cry[18]                      Net         -        -       -         -           1         
-HeartBeatInst0.iCounter_cry_0[19]     CCU2D       CIN      In      0.000     3.801       -         
-HeartBeatInst0.iCounter_cry_0[19]     CCU2D       S1       Out     1.549     5.351       -         
-iCounter_s[20]                        Net         -        -       -         -           1         
-HeartBeatInst0.iCounter[20]           FD1S3DX     D        In      0.000     5.351       -         
-===================================================================================================
+Instance / Net                                                   Pin      Pin               Arrival     No. of    
+Name                                                 Type        Name     Dir     Delay     Time        Fan Out(s)
+------------------------------------------------------------------------------------------------------------------
+wb_manager_inst.timeoutIns.clk_counter[0]            FD1P3DX     Q        Out     0.972     0.972       -         
+clk_counter[0]                                       Net         -        -       -         -           1         
+wb_manager_inst.timeoutIns.clk_counter_cry_0[0]      CCU2D       A1       In      0.000     0.972       -         
+wb_manager_inst.timeoutIns.clk_counter_cry_0[0]      CCU2D       COUT     Out     1.544     2.516       -         
+clk_counter_cry[0]                                   Net         -        -       -         -           1         
+wb_manager_inst.timeoutIns.clk_counter_cry_0[1]      CCU2D       CIN      In      0.000     2.516       -         
+wb_manager_inst.timeoutIns.clk_counter_cry_0[1]      CCU2D       COUT     Out     0.143     2.659       -         
+clk_counter_cry[2]                                   Net         -        -       -         -           1         
+wb_manager_inst.timeoutIns.clk_counter_cry_0[3]      CCU2D       CIN      In      0.000     2.659       -         
+wb_manager_inst.timeoutIns.clk_counter_cry_0[3]      CCU2D       COUT     Out     0.143     2.802       -         
+clk_counter_cry[4]                                   Net         -        -       -         -           1         
+wb_manager_inst.timeoutIns.clk_counter_cry_0[5]      CCU2D       CIN      In      0.000     2.802       -         
+wb_manager_inst.timeoutIns.clk_counter_cry_0[5]      CCU2D       COUT     Out     0.143     2.945       -         
+clk_counter_cry[6]                                   Net         -        -       -         -           1         
+wb_manager_inst.timeoutIns.clk_counter_cry_0[7]      CCU2D       CIN      In      0.000     2.945       -         
+wb_manager_inst.timeoutIns.clk_counter_cry_0[7]      CCU2D       COUT     Out     0.143     3.087       -         
+clk_counter_cry[8]                                   Net         -        -       -         -           1         
+wb_manager_inst.timeoutIns.clk_counter_cry_0[9]      CCU2D       CIN      In      0.000     3.087       -         
+wb_manager_inst.timeoutIns.clk_counter_cry_0[9]      CCU2D       COUT     Out     0.143     3.230       -         
+clk_counter_cry[10]                                  Net         -        -       -         -           1         
+wb_manager_inst.timeoutIns.clk_counter_cry_0[11]     CCU2D       CIN      In      0.000     3.230       -         
+wb_manager_inst.timeoutIns.clk_counter_cry_0[11]     CCU2D       COUT     Out     0.143     3.373       -         
+clk_counter_cry[12]                                  Net         -        -       -         -           1         
+wb_manager_inst.timeoutIns.clk_counter_cry_0[13]     CCU2D       CIN      In      0.000     3.373       -         
+wb_manager_inst.timeoutIns.clk_counter_cry_0[13]     CCU2D       COUT     Out     0.143     3.516       -         
+clk_counter_cry[14]                                  Net         -        -       -         -           1         
+wb_manager_inst.timeoutIns.clk_counter_s_0[15]       CCU2D       CIN      In      0.000     3.516       -         
+wb_manager_inst.timeoutIns.clk_counter_s_0[15]       CCU2D       S0       Out     1.549     5.065       -         
+clk_counter_s[15]                                    Net         -        -       -         -           1         
+wb_manager_inst.timeoutIns.clk_counter[15]           FD1P3DX     D        In      0.000     5.065       -         
+==================================================================================================================
 
 
 
@@ -557,7 +550,7 @@ Finished timing report (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01
 Resource Usage Report
 Part: lcmxo2_1200ze-1
 
-Register bits: 56 of 1280 (4%)
+Register bits: 40 of 1280 (3%)
 Latch bits:      13
 PIC Latch:       0
 I/O cells:       5
@@ -565,17 +558,17 @@ I/O cells:       5
 
 Details:
 BB:             2
-CCU2D:          20
+CCU2D:          9
 FD1P3DX:        16
 FD1S1A:         11
 FD1S1AY:        2
-FD1S3BX:        8
-FD1S3DX:        32
+FD1S3BX:        7
+FD1S3DX:        17
 GSR:            1
 IB:             1
-INV:            3
+INV:            4
 OB:             2
-ORCALUT4:       24
+ORCALUT4:       29
 OSCH:           1
 PUR:            1
 VHI:            6
@@ -585,6 +578,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 30MB peak: 145MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu Sep 19 14:02:37 2019
+# Thu Sep 19 15:27:47 2019
 
 ###########################################################]

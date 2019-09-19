@@ -87,7 +87,7 @@ architecture rtl of wb_manager is
 	-- timeout component
 	component timeout
 	generic  (
-		DEFAULT: integer := 10 
+		DEFAULT: integer := 50
 	);
 	port(
 		clk 		: in std_logic;
@@ -147,7 +147,7 @@ begin
 		end if;
 	end process reset_block;
 	
-	next_state_logic : process(cState, option(0),option(1),option(2), wb_ack_o, isTimeout) 
+	next_state_logic : process(cState, option, wb_ack_o, isTimeout) 
 			begin
 		case (cState) is
 			when IDLE =>

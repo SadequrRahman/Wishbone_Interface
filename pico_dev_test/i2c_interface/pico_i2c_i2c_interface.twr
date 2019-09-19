@@ -13,7 +13,7 @@ Setup and Hold Report
 
 --------------------------------------------------------------------------------
 Lattice TRACE Report - Setup, Version Diamond (64-bit) 3.10.3.144
-Thu Sep 19 14:02:45 2019
+Thu Sep 19 15:27:55 2019
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
@@ -38,11 +38,62 @@ BLOCK RESETPATHS
 
 ================================================================================
 Preference: FREQUENCY NET "sys_clk" 133.000000 MHz ;
-            464 items scored, 139 timing errors detected.
+            257 items scored, 108 timing errors detected.
 --------------------------------------------------------------------------------
 
 
-Error: The following path exceeds requirements by 12.007ns
+Error: The following path exceeds requirements by 14.515ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              wb_manager_inst/nState[4]  (from wb_manager_inst/nState_1_sqmuxa_4_i +)
+   Destination:    FF         Data in        wb_manager_inst/cState[4]  (to sys_clk +)
+
+   Delay:               3.235ns  (29.5% logic, 70.5% route), 1 logic levels.
+
+ Constraint Details:
+
+      3.235ns physical path delay wb_manager_inst/SLICE_30 to wb_manager_inst/SLICE_25 exceeds
+      7.519ns delay constraint less
+     17.997ns skew and
+      0.802ns M_SET requirement (totaling -11.280ns) by 14.515ns
+
+ Physical Path Details:
+
+      Data path wb_manager_inst/SLICE_30 to wb_manager_inst/SLICE_25:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.955      R3C4B.CLK to       R3C4B.Q0 wb_manager_inst/SLICE_30 (from wb_manager_inst/nState_1_sqmuxa_4_i)
+ROUTE         1     2.280       R3C4B.Q0 to       R2C4C.M1 wb_manager_inst/nState[4] (to sys_clk)
+                  --------
+                    3.235   (29.5% logic, 70.5% route), 1 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to wb_manager_inst/SLICE_30:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
+WCLKI2WBAC  ---     2.343     EFB.WBCLKI to     EFB.WBACKO wb_manager_inst/efb_i2c_Inst0/EFBInst_0
+ROUTE         2     3.063     EFB.WBACKO to       R2C4D.D0 wb_manager_inst/wb_ack_o
+CTOF_DEL    ---     0.923       R2C4D.D0 to       R2C4D.F0 wb_manager_inst/SLICE_28
+ROUTE         2     1.600       R2C4D.F0 to       R4C4C.D1 wb_manager_inst/nState_1_sqmuxa_2
+CTOF_DEL    ---     0.923       R4C4C.D1 to       R4C4C.F1 SLICE_33
+ROUTE         1     1.488       R4C4C.F1 to       R4C5D.D0 wb_manager_inst/nState_1_sqmuxa_4_2
+CTOF_DEL    ---     0.923       R4C5D.D0 to       R4C5D.F0 SLICE_35
+ROUTE         4     6.460       R4C5D.F0 to      R3C4B.CLK wb_manager_inst/nState_1_sqmuxa_4_i
+                  --------
+                   25.875   (19.8% logic, 80.2% route), 4 logic levels.
+
+      Destination Clock Path OSCInst0 to wb_manager_inst/SLICE_25:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     7.878        OSC.OSC to      R2C4C.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Error: The following path exceeds requirements by 14.515ns
 
  Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
 
@@ -53,149 +104,149 @@ Error: The following path exceeds requirements by 12.007ns
 
  Constraint Details:
 
-      3.235ns physical path delay SLICE_37 to wb_manager_inst/SLICE_32 exceeds
+      3.235ns physical path delay wb_manager_inst/SLICE_30 to wb_manager_inst/SLICE_24 exceeds
       7.519ns delay constraint less
-     15.489ns skew and
-      0.802ns M_SET requirement (totaling -8.772ns) by 12.007ns
+     17.997ns skew and
+      0.802ns M_SET requirement (totaling -11.280ns) by 14.515ns
 
  Physical Path Details:
 
-      Data path SLICE_37 to wb_manager_inst/SLICE_32:
+      Data path wb_manager_inst/SLICE_30 to wb_manager_inst/SLICE_24:
 
    Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.955      R2C4C.CLK to       R2C4C.Q1 SLICE_37 (from wb_manager_inst/nState_1_sqmuxa_4_i)
-ROUTE         1     2.280       R2C4C.Q1 to       R3C4A.M0 wb_manager_inst/nState[3] (to sys_clk)
+REG_DEL     ---     0.955      R3C4B.CLK to       R3C4B.Q1 wb_manager_inst/SLICE_30 (from wb_manager_inst/nState_1_sqmuxa_4_i)
+ROUTE         1     2.280       R3C4B.Q1 to       R4C4D.M0 wb_manager_inst/nState[3] (to sys_clk)
                   --------
                     3.235   (29.5% logic, 70.5% route), 1 logic levels.
 
  Clock Skew Details: 
 
-      Source Clock Path OSCInst0 to SLICE_37:
+      Source Clock Path OSCInst0 to wb_manager_inst/SLICE_30:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
+ROUTE        22     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
 WCLKI2WBAC  ---     2.343     EFB.WBCLKI to     EFB.WBACKO wb_manager_inst/efb_i2c_Inst0/EFBInst_0
-ROUTE         2     3.702     EFB.WBACKO to       R3C3C.D0 wb_manager_inst/wb_ack_o
-CTOF_DEL    ---     0.923       R3C3C.D0 to       R3C3C.F0 wb_manager_inst/SLICE_36
-ROUTE         2     0.806       R3C3C.F0 to       R3C3D.D1 wb_manager_inst/nState_1_sqmuxa_2
-CTOF_DEL    ---     0.923       R3C3D.D1 to       R3C3D.F1 SLICE_39
-ROUTE         1     2.215       R3C3D.F1 to       R3C3A.A0 wb_manager_inst/nState_1_sqmuxa_4_2
-CTOF_DEL    ---     0.923       R3C3A.A0 to       R3C3A.F0 SLICE_41
-ROUTE         3     3.380       R3C3A.F0 to      R2C4C.CLK wb_manager_inst/nState_1_sqmuxa_4_i
+ROUTE         2     3.063     EFB.WBACKO to       R2C4D.D0 wb_manager_inst/wb_ack_o
+CTOF_DEL    ---     0.923       R2C4D.D0 to       R2C4D.F0 wb_manager_inst/SLICE_28
+ROUTE         2     1.600       R2C4D.F0 to       R4C4C.D1 wb_manager_inst/nState_1_sqmuxa_2
+CTOF_DEL    ---     0.923       R4C4C.D1 to       R4C4C.F1 SLICE_33
+ROUTE         1     1.488       R4C4C.F1 to       R4C5D.D0 wb_manager_inst/nState_1_sqmuxa_4_2
+CTOF_DEL    ---     0.923       R4C5D.D0 to       R4C5D.F0 SLICE_35
+ROUTE         4     6.460       R4C5D.F0 to      R3C4B.CLK wb_manager_inst/nState_1_sqmuxa_4_i
                   --------
-                   23.367   (21.9% logic, 78.1% route), 4 logic levels.
+                   25.875   (19.8% logic, 80.2% route), 4 logic levels.
 
-      Destination Clock Path OSCInst0 to wb_manager_inst/SLICE_32:
+      Destination Clock Path OSCInst0 to wb_manager_inst/SLICE_24:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     7.878        OSC.OSC to      R3C4A.CLK sys_clk
+ROUTE        22     7.878        OSC.OSC to      R4C4D.CLK sys_clk
                   --------
                     7.878   (0.0% logic, 100.0% route), 0 logic levels.
 
 
-Error: The following path exceeds requirements by 12.007ns
+Error: The following path exceeds requirements by 13.334ns
 
  Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
 
-   Source:         FF         Q              wb_manager_inst/nState[2]  (from wb_manager_inst/nState_1_sqmuxa_4_i +)
-   Destination:    FF         Data in        wb_manager_inst/cState[2]  (to sys_clk +)
+   Source:         FF         Q              wb_manager_inst/nState[1]  (from wb_manager_inst/nState_1_sqmuxa_4_i +)
+   Destination:    FF         Data in        wb_manager_inst/cState[1]  (to sys_clk +)
+
+   Delay:               3.982ns  (24.0% logic, 76.0% route), 1 logic levels.
+
+ Constraint Details:
+
+      3.982ns physical path delay wb_manager_inst/SLICE_28 to SLICE_11 exceeds
+      7.519ns delay constraint less
+     16.069ns skew and
+      0.802ns M_SET requirement (totaling -9.352ns) by 13.334ns
+
+ Physical Path Details:
+
+      Data path wb_manager_inst/SLICE_28 to SLICE_11:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.955      R2C4D.CLK to       R2C4D.Q1 wb_manager_inst/SLICE_28 (from wb_manager_inst/nState_1_sqmuxa_4_i)
+ROUTE         1     3.027       R2C4D.Q1 to       R2C5D.M1 wb_manager_inst/nState[1] (to sys_clk)
+                  --------
+                    3.982   (24.0% logic, 76.0% route), 1 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to wb_manager_inst/SLICE_28:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
+WCLKI2WBAC  ---     2.343     EFB.WBCLKI to     EFB.WBACKO wb_manager_inst/efb_i2c_Inst0/EFBInst_0
+ROUTE         2     3.063     EFB.WBACKO to       R2C4D.D0 wb_manager_inst/wb_ack_o
+CTOF_DEL    ---     0.923       R2C4D.D0 to       R2C4D.F0 wb_manager_inst/SLICE_28
+ROUTE         2     1.600       R2C4D.F0 to       R4C4C.D1 wb_manager_inst/nState_1_sqmuxa_2
+CTOF_DEL    ---     0.923       R4C4C.D1 to       R4C4C.F1 SLICE_33
+ROUTE         1     1.488       R4C4C.F1 to       R4C5D.D0 wb_manager_inst/nState_1_sqmuxa_4_2
+CTOF_DEL    ---     0.923       R4C5D.D0 to       R4C5D.F0 SLICE_35
+ROUTE         4     4.532       R4C5D.F0 to      R2C4D.CLK wb_manager_inst/nState_1_sqmuxa_4_i
+                  --------
+                   23.947   (21.3% logic, 78.7% route), 4 logic levels.
+
+      Destination Clock Path OSCInst0 to SLICE_11:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     7.878        OSC.OSC to      R2C5D.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Error: The following path exceeds requirements by 12.587ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              wb_manager_inst/nState[0]  (from wb_manager_inst/nState_1_sqmuxa_4_i +)
+   Destination:    FF         Data in        wb_manager_inst/cState[0]  (to sys_clk +)
 
    Delay:               3.235ns  (29.5% logic, 70.5% route), 1 logic levels.
 
  Constraint Details:
 
-      3.235ns physical path delay SLICE_37 to wb_manager_inst/SLICE_32 exceeds
+      3.235ns physical path delay wb_manager_inst/SLICE_28 to SLICE_10 exceeds
       7.519ns delay constraint less
-     15.489ns skew and
-      0.802ns M_SET requirement (totaling -8.772ns) by 12.007ns
+     16.069ns skew and
+      0.802ns M_SET requirement (totaling -9.352ns) by 12.587ns
 
  Physical Path Details:
 
-      Data path SLICE_37 to wb_manager_inst/SLICE_32:
+      Data path wb_manager_inst/SLICE_28 to SLICE_10:
 
    Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.955      R2C4C.CLK to       R2C4C.Q0 SLICE_37 (from wb_manager_inst/nState_1_sqmuxa_4_i)
-ROUTE         1     2.280       R2C4C.Q0 to       R3C4A.M1 wb_manager_inst/nState[2] (to sys_clk)
+REG_DEL     ---     0.955      R2C4D.CLK to       R2C4D.Q0 wb_manager_inst/SLICE_28 (from wb_manager_inst/nState_1_sqmuxa_4_i)
+ROUTE         1     2.280       R2C4D.Q0 to       R2C5C.M1 wb_manager_inst/nState[0] (to sys_clk)
                   --------
                     3.235   (29.5% logic, 70.5% route), 1 logic levels.
 
  Clock Skew Details: 
 
-      Source Clock Path OSCInst0 to SLICE_37:
+      Source Clock Path OSCInst0 to wb_manager_inst/SLICE_28:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
+ROUTE        22     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
 WCLKI2WBAC  ---     2.343     EFB.WBCLKI to     EFB.WBACKO wb_manager_inst/efb_i2c_Inst0/EFBInst_0
-ROUTE         2     3.702     EFB.WBACKO to       R3C3C.D0 wb_manager_inst/wb_ack_o
-CTOF_DEL    ---     0.923       R3C3C.D0 to       R3C3C.F0 wb_manager_inst/SLICE_36
-ROUTE         2     0.806       R3C3C.F0 to       R3C3D.D1 wb_manager_inst/nState_1_sqmuxa_2
-CTOF_DEL    ---     0.923       R3C3D.D1 to       R3C3D.F1 SLICE_39
-ROUTE         1     2.215       R3C3D.F1 to       R3C3A.A0 wb_manager_inst/nState_1_sqmuxa_4_2
-CTOF_DEL    ---     0.923       R3C3A.A0 to       R3C3A.F0 SLICE_41
-ROUTE         3     3.380       R3C3A.F0 to      R2C4C.CLK wb_manager_inst/nState_1_sqmuxa_4_i
+ROUTE         2     3.063     EFB.WBACKO to       R2C4D.D0 wb_manager_inst/wb_ack_o
+CTOF_DEL    ---     0.923       R2C4D.D0 to       R2C4D.F0 wb_manager_inst/SLICE_28
+ROUTE         2     1.600       R2C4D.F0 to       R4C4C.D1 wb_manager_inst/nState_1_sqmuxa_2
+CTOF_DEL    ---     0.923       R4C4C.D1 to       R4C4C.F1 SLICE_33
+ROUTE         1     1.488       R4C4C.F1 to       R4C5D.D0 wb_manager_inst/nState_1_sqmuxa_4_2
+CTOF_DEL    ---     0.923       R4C5D.D0 to       R4C5D.F0 SLICE_35
+ROUTE         4     4.532       R4C5D.F0 to      R2C4D.CLK wb_manager_inst/nState_1_sqmuxa_4_i
                   --------
-                   23.367   (21.9% logic, 78.1% route), 4 logic levels.
+                   23.947   (21.3% logic, 78.7% route), 4 logic levels.
 
-      Destination Clock Path OSCInst0 to wb_manager_inst/SLICE_32:
+      Destination Clock Path OSCInst0 to SLICE_10:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     7.878        OSC.OSC to      R3C4A.CLK sys_clk
+ROUTE        22     7.878        OSC.OSC to      R2C5C.CLK sys_clk
                   --------
                     7.878   (0.0% logic, 100.0% route), 0 logic levels.
 
 
-Error: The following path exceeds requirements by 10.110ns
-
- Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
-
-   Source:         FF         Q              wb_manager_inst/nState[4]  (from wb_manager_inst/nState_1_sqmuxa_4_i +)
-   Destination:    FF         Data in        wb_manager_inst/cState[4]  (to sys_clk +)
-
-   Delay:               2.302ns  (41.5% logic, 58.5% route), 1 logic levels.
-
- Constraint Details:
-
-      2.302ns physical path delay wb_manager_inst/SLICE_38 to wb_manager_inst/SLICE_33 exceeds
-      7.519ns delay constraint less
-     14.525ns skew and
-      0.802ns M_SET requirement (totaling -7.808ns) by 10.110ns
-
- Physical Path Details:
-
-      Data path wb_manager_inst/SLICE_38 to wb_manager_inst/SLICE_33:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.955      R2C3A.CLK to       R2C3A.Q0 wb_manager_inst/SLICE_38 (from wb_manager_inst/nState_1_sqmuxa_4_i)
-ROUTE         1     1.347       R2C3A.Q0 to       R2C3B.M1 wb_manager_inst/nState[4] (to sys_clk)
-                  --------
-                    2.302   (41.5% logic, 58.5% route), 1 logic levels.
-
- Clock Skew Details: 
-
-      Source Clock Path OSCInst0 to wb_manager_inst/SLICE_38:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
-WCLKI2WBAC  ---     2.343     EFB.WBCLKI to     EFB.WBACKO wb_manager_inst/efb_i2c_Inst0/EFBInst_0
-ROUTE         2     3.702     EFB.WBACKO to       R3C3C.D0 wb_manager_inst/wb_ack_o
-CTOF_DEL    ---     0.923       R3C3C.D0 to       R3C3C.F0 wb_manager_inst/SLICE_36
-ROUTE         2     0.806       R3C3C.F0 to       R3C3D.D1 wb_manager_inst/nState_1_sqmuxa_2
-CTOF_DEL    ---     0.923       R3C3D.D1 to       R3C3D.F1 SLICE_39
-ROUTE         1     2.215       R3C3D.F1 to       R3C3A.A0 wb_manager_inst/nState_1_sqmuxa_4_2
-CTOF_DEL    ---     0.923       R3C3A.A0 to       R3C3A.F0 SLICE_41
-ROUTE         3     2.416       R3C3A.F0 to      R2C3A.CLK wb_manager_inst/nState_1_sqmuxa_4_i
-                  --------
-                   22.403   (22.8% logic, 77.2% route), 4 logic levels.
-
-      Destination Clock Path OSCInst0 to wb_manager_inst/SLICE_33:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     7.878        OSC.OSC to      R2C3B.CLK sys_clk
-                  --------
-                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
-
-
-Error: The following path exceeds requirements by 10.110ns
+Error: The following path exceeds requirements by 11.654ns
 
  Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
 
@@ -206,336 +257,285 @@ Error: The following path exceeds requirements by 10.110ns
 
  Constraint Details:
 
-      2.302ns physical path delay wb_manager_inst/SLICE_38 to wb_manager_inst/SLICE_33 exceeds
+      2.302ns physical path delay wb_manager_inst/SLICE_32 to wb_manager_inst/SLICE_25 exceeds
       7.519ns delay constraint less
-     14.525ns skew and
-      0.802ns M_SET requirement (totaling -7.808ns) by 10.110ns
+     16.069ns skew and
+      0.802ns M_SET requirement (totaling -9.352ns) by 11.654ns
 
  Physical Path Details:
 
-      Data path wb_manager_inst/SLICE_38 to wb_manager_inst/SLICE_33:
+      Data path wb_manager_inst/SLICE_32 to wb_manager_inst/SLICE_25:
 
    Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.955      R2C3A.CLK to       R2C3A.Q1 wb_manager_inst/SLICE_38 (from wb_manager_inst/nState_1_sqmuxa_4_i)
-ROUTE         1     1.347       R2C3A.Q1 to       R2C3B.M0 wb_manager_inst/nState[5] (to sys_clk)
+REG_DEL     ---     0.955      R2C4A.CLK to       R2C4A.Q0 wb_manager_inst/SLICE_32 (from wb_manager_inst/nState_1_sqmuxa_4_i)
+ROUTE         1     1.347       R2C4A.Q0 to       R2C4C.M0 wb_manager_inst/nState_0[5] (to sys_clk)
                   --------
                     2.302   (41.5% logic, 58.5% route), 1 logic levels.
-
- Clock Skew Details: 
-
-      Source Clock Path OSCInst0 to wb_manager_inst/SLICE_38:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
-WCLKI2WBAC  ---     2.343     EFB.WBCLKI to     EFB.WBACKO wb_manager_inst/efb_i2c_Inst0/EFBInst_0
-ROUTE         2     3.702     EFB.WBACKO to       R3C3C.D0 wb_manager_inst/wb_ack_o
-CTOF_DEL    ---     0.923       R3C3C.D0 to       R3C3C.F0 wb_manager_inst/SLICE_36
-ROUTE         2     0.806       R3C3C.F0 to       R3C3D.D1 wb_manager_inst/nState_1_sqmuxa_2
-CTOF_DEL    ---     0.923       R3C3D.D1 to       R3C3D.F1 SLICE_39
-ROUTE         1     2.215       R3C3D.F1 to       R3C3A.A0 wb_manager_inst/nState_1_sqmuxa_4_2
-CTOF_DEL    ---     0.923       R3C3A.A0 to       R3C3A.F0 SLICE_41
-ROUTE         3     2.416       R3C3A.F0 to      R2C3A.CLK wb_manager_inst/nState_1_sqmuxa_4_i
-                  --------
-                   22.403   (22.8% logic, 77.2% route), 4 logic levels.
-
-      Destination Clock Path OSCInst0 to wb_manager_inst/SLICE_33:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     7.878        OSC.OSC to      R2C3B.CLK sys_clk
-                  --------
-                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
-
-
-Error: The following path exceeds requirements by 10.071ns
-
- Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
-
-   Source:         FF         Q              wb_manager_inst/nState[1]  (from wb_manager_inst/nState_1_sqmuxa_4_i +)
-   Destination:    FF         Data in        wb_manager_inst/cState[1]  (to sys_clk +)
-
-   Delay:               3.235ns  (29.5% logic, 70.5% route), 1 logic levels.
-
- Constraint Details:
-
-      3.235ns physical path delay wb_manager_inst/SLICE_36 to SLICE_9 exceeds
-      7.519ns delay constraint less
-     13.553ns skew and
-      0.802ns M_SET requirement (totaling -6.836ns) by 10.071ns
-
- Physical Path Details:
-
-      Data path wb_manager_inst/SLICE_36 to SLICE_9:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.955      R3C3C.CLK to       R3C3C.Q1 wb_manager_inst/SLICE_36 (from wb_manager_inst/nState_1_sqmuxa_4_i)
-ROUTE         1     2.280       R3C3C.Q1 to       R3C5A.M0 wb_manager_inst/nState[1] (to sys_clk)
-                  --------
-                    3.235   (29.5% logic, 70.5% route), 1 logic levels.
-
- Clock Skew Details: 
-
-      Source Clock Path OSCInst0 to wb_manager_inst/SLICE_36:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
-WCLKI2WBAC  ---     2.343     EFB.WBCLKI to     EFB.WBACKO wb_manager_inst/efb_i2c_Inst0/EFBInst_0
-ROUTE         2     3.702     EFB.WBACKO to       R3C3C.D0 wb_manager_inst/wb_ack_o
-CTOF_DEL    ---     0.923       R3C3C.D0 to       R3C3C.F0 wb_manager_inst/SLICE_36
-ROUTE         2     0.806       R3C3C.F0 to       R3C3D.D1 wb_manager_inst/nState_1_sqmuxa_2
-CTOF_DEL    ---     0.923       R3C3D.D1 to       R3C3D.F1 SLICE_39
-ROUTE         1     2.215       R3C3D.F1 to       R3C3A.A0 wb_manager_inst/nState_1_sqmuxa_4_2
-CTOF_DEL    ---     0.923       R3C3A.A0 to       R3C3A.F0 SLICE_41
-ROUTE         3     1.444       R3C3A.F0 to      R3C3C.CLK wb_manager_inst/nState_1_sqmuxa_4_i
-                  --------
-                   21.431   (23.9% logic, 76.1% route), 4 logic levels.
-
-      Destination Clock Path OSCInst0 to SLICE_9:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     7.878        OSC.OSC to      R3C5A.CLK sys_clk
-                  --------
-                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
-
-
-Error: The following path exceeds requirements by 9.138ns
-
- Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
-
-   Source:         FF         Q              wb_manager_inst/nState[0]  (from wb_manager_inst/nState_1_sqmuxa_4_i +)
-   Destination:    FF         Data in        wb_manager_inst/cState[0]  (to sys_clk +)
-
-   Delay:               2.302ns  (41.5% logic, 58.5% route), 1 logic levels.
-
- Constraint Details:
-
-      2.302ns physical path delay wb_manager_inst/SLICE_36 to SLICE_39 exceeds
-      7.519ns delay constraint less
-     13.553ns skew and
-      0.802ns M_SET requirement (totaling -6.836ns) by 9.138ns
-
- Physical Path Details:
-
-      Data path wb_manager_inst/SLICE_36 to SLICE_39:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.955      R3C3C.CLK to       R3C3C.Q0 wb_manager_inst/SLICE_36 (from wb_manager_inst/nState_1_sqmuxa_4_i)
-ROUTE         1     1.347       R3C3C.Q0 to       R3C3D.M1 wb_manager_inst/nState[0] (to sys_clk)
-                  --------
-                    2.302   (41.5% logic, 58.5% route), 1 logic levels.
-
- Clock Skew Details: 
-
-      Source Clock Path OSCInst0 to wb_manager_inst/SLICE_36:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
-WCLKI2WBAC  ---     2.343     EFB.WBCLKI to     EFB.WBACKO wb_manager_inst/efb_i2c_Inst0/EFBInst_0
-ROUTE         2     3.702     EFB.WBACKO to       R3C3C.D0 wb_manager_inst/wb_ack_o
-CTOF_DEL    ---     0.923       R3C3C.D0 to       R3C3C.F0 wb_manager_inst/SLICE_36
-ROUTE         2     0.806       R3C3C.F0 to       R3C3D.D1 wb_manager_inst/nState_1_sqmuxa_2
-CTOF_DEL    ---     0.923       R3C3D.D1 to       R3C3D.F1 SLICE_39
-ROUTE         1     2.215       R3C3D.F1 to       R3C3A.A0 wb_manager_inst/nState_1_sqmuxa_4_2
-CTOF_DEL    ---     0.923       R3C3A.A0 to       R3C3A.F0 SLICE_41
-ROUTE         3     1.444       R3C3A.F0 to      R3C3C.CLK wb_manager_inst/nState_1_sqmuxa_4_i
-                  --------
-                   21.431   (23.9% logic, 76.1% route), 4 logic levels.
-
-      Destination Clock Path OSCInst0 to SLICE_39:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     7.878        OSC.OSC to      R3C3D.CLK sys_clk
-                  --------
-                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
-
-
-Error: The following path exceeds requirements by 4.994ns
-
- Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
-
-   Source:         FF         Q              i2c_controller_inst/cState[6]  (from sys_clk +)
-   Destination:    EFB        Port           wb_manager_inst/efb_i2c_Inst0/EFBInst_0(ASIC)  (to sys_clk +)
-
-   Delay:              10.190ns  (27.5% logic, 72.5% route), 3 logic levels.
-
- Constraint Details:
-
-     10.190ns physical path delay i2c_controller_inst/SLICE_29 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0 exceeds
-      7.519ns delay constraint less
-     -0.274ns skew and
-      2.597ns WBADRI_SET requirement (totaling 5.196ns) by 4.994ns
-
- Physical Path Details:
-
-      Data path i2c_controller_inst/SLICE_29 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.955      R2C4A.CLK to       R2C4A.Q1 i2c_controller_inst/SLICE_29 (from sys_clk)
-ROUTE         8     2.503       R2C4A.Q1 to       R2C4D.B1 i2c_controller_inst.cState[6]
-CTOF_DEL    ---     0.923       R2C4D.B1 to       R2C4D.F1 SLICE_40
-ROUTE         4     2.436       R2C4D.F1 to       R2C4B.B0 wb_manager_inst/N_28
-CTOF_DEL    ---     0.923       R2C4B.B0 to       R2C4B.F0 SLICE_44
-ROUTE         1     2.450       R2C4B.F0 to    EFB.WBADRI6 wb_manager_inst/efb_i2c_Inst0/N_12_i (to sys_clk)
-                  --------
-                   10.190   (27.5% logic, 72.5% route), 3 logic levels.
-
- Clock Skew Details: 
-
-      Source Clock Path OSCInst0 to i2c_controller_inst/SLICE_29:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     7.878        OSC.OSC to      R2C4A.CLK sys_clk
-                  --------
-                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
-
-      Destination Clock Path OSCInst0 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
-                  --------
-                    8.152   (0.0% logic, 100.0% route), 0 logic levels.
-
-
-Error: The following path exceeds requirements by 4.758ns
-
- Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
-
-   Source:         FF         Q              wb_manager_inst/cState[4]  (from sys_clk +)
-   Destination:    EFB        Port           wb_manager_inst/efb_i2c_Inst0/EFBInst_0(ASIC)  (to sys_clk +)
-
-   Delay:               9.954ns  (28.1% logic, 71.9% route), 3 logic levels.
-
- Constraint Details:
-
-      9.954ns physical path delay wb_manager_inst/SLICE_33 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0 exceeds
-      7.519ns delay constraint less
-     -0.274ns skew and
-      2.597ns WBADRI_SET requirement (totaling 5.196ns) by 4.758ns
-
- Physical Path Details:
-
-      Data path wb_manager_inst/SLICE_33 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.955      R2C3B.CLK to       R2C3B.Q1 wb_manager_inst/SLICE_33 (from sys_clk)
-ROUTE         3     2.267       R2C3B.Q1 to       R2C4D.A1 wb_manager_inst/cState[4]
-CTOF_DEL    ---     0.923       R2C4D.A1 to       R2C4D.F1 SLICE_40
-ROUTE         4     2.436       R2C4D.F1 to       R2C4B.B0 wb_manager_inst/N_28
-CTOF_DEL    ---     0.923       R2C4B.B0 to       R2C4B.F0 SLICE_44
-ROUTE         1     2.450       R2C4B.F0 to    EFB.WBADRI6 wb_manager_inst/efb_i2c_Inst0/N_12_i (to sys_clk)
-                  --------
-                    9.954   (28.1% logic, 71.9% route), 3 logic levels.
-
- Clock Skew Details: 
-
-      Source Clock Path OSCInst0 to wb_manager_inst/SLICE_33:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     7.878        OSC.OSC to      R2C3B.CLK sys_clk
-                  --------
-                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
-
-      Destination Clock Path OSCInst0 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
-                  --------
-                    8.152   (0.0% logic, 100.0% route), 0 logic levels.
-
-
-Error: The following path exceeds requirements by 4.527ns
-
- Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
-
-   Source:         FF         Q              i2c_controller_inst/cState[6]  (from sys_clk +)
-   Destination:    EFB        Port           wb_manager_inst/efb_i2c_Inst0/EFBInst_0(ASIC)  (to sys_clk +)
-
-   Delay:              10.190ns  (27.5% logic, 72.5% route), 3 logic levels.
-
- Constraint Details:
-
-     10.190ns physical path delay i2c_controller_inst/SLICE_29 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0 exceeds
-      7.519ns delay constraint less
-     -0.274ns skew and
-      2.130ns WBADRI_SET requirement (totaling 5.663ns) by 4.527ns
-
- Physical Path Details:
-
-      Data path i2c_controller_inst/SLICE_29 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.955      R2C4A.CLK to       R2C4A.Q1 i2c_controller_inst/SLICE_29 (from sys_clk)
-ROUTE         8     2.503       R2C4A.Q1 to       R2C4D.B1 i2c_controller_inst.cState[6]
-CTOF_DEL    ---     0.923       R2C4D.B1 to       R2C4D.F1 SLICE_40
-ROUTE         4     2.436       R2C4D.F1 to       R2C4B.B1 wb_manager_inst/N_28
-CTOF_DEL    ---     0.923       R2C4B.B1 to       R2C4B.F1 SLICE_44
-ROUTE         1     2.450       R2C4B.F1 to    EFB.WBADRI4 wb_manager_inst/efb_i2c_Inst0/N_19_i (to sys_clk)
-                  --------
-                   10.190   (27.5% logic, 72.5% route), 3 logic levels.
-
- Clock Skew Details: 
-
-      Source Clock Path OSCInst0 to i2c_controller_inst/SLICE_29:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     7.878        OSC.OSC to      R2C4A.CLK sys_clk
-                  --------
-                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
-
-      Destination Clock Path OSCInst0 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
-                  --------
-                    8.152   (0.0% logic, 100.0% route), 0 logic levels.
-
-
-Error: The following path exceeds requirements by 4.361ns
-
- Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
-
-   Source:         FF         Q              wb_manager_inst/cState[2]  (from sys_clk +)
-   Destination:    EFB        Port           wb_manager_inst/efb_i2c_Inst0/EFBInst_0(ASIC)  (to sys_clk +)
-
-   Delay:               9.557ns  (29.3% logic, 70.7% route), 3 logic levels.
-
- Constraint Details:
-
-      9.557ns physical path delay wb_manager_inst/SLICE_32 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0 exceeds
-      7.519ns delay constraint less
-     -0.274ns skew and
-      2.597ns WBADRI_SET requirement (totaling 5.196ns) by 4.361ns
-
- Physical Path Details:
-
-      Data path wb_manager_inst/SLICE_32 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.955      R3C4A.CLK to       R3C4A.Q1 wb_manager_inst/SLICE_32 (from sys_clk)
-ROUTE         6     1.870       R3C4A.Q1 to       R2C4D.C1 wb_manager_inst/cState[2]
-CTOF_DEL    ---     0.923       R2C4D.C1 to       R2C4D.F1 SLICE_40
-ROUTE         4     2.436       R2C4D.F1 to       R2C4B.B0 wb_manager_inst/N_28
-CTOF_DEL    ---     0.923       R2C4B.B0 to       R2C4B.F0 SLICE_44
-ROUTE         1     2.450       R2C4B.F0 to    EFB.WBADRI6 wb_manager_inst/efb_i2c_Inst0/N_12_i (to sys_clk)
-                  --------
-                    9.557   (29.3% logic, 70.7% route), 3 logic levels.
 
  Clock Skew Details: 
 
       Source Clock Path OSCInst0 to wb_manager_inst/SLICE_32:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     7.878        OSC.OSC to      R3C4A.CLK sys_clk
+ROUTE        22     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
+WCLKI2WBAC  ---     2.343     EFB.WBCLKI to     EFB.WBACKO wb_manager_inst/efb_i2c_Inst0/EFBInst_0
+ROUTE         2     3.063     EFB.WBACKO to       R2C4D.D0 wb_manager_inst/wb_ack_o
+CTOF_DEL    ---     0.923       R2C4D.D0 to       R2C4D.F0 wb_manager_inst/SLICE_28
+ROUTE         2     1.600       R2C4D.F0 to       R4C4C.D1 wb_manager_inst/nState_1_sqmuxa_2
+CTOF_DEL    ---     0.923       R4C4C.D1 to       R4C4C.F1 SLICE_33
+ROUTE         1     1.488       R4C4C.F1 to       R4C5D.D0 wb_manager_inst/nState_1_sqmuxa_4_2
+CTOF_DEL    ---     0.923       R4C5D.D0 to       R4C5D.F0 SLICE_35
+ROUTE         4     4.532       R4C5D.F0 to      R2C4A.CLK wb_manager_inst/nState_1_sqmuxa_4_i
+                  --------
+                   23.947   (21.3% logic, 78.7% route), 4 logic levels.
+
+      Destination Clock Path OSCInst0 to wb_manager_inst/SLICE_25:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     7.878        OSC.OSC to      R2C4C.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Error: The following path exceeds requirements by 9.458ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              wb_manager_inst/nState[2]  (from wb_manager_inst/nState_1_sqmuxa_4_i +)
+   Destination:    FF         Data in        wb_manager_inst/cState[2]  (to sys_clk +)
+
+   Delay:               2.302ns  (41.5% logic, 58.5% route), 1 logic levels.
+
+ Constraint Details:
+
+      2.302ns physical path delay SLICE_31 to wb_manager_inst/SLICE_24 exceeds
+      7.519ns delay constraint less
+     13.873ns skew and
+      0.802ns M_SET requirement (totaling -7.156ns) by 9.458ns
+
+ Physical Path Details:
+
+      Data path SLICE_31 to wb_manager_inst/SLICE_24:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.955      R4C4A.CLK to       R4C4A.Q0 SLICE_31 (from wb_manager_inst/nState_1_sqmuxa_4_i)
+ROUTE         1     1.347       R4C4A.Q0 to       R4C4D.M1 wb_manager_inst/nState_0[2] (to sys_clk)
+                  --------
+                    2.302   (41.5% logic, 58.5% route), 1 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to SLICE_31:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
+WCLKI2WBAC  ---     2.343     EFB.WBCLKI to     EFB.WBACKO wb_manager_inst/efb_i2c_Inst0/EFBInst_0
+ROUTE         2     3.063     EFB.WBACKO to       R2C4D.D0 wb_manager_inst/wb_ack_o
+CTOF_DEL    ---     0.923       R2C4D.D0 to       R2C4D.F0 wb_manager_inst/SLICE_28
+ROUTE         2     1.600       R2C4D.F0 to       R4C4C.D1 wb_manager_inst/nState_1_sqmuxa_2
+CTOF_DEL    ---     0.923       R4C4C.D1 to       R4C4C.F1 SLICE_33
+ROUTE         1     1.488       R4C4C.F1 to       R4C5D.D0 wb_manager_inst/nState_1_sqmuxa_4_2
+CTOF_DEL    ---     0.923       R4C5D.D0 to       R4C5D.F0 SLICE_35
+ROUTE         4     2.336       R4C5D.F0 to      R4C4A.CLK wb_manager_inst/nState_1_sqmuxa_4_i
+                  --------
+                   21.751   (23.5% logic, 76.5% route), 4 logic levels.
+
+      Destination Clock Path OSCInst0 to wb_manager_inst/SLICE_24:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     7.878        OSC.OSC to      R4C4D.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Error: The following path exceeds requirements by 7.267ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              wb_manager_inst/cState[2]  (from sys_clk +)
+   Destination:    EFB        Port           wb_manager_inst/efb_i2c_Inst0/EFBInst_0(ASIC)  (to sys_clk +)
+
+   Delay:              12.920ns  (21.7% logic, 78.3% route), 3 logic levels.
+
+ Constraint Details:
+
+     12.920ns physical path delay wb_manager_inst/SLICE_24 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0 exceeds
+      7.519ns delay constraint less
+     -0.274ns skew and
+      2.140ns WBADRI_SET requirement (totaling 5.653ns) by 7.267ns
+
+ Physical Path Details:
+
+      Data path wb_manager_inst/SLICE_24 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.955      R4C4D.CLK to       R4C4D.Q1 wb_manager_inst/SLICE_24 (from sys_clk)
+ROUTE         5     3.275       R4C4D.Q1 to       R3C4D.A1 wb_manager_inst/cState[2]
+CTOF_DEL    ---     0.923       R3C4D.A1 to       R3C4D.F1 SLICE_34
+ROUTE         6     2.535       R3C4D.F1 to       R3C4A.B1 wb_manager_inst/N_27
+CTOF_DEL    ---     0.923       R3C4A.B1 to       R3C4A.F1 SLICE_38
+ROUTE         2     4.309       R3C4A.F1 to    EFB.WBADRI1 wb_manager_inst/N_16_i (to sys_clk)
+                  --------
+                   12.920   (21.7% logic, 78.3% route), 3 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to wb_manager_inst/SLICE_24:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     7.878        OSC.OSC to      R4C4D.CLK sys_clk
                   --------
                     7.878   (0.0% logic, 100.0% route), 0 logic levels.
 
       Destination Clock Path OSCInst0 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
+ROUTE        22     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
                   --------
                     8.152   (0.0% logic, 100.0% route), 0 logic levels.
 
-Warning:  51.214MHz is the maximum frequency for this preference.
+
+Error: The following path exceeds requirements by 6.459ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              wb_manager_inst/cState[2]  (from sys_clk +)
+   Destination:    EFB        Port           wb_manager_inst/efb_i2c_Inst0/EFBInst_0(ASIC)  (to sys_clk +)
+
+   Delay:              12.064ns  (23.2% logic, 76.8% route), 3 logic levels.
+
+ Constraint Details:
+
+     12.064ns physical path delay wb_manager_inst/SLICE_24 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0 exceeds
+      7.519ns delay constraint less
+     -0.274ns skew and
+      2.188ns WBADRI_SET requirement (totaling 5.605ns) by 6.459ns
+
+ Physical Path Details:
+
+      Data path wb_manager_inst/SLICE_24 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.955      R4C4D.CLK to       R4C4D.Q1 wb_manager_inst/SLICE_24 (from sys_clk)
+ROUTE         5     3.275       R4C4D.Q1 to       R3C4D.A1 wb_manager_inst/cState[2]
+CTOF_DEL    ---     0.923       R3C4D.A1 to       R3C4D.F1 SLICE_34
+ROUTE         6     2.535       R3C4D.F1 to       R3C4A.B1 wb_manager_inst/N_27
+CTOF_DEL    ---     0.923       R3C4A.B1 to       R3C4A.F1 SLICE_38
+ROUTE         2     3.453       R3C4A.F1 to    EFB.WBADRI0 wb_manager_inst/N_16_i (to sys_clk)
+                  --------
+                   12.064   (23.2% logic, 76.8% route), 3 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to wb_manager_inst/SLICE_24:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     7.878        OSC.OSC to      R4C4D.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
+                  --------
+                    8.152   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Error: The following path exceeds requirements by 6.403ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              wb_manager_inst/cState[4]  (from sys_clk +)
+   Destination:    EFB        Port           wb_manager_inst/efb_i2c_Inst0/EFBInst_0(ASIC)  (to sys_clk +)
+
+   Delay:              12.056ns  (23.2% logic, 76.8% route), 3 logic levels.
+
+ Constraint Details:
+
+     12.056ns physical path delay wb_manager_inst/SLICE_25 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0 exceeds
+      7.519ns delay constraint less
+     -0.274ns skew and
+      2.140ns WBADRI_SET requirement (totaling 5.653ns) by 6.403ns
+
+ Physical Path Details:
+
+      Data path wb_manager_inst/SLICE_25 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.955      R2C4C.CLK to       R2C4C.Q1 wb_manager_inst/SLICE_25 (from sys_clk)
+ROUTE         2     2.411       R2C4C.Q1 to       R3C4D.B1 wb_manager_inst/cState[4]
+CTOF_DEL    ---     0.923       R3C4D.B1 to       R3C4D.F1 SLICE_34
+ROUTE         6     2.535       R3C4D.F1 to       R3C4A.B1 wb_manager_inst/N_27
+CTOF_DEL    ---     0.923       R3C4A.B1 to       R3C4A.F1 SLICE_38
+ROUTE         2     4.309       R3C4A.F1 to    EFB.WBADRI1 wb_manager_inst/N_16_i (to sys_clk)
+                  --------
+                   12.056   (23.2% logic, 76.8% route), 3 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to wb_manager_inst/SLICE_25:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     7.878        OSC.OSC to      R2C4C.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
+                  --------
+                    8.152   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Error: The following path exceeds requirements by 5.885ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              wb_manager_inst/cState[2]  (from sys_clk +)
+   Destination:    EFB        Port           wb_manager_inst/efb_i2c_Inst0/EFBInst_0(ASIC)  (to sys_clk +)
+
+   Delay:              11.081ns  (25.3% logic, 74.7% route), 3 logic levels.
+
+ Constraint Details:
+
+     11.081ns physical path delay wb_manager_inst/SLICE_24 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0 exceeds
+      7.519ns delay constraint less
+     -0.274ns skew and
+      2.597ns WBADRI_SET requirement (totaling 5.196ns) by 5.885ns
+
+ Physical Path Details:
+
+      Data path wb_manager_inst/SLICE_24 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.955      R4C4D.CLK to       R4C4D.Q1 wb_manager_inst/SLICE_24 (from sys_clk)
+ROUTE         5     3.275       R4C4D.Q1 to       R3C4D.A1 wb_manager_inst/cState[2]
+CTOF_DEL    ---     0.923       R3C4D.A1 to       R3C4D.F1 SLICE_34
+ROUTE         6     1.699       R3C4D.F1 to       R3C4C.B0 wb_manager_inst/N_27
+CTOF_DEL    ---     0.923       R3C4C.B0 to       R3C4C.F0 SLICE_36
+ROUTE         1     3.306       R3C4C.F0 to    EFB.WBADRI6 wb_manager_inst/efb_i2c_Inst0/N_12_i (to sys_clk)
+                  --------
+                   11.081   (25.3% logic, 74.7% route), 3 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to wb_manager_inst/SLICE_24:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     7.878        OSC.OSC to      R4C4D.CLK sys_clk
+                  --------
+                    7.878   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to wb_manager_inst/efb_i2c_Inst0/EFBInst_0:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     8.152        OSC.OSC to     EFB.WBCLKI sys_clk
+                  --------
+                    8.152   (0.0% logic, 100.0% route), 0 logic levels.
+
+Warning:  45.384MHz is the maximum frequency for this preference.
 
 Report Summary
 --------------
@@ -544,7 +544,7 @@ Preference                              |   Constraint|       Actual|Levels
 ----------------------------------------------------------------------------
                                         |             |             |
 FREQUENCY NET "sys_clk" 133.000000 MHz  |             |             |
-;                                       |  133.000 MHz|   51.214 MHz|   1 *
+;                                       |  133.000 MHz|   45.384 MHz|   1 *
                                         |             |             |
 ----------------------------------------------------------------------------
 
@@ -554,33 +554,27 @@ FREQUENCY NET "sys_clk" 133.000000 MHz  |             |             |
 ----------------------------------------------------------------------------
 Critical Nets                           |   Loads|  Errors| % of total
 ----------------------------------------------------------------------------
-HeartBeatInst0/iCounter_cry[8]          |       1|      45|     32.37%
+wb_manager_inst/N_27                    |       6|      28|     25.93%
                                         |        |        |
-HeartBeatInst0/iCounter_cry[10]         |       1|      45|     32.37%
+wb_manager_inst/cState[3]               |       5|      24|     22.22%
                                         |        |        |
-HeartBeatInst0/iCounter_cry[12]         |       1|      44|     31.65%
+wb_manager_inst/cState[2]               |       5|      23|     21.30%
                                         |        |        |
-HeartBeatInst0/iCounter_cry[6]          |       1|      42|     30.22%
+wb_manager_inst/N_47_1                  |       9|      18|     16.67%
                                         |        |        |
-HeartBeatInst0/iCounter_cry[14]         |       1|      39|     28.06%
+wb_manager_inst/N_47_1_i                |      11|      14|     12.96%
                                         |        |        |
-HeartBeatInst0/iCounter_cry[4]          |       1|      35|     25.18%
+wb_manager_inst/timeoutIns/clk_counter_c|        |        |
+ry[4]                                   |       1|      12|     11.11%
                                         |        |        |
-HeartBeatInst0/iCounter_cry[16]         |       1|      30|     21.58%
+wb_manager_inst/timeoutIns/clk_counter_c|        |        |
+ry[6]                                   |       1|      12|     11.11%
                                         |        |        |
-wb_manager_inst/cState[3]               |       6|      25|     17.99%
+wb_manager_inst/timeoutIns/clk_counter_c|        |        |
+ry[8]                                   |       1|      12|     11.11%
                                         |        |        |
-HeartBeatInst0/iCounter_cry[2]          |       1|      24|     17.27%
-                                        |        |        |
-wb_manager_inst/cState[2]               |       6|      24|     17.27%
-                                        |        |        |
-wb_manager_inst/N_47_1_i                |      11|      20|     14.39%
-                                        |        |        |
-wb_manager_inst/N_47_1                  |       9|      18|     12.95%
-                                        |        |        |
-HeartBeatInst0/iCounter_cry[18]         |       1|      17|     12.23%
-                                        |        |        |
-wb_manager_inst/N_28                    |       4|      16|     11.51%
+wb_manager_inst/timeoutIns/clk_counter_c|        |        |
+ry[10]                                  |       1|      12|     11.11%
                                         |        |        |
 ----------------------------------------------------------------------------
 
@@ -588,42 +582,54 @@ wb_manager_inst/N_28                    |       4|      16|     11.51%
 Clock Domains Analysis
 ------------------------
 
-Found 3 clocks:
+Found 4 clocks:
 
-Clock Domain: i2c_controller_inst/un1_nState_1_sqmuxa_i_0   Source: i2c_controller_inst/SLICE_29.Q0   Loads: 4
+Clock Domain: wb_manager_inst/efb_i2c_Inst0/i2c1_scli   Source: scl.PAD   Loads: 1
    No transfer within this clock domain is found
 
-Clock Domain: wb_manager_inst/nState_1_sqmuxa_4_i   Source: SLICE_41.F0   Loads: 3
+Clock Domain: wb_manager_inst/efb_i2c_Inst0/i2c1_sclo   Source: wb_manager_inst/efb_i2c_Inst0/EFBInst_0.I2C1SCLO   Loads: 1
    No transfer within this clock domain is found
 
-Clock Domain: sys_clk   Source: OSCInst0.OSC   Loads: 30
+Clock Domain: i2c_controller_inst/un1_nState_1_sqmuxa_i_0   Source: i2c_controller_inst/SLICE_21.Q0   Loads: 4
+   No transfer within this clock domain is found
+
+Clock Domain: sys_clk   Source: OSCInst0.OSC   Loads: 22
    Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;
 
    Data transfers from:
-   Clock Domain: i2c_controller_inst/un1_nState_1_sqmuxa_i_0   Source: i2c_controller_inst/SLICE_29.Q0
-      Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;   Transfers: 4
-
-   Clock Domain: wb_manager_inst/nState_1_sqmuxa_4_i   Source: SLICE_41.F0
+   Clock Domain: wb_manager_inst/nState_1_sqmuxa_4_i   Source: SLICE_35.F0
       Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;   Transfers: 2
 
-   Clock Domain: i2c_controller_inst/un1_nState_1_sqmuxa_i_0   Source: i2c_controller_inst/SLICE_29.Q0
-      Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;   Transfers: 3
+   Clock Domain: i2c_controller_inst/un1_nState_1_sqmuxa_i_0   Source: i2c_controller_inst/SLICE_21.Q0
+      Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;   Transfers: 1
 
-   Clock Domain: wb_manager_inst/nState_1_sqmuxa_4_i   Source: SLICE_41.F0
+   Clock Domain: wb_manager_inst/nState_1_sqmuxa_4_i   Source: SLICE_35.F0
+      Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;   Transfers: 1
+
+   Clock Domain: wb_manager_inst/nState_1_sqmuxa_4_i   Source: SLICE_35.F0
+      Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;   Transfers: 2
+
+   Clock Domain: wb_manager_inst/nState_1_sqmuxa_4_i   Source: SLICE_35.F0
+      Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;   Transfers: 1
+
+   Clock Domain: i2c_controller_inst/un1_nState_1_sqmuxa_i_0   Source: i2c_controller_inst/SLICE_21.Q0
+      Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;   Transfers: 2
+
+   Clock Domain: i2c_controller_inst/un1_nState_1_sqmuxa_i_0   Source: i2c_controller_inst/SLICE_21.Q0
       Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;   Transfers: 4
 
 
 Timing summary (Setup):
 ---------------
 
-Timing errors: 139  Score: 238385
-Cumulative negative slack: 238385
+Timing errors: 108  Score: 292386
+Cumulative negative slack: 292386
 
-Constraints cover 464 paths, 1 nets, and 263 connections (97.77% coverage)
+Constraints cover 257 paths, 1 nets, and 225 connections (97.40% coverage)
 
 --------------------------------------------------------------------------------
 Lattice TRACE Report - Hold, Version Diamond (64-bit) 3.10.3.144
-Thu Sep 19 14:02:45 2019
+Thu Sep 19 15:27:55 2019
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
@@ -648,7 +654,7 @@ BLOCK RESETPATHS
 
 ================================================================================
 Preference: FREQUENCY NET "sys_clk" 133.000000 MHz ;
-            464 items scored, 0 timing errors detected.
+            257 items scored, 0 timing errors detected.
 --------------------------------------------------------------------------------
 
 
@@ -656,448 +662,448 @@ Passed: The following path meets requirements by 0.855ns
 
  Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
 
-   Source:         FF         Q              HeartBeatInst0/iCounter[11]  (from sys_clk +)
-   Destination:    FF         Data in        HeartBeatInst0/iCounter[11]  (to sys_clk +)
+   Source:         FF         Q              wb_manager_inst/timeoutIns/clk_counter[0]  (from sys_clk +)
+   Destination:    FF         Data in        wb_manager_inst/timeoutIns/clk_counter[0]  (to sys_clk +)
 
    Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
 
  Constraint Details:
 
-      0.823ns physical path delay HeartBeatInst0/SLICE_14 to HeartBeatInst0/SLICE_14 meets
+      0.823ns physical path delay wb_manager_inst/timeoutIns/SLICE_0 to wb_manager_inst/timeoutIns/SLICE_0 meets
      -0.032ns DIN_HLD and
       0.000ns delay constraint less
       0.000ns skew requirement (totaling -0.032ns) by 0.855ns
 
  Physical Path Details:
 
-      Data path HeartBeatInst0/SLICE_14 to HeartBeatInst0/SLICE_14:
+      Data path wb_manager_inst/timeoutIns/SLICE_0 to wb_manager_inst/timeoutIns/SLICE_0:
 
    Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.257      R3C6C.CLK to       R3C6C.Q0 HeartBeatInst0/SLICE_14 (from sys_clk)
-ROUTE         1     0.367       R3C6C.Q0 to       R3C6C.A0 HeartBeatInst0/iCounter[11]
-CTOF_DEL    ---     0.199       R3C6C.A0 to       R3C6C.F0 HeartBeatInst0/SLICE_14
-ROUTE         1     0.000       R3C6C.F0 to      R3C6C.DI0 HeartBeatInst0/iCounter_s[11] (to sys_clk)
+REG_DEL     ---     0.257      R5C4A.CLK to       R5C4A.Q1 wb_manager_inst/timeoutIns/SLICE_0 (from sys_clk)
+ROUTE         1     0.367       R5C4A.Q1 to       R5C4A.A1 wb_manager_inst/timeoutIns/clk_counter[0]
+CTOF_DEL    ---     0.199       R5C4A.A1 to       R5C4A.F1 wb_manager_inst/timeoutIns/SLICE_0
+ROUTE         1     0.000       R5C4A.F1 to      R5C4A.DI1 wb_manager_inst/timeoutIns/clk_counter_s[0] (to sys_clk)
                   --------
                     0.823   (55.4% logic, 44.6% route), 2 logic levels.
 
  Clock Skew Details: 
 
-      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_14:
+      Source Clock Path OSCInst0 to wb_manager_inst/timeoutIns/SLICE_0:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C6C.CLK sys_clk
+ROUTE        22     2.481        OSC.OSC to      R5C4A.CLK sys_clk
                   --------
                     2.481   (0.0% logic, 100.0% route), 0 logic levels.
 
-      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_14:
+      Destination Clock Path OSCInst0 to wb_manager_inst/timeoutIns/SLICE_0:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C6C.CLK sys_clk
-                  --------
-                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
-
-
-Passed: The following path meets requirements by 0.855ns
-
- Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
-
-   Source:         FF         Q              HeartBeatInst0/iCounter[7]  (from sys_clk +)
-   Destination:    FF         Data in        HeartBeatInst0/iCounter[7]  (to sys_clk +)
-
-   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
-
- Constraint Details:
-
-      0.823ns physical path delay HeartBeatInst0/SLICE_16 to HeartBeatInst0/SLICE_16 meets
-     -0.032ns DIN_HLD and
-      0.000ns delay constraint less
-      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
-
- Physical Path Details:
-
-      Data path HeartBeatInst0/SLICE_16 to HeartBeatInst0/SLICE_16:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.257      R3C6A.CLK to       R3C6A.Q0 HeartBeatInst0/SLICE_16 (from sys_clk)
-ROUTE         1     0.367       R3C6A.Q0 to       R3C6A.A0 HeartBeatInst0/iCounter[7]
-CTOF_DEL    ---     0.199       R3C6A.A0 to       R3C6A.F0 HeartBeatInst0/SLICE_16
-ROUTE         1     0.000       R3C6A.F0 to      R3C6A.DI0 HeartBeatInst0/iCounter_s[7] (to sys_clk)
-                  --------
-                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
-
- Clock Skew Details: 
-
-      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_16:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C6A.CLK sys_clk
-                  --------
-                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
-
-      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_16:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C6A.CLK sys_clk
+ROUTE        22     2.481        OSC.OSC to      R5C4A.CLK sys_clk
                   --------
                     2.481   (0.0% logic, 100.0% route), 0 logic levels.
 
 
-Passed: The following path meets requirements by 0.855ns
-
- Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
-
-   Source:         FF         Q              HeartBeatInst0/iCounter[19]  (from sys_clk +)
-   Destination:    FF         Data in        HeartBeatInst0/iCounter[19]  (to sys_clk +)
-
-   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
-
- Constraint Details:
-
-      0.823ns physical path delay HeartBeatInst0/SLICE_10 to HeartBeatInst0/SLICE_10 meets
-     -0.032ns DIN_HLD and
-      0.000ns delay constraint less
-      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
-
- Physical Path Details:
-
-      Data path HeartBeatInst0/SLICE_10 to HeartBeatInst0/SLICE_10:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.257      R3C7C.CLK to       R3C7C.Q0 HeartBeatInst0/SLICE_10 (from sys_clk)
-ROUTE         1     0.367       R3C7C.Q0 to       R3C7C.A0 HeartBeatInst0/iCounter[19]
-CTOF_DEL    ---     0.199       R3C7C.A0 to       R3C7C.F0 HeartBeatInst0/SLICE_10
-ROUTE         1     0.000       R3C7C.F0 to      R3C7C.DI0 HeartBeatInst0/iCounter_s[19] (to sys_clk)
-                  --------
-                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
-
- Clock Skew Details: 
-
-      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_10:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C7C.CLK sys_clk
-                  --------
-                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
-
-      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_10:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C7C.CLK sys_clk
-                  --------
-                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
-
-
-Passed: The following path meets requirements by 0.855ns
-
- Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
-
-   Source:         FF         Q              HeartBeatInst0/iCounter[15]  (from sys_clk +)
-   Destination:    FF         Data in        HeartBeatInst0/iCounter[15]  (to sys_clk +)
-
-   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
-
- Constraint Details:
-
-      0.823ns physical path delay HeartBeatInst0/SLICE_12 to HeartBeatInst0/SLICE_12 meets
-     -0.032ns DIN_HLD and
-      0.000ns delay constraint less
-      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
-
- Physical Path Details:
-
-      Data path HeartBeatInst0/SLICE_12 to HeartBeatInst0/SLICE_12:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.257      R3C7A.CLK to       R3C7A.Q0 HeartBeatInst0/SLICE_12 (from sys_clk)
-ROUTE         1     0.367       R3C7A.Q0 to       R3C7A.A0 HeartBeatInst0/iCounter[15]
-CTOF_DEL    ---     0.199       R3C7A.A0 to       R3C7A.F0 HeartBeatInst0/SLICE_12
-ROUTE         1     0.000       R3C7A.F0 to      R3C7A.DI0 HeartBeatInst0/iCounter_s[15] (to sys_clk)
-                  --------
-                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
-
- Clock Skew Details: 
-
-      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_12:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C7A.CLK sys_clk
-                  --------
-                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
-
-      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_12:
-
-   Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C7A.CLK sys_clk
-                  --------
-                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
-
-
-Passed: The following path meets requirements by 0.855ns
+Passed: The following path meets requirements by 0.857ns
 
  Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
 
    Source:         FF         Q              HeartBeatInst0/iCounter[3]  (from sys_clk +)
    Destination:    FF         Data in        HeartBeatInst0/iCounter[3]  (to sys_clk +)
 
-   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
+   Delay:               0.825ns  (55.3% logic, 44.7% route), 2 logic levels.
 
  Constraint Details:
 
-      0.823ns physical path delay HeartBeatInst0/SLICE_18 to HeartBeatInst0/SLICE_18 meets
+      0.825ns physical path delay SLICE_11 to SLICE_11 meets
      -0.032ns DIN_HLD and
       0.000ns delay constraint less
-      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
+      0.000ns skew requirement (totaling -0.032ns) by 0.857ns
 
  Physical Path Details:
 
-      Data path HeartBeatInst0/SLICE_18 to HeartBeatInst0/SLICE_18:
+      Data path SLICE_11 to SLICE_11:
 
    Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.257      R3C5C.CLK to       R3C5C.Q0 HeartBeatInst0/SLICE_18 (from sys_clk)
-ROUTE         1     0.367       R3C5C.Q0 to       R3C5C.A0 HeartBeatInst0/iCounter[3]
-CTOF_DEL    ---     0.199       R3C5C.A0 to       R3C5C.F0 HeartBeatInst0/SLICE_18
-ROUTE         1     0.000       R3C5C.F0 to      R3C5C.DI0 HeartBeatInst0/iCounter_s[3] (to sys_clk)
+REG_DEL     ---     0.257      R2C5D.CLK to       R2C5D.Q0 SLICE_11 (from sys_clk)
+ROUTE         2     0.369       R2C5D.Q0 to       R2C5D.A0 heart_beat_c
+CTOF_DEL    ---     0.199       R2C5D.A0 to       R2C5D.F0 SLICE_11
+ROUTE         1     0.000       R2C5D.F0 to      R2C5D.DI0 HeartBeatInst0/iCounter_RNO[3] (to sys_clk)
                   --------
-                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
+                    0.825   (55.3% logic, 44.7% route), 2 logic levels.
 
  Clock Skew Details: 
 
-      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_18:
+      Source Clock Path OSCInst0 to SLICE_11:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C5C.CLK sys_clk
+ROUTE        22     2.481        OSC.OSC to      R2C5D.CLK sys_clk
                   --------
                     2.481   (0.0% logic, 100.0% route), 0 logic levels.
 
-      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_18:
+      Destination Clock Path OSCInst0 to SLICE_11:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C5C.CLK sys_clk
+ROUTE        22     2.481        OSC.OSC to      R2C5D.CLK sys_clk
                   --------
                     2.481   (0.0% logic, 100.0% route), 0 logic levels.
 
 
-Passed: The following path meets requirements by 0.855ns
+Passed: The following path meets requirements by 0.857ns
 
  Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
 
-   Source:         FF         Q              HeartBeatInst0/iCounter[9]  (from sys_clk +)
-   Destination:    FF         Data in        HeartBeatInst0/iCounter[9]  (to sys_clk +)
+   Source:         FF         Q              wb_manager_inst/timeoutIns/clk_counter[9]  (from sys_clk +)
+   Destination:    FF         Data in        wb_manager_inst/timeoutIns/clk_counter[9]  (to sys_clk +)
 
-   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
+   Delay:               0.825ns  (55.3% logic, 44.7% route), 2 logic levels.
 
  Constraint Details:
 
-      0.823ns physical path delay HeartBeatInst0/SLICE_15 to HeartBeatInst0/SLICE_15 meets
+      0.825ns physical path delay wb_manager_inst/timeoutIns/SLICE_4 to wb_manager_inst/timeoutIns/SLICE_4 meets
      -0.032ns DIN_HLD and
       0.000ns delay constraint less
-      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
+      0.000ns skew requirement (totaling -0.032ns) by 0.857ns
 
  Physical Path Details:
 
-      Data path HeartBeatInst0/SLICE_15 to HeartBeatInst0/SLICE_15:
+      Data path wb_manager_inst/timeoutIns/SLICE_4 to wb_manager_inst/timeoutIns/SLICE_4:
 
    Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.257      R3C6B.CLK to       R3C6B.Q0 HeartBeatInst0/SLICE_15 (from sys_clk)
-ROUTE         1     0.367       R3C6B.Q0 to       R3C6B.A0 HeartBeatInst0/iCounter[9]
-CTOF_DEL    ---     0.199       R3C6B.A0 to       R3C6B.F0 HeartBeatInst0/SLICE_15
-ROUTE         1     0.000       R3C6B.F0 to      R3C6B.DI0 HeartBeatInst0/iCounter_s[9] (to sys_clk)
+REG_DEL     ---     0.257      R5C5B.CLK to       R5C5B.Q0 wb_manager_inst/timeoutIns/SLICE_4 (from sys_clk)
+ROUTE         2     0.369       R5C5B.Q0 to       R5C5B.A0 wb_manager_inst/clk_counter[9]
+CTOF_DEL    ---     0.199       R5C5B.A0 to       R5C5B.F0 wb_manager_inst/timeoutIns/SLICE_4
+ROUTE         1     0.000       R5C5B.F0 to      R5C5B.DI0 wb_manager_inst/timeoutIns/clk_counter_s[9] (to sys_clk)
                   --------
-                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
+                    0.825   (55.3% logic, 44.7% route), 2 logic levels.
 
  Clock Skew Details: 
 
-      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_15:
+      Source Clock Path OSCInst0 to wb_manager_inst/timeoutIns/SLICE_4:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C6B.CLK sys_clk
+ROUTE        22     2.481        OSC.OSC to      R5C5B.CLK sys_clk
                   --------
                     2.481   (0.0% logic, 100.0% route), 0 logic levels.
 
-      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_15:
+      Destination Clock Path OSCInst0 to wb_manager_inst/timeoutIns/SLICE_4:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C6B.CLK sys_clk
+ROUTE        22     2.481        OSC.OSC to      R5C5B.CLK sys_clk
                   --------
                     2.481   (0.0% logic, 100.0% route), 0 logic levels.
 
 
-Passed: The following path meets requirements by 0.855ns
+Passed: The following path meets requirements by 0.857ns
 
  Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
 
-   Source:         FF         Q              HeartBeatInst0/iCounter[13]  (from sys_clk +)
-   Destination:    FF         Data in        HeartBeatInst0/iCounter[13]  (to sys_clk +)
+   Source:         FF         Q              wb_manager_inst/timeoutIns/clk_counter[5]  (from sys_clk +)
+   Destination:    FF         Data in        wb_manager_inst/timeoutIns/clk_counter[5]  (to sys_clk +)
 
-   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
+   Delay:               0.825ns  (55.3% logic, 44.7% route), 2 logic levels.
 
  Constraint Details:
 
-      0.823ns physical path delay HeartBeatInst0/SLICE_13 to HeartBeatInst0/SLICE_13 meets
+      0.825ns physical path delay wb_manager_inst/timeoutIns/SLICE_6 to wb_manager_inst/timeoutIns/SLICE_6 meets
      -0.032ns DIN_HLD and
       0.000ns delay constraint less
-      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
+      0.000ns skew requirement (totaling -0.032ns) by 0.857ns
 
  Physical Path Details:
 
-      Data path HeartBeatInst0/SLICE_13 to HeartBeatInst0/SLICE_13:
+      Data path wb_manager_inst/timeoutIns/SLICE_6 to wb_manager_inst/timeoutIns/SLICE_6:
 
    Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.257      R3C6D.CLK to       R3C6D.Q0 HeartBeatInst0/SLICE_13 (from sys_clk)
-ROUTE         1     0.367       R3C6D.Q0 to       R3C6D.A0 HeartBeatInst0/iCounter[13]
-CTOF_DEL    ---     0.199       R3C6D.A0 to       R3C6D.F0 HeartBeatInst0/SLICE_13
-ROUTE         1     0.000       R3C6D.F0 to      R3C6D.DI0 HeartBeatInst0/iCounter_s[13] (to sys_clk)
+REG_DEL     ---     0.257      R5C4D.CLK to       R5C4D.Q0 wb_manager_inst/timeoutIns/SLICE_6 (from sys_clk)
+ROUTE         2     0.369       R5C4D.Q0 to       R5C4D.A0 wb_manager_inst/clk_counter[5]
+CTOF_DEL    ---     0.199       R5C4D.A0 to       R5C4D.F0 wb_manager_inst/timeoutIns/SLICE_6
+ROUTE         1     0.000       R5C4D.F0 to      R5C4D.DI0 wb_manager_inst/timeoutIns/clk_counter_s[5] (to sys_clk)
                   --------
-                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
+                    0.825   (55.3% logic, 44.7% route), 2 logic levels.
 
  Clock Skew Details: 
 
-      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_13:
+      Source Clock Path OSCInst0 to wb_manager_inst/timeoutIns/SLICE_6:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C6D.CLK sys_clk
+ROUTE        22     2.481        OSC.OSC to      R5C4D.CLK sys_clk
                   --------
                     2.481   (0.0% logic, 100.0% route), 0 logic levels.
 
-      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_13:
+      Destination Clock Path OSCInst0 to wb_manager_inst/timeoutIns/SLICE_6:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C6D.CLK sys_clk
+ROUTE        22     2.481        OSC.OSC to      R5C4D.CLK sys_clk
                   --------
                     2.481   (0.0% logic, 100.0% route), 0 logic levels.
 
 
-Passed: The following path meets requirements by 0.855ns
+Passed: The following path meets requirements by 0.857ns
 
  Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
 
-   Source:         FF         Q              HeartBeatInst0/iCounter[5]  (from sys_clk +)
-   Destination:    FF         Data in        HeartBeatInst0/iCounter[5]  (to sys_clk +)
+   Source:         FF         Q              wb_manager_inst/timeoutIns/clk_counter[13]  (from sys_clk +)
+   Destination:    FF         Data in        wb_manager_inst/timeoutIns/clk_counter[13]  (to sys_clk +)
 
-   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
+   Delay:               0.825ns  (55.3% logic, 44.7% route), 2 logic levels.
 
  Constraint Details:
 
-      0.823ns physical path delay HeartBeatInst0/SLICE_17 to HeartBeatInst0/SLICE_17 meets
+      0.825ns physical path delay wb_manager_inst/timeoutIns/SLICE_2 to wb_manager_inst/timeoutIns/SLICE_2 meets
      -0.032ns DIN_HLD and
       0.000ns delay constraint less
-      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
+      0.000ns skew requirement (totaling -0.032ns) by 0.857ns
 
  Physical Path Details:
 
-      Data path HeartBeatInst0/SLICE_17 to HeartBeatInst0/SLICE_17:
+      Data path wb_manager_inst/timeoutIns/SLICE_2 to wb_manager_inst/timeoutIns/SLICE_2:
 
    Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.257      R3C5D.CLK to       R3C5D.Q0 HeartBeatInst0/SLICE_17 (from sys_clk)
-ROUTE         1     0.367       R3C5D.Q0 to       R3C5D.A0 HeartBeatInst0/iCounter[5]
-CTOF_DEL    ---     0.199       R3C5D.A0 to       R3C5D.F0 HeartBeatInst0/SLICE_17
-ROUTE         1     0.000       R3C5D.F0 to      R3C5D.DI0 HeartBeatInst0/iCounter_s[5] (to sys_clk)
+REG_DEL     ---     0.257      R5C5D.CLK to       R5C5D.Q0 wb_manager_inst/timeoutIns/SLICE_2 (from sys_clk)
+ROUTE         2     0.369       R5C5D.Q0 to       R5C5D.A0 wb_manager_inst/clk_counter[13]
+CTOF_DEL    ---     0.199       R5C5D.A0 to       R5C5D.F0 wb_manager_inst/timeoutIns/SLICE_2
+ROUTE         1     0.000       R5C5D.F0 to      R5C5D.DI0 wb_manager_inst/timeoutIns/clk_counter_s[13] (to sys_clk)
                   --------
-                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
+                    0.825   (55.3% logic, 44.7% route), 2 logic levels.
 
  Clock Skew Details: 
 
-      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_17:
+      Source Clock Path OSCInst0 to wb_manager_inst/timeoutIns/SLICE_2:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C5D.CLK sys_clk
+ROUTE        22     2.481        OSC.OSC to      R5C5D.CLK sys_clk
                   --------
                     2.481   (0.0% logic, 100.0% route), 0 logic levels.
 
-      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_17:
+      Destination Clock Path OSCInst0 to wb_manager_inst/timeoutIns/SLICE_2:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C5D.CLK sys_clk
+ROUTE        22     2.481        OSC.OSC to      R5C5D.CLK sys_clk
                   --------
                     2.481   (0.0% logic, 100.0% route), 0 logic levels.
 
 
-Passed: The following path meets requirements by 0.855ns
+Passed: The following path meets requirements by 0.857ns
 
  Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
 
-   Source:         FF         Q              HeartBeatInst0/iCounter[17]  (from sys_clk +)
-   Destination:    FF         Data in        HeartBeatInst0/iCounter[17]  (to sys_clk +)
+   Source:         FF         Q              wb_manager_inst/timeoutIns/clk_counter[1]  (from sys_clk +)
+   Destination:    FF         Data in        wb_manager_inst/timeoutIns/clk_counter[1]  (to sys_clk +)
 
-   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
+   Delay:               0.825ns  (55.3% logic, 44.7% route), 2 logic levels.
 
  Constraint Details:
 
-      0.823ns physical path delay HeartBeatInst0/SLICE_11 to HeartBeatInst0/SLICE_11 meets
+      0.825ns physical path delay wb_manager_inst/timeoutIns/SLICE_8 to wb_manager_inst/timeoutIns/SLICE_8 meets
      -0.032ns DIN_HLD and
       0.000ns delay constraint less
-      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
+      0.000ns skew requirement (totaling -0.032ns) by 0.857ns
 
  Physical Path Details:
 
-      Data path HeartBeatInst0/SLICE_11 to HeartBeatInst0/SLICE_11:
+      Data path wb_manager_inst/timeoutIns/SLICE_8 to wb_manager_inst/timeoutIns/SLICE_8:
 
    Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.257      R3C7B.CLK to       R3C7B.Q0 HeartBeatInst0/SLICE_11 (from sys_clk)
-ROUTE         1     0.367       R3C7B.Q0 to       R3C7B.A0 HeartBeatInst0/iCounter[17]
-CTOF_DEL    ---     0.199       R3C7B.A0 to       R3C7B.F0 HeartBeatInst0/SLICE_11
-ROUTE         1     0.000       R3C7B.F0 to      R3C7B.DI0 HeartBeatInst0/iCounter_s[17] (to sys_clk)
+REG_DEL     ---     0.257      R5C4B.CLK to       R5C4B.Q0 wb_manager_inst/timeoutIns/SLICE_8 (from sys_clk)
+ROUTE         2     0.369       R5C4B.Q0 to       R5C4B.A0 wb_manager_inst/timeoutIns/clk_counter[1]
+CTOF_DEL    ---     0.199       R5C4B.A0 to       R5C4B.F0 wb_manager_inst/timeoutIns/SLICE_8
+ROUTE         1     0.000       R5C4B.F0 to      R5C4B.DI0 wb_manager_inst/timeoutIns/clk_counter_s[1] (to sys_clk)
                   --------
-                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
+                    0.825   (55.3% logic, 44.7% route), 2 logic levels.
 
  Clock Skew Details: 
 
-      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_11:
+      Source Clock Path OSCInst0 to wb_manager_inst/timeoutIns/SLICE_8:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C7B.CLK sys_clk
+ROUTE        22     2.481        OSC.OSC to      R5C4B.CLK sys_clk
                   --------
                     2.481   (0.0% logic, 100.0% route), 0 logic levels.
 
-      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_11:
+      Destination Clock Path OSCInst0 to wb_manager_inst/timeoutIns/SLICE_8:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C7B.CLK sys_clk
+ROUTE        22     2.481        OSC.OSC to      R5C4B.CLK sys_clk
                   --------
                     2.481   (0.0% logic, 100.0% route), 0 logic levels.
 
 
-Passed: The following path meets requirements by 0.855ns
+Passed: The following path meets requirements by 0.857ns
 
  Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
 
-   Source:         FF         Q              HeartBeatInst0/iCounter[18]  (from sys_clk +)
-   Destination:    FF         Data in        HeartBeatInst0/iCounter[18]  (to sys_clk +)
+   Source:         FF         Q              wb_manager_inst/timeoutIns/clk_counter[7]  (from sys_clk +)
+   Destination:    FF         Data in        wb_manager_inst/timeoutIns/clk_counter[7]  (to sys_clk +)
 
-   Delay:               0.823ns  (55.4% logic, 44.6% route), 2 logic levels.
+   Delay:               0.825ns  (55.3% logic, 44.7% route), 2 logic levels.
 
  Constraint Details:
 
-      0.823ns physical path delay HeartBeatInst0/SLICE_11 to HeartBeatInst0/SLICE_11 meets
+      0.825ns physical path delay wb_manager_inst/timeoutIns/SLICE_5 to wb_manager_inst/timeoutIns/SLICE_5 meets
      -0.032ns DIN_HLD and
       0.000ns delay constraint less
-      0.000ns skew requirement (totaling -0.032ns) by 0.855ns
+      0.000ns skew requirement (totaling -0.032ns) by 0.857ns
 
  Physical Path Details:
 
-      Data path HeartBeatInst0/SLICE_11 to HeartBeatInst0/SLICE_11:
+      Data path wb_manager_inst/timeoutIns/SLICE_5 to wb_manager_inst/timeoutIns/SLICE_5:
 
    Name    Fanout   Delay (ns)          Site               Resource
-REG_DEL     ---     0.257      R3C7B.CLK to       R3C7B.Q1 HeartBeatInst0/SLICE_11 (from sys_clk)
-ROUTE         1     0.367       R3C7B.Q1 to       R3C7B.A1 HeartBeatInst0/iCounter[18]
-CTOF_DEL    ---     0.199       R3C7B.A1 to       R3C7B.F1 HeartBeatInst0/SLICE_11
-ROUTE         1     0.000       R3C7B.F1 to      R3C7B.DI1 HeartBeatInst0/iCounter_s[18] (to sys_clk)
+REG_DEL     ---     0.257      R5C5A.CLK to       R5C5A.Q0 wb_manager_inst/timeoutIns/SLICE_5 (from sys_clk)
+ROUTE         2     0.369       R5C5A.Q0 to       R5C5A.A0 wb_manager_inst/clk_counter[7]
+CTOF_DEL    ---     0.199       R5C5A.A0 to       R5C5A.F0 wb_manager_inst/timeoutIns/SLICE_5
+ROUTE         1     0.000       R5C5A.F0 to      R5C5A.DI0 wb_manager_inst/timeoutIns/clk_counter_s[7] (to sys_clk)
                   --------
-                    0.823   (55.4% logic, 44.6% route), 2 logic levels.
+                    0.825   (55.3% logic, 44.7% route), 2 logic levels.
 
  Clock Skew Details: 
 
-      Source Clock Path OSCInst0 to HeartBeatInst0/SLICE_11:
+      Source Clock Path OSCInst0 to wb_manager_inst/timeoutIns/SLICE_5:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C7B.CLK sys_clk
+ROUTE        22     2.481        OSC.OSC to      R5C5A.CLK sys_clk
                   --------
                     2.481   (0.0% logic, 100.0% route), 0 logic levels.
 
-      Destination Clock Path OSCInst0 to HeartBeatInst0/SLICE_11:
+      Destination Clock Path OSCInst0 to wb_manager_inst/timeoutIns/SLICE_5:
 
    Name    Fanout   Delay (ns)          Site               Resource
-ROUTE        30     2.481        OSC.OSC to      R3C7B.CLK sys_clk
+ROUTE        22     2.481        OSC.OSC to      R5C5A.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Passed: The following path meets requirements by 0.857ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              wb_manager_inst/timeoutIns/clk_counter[3]  (from sys_clk +)
+   Destination:    FF         Data in        wb_manager_inst/timeoutIns/clk_counter[3]  (to sys_clk +)
+
+   Delay:               0.825ns  (55.3% logic, 44.7% route), 2 logic levels.
+
+ Constraint Details:
+
+      0.825ns physical path delay wb_manager_inst/timeoutIns/SLICE_7 to wb_manager_inst/timeoutIns/SLICE_7 meets
+     -0.032ns DIN_HLD and
+      0.000ns delay constraint less
+      0.000ns skew requirement (totaling -0.032ns) by 0.857ns
+
+ Physical Path Details:
+
+      Data path wb_manager_inst/timeoutIns/SLICE_7 to wb_manager_inst/timeoutIns/SLICE_7:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.257      R5C4C.CLK to       R5C4C.Q0 wb_manager_inst/timeoutIns/SLICE_7 (from sys_clk)
+ROUTE         2     0.369       R5C4C.Q0 to       R5C4C.A0 wb_manager_inst/timeoutIns/clk_counter[3]
+CTOF_DEL    ---     0.199       R5C4C.A0 to       R5C4C.F0 wb_manager_inst/timeoutIns/SLICE_7
+ROUTE         1     0.000       R5C4C.F0 to      R5C4C.DI0 wb_manager_inst/timeoutIns/clk_counter_s[3] (to sys_clk)
+                  --------
+                    0.825   (55.3% logic, 44.7% route), 2 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to wb_manager_inst/timeoutIns/SLICE_7:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     2.481        OSC.OSC to      R5C4C.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to wb_manager_inst/timeoutIns/SLICE_7:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     2.481        OSC.OSC to      R5C4C.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Passed: The following path meets requirements by 0.857ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              wb_manager_inst/timeoutIns/clk_counter[15]  (from sys_clk +)
+   Destination:    FF         Data in        wb_manager_inst/timeoutIns/clk_counter[15]  (to sys_clk +)
+
+   Delay:               0.825ns  (55.3% logic, 44.7% route), 2 logic levels.
+
+ Constraint Details:
+
+      0.825ns physical path delay wb_manager_inst/timeoutIns/SLICE_1 to wb_manager_inst/timeoutIns/SLICE_1 meets
+     -0.032ns DIN_HLD and
+      0.000ns delay constraint less
+      0.000ns skew requirement (totaling -0.032ns) by 0.857ns
+
+ Physical Path Details:
+
+      Data path wb_manager_inst/timeoutIns/SLICE_1 to wb_manager_inst/timeoutIns/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.257      R5C6A.CLK to       R5C6A.Q0 wb_manager_inst/timeoutIns/SLICE_1 (from sys_clk)
+ROUTE         2     0.369       R5C6A.Q0 to       R5C6A.A0 wb_manager_inst/clk_counter[15]
+CTOF_DEL    ---     0.199       R5C6A.A0 to       R5C6A.F0 wb_manager_inst/timeoutIns/SLICE_1
+ROUTE         1     0.000       R5C6A.F0 to      R5C6A.DI0 wb_manager_inst/timeoutIns/clk_counter_s[15] (to sys_clk)
+                  --------
+                    0.825   (55.3% logic, 44.7% route), 2 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to wb_manager_inst/timeoutIns/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     2.481        OSC.OSC to      R5C6A.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to wb_manager_inst/timeoutIns/SLICE_1:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     2.481        OSC.OSC to      R5C6A.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+
+Passed: The following path meets requirements by 0.857ns
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              wb_manager_inst/timeoutIns/clk_counter[11]  (from sys_clk +)
+   Destination:    FF         Data in        wb_manager_inst/timeoutIns/clk_counter[11]  (to sys_clk +)
+
+   Delay:               0.825ns  (55.3% logic, 44.7% route), 2 logic levels.
+
+ Constraint Details:
+
+      0.825ns physical path delay wb_manager_inst/timeoutIns/SLICE_3 to wb_manager_inst/timeoutIns/SLICE_3 meets
+     -0.032ns DIN_HLD and
+      0.000ns delay constraint less
+      0.000ns skew requirement (totaling -0.032ns) by 0.857ns
+
+ Physical Path Details:
+
+      Data path wb_manager_inst/timeoutIns/SLICE_3 to wb_manager_inst/timeoutIns/SLICE_3:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.257      R5C5C.CLK to       R5C5C.Q0 wb_manager_inst/timeoutIns/SLICE_3 (from sys_clk)
+ROUTE         2     0.369       R5C5C.Q0 to       R5C5C.A0 wb_manager_inst/clk_counter[11]
+CTOF_DEL    ---     0.199       R5C5C.A0 to       R5C5C.F0 wb_manager_inst/timeoutIns/SLICE_3
+ROUTE         1     0.000       R5C5C.F0 to      R5C5C.DI0 wb_manager_inst/timeoutIns/clk_counter_s[11] (to sys_clk)
+                  --------
+                    0.825   (55.3% logic, 44.7% route), 2 logic levels.
+
+ Clock Skew Details: 
+
+      Source Clock Path OSCInst0 to wb_manager_inst/timeoutIns/SLICE_3:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     2.481        OSC.OSC to      R5C5C.CLK sys_clk
+                  --------
+                    2.481   (0.0% logic, 100.0% route), 0 logic levels.
+
+      Destination Clock Path OSCInst0 to wb_manager_inst/timeoutIns/SLICE_3:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+ROUTE        22     2.481        OSC.OSC to      R5C5C.CLK sys_clk
                   --------
                     2.481   (0.0% logic, 100.0% route), 0 logic levels.
 
@@ -1119,26 +1125,44 @@ All preferences were met.
 Clock Domains Analysis
 ------------------------
 
-Found 3 clocks:
+Found 4 clocks:
 
-Clock Domain: i2c_controller_inst/un1_nState_1_sqmuxa_i_0   Source: i2c_controller_inst/SLICE_29.Q0   Loads: 4
+Clock Domain: wb_manager_inst/efb_i2c_Inst0/i2c1_scli   Source: scl.PAD   Loads: 1
    No transfer within this clock domain is found
 
 Clock Domain: wb_manager_inst/efb_i2c_Inst0/i2c1_sclo   Source: wb_manager_inst/efb_i2c_Inst0/EFBInst_0.I2C1SCLO   Loads: 1
    No transfer within this clock domain is found
 
-Clock Domain: sys_clk   Source: OSCInst0.OSC   Loads: 30
+Clock Domain: i2c_controller_inst/un1_nState_1_sqmuxa_i_0   Source: i2c_controller_inst/SLICE_21.Q0   Loads: 4
+   No transfer within this clock domain is found
+
+Clock Domain: sys_clk   Source: OSCInst0.OSC   Loads: 22
    Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;
 
    Data transfers from:
-   Clock Domain: i2c_controller_inst/un1_nState_1_sqmuxa_i_0   Source: i2c_controller_inst/SLICE_29.Q0
+   Clock Domain: wb_manager_inst/nState_1_sqmuxa_4_i   Source: SLICE_35.F0
       Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;   Transfers: 2
 
-   Clock Domain: i2c_controller_inst/un1_nState_1_sqmuxa_i_0   Source: i2c_controller_inst/SLICE_29.Q0
+   Clock Domain: i2c_controller_inst/un1_nState_1_sqmuxa_i_0   Source: i2c_controller_inst/SLICE_21.Q0
       Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;   Transfers: 1
 
-   Clock Domain: i2c_controller_inst/un1_nState_1_sqmuxa_i_0   Source: i2c_controller_inst/SLICE_29.Q0
-      Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;   Transfers: 10
+   Clock Domain: wb_manager_inst/nState_1_sqmuxa_4_i   Source: SLICE_35.F0
+      Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;   Transfers: 1
+
+   Clock Domain: wb_manager_inst/nState_1_sqmuxa_4_i   Source: SLICE_35.F0
+      Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;   Transfers: 2
+
+   Clock Domain: wb_manager_inst/nState_1_sqmuxa_4_i   Source: SLICE_35.F0
+      Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;   Transfers: 1
+
+   Clock Domain: i2c_controller_inst/un1_nState_1_sqmuxa_i_0   Source: i2c_controller_inst/SLICE_21.Q0
+      Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;   Transfers: 2
+
+   Clock Domain: i2c_controller_inst/un1_nState_1_sqmuxa_i_0   Source: i2c_controller_inst/SLICE_21.Q0
+      Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;   Transfers: 2
+
+   Clock Domain: i2c_controller_inst/un1_nState_1_sqmuxa_i_0   Source: i2c_controller_inst/SLICE_21.Q0
+      Covered under: FREQUENCY NET "sys_clk" 133.000000 MHz ;   Transfers: 2
 
 
 Timing summary (Hold):
@@ -1147,16 +1171,16 @@ Timing summary (Hold):
 Timing errors: 0  Score: 0
 Cumulative negative slack: 0
 
-Constraints cover 464 paths, 1 nets, and 263 connections (97.77% coverage)
+Constraints cover 257 paths, 1 nets, and 225 connections (97.40% coverage)
 
 
 
 Timing summary (Setup and Hold):
 ---------------
 
-Timing errors: 139 (setup), 0 (hold)
-Score: 238385 (setup), 0 (hold)
-Cumulative negative slack: 238385 (238385+0)
+Timing errors: 108 (setup), 0 (hold)
+Score: 292386 (setup), 0 (hold)
+Cumulative negative slack: 292386 (292386+0)
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------

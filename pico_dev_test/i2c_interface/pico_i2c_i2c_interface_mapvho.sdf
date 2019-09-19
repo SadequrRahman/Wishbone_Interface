@@ -1,7 +1,7 @@
 (DELAYFILE
   (SDFVERSION "3.0")
   (DESIGN "top_module")
-  (DATE "Thu Sep 19 14:02:41 2019")
+  (DATE "Thu Sep 19 15:27:51 2019")
   (VENDOR "Lattice")
   (PROGRAM "ldbanno")
   (VERSION "Diamond (64-bit) 3.10.3.144")
@@ -15,14 +15,14 @@
     (INSTANCE wb_manager_inst_timeoutIns_SLICE_0I)
     (DELAY
       (ABSOLUTE
-        (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH LSR Q0 (1672:1868:2064)(1672:1868:2064))
-        (IOPATH CLK Q0 (840:897:955)(840:897:955))
-        (IOPATH FCI F0 (955:1068:1181)(955:1068:1181))
+        (IOPATH A1 F1 (741:832:923)(741:832:923))
+        (IOPATH A1 FCO (1448:1621:1795)(1448:1621:1795))
+        (IOPATH LSR Q1 (1672:1868:2064)(1672:1868:2064))
+        (IOPATH CLK Q1 (840:897:955)(840:897:955))
       )
     )
     (TIMINGCHECK
-      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
+      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
       (SETUPHOLD CE (posedge CLK) (461:515:570)(-199:-179:-160))
       (SETUPHOLD LSR (posedge CLK) (1480:1480:1480)(0:0:0))
     )
@@ -38,25 +38,16 @@
     (INSTANCE wb_manager_inst_timeoutIns_SLICE_1I)
     (DELAY
       (ABSOLUTE
-        (IOPATH A1 F1 (741:832:923)(741:832:923))
-        (IOPATH A1 FCO (1448:1621:1795)(1448:1621:1795))
         (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH A0 F1 (1448:1621:1795)(1448:1621:1795))
-        (IOPATH A0 FCO (1668:1866:2064)(1668:1866:2064))
         (IOPATH LSR Q0 (1672:1868:2064)(1672:1868:2064))
-        (IOPATH LSR Q1 (1672:1868:2064)(1672:1868:2064))
         (IOPATH CLK Q0 (840:897:955)(840:897:955))
-        (IOPATH CLK Q1 (840:897:955)(840:897:955))
         (IOPATH FCI F0 (955:1068:1181)(955:1068:1181))
-        (IOPATH FCI F1 (1047:1172:1298)(1047:1172:1298))
-        (IOPATH FCI FCO (262:289:317)(262:289:317))
       )
     )
     (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
       (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
       (SETUPHOLD CE (posedge CLK) (461:515:570)(-199:-179:-160))
-      (SETUPHOLD LSR (posedge CLK) (1480:1480:1480)(-527:-400:-273))
+      (SETUPHOLD LSR (posedge CLK) (1480:1480:1480)(0:0:0))
     )
     (TIMINGCHECK
       (WIDTH (posedge LSR) (6000:6000:6000))
@@ -264,14 +255,23 @@
       (ABSOLUTE
         (IOPATH A1 F1 (741:832:923)(741:832:923))
         (IOPATH A1 FCO (1448:1621:1795)(1448:1621:1795))
+        (IOPATH A0 F0 (741:832:923)(741:832:923))
+        (IOPATH A0 F1 (1448:1621:1795)(1448:1621:1795))
+        (IOPATH A0 FCO (1668:1866:2064)(1668:1866:2064))
+        (IOPATH LSR Q0 (1672:1868:2064)(1672:1868:2064))
         (IOPATH LSR Q1 (1672:1868:2064)(1672:1868:2064))
+        (IOPATH CLK Q0 (840:897:955)(840:897:955))
         (IOPATH CLK Q1 (840:897:955)(840:897:955))
+        (IOPATH FCI F0 (955:1068:1181)(955:1068:1181))
+        (IOPATH FCI F1 (1047:1172:1298)(1047:1172:1298))
+        (IOPATH FCI FCO (262:289:317)(262:289:317))
       )
     )
     (TIMINGCHECK
       (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
+      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
       (SETUPHOLD CE (posedge CLK) (461:515:570)(-199:-179:-160))
-      (SETUPHOLD LSR (posedge CLK) (1480:1480:1480)(0:0:0))
+      (SETUPHOLD LSR (posedge CLK) (1480:1480:1480)(-527:-400:-273))
     )
     (TIMINGCHECK
       (WIDTH (posedge LSR) (6000:6000:6000))
@@ -281,37 +281,15 @@
     )
   )
   (CELL
-    (CELLTYPE "SLICE_9")
-    (INSTANCE SLICE_9I)
+    (CELLTYPE "HeartBeatInst0_SLICE_9")
+    (INSTANCE HeartBeatInst0_SLICE_9I)
     (DELAY
       (ABSOLUTE
-        (IOPATH A1 F1 (741:832:923)(741:832:923))
-        (IOPATH A1 FCO (1448:1621:1795)(1448:1621:1795))
-        (IOPATH CLK Q0 (840:897:955)(840:897:955))
-        (IOPATH CLK Q1 (840:897:955)(840:897:955))
-      )
-    )
-    (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
-      (SETUPHOLD M0 (posedge CLK) (575:688:802)(-472:-370:-268))
-    )
-    (TIMINGCHECK
-      (WIDTH (posedge CLK) (2000:2000:2000))
-      (WIDTH (negedge CLK) (2000:2000:2000))
-    )
-  )
-  (CELL
-    (CELLTYPE "HeartBeatInst0_SLICE_10")
-    (INSTANCE HeartBeatInst0_SLICE_10I)
-    (DELAY
-      (ABSOLUTE
+        (IOPATH B1 F1 (741:832:923)(741:832:923))
         (IOPATH A1 F1 (741:832:923)(741:832:923))
         (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH A0 F1 (1448:1621:1795)(1448:1621:1795))
         (IOPATH CLK Q0 (840:897:955)(840:897:955))
         (IOPATH CLK Q1 (840:897:955)(840:897:955))
-        (IOPATH FCI F0 (955:1068:1181)(955:1068:1181))
-        (IOPATH FCI F1 (1047:1172:1298)(1047:1172:1298))
       )
     )
     (TIMINGCHECK
@@ -324,25 +302,20 @@
     )
   )
   (CELL
-    (CELLTYPE "HeartBeatInst0_SLICE_11")
-    (INSTANCE HeartBeatInst0_SLICE_11I)
+    (CELLTYPE "SLICE_10")
+    (INSTANCE SLICE_10I)
     (DELAY
       (ABSOLUTE
-        (IOPATH A1 F1 (741:832:923)(741:832:923))
-        (IOPATH A1 FCO (1448:1621:1795)(1448:1621:1795))
+        (IOPATH C0 F0 (741:832:923)(741:832:923))
+        (IOPATH B0 F0 (741:832:923)(741:832:923))
         (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH A0 F1 (1448:1621:1795)(1448:1621:1795))
-        (IOPATH A0 FCO (1668:1866:2064)(1668:1866:2064))
         (IOPATH CLK Q0 (840:897:955)(840:897:955))
         (IOPATH CLK Q1 (840:897:955)(840:897:955))
-        (IOPATH FCI F0 (955:1068:1181)(955:1068:1181))
-        (IOPATH FCI F1 (1047:1172:1298)(1047:1172:1298))
-        (IOPATH FCI FCO (262:289:317)(262:289:317))
       )
     )
     (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
       (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
+      (SETUPHOLD M1 (posedge CLK) (575:688:802)(-472:-370:-268))
     )
     (TIMINGCHECK
       (WIDTH (posedge CLK) (2000:2000:2000))
@@ -350,25 +323,21 @@
     )
   )
   (CELL
-    (CELLTYPE "HeartBeatInst0_SLICE_12")
-    (INSTANCE HeartBeatInst0_SLICE_12I)
+    (CELLTYPE "SLICE_11")
+    (INSTANCE SLICE_11I)
     (DELAY
       (ABSOLUTE
-        (IOPATH A1 F1 (741:832:923)(741:832:923))
-        (IOPATH A1 FCO (1448:1621:1795)(1448:1621:1795))
+        (IOPATH D0 F0 (741:832:923)(741:832:923))
+        (IOPATH C0 F0 (741:832:923)(741:832:923))
+        (IOPATH B0 F0 (741:832:923)(741:832:923))
         (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH A0 F1 (1448:1621:1795)(1448:1621:1795))
-        (IOPATH A0 FCO (1668:1866:2064)(1668:1866:2064))
         (IOPATH CLK Q0 (840:897:955)(840:897:955))
         (IOPATH CLK Q1 (840:897:955)(840:897:955))
-        (IOPATH FCI F0 (955:1068:1181)(955:1068:1181))
-        (IOPATH FCI F1 (1047:1172:1298)(1047:1172:1298))
-        (IOPATH FCI FCO (262:289:317)(262:289:317))
       )
     )
     (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
       (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
+      (SETUPHOLD M1 (posedge CLK) (575:688:802)(-472:-370:-268))
     )
     (TIMINGCHECK
       (WIDTH (posedge CLK) (2000:2000:2000))
@@ -376,176 +345,14 @@
     )
   )
   (CELL
-    (CELLTYPE "HeartBeatInst0_SLICE_13")
-    (INSTANCE HeartBeatInst0_SLICE_13I)
+    (CELLTYPE "i2c_controller_inst_SLICE_13")
+    (INSTANCE i2c_controller_inst_SLICE_13I)
     (DELAY
       (ABSOLUTE
         (IOPATH A1 F1 (741:832:923)(741:832:923))
-        (IOPATH A1 FCO (1448:1621:1795)(1448:1621:1795))
         (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH A0 F1 (1448:1621:1795)(1448:1621:1795))
-        (IOPATH A0 FCO (1668:1866:2064)(1668:1866:2064))
         (IOPATH CLK Q0 (840:897:955)(840:897:955))
         (IOPATH CLK Q1 (840:897:955)(840:897:955))
-        (IOPATH FCI F0 (955:1068:1181)(955:1068:1181))
-        (IOPATH FCI F1 (1047:1172:1298)(1047:1172:1298))
-        (IOPATH FCI FCO (262:289:317)(262:289:317))
-      )
-    )
-    (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
-      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
-    )
-    (TIMINGCHECK
-      (WIDTH (posedge CLK) (2000:2000:2000))
-      (WIDTH (negedge CLK) (2000:2000:2000))
-    )
-  )
-  (CELL
-    (CELLTYPE "HeartBeatInst0_SLICE_14")
-    (INSTANCE HeartBeatInst0_SLICE_14I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH A1 F1 (741:832:923)(741:832:923))
-        (IOPATH A1 FCO (1448:1621:1795)(1448:1621:1795))
-        (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH A0 F1 (1448:1621:1795)(1448:1621:1795))
-        (IOPATH A0 FCO (1668:1866:2064)(1668:1866:2064))
-        (IOPATH CLK Q0 (840:897:955)(840:897:955))
-        (IOPATH CLK Q1 (840:897:955)(840:897:955))
-        (IOPATH FCI F0 (955:1068:1181)(955:1068:1181))
-        (IOPATH FCI F1 (1047:1172:1298)(1047:1172:1298))
-        (IOPATH FCI FCO (262:289:317)(262:289:317))
-      )
-    )
-    (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
-      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
-    )
-    (TIMINGCHECK
-      (WIDTH (posedge CLK) (2000:2000:2000))
-      (WIDTH (negedge CLK) (2000:2000:2000))
-    )
-  )
-  (CELL
-    (CELLTYPE "HeartBeatInst0_SLICE_15")
-    (INSTANCE HeartBeatInst0_SLICE_15I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH A1 F1 (741:832:923)(741:832:923))
-        (IOPATH A1 FCO (1448:1621:1795)(1448:1621:1795))
-        (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH A0 F1 (1448:1621:1795)(1448:1621:1795))
-        (IOPATH A0 FCO (1668:1866:2064)(1668:1866:2064))
-        (IOPATH CLK Q0 (840:897:955)(840:897:955))
-        (IOPATH CLK Q1 (840:897:955)(840:897:955))
-        (IOPATH FCI F0 (955:1068:1181)(955:1068:1181))
-        (IOPATH FCI F1 (1047:1172:1298)(1047:1172:1298))
-        (IOPATH FCI FCO (262:289:317)(262:289:317))
-      )
-    )
-    (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
-      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
-    )
-    (TIMINGCHECK
-      (WIDTH (posedge CLK) (2000:2000:2000))
-      (WIDTH (negedge CLK) (2000:2000:2000))
-    )
-  )
-  (CELL
-    (CELLTYPE "HeartBeatInst0_SLICE_16")
-    (INSTANCE HeartBeatInst0_SLICE_16I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH A1 F1 (741:832:923)(741:832:923))
-        (IOPATH A1 FCO (1448:1621:1795)(1448:1621:1795))
-        (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH A0 F1 (1448:1621:1795)(1448:1621:1795))
-        (IOPATH A0 FCO (1668:1866:2064)(1668:1866:2064))
-        (IOPATH CLK Q0 (840:897:955)(840:897:955))
-        (IOPATH CLK Q1 (840:897:955)(840:897:955))
-        (IOPATH FCI F0 (955:1068:1181)(955:1068:1181))
-        (IOPATH FCI F1 (1047:1172:1298)(1047:1172:1298))
-        (IOPATH FCI FCO (262:289:317)(262:289:317))
-      )
-    )
-    (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
-      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
-    )
-    (TIMINGCHECK
-      (WIDTH (posedge CLK) (2000:2000:2000))
-      (WIDTH (negedge CLK) (2000:2000:2000))
-    )
-  )
-  (CELL
-    (CELLTYPE "HeartBeatInst0_SLICE_17")
-    (INSTANCE HeartBeatInst0_SLICE_17I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH A1 F1 (741:832:923)(741:832:923))
-        (IOPATH A1 FCO (1448:1621:1795)(1448:1621:1795))
-        (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH A0 F1 (1448:1621:1795)(1448:1621:1795))
-        (IOPATH A0 FCO (1668:1866:2064)(1668:1866:2064))
-        (IOPATH CLK Q0 (840:897:955)(840:897:955))
-        (IOPATH CLK Q1 (840:897:955)(840:897:955))
-        (IOPATH FCI F0 (955:1068:1181)(955:1068:1181))
-        (IOPATH FCI F1 (1047:1172:1298)(1047:1172:1298))
-        (IOPATH FCI FCO (262:289:317)(262:289:317))
-      )
-    )
-    (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
-      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
-    )
-    (TIMINGCHECK
-      (WIDTH (posedge CLK) (2000:2000:2000))
-      (WIDTH (negedge CLK) (2000:2000:2000))
-    )
-  )
-  (CELL
-    (CELLTYPE "HeartBeatInst0_SLICE_18")
-    (INSTANCE HeartBeatInst0_SLICE_18I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH A1 F1 (741:832:923)(741:832:923))
-        (IOPATH A1 FCO (1448:1621:1795)(1448:1621:1795))
-        (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH A0 F1 (1448:1621:1795)(1448:1621:1795))
-        (IOPATH A0 FCO (1668:1866:2064)(1668:1866:2064))
-        (IOPATH CLK Q0 (840:897:955)(840:897:955))
-        (IOPATH CLK Q1 (840:897:955)(840:897:955))
-        (IOPATH FCI F0 (955:1068:1181)(955:1068:1181))
-        (IOPATH FCI F1 (1047:1172:1298)(1047:1172:1298))
-        (IOPATH FCI FCO (262:289:317)(262:289:317))
-      )
-    )
-    (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
-      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
-    )
-    (TIMINGCHECK
-      (WIDTH (posedge CLK) (2000:2000:2000))
-      (WIDTH (negedge CLK) (2000:2000:2000))
-    )
-  )
-  (CELL
-    (CELLTYPE "HeartBeatInst0_SLICE_19")
-    (INSTANCE HeartBeatInst0_SLICE_19I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH A1 F1 (741:832:923)(741:832:923))
-        (IOPATH A1 FCO (1448:1621:1795)(1448:1621:1795))
-        (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH A0 F1 (1448:1621:1795)(1448:1621:1795))
-        (IOPATH A0 FCO (1668:1866:2064)(1668:1866:2064))
-        (IOPATH CLK Q0 (840:897:955)(840:897:955))
-        (IOPATH CLK Q1 (840:897:955)(840:897:955))
-        (IOPATH FCI F0 (955:1068:1181)(955:1068:1181))
-        (IOPATH FCI F1 (1047:1172:1298)(1047:1172:1298))
-        (IOPATH FCI FCO (262:289:317)(262:289:317))
       )
     )
     (TIMINGCHECK
@@ -562,26 +369,7 @@
     (INSTANCE i2c_controller_inst_SLICE_21I)
     (DELAY
       (ABSOLUTE
-        (IOPATH A1 F1 (741:832:923)(741:832:923))
-        (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH CLK Q0 (840:897:955)(840:897:955))
-        (IOPATH CLK Q1 (840:897:955)(840:897:955))
-      )
-    )
-    (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
-      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
-    )
-    (TIMINGCHECK
-      (WIDTH (posedge CLK) (2000:2000:2000))
-      (WIDTH (negedge CLK) (2000:2000:2000))
-    )
-  )
-  (CELL
-    (CELLTYPE "i2c_controller_inst_SLICE_29")
-    (INSTANCE i2c_controller_inst_SLICE_29I)
-    (DELAY
-      (ABSOLUTE
+        (IOPATH D1 F1 (741:832:923)(741:832:923))
         (IOPATH C1 F1 (741:832:923)(741:832:923))
         (IOPATH B1 F1 (741:832:923)(741:832:923))
         (IOPATH A1 F1 (741:832:923)(741:832:923))
@@ -603,8 +391,8 @@
     )
   )
   (CELL
-    (CELLTYPE "wb_manager_inst_SLICE_32")
-    (INSTANCE wb_manager_inst_SLICE_32I)
+    (CELLTYPE "wb_manager_inst_SLICE_24")
+    (INSTANCE wb_manager_inst_SLICE_24I)
     (DELAY
       (ABSOLUTE
         (IOPATH CLK Q0 (840:897:955)(840:897:955))
@@ -621,10 +409,163 @@
     )
   )
   (CELL
-    (CELLTYPE "wb_manager_inst_SLICE_33")
-    (INSTANCE wb_manager_inst_SLICE_33I)
+    (CELLTYPE "wb_manager_inst_SLICE_25")
+    (INSTANCE wb_manager_inst_SLICE_25I)
     (DELAY
       (ABSOLUTE
+        (IOPATH CLK Q0 (840:897:955)(840:897:955))
+        (IOPATH CLK Q1 (840:897:955)(840:897:955))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD M1 (posedge CLK) (575:688:802)(-472:-370:-268))
+      (SETUPHOLD M0 (posedge CLK) (575:688:802)(-472:-370:-268))
+    )
+    (TIMINGCHECK
+      (WIDTH (posedge CLK) (2000:2000:2000))
+      (WIDTH (negedge CLK) (2000:2000:2000))
+    )
+  )
+  (CELL
+    (CELLTYPE "wb_manager_inst_SLICE_26")
+    (INSTANCE wb_manager_inst_SLICE_26I)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH B1 F1 (741:832:923)(741:832:923))
+        (IOPATH A1 F1 (741:832:923)(741:832:923))
+        (IOPATH B0 F0 (741:832:923)(741:832:923))
+        (IOPATH A0 F0 (741:832:923)(741:832:923))
+        (IOPATH CLK Q0 (840:897:955)(840:897:955))
+        (IOPATH CLK Q1 (840:897:955)(840:897:955))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
+      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
+    )
+    (TIMINGCHECK
+      (WIDTH (posedge CLK) (2000:2000:2000))
+      (WIDTH (negedge CLK) (2000:2000:2000))
+    )
+  )
+  (CELL
+    (CELLTYPE "wb_manager_inst_SLICE_27")
+    (INSTANCE wb_manager_inst_SLICE_27I)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH B1 F1 (741:832:923)(741:832:923))
+        (IOPATH A1 F1 (741:832:923)(741:832:923))
+        (IOPATH B0 F0 (741:832:923)(741:832:923))
+        (IOPATH A0 F0 (741:832:923)(741:832:923))
+        (IOPATH CLK Q0 (840:897:955)(840:897:955))
+        (IOPATH CLK Q1 (840:897:955)(840:897:955))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
+      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
+    )
+    (TIMINGCHECK
+      (WIDTH (posedge CLK) (2000:2000:2000))
+      (WIDTH (negedge CLK) (2000:2000:2000))
+    )
+  )
+  (CELL
+    (CELLTYPE "wb_manager_inst_SLICE_28")
+    (INSTANCE wb_manager_inst_SLICE_28I)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH D1 F1 (741:832:923)(741:832:923))
+        (IOPATH C1 F1 (741:832:923)(741:832:923))
+        (IOPATH B1 F1 (741:832:923)(741:832:923))
+        (IOPATH A1 F1 (741:832:923)(741:832:923))
+        (IOPATH B0 F0 (741:832:923)(741:832:923))
+        (IOPATH A0 F0 (741:832:923)(741:832:923))
+        (IOPATH CLK Q0 (840:897:955)(840:897:955))
+        (IOPATH CLK Q1 (840:897:955)(840:897:955))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
+      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
+    )
+    (TIMINGCHECK
+      (WIDTH (posedge CLK) (2000:2000:2000))
+      (WIDTH (negedge CLK) (2000:2000:2000))
+    )
+  )
+  (CELL
+    (CELLTYPE "wb_manager_inst_SLICE_30")
+    (INSTANCE wb_manager_inst_SLICE_30I)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH B1 F1 (741:832:923)(741:832:923))
+        (IOPATH A1 F1 (741:832:923)(741:832:923))
+        (IOPATH B0 F0 (741:832:923)(741:832:923))
+        (IOPATH A0 F0 (741:832:923)(741:832:923))
+        (IOPATH CLK Q0 (840:897:955)(840:897:955))
+        (IOPATH CLK Q1 (840:897:955)(840:897:955))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
+      (SETUPHOLD M1 (posedge CLK) (575:688:802)(-472:-370:-268))
+    )
+    (TIMINGCHECK
+      (WIDTH (posedge CLK) (2000:2000:2000))
+      (WIDTH (negedge CLK) (2000:2000:2000))
+    )
+  )
+  (CELL
+    (CELLTYPE "SLICE_31")
+    (INSTANCE SLICE_31I)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH CLK Q0 (840:897:955)(840:897:955))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD M0 (posedge CLK) (575:688:802)(-472:-370:-268))
+    )
+    (TIMINGCHECK
+      (WIDTH (posedge CLK) (2000:2000:2000))
+      (WIDTH (negedge CLK) (2000:2000:2000))
+    )
+  )
+  (CELL
+    (CELLTYPE "wb_manager_inst_SLICE_32")
+    (INSTANCE wb_manager_inst_SLICE_32I)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH B1 F1 (741:832:923)(741:832:923))
+        (IOPATH A1 F1 (741:832:923)(741:832:923))
+        (IOPATH D0 F0 (741:832:923)(741:832:923))
+        (IOPATH C0 F0 (741:832:923)(741:832:923))
+        (IOPATH B0 F0 (741:832:923)(741:832:923))
+        (IOPATH A0 F0 (741:832:923)(741:832:923))
+        (IOPATH CLK Q0 (840:897:955)(840:897:955))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
+    )
+    (TIMINGCHECK
+      (WIDTH (posedge CLK) (2000:2000:2000))
+      (WIDTH (negedge CLK) (2000:2000:2000))
+    )
+  )
+  (CELL
+    (CELLTYPE "SLICE_33")
+    (INSTANCE SLICE_33I)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH D1 F1 (741:832:923)(741:832:923))
+        (IOPATH C1 F1 (741:832:923)(741:832:923))
+        (IOPATH B1 F1 (741:832:923)(741:832:923))
+        (IOPATH A1 F1 (741:832:923)(741:832:923))
+        (IOPATH C0 F0 (741:832:923)(741:832:923))
+        (IOPATH B0 F0 (741:832:923)(741:832:923))
+        (IOPATH A0 F0 (741:832:923)(741:832:923))
         (IOPATH CLK Q0 (840:897:955)(840:897:955))
         (IOPATH CLK Q1 (840:897:955)(840:897:955))
       )
@@ -643,73 +584,10 @@
     (INSTANCE SLICE_34I)
     (DELAY
       (ABSOLUTE
-        (IOPATH B0 F0 (741:832:923)(741:832:923))
-        (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH CLK Q0 (840:897:955)(840:897:955))
-        (IOPATH CLK Q1 (840:897:955)(840:897:955))
-      )
-    )
-    (TIMINGCHECK
-      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
-      (SETUPHOLD M1 (posedge CLK) (575:688:802)(-472:-370:-268))
-    )
-    (TIMINGCHECK
-      (WIDTH (posedge CLK) (2000:2000:2000))
-      (WIDTH (negedge CLK) (2000:2000:2000))
-    )
-  )
-  (CELL
-    (CELLTYPE "wb_manager_inst_SLICE_35")
-    (INSTANCE wb_manager_inst_SLICE_35I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH C1 F1 (741:832:923)(741:832:923))
-        (IOPATH B1 F1 (741:832:923)(741:832:923))
-        (IOPATH A1 F1 (741:832:923)(741:832:923))
-        (IOPATH B0 F0 (741:832:923)(741:832:923))
-        (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH CLK Q0 (840:897:955)(840:897:955))
-        (IOPATH CLK Q1 (840:897:955)(840:897:955))
-      )
-    )
-    (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
-      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
-    )
-    (TIMINGCHECK
-      (WIDTH (posedge CLK) (2000:2000:2000))
-      (WIDTH (negedge CLK) (2000:2000:2000))
-    )
-  )
-  (CELL
-    (CELLTYPE "wb_manager_inst_SLICE_36")
-    (INSTANCE wb_manager_inst_SLICE_36I)
-    (DELAY
-      (ABSOLUTE
         (IOPATH D1 F1 (741:832:923)(741:832:923))
         (IOPATH C1 F1 (741:832:923)(741:832:923))
         (IOPATH B1 F1 (741:832:923)(741:832:923))
         (IOPATH A1 F1 (741:832:923)(741:832:923))
-        (IOPATH B0 F0 (741:832:923)(741:832:923))
-        (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH CLK Q0 (840:897:955)(840:897:955))
-        (IOPATH CLK Q1 (840:897:955)(840:897:955))
-      )
-    )
-    (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
-      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
-    )
-    (TIMINGCHECK
-      (WIDTH (posedge CLK) (2000:2000:2000))
-      (WIDTH (negedge CLK) (2000:2000:2000))
-    )
-  )
-  (CELL
-    (CELLTYPE "SLICE_37")
-    (INSTANCE SLICE_37I)
-    (DELAY
-      (ABSOLUTE
         (IOPATH B0 F0 (741:832:923)(741:832:923))
         (IOPATH A0 F0 (741:832:923)(741:832:923))
         (IOPATH CLK Q0 (840:897:955)(840:897:955))
@@ -726,82 +604,8 @@
     )
   )
   (CELL
-    (CELLTYPE "wb_manager_inst_SLICE_38")
-    (INSTANCE wb_manager_inst_SLICE_38I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH D1 F1 (741:832:923)(741:832:923))
-        (IOPATH C1 F1 (741:832:923)(741:832:923))
-        (IOPATH B1 F1 (741:832:923)(741:832:923))
-        (IOPATH A1 F1 (741:832:923)(741:832:923))
-        (IOPATH B0 F0 (741:832:923)(741:832:923))
-        (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH CLK Q0 (840:897:955)(840:897:955))
-        (IOPATH CLK Q1 (840:897:955)(840:897:955))
-      )
-    )
-    (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (375:403:432)(-177:-162:-147))
-      (SETUPHOLD DI0 (posedge CLK) (375:403:432)(-177:-162:-147))
-    )
-    (TIMINGCHECK
-      (WIDTH (posedge CLK) (2000:2000:2000))
-      (WIDTH (negedge CLK) (2000:2000:2000))
-    )
-  )
-  (CELL
-    (CELLTYPE "SLICE_39")
-    (INSTANCE SLICE_39I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH D1 F1 (741:832:923)(741:832:923))
-        (IOPATH C1 F1 (741:832:923)(741:832:923))
-        (IOPATH B1 F1 (741:832:923)(741:832:923))
-        (IOPATH A1 F1 (741:832:923)(741:832:923))
-        (IOPATH C0 F0 (741:832:923)(741:832:923))
-        (IOPATH B0 F0 (741:832:923)(741:832:923))
-        (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH CLK Q0 (840:897:955)(840:897:955))
-        (IOPATH CLK Q1 (840:897:955)(840:897:955))
-      )
-    )
-    (TIMINGCHECK
-      (SETUPHOLD M1 (posedge CLK) (575:688:802)(-472:-370:-268))
-      (SETUPHOLD M0 (posedge CLK) (575:688:802)(-472:-370:-268))
-    )
-    (TIMINGCHECK
-      (WIDTH (posedge CLK) (2000:2000:2000))
-      (WIDTH (negedge CLK) (2000:2000:2000))
-    )
-  )
-  (CELL
-    (CELLTYPE "SLICE_40")
-    (INSTANCE SLICE_40I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH D1 F1 (741:832:923)(741:832:923))
-        (IOPATH C1 F1 (741:832:923)(741:832:923))
-        (IOPATH B1 F1 (741:832:923)(741:832:923))
-        (IOPATH A1 F1 (741:832:923)(741:832:923))
-        (IOPATH C0 F0 (741:832:923)(741:832:923))
-        (IOPATH B0 F0 (741:832:923)(741:832:923))
-        (IOPATH A0 F0 (741:832:923)(741:832:923))
-        (IOPATH CLK Q0 (840:897:955)(840:897:955))
-        (IOPATH CLK Q1 (840:897:955)(840:897:955))
-      )
-    )
-    (TIMINGCHECK
-      (SETUPHOLD M1 (posedge CLK) (575:688:802)(-472:-370:-268))
-      (SETUPHOLD M0 (posedge CLK) (575:688:802)(-472:-370:-268))
-    )
-    (TIMINGCHECK
-      (WIDTH (posedge CLK) (2000:2000:2000))
-      (WIDTH (negedge CLK) (2000:2000:2000))
-    )
-  )
-  (CELL
-    (CELLTYPE "SLICE_41")
-    (INSTANCE SLICE_41I)
+    (CELLTYPE "SLICE_35")
+    (INSTANCE SLICE_35I)
     (DELAY
       (ABSOLUTE
         (IOPATH B1 F1 (741:832:923)(741:832:923))
@@ -824,14 +628,15 @@
     )
   )
   (CELL
-    (CELLTYPE "SLICE_42")
-    (INSTANCE SLICE_42I)
+    (CELLTYPE "SLICE_36")
+    (INSTANCE SLICE_36I)
     (DELAY
       (ABSOLUTE
         (IOPATH D1 F1 (741:832:923)(741:832:923))
         (IOPATH C1 F1 (741:832:923)(741:832:923))
         (IOPATH B1 F1 (741:832:923)(741:832:923))
         (IOPATH A1 F1 (741:832:923)(741:832:923))
+        (IOPATH C0 F0 (741:832:923)(741:832:923))
         (IOPATH B0 F0 (741:832:923)(741:832:923))
         (IOPATH A0 F0 (741:832:923)(741:832:923))
         (IOPATH CLK Q0 (840:897:955)(840:897:955))
@@ -848,8 +653,8 @@
     )
   )
   (CELL
-    (CELLTYPE "SLICE_43")
-    (INSTANCE SLICE_43I)
+    (CELLTYPE "SLICE_37")
+    (INSTANCE SLICE_37I)
     (DELAY
       (ABSOLUTE
         (IOPATH B1 F1 (741:832:923)(741:832:923))
@@ -870,8 +675,8 @@
     )
   )
   (CELL
-    (CELLTYPE "SLICE_44")
-    (INSTANCE SLICE_44I)
+    (CELLTYPE "SLICE_38")
+    (INSTANCE SLICE_38I)
     (DELAY
       (ABSOLUTE
         (IOPATH B1 F1 (741:832:923)(741:832:923))
@@ -890,8 +695,8 @@
     )
   )
   (CELL
-    (CELLTYPE "SLICE_45")
-    (INSTANCE SLICE_45I)
+    (CELLTYPE "SLICE_39")
+    (INSTANCE SLICE_39I)
     (DELAY
       (ABSOLUTE
         (IOPATH D1 F1 (741:832:923)(741:832:923))
@@ -997,6 +802,8 @@
       (SETUPHOLD WBCYCIin (posedge WBCLKIin) (2616:2649:2682)(-2616:-1558:-501))
       (SETUPHOLD WBSTBIin (posedge WBCLKIin) (2605:2637:2670)(-2605:-1494:-384))
       (SETUPHOLD WBWEIin (posedge WBCLKIin) (1409:1442:1475)(-1409:-837:-266))
+      (SETUPHOLD WBADRI0in (posedge WBCLKIin) (2058:2123:2188)(-2058:-1191:-324))
+      (SETUPHOLD WBADRI1in (posedge WBCLKIin) (2068:2104:2140)(-2068:-1234:-401))
       (SETUPHOLD WBADRI2in (posedge WBCLKIin) (1928:1993:2058)(-1928:-1110:-292))
       (SETUPHOLD WBADRI4in (posedge WBCLKIin) (2072:2101:2130)(-2072:-1198:-324))
       (SETUPHOLD WBADRI5in (posedge WBCLKIin) (1611:1640:1670)(-1611:-950:-289))
@@ -1018,35 +825,34 @@
     (INSTANCE )
     (DELAY
       (ABSOLUTE
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_0I/Q0 
-          wb_manager_inst_timeoutIns_SLICE_0I/A0 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_0I/Q0 SLICE_45I/D1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_0I/F0 
-          wb_manager_inst_timeoutIns_SLICE_0I/DI0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F0 wb_manager_inst_timeoutIns_SLICE_0I/CE (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F0 wb_manager_inst_timeoutIns_SLICE_1I/CE (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F0 wb_manager_inst_timeoutIns_SLICE_2I/CE (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F0 wb_manager_inst_timeoutIns_SLICE_3I/CE (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F0 wb_manager_inst_timeoutIns_SLICE_4I/CE (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F0 wb_manager_inst_timeoutIns_SLICE_5I/CE (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F0 wb_manager_inst_timeoutIns_SLICE_6I/CE (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F0 wb_manager_inst_timeoutIns_SLICE_7I/CE (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F0 wb_manager_inst_timeoutIns_SLICE_8I/CE (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F0 
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_0I/Q1 
+          wb_manager_inst_timeoutIns_SLICE_0I/A1 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_0I/F1 
+          wb_manager_inst_timeoutIns_SLICE_0I/DI1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F0 wb_manager_inst_timeoutIns_SLICE_0I/CE (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F0 wb_manager_inst_timeoutIns_SLICE_1I/CE (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F0 wb_manager_inst_timeoutIns_SLICE_2I/CE (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F0 wb_manager_inst_timeoutIns_SLICE_3I/CE (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F0 wb_manager_inst_timeoutIns_SLICE_4I/CE (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F0 wb_manager_inst_timeoutIns_SLICE_5I/CE (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F0 wb_manager_inst_timeoutIns_SLICE_6I/CE (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F0 wb_manager_inst_timeoutIns_SLICE_7I/CE (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F0 wb_manager_inst_timeoutIns_SLICE_8I/CE (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F0 
           wb_manager_inst_efb_i2c_Inst0_EFBInst_0I/wb_manager_inst_efb_i2c_Inst0_EFBInst_0_EFB/INST20/WBCYCIin 
           (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F0 
+        (INTERCONNECT SLICE_37I/F0 
           wb_manager_inst_efb_i2c_Inst0_EFBInst_0I/wb_manager_inst_efb_i2c_Inst0_EFBInst_0_EFB/INST20/WBSTBIin 
           (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F1 wb_manager_inst_timeoutIns_SLICE_0I/LSR (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F1 wb_manager_inst_timeoutIns_SLICE_1I/LSR (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F1 wb_manager_inst_timeoutIns_SLICE_2I/LSR (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F1 wb_manager_inst_timeoutIns_SLICE_3I/LSR (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F1 wb_manager_inst_timeoutIns_SLICE_4I/LSR (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F1 wb_manager_inst_timeoutIns_SLICE_5I/LSR (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F1 wb_manager_inst_timeoutIns_SLICE_6I/LSR (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F1 wb_manager_inst_timeoutIns_SLICE_7I/LSR (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/F1 wb_manager_inst_timeoutIns_SLICE_8I/LSR (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F1 wb_manager_inst_timeoutIns_SLICE_0I/LSR (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F1 wb_manager_inst_timeoutIns_SLICE_1I/LSR (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F1 wb_manager_inst_timeoutIns_SLICE_2I/LSR (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F1 wb_manager_inst_timeoutIns_SLICE_3I/LSR (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F1 wb_manager_inst_timeoutIns_SLICE_4I/LSR (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F1 wb_manager_inst_timeoutIns_SLICE_5I/LSR (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F1 wb_manager_inst_timeoutIns_SLICE_6I/LSR (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F1 wb_manager_inst_timeoutIns_SLICE_7I/LSR (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/F1 wb_manager_inst_timeoutIns_SLICE_8I/LSR (0:0:0)(0:0:0))
         (INTERCONNECT OSCInst0I/OSC wb_manager_inst_timeoutIns_SLICE_0I/CLK (0:0:0)(0:0:0))
         (INTERCONNECT OSCInst0I/OSC wb_manager_inst_timeoutIns_SLICE_1I/CLK (0:0:0)(0:0:0))
         (INTERCONNECT OSCInst0I/OSC wb_manager_inst_timeoutIns_SLICE_2I/CLK (0:0:0)(0:0:0))
@@ -1056,49 +862,36 @@
         (INTERCONNECT OSCInst0I/OSC wb_manager_inst_timeoutIns_SLICE_6I/CLK (0:0:0)(0:0:0))
         (INTERCONNECT OSCInst0I/OSC wb_manager_inst_timeoutIns_SLICE_7I/CLK (0:0:0)(0:0:0))
         (INTERCONNECT OSCInst0I/OSC wb_manager_inst_timeoutIns_SLICE_8I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT OSCInst0I/OSC SLICE_9I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT OSCInst0I/OSC HeartBeatInst0_SLICE_10I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT OSCInst0I/OSC HeartBeatInst0_SLICE_11I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT OSCInst0I/OSC HeartBeatInst0_SLICE_12I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT OSCInst0I/OSC HeartBeatInst0_SLICE_13I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT OSCInst0I/OSC HeartBeatInst0_SLICE_14I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT OSCInst0I/OSC HeartBeatInst0_SLICE_15I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT OSCInst0I/OSC HeartBeatInst0_SLICE_16I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT OSCInst0I/OSC HeartBeatInst0_SLICE_17I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT OSCInst0I/OSC HeartBeatInst0_SLICE_18I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT OSCInst0I/OSC HeartBeatInst0_SLICE_19I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT OSCInst0I/OSC HeartBeatInst0_SLICE_9I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT OSCInst0I/OSC SLICE_10I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT OSCInst0I/OSC SLICE_11I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT OSCInst0I/OSC i2c_controller_inst_SLICE_13I/CLK (0:0:0)(0:0:0))
         (INTERCONNECT OSCInst0I/OSC i2c_controller_inst_SLICE_21I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT OSCInst0I/OSC i2c_controller_inst_SLICE_29I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT OSCInst0I/OSC wb_manager_inst_SLICE_32I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT OSCInst0I/OSC wb_manager_inst_SLICE_33I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT OSCInst0I/OSC SLICE_34I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT OSCInst0I/OSC wb_manager_inst_SLICE_35I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT OSCInst0I/OSC wb_manager_inst_SLICE_24I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT OSCInst0I/OSC wb_manager_inst_SLICE_25I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT OSCInst0I/OSC wb_manager_inst_SLICE_26I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT OSCInst0I/OSC wb_manager_inst_SLICE_27I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT OSCInst0I/OSC SLICE_33I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT OSCInst0I/OSC SLICE_35I/CLK (0:0:0)(0:0:0))
         (INTERCONNECT OSCInst0I/OSC SLICE_39I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT OSCInst0I/OSC SLICE_41I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT OSCInst0I/OSC SLICE_45I/CLK (0:0:0)(0:0:0))
         (INTERCONNECT OSCInst0I/OSC 
           wb_manager_inst_efb_i2c_Inst0_EFBInst_0I/wb_manager_inst_efb_i2c_Inst0_EFBInst_0_EFB/INST20/WBCLKIin 
           (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_1I/FCO 
-          wb_manager_inst_timeoutIns_SLICE_0I/FCI (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_1I/Q1 
-          wb_manager_inst_timeoutIns_SLICE_1I/A1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_1I/Q1 SLICE_45I/C1 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_0I/FCO 
+          wb_manager_inst_timeoutIns_SLICE_8I/FCI (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_1I/Q0 
           wb_manager_inst_timeoutIns_SLICE_1I/A0 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_1I/Q0 SLICE_45I/B1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_1I/F1 
-          wb_manager_inst_timeoutIns_SLICE_1I/DI1 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_1I/Q0 SLICE_39I/D1 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_1I/F0 
           wb_manager_inst_timeoutIns_SLICE_1I/DI0 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_2I/FCO 
           wb_manager_inst_timeoutIns_SLICE_1I/FCI (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_2I/Q1 
           wb_manager_inst_timeoutIns_SLICE_2I/A1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_2I/Q1 SLICE_45I/A1 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_2I/Q1 SLICE_39I/C1 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_2I/Q0 
           wb_manager_inst_timeoutIns_SLICE_2I/A0 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_2I/Q0 SLICE_45I/D0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_2I/Q0 SLICE_39I/B1 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_2I/F1 
           wb_manager_inst_timeoutIns_SLICE_2I/DI1 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_2I/F0 
@@ -1107,10 +900,10 @@
           wb_manager_inst_timeoutIns_SLICE_2I/FCI (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_3I/Q1 
           wb_manager_inst_timeoutIns_SLICE_3I/A1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_3I/Q1 SLICE_45I/C0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_3I/Q1 SLICE_39I/A1 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_3I/Q0 
           wb_manager_inst_timeoutIns_SLICE_3I/A0 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_3I/Q0 SLICE_45I/B0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_3I/Q0 SLICE_39I/D0 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_3I/F1 
           wb_manager_inst_timeoutIns_SLICE_3I/DI1 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_3I/F0 
@@ -1119,10 +912,10 @@
           wb_manager_inst_timeoutIns_SLICE_3I/FCI (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_4I/Q1 
           wb_manager_inst_timeoutIns_SLICE_4I/A1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_4I/Q1 SLICE_45I/A0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_4I/Q1 SLICE_39I/C0 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_4I/Q0 
           wb_manager_inst_timeoutIns_SLICE_4I/A0 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_4I/Q0 SLICE_41I/B1 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_4I/Q0 SLICE_39I/B0 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_4I/F1 
           wb_manager_inst_timeoutIns_SLICE_4I/DI1 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_4I/F0 
@@ -1131,10 +924,10 @@
           wb_manager_inst_timeoutIns_SLICE_4I/FCI (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_5I/Q1 
           wb_manager_inst_timeoutIns_SLICE_5I/A1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_5I/Q1 SLICE_41I/A1 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_5I/Q1 SLICE_39I/A0 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_5I/Q0 
           wb_manager_inst_timeoutIns_SLICE_5I/A0 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_5I/Q0 SLICE_39I/C1 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_5I/Q0 SLICE_35I/B1 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_5I/F1 
           wb_manager_inst_timeoutIns_SLICE_5I/DI1 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_5I/F0 
@@ -1143,10 +936,10 @@
           wb_manager_inst_timeoutIns_SLICE_5I/FCI (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_6I/Q1 
           wb_manager_inst_timeoutIns_SLICE_6I/A1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_6I/Q1 SLICE_39I/B1 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_6I/Q1 SLICE_35I/A1 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_6I/Q0 
           wb_manager_inst_timeoutIns_SLICE_6I/A0 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_6I/Q0 SLICE_39I/C0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_6I/Q0 SLICE_33I/C1 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_6I/F1 
           wb_manager_inst_timeoutIns_SLICE_6I/DI1 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_6I/F0 
@@ -1155,10 +948,10 @@
           wb_manager_inst_timeoutIns_SLICE_6I/FCI (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_7I/Q1 
           wb_manager_inst_timeoutIns_SLICE_7I/A1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_7I/Q1 SLICE_39I/B0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_7I/Q1 SLICE_33I/B1 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_7I/Q0 
           wb_manager_inst_timeoutIns_SLICE_7I/A0 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_7I/Q0 SLICE_39I/A0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_7I/Q0 SLICE_33I/C0 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_7I/F1 
           wb_manager_inst_timeoutIns_SLICE_7I/DI1 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_7I/F0 
@@ -1167,247 +960,187 @@
           wb_manager_inst_timeoutIns_SLICE_7I/FCI (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_8I/Q1 
           wb_manager_inst_timeoutIns_SLICE_8I/A1 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_8I/Q1 SLICE_33I/B0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_8I/Q0 
+          wb_manager_inst_timeoutIns_SLICE_8I/A0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_8I/Q0 SLICE_33I/A0 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_8I/F1 
           wb_manager_inst_timeoutIns_SLICE_8I/DI1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_9I/Q1 SLICE_9I/A1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_9I/F1 SLICE_9I/DI1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_36I/Q1 SLICE_9I/M0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_9I/Q0 i2c_controller_inst_SLICE_29I/D0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_9I/Q0 wb_manager_inst_SLICE_36I/B1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_9I/Q0 wb_manager_inst_SLICE_38I/C1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_9I/FCO HeartBeatInst0_SLICE_19I/FCI (0:0:0)(0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_10I/Q1 HeartBeatInst0_SLICE_10I/A1 (0:0:0)
+        (INTERCONNECT wb_manager_inst_timeoutIns_SLICE_8I/F0 
+          wb_manager_inst_timeoutIns_SLICE_8I/DI0 (0:0:0)(0:0:0))
+        (INTERCONNECT HeartBeatInst0_SLICE_9I/Q1 HeartBeatInst0_SLICE_9I/B1 (0:0:0)(0:0:0))
+        (INTERCONNECT HeartBeatInst0_SLICE_9I/Q1 SLICE_10I/B0 (0:0:0)(0:0:0))
+        (INTERCONNECT HeartBeatInst0_SLICE_9I/Q1 SLICE_11I/B0 (0:0:0)(0:0:0))
+        (INTERCONNECT HeartBeatInst0_SLICE_9I/Q0 HeartBeatInst0_SLICE_9I/A1 (0:0:0)(0:0:0))
+        (INTERCONNECT HeartBeatInst0_SLICE_9I/Q0 HeartBeatInst0_SLICE_9I/A0 (0:0:0)(0:0:0))
+        (INTERCONNECT HeartBeatInst0_SLICE_9I/Q0 SLICE_10I/A0 (0:0:0)(0:0:0))
+        (INTERCONNECT HeartBeatInst0_SLICE_9I/Q0 SLICE_11I/A0 (0:0:0)(0:0:0))
+        (INTERCONNECT HeartBeatInst0_SLICE_9I/F1 HeartBeatInst0_SLICE_9I/DI1 (0:0:0)
           (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_10I/Q1 heart_beatI/PADDO (0:0:0)(0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_10I/Q0 HeartBeatInst0_SLICE_10I/A0 (0:0:0)
+        (INTERCONNECT HeartBeatInst0_SLICE_9I/F0 HeartBeatInst0_SLICE_9I/DI0 (0:0:0)
           (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_10I/F1 HeartBeatInst0_SLICE_10I/DI1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_10I/F0 HeartBeatInst0_SLICE_10I/DI0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_11I/FCO HeartBeatInst0_SLICE_10I/FCI (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_11I/Q1 HeartBeatInst0_SLICE_11I/A1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_11I/Q0 HeartBeatInst0_SLICE_11I/A0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_11I/F1 HeartBeatInst0_SLICE_11I/DI1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_11I/F0 HeartBeatInst0_SLICE_11I/DI0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_12I/FCO HeartBeatInst0_SLICE_11I/FCI (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_12I/Q1 HeartBeatInst0_SLICE_12I/A1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_12I/Q0 HeartBeatInst0_SLICE_12I/A0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_12I/F1 HeartBeatInst0_SLICE_12I/DI1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_12I/F0 HeartBeatInst0_SLICE_12I/DI0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_13I/FCO HeartBeatInst0_SLICE_12I/FCI (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_13I/Q1 HeartBeatInst0_SLICE_13I/A1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_13I/Q0 HeartBeatInst0_SLICE_13I/A0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_13I/F1 HeartBeatInst0_SLICE_13I/DI1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_13I/F0 HeartBeatInst0_SLICE_13I/DI0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_14I/FCO HeartBeatInst0_SLICE_13I/FCI (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_14I/Q1 HeartBeatInst0_SLICE_14I/A1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_14I/Q0 HeartBeatInst0_SLICE_14I/A0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_14I/F1 HeartBeatInst0_SLICE_14I/DI1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_14I/F0 HeartBeatInst0_SLICE_14I/DI0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_15I/FCO HeartBeatInst0_SLICE_14I/FCI (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_15I/Q1 HeartBeatInst0_SLICE_15I/A1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_15I/Q0 HeartBeatInst0_SLICE_15I/A0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_15I/F1 HeartBeatInst0_SLICE_15I/DI1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_15I/F0 HeartBeatInst0_SLICE_15I/DI0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_16I/FCO HeartBeatInst0_SLICE_15I/FCI (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_16I/Q1 HeartBeatInst0_SLICE_16I/A1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_16I/Q0 HeartBeatInst0_SLICE_16I/A0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_16I/F1 HeartBeatInst0_SLICE_16I/DI1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_16I/F0 HeartBeatInst0_SLICE_16I/DI0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_17I/FCO HeartBeatInst0_SLICE_16I/FCI (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_17I/Q1 HeartBeatInst0_SLICE_17I/A1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_17I/Q0 HeartBeatInst0_SLICE_17I/A0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_17I/F1 HeartBeatInst0_SLICE_17I/DI1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_17I/F0 HeartBeatInst0_SLICE_17I/DI0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_18I/FCO HeartBeatInst0_SLICE_17I/FCI (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_18I/Q1 HeartBeatInst0_SLICE_18I/A1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_18I/Q0 HeartBeatInst0_SLICE_18I/A0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_18I/F1 HeartBeatInst0_SLICE_18I/DI1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_18I/F0 HeartBeatInst0_SLICE_18I/DI0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_19I/FCO HeartBeatInst0_SLICE_18I/FCI (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_19I/Q1 HeartBeatInst0_SLICE_19I/A1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_19I/Q0 HeartBeatInst0_SLICE_19I/A0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_19I/F1 HeartBeatInst0_SLICE_19I/DI1 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT HeartBeatInst0_SLICE_19I/F0 HeartBeatInst0_SLICE_19I/DI0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT SLICE_40I/Q1 i2c_controller_inst_SLICE_21I/A1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_40I/Q1 i2c_controller_inst_SLICE_29I/A1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_40I/Q1 SLICE_39I/M0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_42I/Q0 i2c_controller_inst_SLICE_21I/A0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_42I/Q0 wb_manager_inst_SLICE_35I/A1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_42I/Q0 SLICE_45I/M1 (0:0:0)(0:0:0))
-        (INTERCONNECT i2c_controller_inst_SLICE_21I/F1 i2c_controller_inst_SLICE_21I/DI1 
+        (INTERCONNECT SLICE_10I/Q0 SLICE_10I/C0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_10I/Q0 SLICE_11I/C0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_10I/F0 SLICE_10I/DI0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_28I/Q0 SLICE_10I/M1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_10I/Q1 wb_manager_inst_SLICE_32I/B0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_11I/Q0 SLICE_11I/D0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_11I/Q0 heart_beatI/PADDO (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_11I/F0 SLICE_11I/DI0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_28I/Q1 SLICE_11I/M1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_11I/Q1 i2c_controller_inst_SLICE_21I/D0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_11I/Q1 wb_manager_inst_SLICE_28I/B1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_11I/Q1 wb_manager_inst_SLICE_32I/C0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_36I/Q0 i2c_controller_inst_SLICE_13I/A1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_36I/Q0 i2c_controller_inst_SLICE_21I/A1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_36I/Q0 SLICE_33I/M0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/Q1 i2c_controller_inst_SLICE_13I/A0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/Q1 i2c_controller_inst_SLICE_21I/B1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/Q1 SLICE_39I/M1 (0:0:0)(0:0:0))
+        (INTERCONNECT i2c_controller_inst_SLICE_13I/F1 i2c_controller_inst_SLICE_13I/DI1 
           (0:0:0)(0:0:0))
+        (INTERCONNECT i2c_controller_inst_SLICE_13I/F0 i2c_controller_inst_SLICE_13I/DI0 
+          (0:0:0)(0:0:0))
+        (INTERCONNECT i2c_controller_inst_SLICE_13I/Q0 SLICE_36I/C1 (0:0:0)(0:0:0))
+        (INTERCONNECT i2c_controller_inst_SLICE_13I/Q1 SLICE_36I/D1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_34I/Q0 i2c_controller_inst_SLICE_21I/D1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_34I/Q0 wb_manager_inst_SLICE_27I/B1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_34I/Q0 wb_manager_inst_SLICE_27I/A0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_34I/Q0 SLICE_35I/M0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_36I/Q1 i2c_controller_inst_SLICE_21I/C1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_36I/Q1 wb_manager_inst_SLICE_27I/A1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_36I/Q1 wb_manager_inst_SLICE_27I/B0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_36I/Q1 SLICE_33I/M1 (0:0:0)(0:0:0))
+        (INTERCONNECT i2c_controller_inst_SLICE_21I/F1 i2c_controller_inst_SLICE_21I/C0 
+          (0:0:0)(0:0:0))
+        (INTERCONNECT i2c_controller_inst_SLICE_21I/Q1 i2c_controller_inst_SLICE_21I/B0 
+          (0:0:0)(0:0:0))
+        (INTERCONNECT i2c_controller_inst_SLICE_21I/Q1 wb_manager_inst_SLICE_28I/A1 
+          (0:0:0)(0:0:0))
+        (INTERCONNECT i2c_controller_inst_SLICE_21I/Q1 wb_manager_inst_SLICE_30I/A0 
+          (0:0:0)(0:0:0))
+        (INTERCONNECT i2c_controller_inst_SLICE_21I/Q1 wb_manager_inst_SLICE_32I/A1 
+          (0:0:0)(0:0:0))
+        (INTERCONNECT i2c_controller_inst_SLICE_21I/Q1 wb_manager_inst_SLICE_32I/A0 
+          (0:0:0)(0:0:0))
+        (INTERCONNECT i2c_controller_inst_SLICE_21I/Q1 SLICE_34I/B1 (0:0:0)(0:0:0))
+        (INTERCONNECT i2c_controller_inst_SLICE_21I/Q1 SLICE_36I/M1 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_26I/F1 i2c_controller_inst_SLICE_21I/A0 
+          (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_26I/F1 wb_manager_inst_SLICE_26I/DI1 (0:0:0)
+          (0:0:0))
         (INTERCONNECT i2c_controller_inst_SLICE_21I/F0 i2c_controller_inst_SLICE_21I/DI0 
           (0:0:0)(0:0:0))
-        (INTERCONNECT i2c_controller_inst_SLICE_21I/Q0 SLICE_37I/B0 (0:0:0)(0:0:0))
-        (INTERCONNECT i2c_controller_inst_SLICE_21I/Q1 SLICE_40I/C0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/Q0 i2c_controller_inst_SLICE_29I/C1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/Q0 SLICE_34I/A0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/Q0 SLICE_34I/M1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_42I/Q1 i2c_controller_inst_SLICE_29I/B1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_42I/Q1 SLICE_34I/B0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_42I/Q1 SLICE_41I/M0 (0:0:0)(0:0:0))
-        (INTERCONNECT i2c_controller_inst_SLICE_29I/F1 i2c_controller_inst_SLICE_29I/C0 
-          (0:0:0)(0:0:0))
-        (INTERCONNECT i2c_controller_inst_SLICE_29I/Q1 i2c_controller_inst_SLICE_29I/B0 
-          (0:0:0)(0:0:0))
-        (INTERCONNECT i2c_controller_inst_SLICE_29I/Q1 wb_manager_inst_SLICE_36I/A1 
-          (0:0:0)(0:0:0))
-        (INTERCONNECT i2c_controller_inst_SLICE_29I/Q1 wb_manager_inst_SLICE_38I/A1 
-          (0:0:0)(0:0:0))
-        (INTERCONNECT i2c_controller_inst_SLICE_29I/Q1 wb_manager_inst_SLICE_38I/A0 
-          (0:0:0)(0:0:0))
-        (INTERCONNECT i2c_controller_inst_SLICE_29I/Q1 SLICE_40I/B1 (0:0:0)(0:0:0))
-        (INTERCONNECT i2c_controller_inst_SLICE_29I/Q1 SLICE_40I/M1 (0:0:0)(0:0:0))
-        (INTERCONNECT i2c_controller_inst_SLICE_29I/Q1 SLICE_42I/C1 (0:0:0)(0:0:0))
-        (INTERCONNECT i2c_controller_inst_SLICE_29I/Q1 SLICE_42I/A0 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_35I/F1 i2c_controller_inst_SLICE_29I/A0 
-          (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_35I/F1 wb_manager_inst_SLICE_35I/DI1 (0:0:0)
+        (INTERCONNECT SLICE_38I/Q0 i2c_controller_inst_SLICE_21I/M1 (0:0:0)(0:0:0))
+        (INTERCONNECT i2c_controller_inst_SLICE_21I/Q0 SLICE_34I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT i2c_controller_inst_SLICE_21I/Q0 SLICE_36I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT i2c_controller_inst_SLICE_21I/Q0 SLICE_37I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT i2c_controller_inst_SLICE_21I/Q0 SLICE_38I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_31I/Q0 wb_manager_inst_SLICE_24I/M1 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_30I/Q1 wb_manager_inst_SLICE_24I/M0 (0:0:0)
           (0:0:0))
-        (INTERCONNECT i2c_controller_inst_SLICE_29I/F0 i2c_controller_inst_SLICE_29I/DI0 
-          (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_44I/Q0 i2c_controller_inst_SLICE_29I/M1 (0:0:0)(0:0:0))
-        (INTERCONNECT i2c_controller_inst_SLICE_29I/Q0 SLICE_40I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT i2c_controller_inst_SLICE_29I/Q0 SLICE_42I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT i2c_controller_inst_SLICE_29I/Q0 SLICE_43I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT i2c_controller_inst_SLICE_29I/Q0 SLICE_44I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_37I/Q0 wb_manager_inst_SLICE_32I/M1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_37I/Q1 wb_manager_inst_SLICE_32I/M0 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_32I/Q0 SLICE_37I/M0 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_32I/Q0 SLICE_40I/C1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_32I/Q0 SLICE_42I/B1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_32I/Q0 SLICE_42I/B0 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_32I/Q0 SLICE_43I/B1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_32I/Q0 SLICE_43I/A0 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_32I/Q1 wb_manager_inst_SLICE_36I/C1 (0:0:0)
+        (INTERCONNECT wb_manager_inst_SLICE_24I/Q0 SLICE_31I/M0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_24I/Q0 wb_manager_inst_SLICE_32I/B1 (0:0:0)
           (0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_32I/Q1 wb_manager_inst_SLICE_36I/A0 (0:0:0)
+        (INTERCONNECT wb_manager_inst_SLICE_24I/Q0 SLICE_34I/C1 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_24I/Q0 SLICE_37I/B1 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_24I/Q0 SLICE_37I/A0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_24I/Q1 wb_manager_inst_SLICE_28I/C1 (0:0:0)
           (0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_32I/Q1 SLICE_40I/D1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_32I/Q1 SLICE_42I/A1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_32I/Q1 SLICE_43I/A1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_32I/Q1 SLICE_43I/B0 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_38I/Q0 wb_manager_inst_SLICE_33I/M1 (0:0:0)
+        (INTERCONNECT wb_manager_inst_SLICE_24I/Q1 wb_manager_inst_SLICE_28I/A0 (0:0:0)
           (0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_38I/Q1 wb_manager_inst_SLICE_33I/M0 (0:0:0)
+        (INTERCONNECT wb_manager_inst_SLICE_24I/Q1 SLICE_34I/D1 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_24I/Q1 SLICE_37I/A1 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_24I/Q1 SLICE_37I/B0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_30I/Q0 wb_manager_inst_SLICE_25I/M1 (0:0:0)
           (0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_33I/Q0 wb_manager_inst_SLICE_38I/D1 (0:0:0)
+        (INTERCONNECT wb_manager_inst_SLICE_32I/Q0 wb_manager_inst_SLICE_25I/M0 (0:0:0)
           (0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_33I/Q0 wb_manager_inst_SLICE_38I/B0 (0:0:0)
+        (INTERCONNECT wb_manager_inst_SLICE_25I/Q0 wb_manager_inst_SLICE_30I/B0 (0:0:0)
           (0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_33I/Q1 SLICE_37I/M1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_33I/Q1 SLICE_40I/A1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_33I/Q1 SLICE_42I/D1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_34I/F0 SLICE_34I/DI0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_34I/Q0 SLICE_44I/B0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_34I/Q1 SLICE_44I/M0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/Q1 wb_manager_inst_SLICE_35I/C1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/Q1 wb_manager_inst_SLICE_35I/A0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_43I/Q1 SLICE_45I/M0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_40I/Q0 wb_manager_inst_SLICE_35I/B1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_40I/Q0 wb_manager_inst_SLICE_35I/B0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_40I/Q0 SLICE_41I/M1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_35I/F0 wb_manager_inst_SLICE_35I/DI0 (0:0:0)
+        (INTERCONNECT wb_manager_inst_SLICE_25I/Q0 wb_manager_inst_SLICE_32I/D0 (0:0:0)
           (0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_35I/Q0 SLICE_40I/B0 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_35I/Q1 SLICE_44I/B1 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_25I/Q1 wb_manager_inst_SLICE_30I/M1 (0:0:0)
+          (0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_25I/Q1 SLICE_34I/A1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_34I/Q1 wb_manager_inst_SLICE_26I/B1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_34I/Q1 wb_manager_inst_SLICE_26I/A0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_34I/Q1 SLICE_35I/M1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/Q0 wb_manager_inst_SLICE_26I/A1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/Q0 wb_manager_inst_SLICE_26I/B0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_37I/Q0 SLICE_39I/M0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_26I/F0 wb_manager_inst_SLICE_26I/DI0 (0:0:0)
+          (0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_26I/Q0 SLICE_36I/B0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_26I/Q1 SLICE_34I/B0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_27I/F1 wb_manager_inst_SLICE_27I/DI1 (0:0:0)
+          (0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_27I/F0 wb_manager_inst_SLICE_27I/DI0 (0:0:0)
+          (0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_27I/Q0 wb_manager_inst_SLICE_30I/B1 (0:0:0)
+          (0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_27I/Q1 SLICE_38I/B1 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_efb_i2c_Inst0_EFBInst_0I/WBACKO 
-          wb_manager_inst_SLICE_36I/D1 (0:0:0)(0:0:0))
+          wb_manager_inst_SLICE_28I/D1 (0:0:0)(0:0:0))
         (INTERCONNECT wb_manager_inst_efb_i2c_Inst0_EFBInst_0I/WBACKO 
-          wb_manager_inst_SLICE_36I/B0 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_36I/F1 wb_manager_inst_SLICE_36I/DI1 (0:0:0)
+          wb_manager_inst_SLICE_28I/B0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_28I/F1 wb_manager_inst_SLICE_28I/DI1 (0:0:0)
           (0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_36I/F0 wb_manager_inst_SLICE_36I/DI0 (0:0:0)
+        (INTERCONNECT wb_manager_inst_SLICE_28I/F0 wb_manager_inst_SLICE_28I/DI0 (0:0:0)
           (0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_36I/F0 SLICE_39I/A1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_41I/F0 wb_manager_inst_SLICE_36I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_41I/F0 SLICE_37I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_41I/F0 wb_manager_inst_SLICE_38I/CLK (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_36I/Q0 SLICE_39I/M1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_40I/F1 SLICE_37I/A0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_40I/F1 SLICE_40I/A0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_40I/F1 SLICE_44I/A1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_40I/F1 SLICE_44I/A0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_37I/F0 
-          wb_manager_inst_efb_i2c_Inst0_EFBInst_0I/wb_manager_inst_efb_i2c_Inst0_EFBInst_0_EFB/INST20/WBADRI5in 
-          (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_37I/F1 enI2CI/PADDO (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_39I/Q1 wb_manager_inst_SLICE_38I/B1 (0:0:0)(0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_38I/F1 wb_manager_inst_SLICE_38I/DI1 (0:0:0)
+        (INTERCONNECT wb_manager_inst_SLICE_28I/F0 SLICE_33I/A1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_35I/F0 wb_manager_inst_SLICE_28I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_35I/F0 wb_manager_inst_SLICE_30I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_35I/F0 SLICE_31I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_35I/F0 wb_manager_inst_SLICE_32I/CLK (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_34I/F1 wb_manager_inst_SLICE_30I/A1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_34I/F1 SLICE_34I/A0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_34I/F1 SLICE_36I/A1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_34I/F1 SLICE_36I/A0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_34I/F1 SLICE_38I/A1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_34I/F1 SLICE_38I/A0 (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_30I/F0 wb_manager_inst_SLICE_30I/DI0 (0:0:0)
           (0:0:0))
-        (INTERCONNECT wb_manager_inst_SLICE_38I/F0 wb_manager_inst_SLICE_38I/DI0 (0:0:0)
-          (0:0:0))
-        (INTERCONNECT SLICE_39I/F0 SLICE_39I/D1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_39I/Q0 SLICE_40I/M0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_39I/F1 SLICE_41I/A0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_40I/F0 
-          wb_manager_inst_efb_i2c_Inst0_EFBInst_0I/wb_manager_inst_efb_i2c_Inst0_EFBInst_0_EFB/INST20/WBADRI7in 
-          (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_45I/F0 SLICE_41I/D0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_45I/F1 SLICE_41I/C0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_41I/F1 SLICE_41I/B0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_41I/Q0 SLICE_42I/M0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_41I/Q1 SLICE_42I/M1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_42I/F0 
-          wb_manager_inst_efb_i2c_Inst0_EFBInst_0I/wb_manager_inst_efb_i2c_Inst0_EFBInst_0_EFB/INST20/WBWEIin 
-          (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_42I/F1 
+        (INTERCONNECT wb_manager_inst_SLICE_30I/F1 
           wb_manager_inst_efb_i2c_Inst0_EFBInst_0I/wb_manager_inst_efb_i2c_Inst0_EFBInst_0_EFB/INST20/WBADRI2in 
           (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_45I/Q1 SLICE_43I/M1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_45I/Q0 SLICE_43I/M0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_44I/F0 
+        (INTERCONNECT SLICE_31I/F0 enI2CI/PADDO (0:0:0)(0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_32I/F0 wb_manager_inst_SLICE_32I/DI0 (0:0:0)
+          (0:0:0))
+        (INTERCONNECT wb_manager_inst_SLICE_32I/F1 
+          wb_manager_inst_efb_i2c_Inst0_EFBInst_0I/wb_manager_inst_efb_i2c_Inst0_EFBInst_0_EFB/INST20/WBWEIin 
+          (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_33I/F0 SLICE_33I/D1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_33I/Q0 SLICE_34I/M1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_33I/F1 SLICE_35I/A0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_33I/Q1 SLICE_36I/B1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_33I/Q1 SLICE_36I/C0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_33I/Q1 SLICE_36I/M0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_33I/Q1 SLICE_38I/B0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_35I/Q1 SLICE_34I/M0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_34I/F0 
+          wb_manager_inst_efb_i2c_Inst0_EFBInst_0I/wb_manager_inst_efb_i2c_Inst0_EFBInst_0_EFB/INST20/WBADRI7in 
+          (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_39I/F0 SLICE_35I/D0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_39I/F1 SLICE_35I/C0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_35I/F1 SLICE_35I/B0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_35I/Q0 SLICE_37I/M1 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_36I/F0 
           wb_manager_inst_efb_i2c_Inst0_EFBInst_0I/wb_manager_inst_efb_i2c_Inst0_EFBInst_0_EFB/INST20/WBADRI6in 
           (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_44I/F1 
+        (INTERCONNECT SLICE_36I/F1 
           wb_manager_inst_efb_i2c_Inst0_EFBInst_0I/wb_manager_inst_efb_i2c_Inst0_EFBInst_0_EFB/INST20/WBADRI4in 
+          (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_39I/Q1 SLICE_37I/M0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_39I/Q0 SLICE_38I/M0 (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_38I/F0 
+          wb_manager_inst_efb_i2c_Inst0_EFBInst_0I/wb_manager_inst_efb_i2c_Inst0_EFBInst_0_EFB/INST20/WBADRI5in 
+          (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_38I/F1 
+          wb_manager_inst_efb_i2c_Inst0_EFBInst_0I/wb_manager_inst_efb_i2c_Inst0_EFBInst_0_EFB/INST20/WBADRI0in 
+          (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_38I/F1 
+          wb_manager_inst_efb_i2c_Inst0_EFBInst_0I/wb_manager_inst_efb_i2c_Inst0_EFBInst_0_EFB/INST20/WBADRI1in 
           (0:0:0)(0:0:0))
         (INTERCONNECT rst_nI/PADDI 
           wb_manager_inst_efb_i2c_Inst0_EFBInst_0I/wb_manager_inst_efb_i2c_Inst0_EFBInst_0_EFB/INST20/WBRSTIin 
