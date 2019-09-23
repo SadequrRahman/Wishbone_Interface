@@ -5,7 +5,7 @@
     <Source worklib="work" path="wb_manager.vhd" type="VHDL" include="none"/>
     <Source worklib="work" path="HeartBeat.vhd" type="VHDL" include="none"/>
     <Source worklib="work" path="top_level.vhd" type="VHDL" include="none"/>
-    <Source worklib="" path="top_level_tb.vhd" type="none" include="none"/>
+    <Source worklib="work" path="top_level_tb.vhd" type="VHDL" include="none"/>
     <SimLib value="pmi_work ovi_machxo2"/>
     <GlbInc value=""/>
     <Macro value=""/>

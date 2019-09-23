@@ -1,18 +1,24 @@
 @N: MF248 |Running in 64-bit mode.
 @N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
 @N: FX493 |Applying initial value "000001" on instance wb_manager_inst.nState[0:5].
+@N: FX493 |Applying initial value "00" on instance cState[1:0].
 @N: FX493 |Applying initial value "0000001" on instance i2c_controller_inst.nState[0:6].
 @N: MO231 :"d:\workingdir\fpga\pico_dev_test\timeout.vhd":30:2:30:3|Found counter in view:work.wb_manager(rtl) instance timeoutIns.clk_counter[15:0] 
 @N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|Removing sequential instance status_1[7] (in view: work.wb_manager(rtl)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
 @N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|Removing sequential instance status_1[6] (in view: work.wb_manager(rtl)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
 @N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|Removing sequential instance status_1[4] (in view: work.wb_manager(rtl)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
-@N: MF578 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":128:2:128:5|Incompatible asynchronous control logic preventing generated clock conversion of i2c_controller_inst.nState[6] (in view: work.top_module(sample_arch)).
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":75:2:75:3|Removing sequential instance i2c_controller_inst.cState[0] (in view: work.top_module(sample_arch)) because it does not drive other instances.
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":75:2:75:3|Removing sequential instance i2c_controller_inst.cState[1] (in view: work.top_module(sample_arch)) because it does not drive other instances.
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":75:2:75:3|Removing sequential instance i2c_controller_inst.cState[2] (in view: work.top_module(sample_arch)) because it does not drive other instances.
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":75:2:75:3|Removing sequential instance i2c_controller_inst.cState[3] (in view: work.top_module(sample_arch)) because it does not drive other instances.
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":75:2:75:3|Removing sequential instance i2c_controller_inst.cState[4] (in view: work.top_module(sample_arch)) because it does not drive other instances.
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":75:2:75:3|Removing sequential instance i2c_controller_inst.cState[5] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|Removing sequential instance wb_manager_inst.status_0[5] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":74:2:74:3|Removing sequential instance i2c_controller_inst.cState_0[0] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|Removing sequential instance wb_manager_inst.status[5] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\top_level.vhd":144:2:144:3|Removing sequential instance cState[0] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\top_level.vhd":144:2:144:3|Removing sequential instance cState[1] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":74:2:74:3|Removing sequential instance i2c_controller_inst.cState[1] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":74:2:74:3|Removing sequential instance i2c_controller_inst.cState[2] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":74:2:74:3|Removing sequential instance i2c_controller_inst.cState[3] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":74:2:74:3|Removing sequential instance i2c_controller_inst.cState[4] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":74:2:74:3|Removing sequential instance i2c_controller_inst.cState[5] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":74:2:74:3|Removing sequential instance i2c_controller_inst.cState[6] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":74:2:74:3|Removing sequential instance i2c_controller_inst.cState[0] (in view: work.top_module(sample_arch)) because it does not drive other instances.
 @N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|Removing sequential instance wb_manager_inst.status_1[5] (in view: work.top_module(sample_arch)) because it does not drive other instances.
 @N: FX164 |The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.  
 @N: MT611 :|Automatically generated clock top_module|sys_clk_inferred_clock is not used and is being removed

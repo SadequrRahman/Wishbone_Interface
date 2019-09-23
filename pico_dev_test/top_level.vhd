@@ -26,16 +26,15 @@ architecture sample_arch of top_module is
 			i2c_ack 
 			: std_logic;
 	signal 
-			data_i,
-			data_o, 
-			addr_i, 
+			data_o,
 			status, 
-			option, 
 			i2c_data_i, 
 			i2c_addr, 
 			i2c_data_o  
 			: std_logic_vector(7 downto 0);
-	
+			
+	signal option, data_i, addr_i : std_logic_vector( 7 downto 0) := (others => '0');
+			
 	component OSCH 
 	generic  (NOM_FREQ: string := "133.00");
 	port (
@@ -78,13 +77,16 @@ architecture sample_arch of top_module is
 		data_o		: out std_logic_vector(7 downto 0);
 		ack_o		: out std_logic;
 		-- wishbone ctrl signals
-		wbm_status	: inout std_logic_vector(7 downto 0);
-		wbm_option	: inout std_logic_vector(7 downto 0);
-		wbm_data_i	: inout std_logic_vector(7 downto 0);
-		wbm_data_o 	: inout std_logic_vector(7 downto 0);
-		wbm_addr	: inout std_logic_vector(7 downto 0)
+		wbm_status	: in std_logic_vector(7 downto 0);
+		wbm_option	: out std_logic_vector(7 downto 0);
+		wbm_data_i	: out std_logic_vector(7 downto 0);
+		wbm_data_o 	: in std_logic_vector(7 downto 0);
+		wbm_addr	: out std_logic_vector(7 downto 0)
 		);
 	end component;
+	
+	type state_t is (S0, S1, S2);
+	signal cState, nState : state_t := S0;
 	
 
 begin
@@ -128,7 +130,7 @@ begin
 		-- wishbone ctrl signals
 		wbm_status	=> status,
 		wbm_option	=> option,
-		wbm_data_i	=> addr_i,
+		wbm_data_i	=> data_i,
 		wbm_data_o 	=> data_o,
 		wbm_addr	=> addr_i
 	);
@@ -137,16 +139,49 @@ begin
 	stdby <= '0';
 	enI2C <= '1';
 	
-	main : process
+	process(sys_clk)
+	begin
+		if rst_n = '0' then
+			cState <= S0;
+		else
+			if rising_edge(sys_clk) then
+				cState <= nState;
+			end if;
+		end if;
+	end process;
+	
+	-- state output logic
+	process(cState)
 	begin
 		i2c_enable <= '0';
-		i2c_data_i <= x"83";
-		i2c_addr <= x"F3";
-		i2c_enable <= '1';
-		wait until i2c_ack = '1';
-		i2c_enable <= '0';
-		
-	end process main;
+		i2c_data_i <= x"00";
+		i2c_addr <= x"00";
+		case cState is
+			when S0 =>
+			when S1 =>
+				i2c_addr <= x"84";
+				i2c_data_i <= x"14";
+				i2c_enable <= '1';
+			when S2 =>
+			end case;
+	end process;
+	
+	-- next state logic
+	process(cState, i2c_ack)
+	begin
+		case cState is
+			when S0 =>
+				nState <= S1;
+			when S1 =>
+				if i2c_ack = '1' then
+					nState <= S2;
+				end if;
+			when S2 =>
+				nState <= S0;
+		end case;
+	end process;
+	
+	
 
 	
 end sample_arch;

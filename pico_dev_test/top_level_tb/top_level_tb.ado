@@ -31,7 +31,7 @@ vcom -dbg -work work "D:/WorkingDir/Fpga/pico_dev_test/efb_i2c_VHDL.vhd"
 vcom -dbg -work work "D:/WorkingDir/Fpga/pico_dev_test/wb_manager.vhd"
 vcom -dbg -work work "D:/WorkingDir/Fpga/pico_dev_test/HeartBeat.vhd"
 vcom -dbg -work work "D:/WorkingDir/Fpga/pico_dev_test/top_level.vhd"
-vcom -dbg "D:/WorkingDir/Fpga/pico_dev_test/top_level_tb.vhd"
+vcom -dbg -work work "D:/WorkingDir/Fpga/pico_dev_test/top_level_tb.vhd"
 entity top_level_tb
 vsim  +access +r top_level_tb   -PL pmi_work -L ovi_machxo2
 add wave *

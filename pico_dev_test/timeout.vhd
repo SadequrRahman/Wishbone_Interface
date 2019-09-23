@@ -25,7 +25,7 @@ begin
 
 	timeout <= '1' when (clk_counter >= DEFAULT ) else '0';
 	
-	main : process(clk)
+	main : process(clk, rst)
 	begin
 		if rst = '1' then
 			clk_counter <= (others=>'0');

@@ -15,20 +15,20 @@ Target Vendor:  LATTICE
 Target Device:  LCMXO2-1200ZETQFP144
 Target Performance:   1
 Mapper:  xo2c00,  version:  Diamond (64-bit) 3.10.3.144
-Mapped on:  09/19/19  15:27:50
+Mapped on:  09/23/19  15:01:48
 
 Design Summary
 --------------
 
-   Number of registers:     53 out of  1604 (3%)
-      PFU registers:           53 out of  1280 (4%)
+   Number of registers:     57 out of  1604 (4%)
+      PFU registers:           57 out of  1280 (4%)
       PIO registers:            0 out of   324 (0%)
-   Number of SLICEs:        29 out of   640 (5%)
-      SLICEs as Logic/ROM:     29 out of   640 (5%)
+   Number of SLICEs:        33 out of   640 (5%)
+      SLICEs as Logic/ROM:     33 out of   640 (5%)
       SLICEs as RAM:            0 out of   480 (0%)
       SLICEs as Carry:          9 out of   640 (1%)
-   Number of LUT4s:         51 out of  1280 (4%)
-      Number used as logic LUTs:         33
+   Number of LUT4s:         59 out of  1280 (5%)
+      Number used as logic LUTs:         41
       Number used as distributed RAM:     0
       Number used as ripple logic:       18
       Number used as shift registers:     0
@@ -57,42 +57,51 @@ Design Summary
      distributed RAMs) + 2*(Number of ripple logic)
       2. Number of logic LUT4s does not include count of distributed RAM and
      ripple logic.
-   Number of clocks:  4
-     Net sys_clk: 22 loads, 22 rising, 0 falling (Driver: OSCInst0 )
-     Net i2c_controller_inst/un1_nState_1_sqmuxa_i_0: 4 loads, 4 rising, 0
+   Number of clocks:  7
+     Net sys_clk: 23 loads, 23 rising, 0 falling (Driver: OSCInst0 )
+     Net un1_i2c_addr5_0: 1 loads, 1 rising, 0 falling (Driver:
 
                                     Page 1
 
 
 
 
-Design:  top_module                                    Date:  09/19/19  15:27:50
+Design:  top_module                                    Date:  09/23/19  15:01:48
 
 Design Summary (cont)
 ---------------------
-     falling (Driver: i2c_controller_inst/status_1_ret )
-     Net wb_manager_inst/nState_1_sqmuxa_4_i: 4 loads, 4 rising, 0 falling
+     wb_manager_inst/efb_i2c_Inst0/un1_i2c_addr5_0 )
+     Net un1_cState_3: 2 loads, 2 rising, 0 falling (Driver:
+     wb_manager_inst/efb_i2c_Inst0/un1_cState_3 )
+     Net un1_i2c_ack_0_a2: 1 loads, 1 rising, 0 falling (Driver:
+     wb_manager_inst/efb_i2c_Inst0/un1_i2c_ack_0_a2 )
+     Net i2c_controller_inst/un1_nState_1_sqmuxa_i: 4 loads, 4 rising, 0 falling
+     (Driver: i2c_controller_inst/cState_ret_1_RNII1AO )
+     Net wb_manager_inst/nState_1_sqmuxa_4_i: 3 loads, 3 rising, 0 falling
      (Driver: wb_manager_inst/nState_1_sqmuxa_4_i )
      Net wb_manager_inst/efb_i2c_Inst0/i2c1_scli: 1 loads, 1 rising, 0 falling
      (Driver: PIO scl )
    Number of Clock Enables:  1
-     Net wb_manager_inst/N_47_1_i: 9 loads, 9 LSLICEs
+     Net wb_manager_inst/N_41_1_i: 9 loads, 9 LSLICEs
    Number of local set/reset loads for net rst_n_c merged into GSR:  24
-   Number of LSRs:  2
+   Number of LSRs:  5
      Net rst_n_c: 1 loads, 0 LSLICEs
-     Net wb_manager_inst/N_47_1: 9 loads, 9 LSLICEs
+     Net i2c_addr3: 2 loads, 2 LSLICEs
+     Net un1_i2c_ack_0_a2: 1 loads, 1 LSLICEs
+     Net cState_0[0]: 1 loads, 1 LSLICEs
+     Net wb_manager_inst/N_41_1: 9 loads, 9 LSLICEs
    Number of nets driven by tri-state buffers:  0
    Top 10 highest fanout non-clock nets:
-     Net wb_manager_inst/N_47_1_i: 11 loads
-     Net wb_manager_inst/N_47_1: 9 loads
-     Net i2c_controller_inst.cState[6]: 7 loads
-     Net wb_manager_inst/N_27: 6 loads
-     Net wb_manager_inst/cState[2]: 5 loads
-     Net wb_manager_inst/cState[3]: 5 loads
-     Net HeartBeatInst0/iCounter[0]: 4 loads
-     Net i2c_controller_inst.cState[5]: 4 loads
-     Net i2c_controller_inst.nState[2]: 4 loads
-     Net i2c_controller_inst.nState[5]: 4 loads
+     Net wb_manager_inst/N_41_1_i: 11 loads
+     Net i2c_controller_inst.cState[6]: 10 loads
+     Net wb_manager_inst/N_41_1: 9 loads
+     Net cState_0[0]: 7 loads
+     Net wb_manager_inst/cState[2]: 7 loads
+     Net wb_manager_inst/cState[3]: 7 loads
+     Net wb_manager_inst/N_33: 5 loads
+     Net cState[1]: 4 loads
+     Net wb_manager_inst/cState[1]: 4 loads
+     Net wb_manager_inst/cState[4]: 4 loads
 
 
 
@@ -117,6 +126,16 @@ WARNING - map: D:/WorkingDir/Fpga/pico_dev_test/pico_i2c.lpf(14): Semantic error
      in "LOCATE COMP "usb_osc" SITE "128" ;": COMP "usb_osc" cannot be found in
      design. This preference has been disabled.
 WARNING - map: D:/WorkingDir/Fpga/pico_dev_test/pico_i2c.lpf(15): Semantic error
+
+                                    Page 2
+
+
+
+
+Design:  top_module                                    Date:  09/23/19  15:01:48
+
+Design Errors/Warnings (cont)
+-----------------------------
      in "IOBUF PORT "usb_osc" IO_TYPE=LVCMOS33 ;": Port "usb_osc" does not exist
      in the design. This preference has been disabled.
 WARNING - map: Using local reset signal 'rst_n_c' to infer global GSR net.
@@ -126,14 +145,6 @@ WARNING - map: In "LOCATE COMP "scl" SITE "126" ;": Current SYS_CONFIG setting
 WARNING - map: In "LOCATE COMP "sda" SITE "125" ;": Current SYS_CONFIG setting
      prohibits pin "125" to be used as user IO. This preference has been
      disabled.
-
-                                    Page 2
-
-
-
-
-Design:  top_module                                    Date:  09/19/19  15:27:50
-
 
 IO (PIO) Attributes
 -------------------
@@ -162,6 +173,7 @@ Block wb_manager_inst/VCC undriven or does not drive anything - clipped.
 Block wb_manager_inst/GND undriven or does not drive anything - clipped.
 Block i2c_controller_inst/GND undriven or does not drive anything - clipped.
 Block i2c_controller_inst/VCC undriven or does not drive anything - clipped.
+Signal cState_0_i[0] was merged into signal cState_0[0]
 Signal rst_n_c_i was merged into signal rst_n_c
 Signal GND undriven or does not drive anything - clipped.
 Signal wb_manager_inst/efb_i2c_Inst0/VCC undriven or does not drive anything -
@@ -180,6 +192,16 @@ Signal wb_manager_inst/efb_i2c_Inst0/TCOC undriven or does not drive anything -
      clipped.
 Signal wb_manager_inst/efb_i2c_Inst0/TCINT undriven or does not drive anything -
      clipped.
+
+                                    Page 3
+
+
+
+
+Design:  top_module                                    Date:  09/23/19  15:01:48
+
+Removed logic (cont)
+--------------------
 Signal wb_manager_inst/efb_i2c_Inst0/SPIIRQO undriven or does not drive anything
      - clipped.
 Signal wb_manager_inst/efb_i2c_Inst0/SPICSNEN undriven or does not drive
@@ -192,16 +214,6 @@ Signal wb_manager_inst/efb_i2c_Inst0/SPIMCSN5 undriven or does not drive
      anything - clipped.
 Signal wb_manager_inst/efb_i2c_Inst0/SPIMCSN4 undriven or does not drive
      anything - clipped.
-
-                                    Page 3
-
-
-
-
-Design:  top_module                                    Date:  09/19/19  15:27:50
-
-Removed logic (cont)
---------------------
 Signal wb_manager_inst/efb_i2c_Inst0/SPIMCSN3 undriven or does not drive
      anything - clipped.
 Signal wb_manager_inst/efb_i2c_Inst0/SPIMCSN2 undriven or does not drive
@@ -246,6 +258,16 @@ Signal wb_manager_inst/efb_i2c_Inst0/PLLDATO4 undriven or does not drive
      anything - clipped.
 Signal wb_manager_inst/efb_i2c_Inst0/PLLDATO5 undriven or does not drive
      anything - clipped.
+
+                                    Page 4
+
+
+
+
+Design:  top_module                                    Date:  09/23/19  15:01:48
+
+Removed logic (cont)
+--------------------
 Signal wb_manager_inst/efb_i2c_Inst0/PLLDATO6 undriven or does not drive
      anything - clipped.
 Signal wb_manager_inst/efb_i2c_Inst0/PLLDATO7 undriven or does not drive
@@ -258,16 +280,6 @@ Signal wb_manager_inst/efb_i2c_Inst0/PLLADRO2 undriven or does not drive
      anything - clipped.
 Signal wb_manager_inst/efb_i2c_Inst0/PLLADRO3 undriven or does not drive
      anything - clipped.
-
-                                    Page 4
-
-
-
-
-Design:  top_module                                    Date:  09/19/19  15:27:50
-
-Removed logic (cont)
---------------------
 Signal wb_manager_inst/efb_i2c_Inst0/PLLADRO4 undriven or does not drive
      anything - clipped.
 Signal wb_manager_inst/efb_i2c_Inst0/PLLWEO undriven or does not drive anything
@@ -305,11 +317,20 @@ Signal wb_manager_inst/timeoutIns/clk_counter_cry_0_S0[0] undriven or does not
 Signal wb_manager_inst/timeoutIns/N_1 undriven or does not drive anything -
      clipped.
 Signal stdby_sed undriven or does not drive anything - clipped.
+Block nState_1_.res_lat_RNO was optimized away.
 Block rst_n_pad_RNIQR5E was optimized away.
 Block GND was optimized away.
 Block wb_manager_inst/efb_i2c_Inst0/VCC was optimized away.
 Block wb_manager_inst/efb_i2c_Inst0/GND was optimized away.
 Block wb_manager_inst/timeoutIns/GND was optimized away.
+
+
+                                    Page 5
+
+
+
+
+Design:  top_module                                    Date:  09/23/19  15:01:48
 
 Memory Usage
 ------------
@@ -324,16 +345,6 @@ OSC 1:                                     Pin/Node Value
   OSC Instance Name:                                OSCInst0
   OSC Type:                                         OSCH
   STDBY Input:                                      NONE
-
-                                    Page 5
-
-
-
-
-Design:  top_module                                    Date:  09/19/19  15:27:50
-
-OSC Summary (cont)
-------------------
   OSC Output:                              NODE     sys_clk
   OSC Nominal Frequency (MHz):                      133.00
 
@@ -379,6 +390,16 @@ Embedded Functional Block Connection Summary:
            EBR Blocks with Unique
       Initialization Data:    0
 
+
+                                    Page 6
+
+
+
+
+Design:  top_module                                    Date:  09/23/19  15:01:48
+
+Embedded Functional Block Connection Summary: (cont)
+----------------------------------------------------
            WID		EBR Instance
       ---		------------
 
@@ -390,14 +411,6 @@ Instance Name: OSCInst0
          Type: OSCH
 Instance Name: wb_manager_inst/efb_i2c_Inst0/EFBInst_0
          Type: EFB
-
-                                    Page 6
-
-
-
-
-Design:  top_module                                    Date:  09/19/19  15:27:50
-
 
 GSR Usage
 ---------
@@ -433,19 +446,6 @@ Run Time and Memory Usage
    Total REAL Time: 0 secs  
    Peak Memory Usage: 39 MB
         
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -11,7 +11,7 @@ end entity;
 architecture rtl of top_level_tb is
 
 	signal rst_n, enI2C, heart_beat : std_logic;
-	signal scl, sda : std_logic;
+	signal scl, sda : std_logic := 'H';
 
 begin 
 	

@@ -1,4 +1,4 @@
-14
+7
 ~E 1 "./../../efb_i2c_VHDL.vhd" 14 efb_i2c_VHDL
 ~A 1 "./../../efb_i2c_VHDL.vhd" 30 Structure
 ~E 1 "./../../HeartBeat.vhd" 8 HeartBeat

@@ -87,7 +87,7 @@ architecture rtl of wb_manager is
 	-- timeout component
 	component timeout
 	generic  (
-		DEFAULT: integer := 50
+		DEFAULT: integer := 200
 	);
 	port(
 		clk 		: in std_logic;
@@ -118,7 +118,7 @@ begin
 		
 	-- timeout instance
 	timeoutIns : timeout
-	generic map( DEFAULT => 50 )
+	generic map( DEFAULT => 200 )
 	port map(
 		clk => clk_i,
 		rst => timeout_rst,
@@ -127,9 +127,9 @@ begin
 	);
 		
 	rst_p <= not(rst_n_i);
-	wb_dat_i <= data_i when wb_active = '1' and option(wb_we_cmd_bit) = '1' else (others =>'Z');
-	wb_adr_i <= addr_i when wb_active ='1' else (others =>'Z');
-	data_o  <= wb_dat_o when wb_active = '1' and option(wb_we_cmd_bit) = '0' else (others =>'Z');
+	wb_dat_i <= data_i when wb_active = '1' and option(wb_we_cmd_bit) = '1' else (others =>'0');
+	wb_adr_i <= addr_i when wb_active ='1' else (others =>'0');
+	data_o  <= wb_dat_o when wb_active = '1' and option(wb_we_cmd_bit) = '0' else (others =>'0');
 	
 		
 	reset_block : process(rst_n_i, clk_i)

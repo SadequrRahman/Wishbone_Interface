@@ -15,11 +15,11 @@ entity i2c_master_controller is
 		data_o		: out std_logic_vector(7 downto 0);
 		ack_o		: out std_logic;
 		-- wishbone ctrl signals
-		wbm_status	: inout std_logic_vector(7 downto 0);
-		wbm_option	: inout std_logic_vector(7 downto 0);
-		wbm_data_i	: inout std_logic_vector(7 downto 0);
-		wbm_data_o 	: inout std_logic_vector(7 downto 0);
-		wbm_addr	: inout std_logic_vector(7 downto 0)
+		wbm_status	: in std_logic_vector(7 downto 0);
+		wbm_option	: out std_logic_vector(7 downto 0);
+		wbm_data_i	: out std_logic_vector(7 downto 0);
+		wbm_data_o 	: in std_logic_vector(7 downto 0);
+		wbm_addr	: out std_logic_vector(7 downto 0)
 	);
 end i2c_master_controller;
 
@@ -67,7 +67,6 @@ signal cState : state_t := IDLE;
 signal nState : state_t := IDLE;
 signal we	  : std_logic := '0';
 
-
 begin
 	
 	process(clk, rst_n)
@@ -85,13 +84,12 @@ begin
 	
 	output_logic : process(cState)	
 	begin
-		wbm_addr <= (others => 'Z');
-		wbm_data_i <= (others => 'Z');
-		wbm_option <= (others => 'Z');
-		wbm_data_o <= (others => 'Z');
+		wbm_addr <= (others => '0');
+		wbm_data_i <= (others => '0');
+		wbm_option <= (others => '0');
 		case (cState) is
 			when IDLE =>
-			when LOAD_ADDR =>	
+			when LOAD_ADDR =>
 				wbm_addr <= I2C1_TXDR;
 				wbm_data_i <= addr_i;
 				wbm_option <= x"03";
@@ -120,11 +118,9 @@ begin
 	end process output_logic;
 	
 	
-	next_state_logic : process(cState,wbm_status(5),enable)
+	next_state_logic : process(cState, wbm_status(5), enable)
 	begin
 		ack_o <= '0';
-		wbm_status <= (others => 'Z');
-		wbm_option <= (others => 'Z');
 		case (cState) is
 			when IDLE =>
 				if enable = '1' then
@@ -132,32 +128,26 @@ begin
 				end if;
 			when LOAD_ADDR =>
 				if wbm_status(5) = '1' then 
-					wbm_option <= x"00";
 					nState <= SEND_ADDR;
 				end if;
 			when SEND_ADDR =>
 				if wbm_status(5) = '1' then 
-					wbm_option <= x"00";
 					nState <= STOP_ADDR;
 				end if;
 			when STOP_ADDR =>
 				if wbm_status(5) = '1' then 
-					wbm_option <= x"00";
 					nState <= LOAD_DATA;
 				end if;
 			when LOAD_DATA =>
 				if wbm_status(5) = '1' then 
-					wbm_option <= x"00";
 					nState <= SEND_DATA;
 				end if;
 			when SEND_DATA =>
 				if wbm_status(5) = '1' then 
-					wbm_option <= x"00";
 					nState <= STOP_DATA;
 				end if;
 			when STOP_DATA =>
 				if wbm_status(5) = '1' then 
-					wbm_option <= x"00";
 					ack_o <= '1';
 					nState <= IDLE;
 				end if;
