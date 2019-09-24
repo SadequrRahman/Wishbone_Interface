@@ -77,11 +77,11 @@ architecture sample_arch of top_module is
 		data_o		: out std_logic_vector(7 downto 0);
 		ack_o		: out std_logic;
 		-- wishbone ctrl signals
-		wbm_status	: in std_logic_vector(7 downto 0);
-		wbm_option	: out std_logic_vector(7 downto 0);
-		wbm_data_i	: out std_logic_vector(7 downto 0);
-		wbm_data_o 	: in std_logic_vector(7 downto 0);
-		wbm_addr	: out std_logic_vector(7 downto 0)
+		wbm_status	: in std_logic_vector(7 downto 0);  --output from wb manager input for master controller
+		wbm_option	: out std_logic_vector(7 downto 0); --input for wb manager output for master controller
+		wbm_data_i	: out std_logic_vector(7 downto 0); --input for wb manager output for master controller
+		wbm_data_o 	: in std_logic_vector(7 downto 0); --output from wb manager input for master controller
+		wbm_addr	: out std_logic_vector(7 downto 0) --input for wb manager output for master controller
 		);
 	end component;
 	
@@ -159,8 +159,8 @@ begin
 		case cState is
 			when S0 =>
 			when S1 =>
+				i2c_data_i <= x"F4";
 				i2c_addr <= x"84";
-				i2c_data_i <= x"14";
 				i2c_enable <= '1';
 			when S2 =>
 			end case;

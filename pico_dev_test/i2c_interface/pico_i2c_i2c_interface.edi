@@ -4,7 +4,7 @@
   (keywordMap (keywordLevel 0))
   (status
     (written
-      (timeStamp 2019 9 23 15 1 45)
+      (timeStamp 2019 9 24 13 51 43)
       (author "Synopsys, Inc.")
       (program "Synplify Pro" (version "M-2017.03L-SP1-1, mapper maplat, Build 1796R"))
      )
@@ -354,9 +354,9 @@
          (interface
            (port (array (rename clk_counter "clk_counter(15:8)") 8) (direction OUTPUT))
            (port un3_timeoutlt15 (direction OUTPUT))
-           (port N_41_1 (direction INPUT))
+           (port N_40_1 (direction INPUT))
            (port sys_clk (direction INPUT))
-           (port N_41_1_i (direction INPUT))
+           (port N_40_1_i (direction INPUT))
          )
          (contents
           (instance (rename clk_counter_0 "clk_counter[0]") (viewRef PRIM (cellRef FD1P3DX (libraryRef LUCENT)))
@@ -457,8 +457,8 @@
            (portRef S1 (instanceRef clk_counter_cry_0_0))
            (portRef D (instanceRef clk_counter_0))
           ))
-          (net N_41_1_i (joined
-           (portRef N_41_1_i)
+          (net N_40_1_i (joined
+           (portRef N_40_1_i)
            (portRef SP (instanceRef clk_counter_15))
            (portRef SP (instanceRef clk_counter_14))
            (portRef SP (instanceRef clk_counter_13))
@@ -495,8 +495,8 @@
            (portRef CK (instanceRef clk_counter_1))
            (portRef CK (instanceRef clk_counter_0))
           ))
-          (net N_41_1 (joined
-           (portRef N_41_1)
+          (net N_40_1 (joined
+           (portRef N_40_1)
            (portRef CD (instanceRef clk_counter_15))
            (portRef CD (instanceRef clk_counter_14))
            (portRef CD (instanceRef clk_counter_13))
@@ -773,56 +773,60 @@
        (view netlist (viewType NETLIST)
          (interface
            (port (array (rename cstate_0 "cState_0(2:0)") 3) (direction INPUT))
-           (port (array (rename cstate "cState(6:1)") 6) (direction INPUT))
            (port nState_0 (direction INPUT))
+           (port (array (rename cstate "cState(6:1)") 6) (direction INPUT))
            (port wb_ack_o (direction OUTPUT))
            (port wb_we_i (direction INPUT))
-           (port N_41_1_i (direction INPUT))
+           (port N_40_1_i (direction INPUT))
            (port sys_clk (direction INPUT))
            (port scl (direction INOUT))
            (port sda (direction INOUT))
            (port un1_cState_3 (direction OUTPUT))
-           (port i2c_addr3 (direction OUTPUT))
+           (port i2c_data_i4 (direction OUTPUT))
            (port un1_i2c_ack_0_a2 (direction OUTPUT))
-           (port un1_i2c_addr5_0 (direction OUTPUT))
-           (port cState_ret_1 (direction INPUT))
+           (port un1_i2c_data_i6_0 (direction OUTPUT))
+           (port cState_ret_3 (direction INPUT))
            (port cState_ret_2 (direction INPUT))
-           (port N_33 (direction INPUT))
+           (port cState_ret_1 (direction INPUT))
+           (port N_34 (direction INPUT))
            (port rst_n_c_i (direction INPUT))
            (port sys_clk_i (direction INPUT))
            (port cState_ret (direction INPUT))
          )
          (contents
-          (instance status_1_ret_RNO (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
-           (property lut_function (string "(!C (B A))"))
-          )
           (instance EFBInst_0_RNO_0 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
            (property lut_function (string "(!D (!C (B A)+C B)+D B)"))
           )
           (instance status_1_ret (viewRef PRIM (cellRef FD1S3DX (libraryRef LUCENT)))
           )
-          (instance EFBInst_0_RNO_2 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
-           (property lut_function (string "(!D (B !A)+D (!C (B !A)+C !A))"))
-          )
-          (instance EFBInst_0_RNO_4 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
-           (property lut_function (string "(!D (B !A)+D (!C (B !A)+C !A))"))
-          )
           (instance EFBInst_0_RNO_1 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
            (property lut_function (string "(!B !A)"))
           )
+          (instance EFBInst_0_RNO_2 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
+           (property lut_function (string "(!D (C (B !A))+D (C !A))"))
+          )
           (instance EFBInst_0_RNO_3 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
-           (property lut_function (string "(B !A)"))
+           (property lut_function (string "(!D (B !A)+D (!C (B !A)+C !A))"))
+          )
+          (instance EFBInst_0_RNO_4 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
+           (property lut_function (string "(C (B !A))"))
           )
           (instance EFBInst_0_RNO_5 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
+           (property lut_function (string "(!D (B !A)+D (!C (B !A)+C !A))"))
+          )
+          (instance EFBInst_0_RNO_6 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
            (property lut_function (string "(!C (!B !A)+C !A)"))
           )
-          (instance un1_i2c_addr5_0 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
+          (instance un1_i2c_data_i6_0 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
            (property lut_function (string "(!C (B+A)+C (!B A))"))
+          )
+          (instance un1_cState_3_0_a2_0 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
+           (property lut_function (string "(C (B !A))"))
           )
           (instance un1_i2c_ack_0_a2 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
            (property lut_function (string "(!B A)"))
           )
-          (instance i2c_addr3_0_a2 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
+          (instance i2c_data_i4_0_a2 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
            (property lut_function (string "(!B !A)"))
           )
           (instance un1_cState_3 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
@@ -887,20 +891,64 @@
            (property EFB_I2C2 (string "DISABLED"))
            (property EFB_I2C1 (string "ENABLED"))
           )
-          (instance GND (viewRef PRIM (cellRef VLO (libraryRef LUCENT)))          )
           (instance VCC (viewRef PRIM (cellRef VHI (libraryRef LUCENT)))          )
-          (net (rename nState_0 "nState[0]") (joined
-           (portRef nState_0)
-           (portRef A (instanceRef status_1_ret_RNO))
+          (instance GND (viewRef PRIM (cellRef VLO (libraryRef LUCENT)))          )
+          (net (rename cState_4 "cState[4]") (joined
+           (portRef (member cstate 2))
+           (portRef D (instanceRef EFBInst_0_RNO))
+           (portRef A (instanceRef EFBInst_0_RNO_0))
           ))
-          (net (rename cState_1 "cState[1]") (joined
-           (portRef (member cstate 5))
-           (portRef B (instanceRef status_1_ret_RNO))
+          (net cState_ret (joined
+           (portRef cState_ret)
+           (portRef B (instanceRef EFBInst_0_RNO_6))
+           (portRef B (instanceRef EFBInst_0_RNO_1))
+           (portRef B (instanceRef EFBInst_0_RNO_0))
           ))
-          (net (rename cState_6 "cState[6]") (joined
-           (portRef (member cstate 0))
-           (portRef C (instanceRef EFBInst_0_RNO))
-           (portRef C (instanceRef status_1_ret_RNO))
+          (net (rename cState_3 "cState[3]") (joined
+           (portRef (member cstate 3))
+           (portRef B (instanceRef EFBInst_0_RNO))
+           (portRef C (instanceRef EFBInst_0_RNO_0))
+          ))
+          (net (rename cState_2 "cState[2]") (joined
+           (portRef (member cstate 4))
+           (portRef A (instanceRef EFBInst_0_RNO))
+           (portRef D (instanceRef EFBInst_0_RNO_0))
+          ))
+          (net N_29_i (joined
+           (portRef Z (instanceRef EFBInst_0_RNO_0))
+           (portRef WBADRI2 (instanceRef EFBInst_0))
+          ))
+          (net N_61_reti (joined
+           (portRef Z (instanceRef un1_cState_3_0_a2_0))
+           (portRef D (instanceRef status_1_ret))
+          ))
+          (net sys_clk_i (joined
+           (portRef sys_clk_i)
+           (portRef CK (instanceRef status_1_ret))
+          ))
+          (net rst_n_c_i (joined
+           (portRef rst_n_c_i)
+           (portRef WBRSTI (instanceRef EFBInst_0))
+           (portRef CD (instanceRef status_1_ret))
+          ))
+          (net status_1_ret (joined
+           (portRef Q (instanceRef status_1_ret))
+           (portRef A (instanceRef un1_cState_3))
+           (portRef A (instanceRef un1_i2c_ack_0_a2))
+           (portRef A (instanceRef un1_i2c_data_i6_0))
+          ))
+          (net VCC (joined
+           (portRef Z (instanceRef VCC))
+           (portRef UFMSN (instanceRef EFBInst_0))
+          ))
+          (net N_34 (joined
+           (portRef N_34)
+           (portRef A (instanceRef EFBInst_0_RNO_6))
+           (portRef A (instanceRef EFBInst_0_RNO_5))
+           (portRef A (instanceRef EFBInst_0_RNO_4))
+           (portRef A (instanceRef EFBInst_0_RNO_3))
+           (portRef A (instanceRef EFBInst_0_RNO_2))
+           (portRef A (instanceRef EFBInst_0_RNO_1))
           ))
           (net GND (joined
            (portRef Z (instanceRef GND))
@@ -934,138 +982,102 @@
            (portRef WBDATI0 (instanceRef EFBInst_0))
            (portRef WBDATI1 (instanceRef EFBInst_0))
            (portRef WBDATI3 (instanceRef EFBInst_0))
-           (portRef WBDATI5 (instanceRef EFBInst_0))
            (portRef WBADRI1 (instanceRef EFBInst_0))
            (portRef WBADRI3 (instanceRef EFBInst_0))
            (portRef WBADRI4 (instanceRef EFBInst_0))
            (portRef WBADRI5 (instanceRef EFBInst_0))
            (portRef WBADRI7 (instanceRef EFBInst_0))
           ))
-          (net N_60_reti (joined
-           (portRef Z (instanceRef status_1_ret_RNO))
-           (portRef D (instanceRef status_1_ret))
-          ))
-          (net (rename cState_4 "cState[4]") (joined
-           (portRef (member cstate 2))
-           (portRef D (instanceRef EFBInst_0_RNO))
-           (portRef A (instanceRef EFBInst_0_RNO_0))
-          ))
-          (net cState_ret (joined
-           (portRef cState_ret)
-           (portRef B (instanceRef EFBInst_0_RNO_5))
-           (portRef B (instanceRef EFBInst_0_RNO_1))
-           (portRef B (instanceRef EFBInst_0_RNO_0))
-          ))
-          (net (rename cState_3 "cState[3]") (joined
-           (portRef (member cstate 3))
-           (portRef B (instanceRef EFBInst_0_RNO))
-           (portRef C (instanceRef EFBInst_0_RNO_0))
-          ))
-          (net (rename cState_2 "cState[2]") (joined
-           (portRef (member cstate 4))
-           (portRef A (instanceRef EFBInst_0_RNO))
-           (portRef D (instanceRef EFBInst_0_RNO_0))
-          ))
-          (net N_28_i (joined
-           (portRef Z (instanceRef EFBInst_0_RNO_0))
-           (portRef WBADRI2 (instanceRef EFBInst_0))
-          ))
-          (net sys_clk_i (joined
-           (portRef sys_clk_i)
-           (portRef CK (instanceRef status_1_ret))
-          ))
-          (net rst_n_c_i (joined
-           (portRef rst_n_c_i)
-           (portRef WBRSTI (instanceRef EFBInst_0))
-           (portRef CD (instanceRef status_1_ret))
-          ))
-          (net status_1_ret (joined
-           (portRef Q (instanceRef status_1_ret))
-           (portRef A (instanceRef un1_cState_3))
-           (portRef A (instanceRef un1_i2c_ack_0_a2))
-           (portRef A (instanceRef un1_i2c_addr5_0))
-          ))
-          (net VCC (joined
-           (portRef Z (instanceRef VCC))
-           (portRef UFMSN (instanceRef EFBInst_0))
-          ))
-          (net N_33 (joined
-           (portRef N_33)
-           (portRef A (instanceRef EFBInst_0_RNO_5))
-           (portRef A (instanceRef EFBInst_0_RNO_3))
-           (portRef A (instanceRef EFBInst_0_RNO_1))
-           (portRef A (instanceRef EFBInst_0_RNO_4))
-           (portRef A (instanceRef EFBInst_0_RNO_2))
-          ))
-          (net cState_ret_2 (joined
-           (portRef cState_ret_2)
-           (portRef B (instanceRef EFBInst_0_RNO_4))
-           (portRef B (instanceRef EFBInst_0_RNO_2))
-          ))
-          (net (rename cState_0_0 "cState_0[0]") (joined
-           (portRef (member cstate_0 2))
-           (portRef B (instanceRef i2c_addr3_0_a2))
-           (portRef C (instanceRef un1_i2c_addr5_0))
-           (portRef C (instanceRef EFBInst_0_RNO_5))
-           (portRef C (instanceRef EFBInst_0_RNO_4))
-           (portRef C (instanceRef EFBInst_0_RNO_2))
-          ))
-          (net (rename cState_5 "cState[5]") (joined
-           (portRef (member cstate 1))
-           (portRef D (instanceRef EFBInst_0_RNO_2))
-          ))
-          (net N_17_i (joined
-           (portRef Z (instanceRef EFBInst_0_RNO_2))
-           (portRef WBDATI7 (instanceRef EFBInst_0))
-          ))
-          (net (rename cState_0_2 "cState_0[2]") (joined
-           (portRef (member cstate_0 0))
-           (portRef D (instanceRef EFBInst_0_RNO_4))
-          ))
-          (net N_24_i (joined
-           (portRef Z (instanceRef EFBInst_0_RNO_4))
-           (portRef WBDATI4 (instanceRef EFBInst_0))
-          ))
-          (net N_30_i (joined
+          (net N_31_i (joined
            (portRef Z (instanceRef EFBInst_0_RNO_1))
            (portRef WBADRI0 (instanceRef EFBInst_0))
           ))
           (net cState_ret_1 (joined
            (portRef cState_ret_1)
+           (portRef B (instanceRef EFBInst_0_RNO_5))
+           (portRef B (instanceRef EFBInst_0_RNO_2))
+          ))
+          (net cState_ret_2 (joined
+           (portRef cState_ret_2)
+           (portRef C (instanceRef EFBInst_0_RNO_2))
+          ))
+          (net (rename cState_0_0 "cState_0[0]") (joined
+           (portRef (member cstate_0 2))
+           (portRef B (instanceRef i2c_data_i4_0_a2))
+           (portRef C (instanceRef un1_i2c_data_i6_0))
+           (portRef C (instanceRef EFBInst_0_RNO_6))
+           (portRef C (instanceRef EFBInst_0_RNO_5))
+           (portRef B (instanceRef EFBInst_0_RNO_4))
+           (portRef C (instanceRef EFBInst_0_RNO_3))
+           (portRef D (instanceRef EFBInst_0_RNO_2))
+          ))
+          (net N_16_i (joined
+           (portRef Z (instanceRef EFBInst_0_RNO_2))
+           (portRef WBDATI7 (instanceRef EFBInst_0))
+          ))
+          (net cState_ret_3 (joined
+           (portRef cState_ret_3)
            (portRef B (instanceRef EFBInst_0_RNO_3))
           ))
-          (net N_22_i (joined
+          (net (rename cState_0_2 "cState_0[2]") (joined
+           (portRef (member cstate_0 0))
+           (portRef D (instanceRef EFBInst_0_RNO_5))
+           (portRef C (instanceRef EFBInst_0_RNO_4))
+           (portRef D (instanceRef EFBInst_0_RNO_3))
+          ))
+          (net N_18_i (joined
            (portRef Z (instanceRef EFBInst_0_RNO_3))
            (portRef WBDATI6 (instanceRef EFBInst_0))
           ))
-          (net N_26_i (joined
+          (net N_21_i (joined
+           (portRef Z (instanceRef EFBInst_0_RNO_4))
+           (portRef WBDATI5 (instanceRef EFBInst_0))
+          ))
+          (net N_23_i (joined
            (portRef Z (instanceRef EFBInst_0_RNO_5))
+           (portRef WBDATI4 (instanceRef EFBInst_0))
+          ))
+          (net N_25_i (joined
+           (portRef Z (instanceRef EFBInst_0_RNO_6))
            (portRef WBDATI2 (instanceRef EFBInst_0))
+          ))
+          (net (rename cState_1 "cState[1]") (joined
+           (portRef (member cstate 5))
+           (portRef B (instanceRef un1_cState_3))
+           (portRef A (instanceRef i2c_data_i4_0_a2))
+           (portRef B (instanceRef un1_i2c_ack_0_a2))
+           (portRef B (instanceRef un1_i2c_data_i6_0))
+          ))
+          (net un1_i2c_data_i6_0 (joined
+           (portRef Z (instanceRef un1_i2c_data_i6_0))
+           (portRef un1_i2c_data_i6_0)
+          ))
+          (net (rename cState_6 "cState[6]") (joined
+           (portRef (member cstate 0))
+           (portRef C (instanceRef EFBInst_0_RNO))
+           (portRef A (instanceRef un1_cState_3_0_a2_0))
+          ))
+          (net (rename nState_0 "nState[0]") (joined
+           (portRef nState_0)
+           (portRef B (instanceRef un1_cState_3_0_a2_0))
           ))
           (net (rename cState_0_1 "cState_0[1]") (joined
            (portRef (member cstate_0 1))
-           (portRef B (instanceRef un1_cState_3))
-           (portRef A (instanceRef i2c_addr3_0_a2))
-           (portRef B (instanceRef un1_i2c_ack_0_a2))
-           (portRef B (instanceRef un1_i2c_addr5_0))
-          ))
-          (net un1_i2c_addr5_0 (joined
-           (portRef Z (instanceRef un1_i2c_addr5_0))
-           (portRef un1_i2c_addr5_0)
+           (portRef C (instanceRef un1_cState_3_0_a2_0))
           ))
           (net un1_i2c_ack_0_a2 (joined
            (portRef Z (instanceRef un1_i2c_ack_0_a2))
            (portRef un1_i2c_ack_0_a2)
           ))
-          (net i2c_addr3 (joined
-           (portRef Z (instanceRef i2c_addr3_0_a2))
-           (portRef i2c_addr3)
+          (net i2c_data_i4 (joined
+           (portRef Z (instanceRef i2c_data_i4_0_a2))
+           (portRef i2c_data_i4)
           ))
           (net un1_cState_3 (joined
            (portRef Z (instanceRef un1_cState_3))
            (portRef un1_cState_3)
           ))
-          (net N_33_i (joined
+          (net N_34_i (joined
            (portRef Z (instanceRef EFBInst_0_RNO))
            (portRef WBADRI6 (instanceRef EFBInst_0))
           ))
@@ -1105,8 +1117,8 @@
            (portRef sys_clk)
            (portRef WBCLKI (instanceRef EFBInst_0))
           ))
-          (net N_41_1_i (joined
-           (portRef N_41_1_i)
+          (net N_40_1_i (joined
+           (portRef N_40_1_i)
            (portRef WBSTBI (instanceRef EFBInst_0))
            (portRef WBCYCI (instanceRef EFBInst_0))
           ))
@@ -1285,15 +1297,12 @@
     (cell i2c_master_controller (cellType GENERIC)
        (view netlist (viewType NETLIST)
          (interface
-           (port cState_0_0 (direction INPUT))
+           (port (array (rename cstate_0 "cState_0(1:0)") 2) (direction INPUT))
            (port (array (rename nstate "nState(5:0)") 6) (direction OUTPUT))
            (port cState_0_d0 (direction OUTPUT))
-           (port cState_3 (direction OUTPUT))
            (port cState_4 (direction OUTPUT))
-           (port nState_1_sqmuxa (direction INPUT))
-           (port N_36_reti (direction INPUT))
-           (port N_35_reti (direction INPUT))
-           (port N_34i (direction INPUT))
+           (port N_39_reti (direction INPUT))
+           (port N_38i (direction INPUT))
            (port rst_n_c_i (direction INPUT))
            (port sys_clk_i (direction INPUT))
          )
@@ -1329,7 +1338,7 @@
           (instance (rename cState_0_6 "cState_0[6]") (viewRef PRIM (cellRef FD1S3BX (libraryRef LUCENT)))
           )
           (instance un1_nState_1_sqmuxa_0_a2_2 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
-           (property lut_function (string "(!D (C+(B+A)))"))
+           (property lut_function (string "(!D (B+A)+D (C (B+A)))"))
           )
           (instance cState_ret_1_RNII1AO (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
            (property lut_function (string "(!C !A+C (B !A))"))
@@ -1365,7 +1374,7 @@
            (portRef D (instanceRef cState_0_1))
            (portRef (member nstate 4))
           ))
-          (net (rename cStateZ0Z_3 "cState[3]") (joined
+          (net (rename cState_3 "cState[3]") (joined
            (portRef Q (instanceRef cState_0_3))
            (portRef D (instanceRef nState_2))
           ))
@@ -1383,10 +1392,9 @@
            (portRef D (instanceRef cState_0_3))
            (portRef (member nstate 2))
           ))
-          (net (rename cState_3 "cState[5]") (joined
+          (net (rename cState_5 "cState[5]") (joined
            (portRef Q (instanceRef cState_0_5))
            (portRef D (instanceRef nState_4))
-           (portRef cState_3)
           ))
           (net (rename nState_4 "nState[4]") (joined
            (portRef Q (instanceRef nState_4))
@@ -1396,6 +1404,7 @@
           (net (rename cState_4 "cState[6]") (joined
            (portRef Q (instanceRef cState_0_6))
            (portRef C (instanceRef cState_ret_1_RNII1AO))
+           (portRef C (instanceRef un1_nState_1_sqmuxa_0_a2_2))
            (portRef D (instanceRef nState_5))
            (portRef cState_4)
           ))
@@ -1404,7 +1413,7 @@
            (portRef D (instanceRef cState_0_5))
            (portRef (member nstate 0))
           ))
-          (net (rename cState_0 "cState[0]") (joined
+          (net (rename cStateZ0Z_0 "cState[0]") (joined
            (portRef Q (instanceRef cState_1_0))
            (portRef D (instanceRef nState_6))
           ))
@@ -1412,7 +1421,7 @@
            (portRef Q (instanceRef nState_6))
            (portRef D (instanceRef cState_0_6))
           ))
-          (net N_43_reti (joined
+          (net N_44_reti (joined
            (portRef Z (instanceRef un1_nState_1_sqmuxa_0_a2_2))
            (portRef D (instanceRef cState_ret_1))
           ))
@@ -1442,24 +1451,20 @@
            (portRef Q (instanceRef cState_ret_1))
            (portRef A (instanceRef cState_ret_1_RNII1AO))
           ))
-          (net N_34i (joined
-           (portRef N_34i)
+          (net N_38i (joined
+           (portRef N_38i)
            (portRef A (instanceRef un1_nState_1_sqmuxa_0_a2_2))
           ))
-          (net N_35_reti (joined
-           (portRef N_35_reti)
+          (net N_39_reti (joined
+           (portRef N_39_reti)
            (portRef B (instanceRef un1_nState_1_sqmuxa_0_a2_2))
           ))
-          (net N_36_reti (joined
-           (portRef N_36_reti)
-           (portRef C (instanceRef un1_nState_1_sqmuxa_0_a2_2))
-          ))
-          (net nState_1_sqmuxa (joined
-           (portRef nState_1_sqmuxa)
+          (net (rename cState_0_1 "cState_0[1]") (joined
+           (portRef (member cstate_0 0))
            (portRef D (instanceRef un1_nState_1_sqmuxa_0_a2_2))
           ))
           (net (rename cState_0_0 "cState_0[0]") (joined
-           (portRef cState_0_0)
+           (portRef (member cstate_0 1))
            (portRef B (instanceRef cState_ret_1_RNII1AO))
           ))
          )
@@ -1469,27 +1474,28 @@
     (cell wb_manager (cellType GENERIC)
        (view netlist (viewType NETLIST)
          (interface
-           (port cState_0_0 (direction INPUT))
-           (port cState_0_1 (direction INPUT))
-           (port cState_0_2 (direction INPUT))
-           (port cState_0_5 (direction INPUT))
-           (port (array (rename nstate_0 "nState_0(5:0)") 6) (direction INPUT))
-           (port cState_0_d0 (direction INPUT))
-           (port un1_i2c_addr5_0 (direction OUTPUT))
+           (port (array (rename cstate_0 "cState_0(2:0)") 3) (direction INPUT))
+           (port nState_0_0 (direction INPUT))
+           (port nState_0_3 (direction INPUT))
+           (port cState_0_d0 (direction OUTPUT))
+           (port cState_5 (direction INPUT))
+           (port (array (rename nstate "nState(5:1)") 5) (direction INPUT))
+           (port un1_i2c_data_i6_0 (direction OUTPUT))
            (port un1_i2c_ack_0_a2 (direction OUTPUT))
-           (port i2c_addr3 (direction OUTPUT))
+           (port i2c_data_i4 (direction OUTPUT))
            (port un1_cState_3 (direction OUTPUT))
            (port sda (direction INOUT))
            (port scl (direction INOUT))
-           (port nState_1_sqmuxa (direction OUTPUT))
            (port sys_clk (direction INPUT))
-           (port N_34i (direction OUTPUT))
-           (port N_36_reti (direction OUTPUT))
            (port rst_n_c_i (direction INPUT))
            (port sys_clk_i (direction INPUT))
-           (port N_35_reti (direction OUTPUT))
+           (port N_39_reti (direction OUTPUT))
+           (port N_38i (direction OUTPUT))
          )
          (contents
+          (instance (rename wb_dat_i_i_o2_3_7 "wb_dat_i_i_o2_3[7]") (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
+           (property lut_function (string "(D+(C+(B+A)))"))
+          )
           (instance (rename cState_RNIPLK1_2 "cState_RNIPLK1[2]") (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
            (property lut_function (string "(B+A)"))
           )
@@ -1504,6 +1510,8 @@
           (instance (rename nState_4 "nState[4]") (viewRef PRIM (cellRef FD1S1A (libraryRef LUCENT)))
           )
           (instance (rename nState_5 "nState[5]") (viewRef PRIM (cellRef FD1S1AY (libraryRef LUCENT)))
+          )
+          (instance cState_ret_3 (viewRef PRIM (cellRef FD1S3DX (libraryRef LUCENT)))
           )
           (instance cState_ret_2 (viewRef PRIM (cellRef FD1S3DX (libraryRef LUCENT)))
           )
@@ -1538,10 +1546,7 @@
           (instance nState_1_sqmuxa_4_6 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
            (property lut_function (string "(!D (!C (!B !A)))"))
           )
-          (instance (rename nState_1_0_a3_1_a2_5 "nState_1_0_a3_1_a2[5]") (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
-           (property lut_function (string "(B !A)"))
-          )
-          (instance (rename nState_1_i_i_a2_4 "nState_1_i_i_a2[4]") (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
+          (instance (rename nState_1_0_a3_0_a2_4 "nState_1_0_a3_0_a2[4]") (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
            (property lut_function (string "(B !A)"))
           )
           (instance wb_we_i_0_a2 (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
@@ -1556,13 +1561,13 @@
           (instance (rename wb_dat_i_i_o2_0_6 "wb_dat_i_i_o2_0[6]") (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
            (property lut_function (string "(B+A)"))
           )
-          (instance (rename wb_dat_i_i_o2_1_7 "wb_dat_i_i_o2_1[7]") (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
+          (instance (rename wb_dat_i_i_o2_2_7 "wb_dat_i_i_o2_2[7]") (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
            (property lut_function (string "(B+A)"))
           )
           (instance (rename wb_adr_i_i_o2_0_0 "wb_adr_i_i_o2_0[0]") (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
            (property lut_function (string "(B+A)"))
           )
-          (instance (rename wb_adr_i_i_o2_6 "wb_adr_i_i_o2[6]") (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
+          (instance (rename wb_dat_i_i_o2_7 "wb_dat_i_i_o2[7]") (viewRef PRIM (cellRef ORCALUT4 (libraryRef LUCENT)))
            (property lut_function (string "(!D (!C (B+!A)+C B)+D B)"))
           )
           (instance efb_i2c_Inst0 (viewRef netlist (cellRef efb_i2c_VHDL))
@@ -1571,10 +1576,35 @@
           )
           (instance GND (viewRef PRIM (cellRef VLO (libraryRef LUCENT)))          )
           (instance VCC (viewRef PRIM (cellRef VHI (libraryRef LUCENT)))          )
+          (net (rename nState_1 "nState[1]") (joined
+           (portRef (member nstate 4))
+           (portRef A (instanceRef wb_dat_i_i_o2_2_7))
+           (portRef A (instanceRef wb_dat_i_i_o2_3_7))
+          ))
+          (net (rename nState_4 "nState[4]") (joined
+           (portRef (member nstate 1))
+           (portRef B (instanceRef wb_dat_i_i_o2_2_7))
+           (portRef B (instanceRef wb_dat_i_i_o2_3_7))
+          ))
+          (net (rename nState_5 "nState[5]") (joined
+           (portRef (member nstate 0))
+           (portRef B (instanceRef wb_adr_i_i_o2_0_0))
+           (portRef C (instanceRef wb_dat_i_i_o2_3_7))
+          ))
+          (net (rename nState_2 "nState[2]") (joined
+           (portRef (member nstate 3))
+           (portRef A (instanceRef wb_adr_i_i_o2_0_0))
+           (portRef D (instanceRef wb_dat_i_i_o2_3_7))
+          ))
+          (net N_38i (joined
+           (portRef Z (instanceRef wb_dat_i_i_o2_3_7))
+           (portRef D (instanceRef cState_ret_2))
+           (portRef N_38i)
+          ))
           (net (rename cState_3 "cState[3]") (joined
            (portRef Q (instanceRef cState_3))
            (portRef (member cstate 3) (instanceRef efb_i2c_Inst0))
-           (portRef C (instanceRef wb_adr_i_i_o2_6))
+           (portRef C (instanceRef wb_dat_i_i_o2_7))
            (portRef B (instanceRef timeout_rst_0_a2_0_a2))
            (portRef B (instanceRef wb_we_i_0_a2))
            (portRef D (instanceRef nState_2))
@@ -1583,16 +1613,16 @@
           (net (rename cState_2 "cState[2]") (joined
            (portRef Q (instanceRef cState_2))
            (portRef (member cstate 4) (instanceRef efb_i2c_Inst0))
-           (portRef D (instanceRef wb_adr_i_i_o2_6))
+           (portRef D (instanceRef wb_dat_i_i_o2_7))
            (portRef A (instanceRef timeout_rst_0_a2_0_a2))
            (portRef A (instanceRef nState_1_sqmuxa_2_0_a2))
            (portRef C (instanceRef nState_1_0_0_1))
            (portRef B (instanceRef cState_RNIPLK1_2))
           ))
-          (net N_41_1_i (joined
+          (net N_40_1_i (joined
            (portRef Z (instanceRef cState_RNIPLK1_2))
-           (portRef N_41_1_i (instanceRef timeoutIns))
-           (portRef N_41_1_i (instanceRef efb_i2c_Inst0))
+           (portRef N_40_1_i (instanceRef timeoutIns))
+           (portRef N_40_1_i (instanceRef efb_i2c_Inst0))
           ))
           (net nState_1_sqmuxa_2 (joined
            (portRef Z (instanceRef nState_1_sqmuxa_2_0_a2))
@@ -1608,7 +1638,7 @@
            (portRef CK (instanceRef nState_1))
            (portRef CK (instanceRef nState_0))
           ))
-          (net (rename nStateZ0Z_0 "nState[0]") (joined
+          (net (rename nState_0 "nState[0]") (joined
            (portRef Q (instanceRef nState_0))
            (portRef D (instanceRef cState_0))
           ))
@@ -1616,29 +1646,29 @@
            (portRef Z (instanceRef nState_1_0_0_1))
            (portRef D (instanceRef nState_1))
           ))
-          (net (rename nState_1 "nState[1]") (joined
+          (net (rename nState_0_1 "nState_0[1]") (joined
            (portRef Q (instanceRef nState_1))
            (portRef D (instanceRef cState_1))
           ))
-          (net (rename nState_2 "nState[2]") (joined
+          (net (rename nState_0_2 "nState_0[2]") (joined
            (portRef Q (instanceRef nState_2))
            (portRef D (instanceRef cState_2))
           ))
           (net (rename cState_4 "cState[4]") (joined
            (portRef Q (instanceRef cState_4))
            (portRef (member cstate 2) (instanceRef efb_i2c_Inst0))
-           (portRef A (instanceRef wb_adr_i_i_o2_6))
+           (portRef A (instanceRef wb_dat_i_i_o2_7))
            (portRef D (instanceRef nState_3))
           ))
-          (net (rename nState_3 "nState[3]") (joined
+          (net (rename nStateZ0Z_3 "nState[3]") (joined
            (portRef Q (instanceRef nState_3))
            (portRef D (instanceRef cState_3))
           ))
-          (net N_51 (joined
-           (portRef Z (instanceRef nState_1_i_i_a2_4))
+          (net (rename nState_1_0_a3_0_a2_4 "nState_1_0_a3_0_a2[4]") (joined
+           (portRef Z (instanceRef nState_1_0_a3_0_a2_4))
            (portRef D (instanceRef nState_4))
           ))
-          (net (rename nState_4 "nState[4]") (joined
+          (net (rename nState_0_4 "nState_0[4]") (joined
            (portRef Q (instanceRef nState_4))
            (portRef D (instanceRef cState_4))
           ))
@@ -1646,14 +1676,14 @@
            (portRef Z (instanceRef nState_1_0_5))
            (portRef D (instanceRef nState_5))
           ))
-          (net (rename nState_5 "nState[5]") (joined
+          (net (rename nState_0_5 "nState_0[5]") (joined
            (portRef Q (instanceRef nState_5))
            (portRef D (instanceRef cState_5))
           ))
-          (net N_35_reti (joined
-           (portRef Z (instanceRef wb_dat_i_i_o2_1_7))
-           (portRef D (instanceRef cState_ret_2))
-           (portRef N_35_reti)
+          (net N_39_reti (joined
+           (portRef Z (instanceRef wb_dat_i_i_o2_0_6))
+           (portRef D (instanceRef cState_ret_3))
+           (portRef N_39_reti)
           ))
           (net sys_clk_i (joined
            (portRef sys_clk_i)
@@ -1661,6 +1691,7 @@
            (portRef CK (instanceRef cState_ret))
            (portRef CK (instanceRef cState_ret_1))
            (portRef CK (instanceRef cState_ret_2))
+           (portRef CK (instanceRef cState_ret_3))
           ))
           (net rst_n_c_i (joined
            (portRef rst_n_c_i)
@@ -1674,24 +1705,27 @@
            (portRef CD (instanceRef cState_ret))
            (portRef CD (instanceRef cState_ret_1))
            (portRef CD (instanceRef cState_ret_2))
+           (portRef CD (instanceRef cState_ret_3))
+          ))
+          (net cState_ret_3 (joined
+           (portRef Q (instanceRef cState_ret_3))
+           (portRef cState_ret_3 (instanceRef efb_i2c_Inst0))
           ))
           (net cState_ret_2 (joined
            (portRef Q (instanceRef cState_ret_2))
            (portRef cState_ret_2 (instanceRef efb_i2c_Inst0))
           ))
-          (net N_36_reti (joined
-           (portRef Z (instanceRef wb_dat_i_i_o2_0_6))
+          (net N_37_reti (joined
+           (portRef Z (instanceRef wb_dat_i_i_o2_2_7))
            (portRef D (instanceRef cState_ret_1))
-           (portRef N_36_reti)
           ))
           (net cState_ret_1 (joined
            (portRef Q (instanceRef cState_ret_1))
            (portRef cState_ret_1 (instanceRef efb_i2c_Inst0))
           ))
-          (net N_34i (joined
+          (net N_35i (joined
            (portRef Z (instanceRef wb_adr_i_i_o2_0_0))
            (portRef D (instanceRef cState_ret))
-           (portRef N_34i)
           ))
           (net cState_ret (joined
            (portRef Q (instanceRef cState_ret))
@@ -1708,20 +1742,20 @@
            (portRef CK (instanceRef cState_1))
            (portRef CK (instanceRef cState_0))
           ))
-          (net (rename cState_0 "cState[0]") (joined
+          (net (rename cStateZ0Z_0 "cState[0]") (joined
            (portRef Q (instanceRef cState_0))
            (portRef B (instanceRef nState_1_0_5))
           ))
-          (net (rename cState_1 "cState[1]") (joined
+          (net (rename cState_0_d0 "cState[1]") (joined
            (portRef Q (instanceRef cState_1))
-           (portRef (member cstate 5) (instanceRef efb_i2c_Inst0))
-           (portRef B (instanceRef nState_1_0_a3_1_a2_5))
+           (portRef (member cstate_0 1) (instanceRef efb_i2c_Inst0))
            (portRef B (instanceRef nState_1_0_0_1))
            (portRef C (instanceRef nState_1_0_5))
+           (portRef cState_0_d0)
           ))
-          (net (rename cState_5 "cState[5]") (joined
+          (net (rename cStateZ0Z_5 "cState[5]") (joined
            (portRef Q (instanceRef cState_5))
-           (portRef B (instanceRef nState_1_i_i_a2_4))
+           (portRef B (instanceRef nState_1_0_a3_0_a2_4))
            (portRef D (instanceRef nState_1_0_5))
           ))
           (net nState_1_sqmuxa_4_5 (joined
@@ -1752,13 +1786,12 @@
            (portRef un3_timeoutlt15 (instanceRef timeoutIns))
            (portRef D (instanceRef nState_1_sqmuxa_4_5))
           ))
-          (net (rename cState_0_d0 "cState[6]") (joined
-           (portRef cState_0_d0)
+          (net (rename cState_5 "cState[6]") (joined
+           (portRef cState_5)
            (portRef (member cstate 0) (instanceRef efb_i2c_Inst0))
-           (portRef B (instanceRef wb_adr_i_i_o2_6))
+           (portRef B (instanceRef wb_dat_i_i_o2_7))
            (portRef A (instanceRef wb_we_i_0_a2))
-           (portRef A (instanceRef nState_1_i_i_a2_4))
-           (portRef A (instanceRef nState_1_0_a3_1_a2_5))
+           (portRef A (instanceRef nState_1_0_a3_0_a2_4))
            (portRef A (instanceRef nState_1_0_0_1))
            (portRef A (instanceRef nState_1_0_5))
           ))
@@ -1783,62 +1816,38 @@
            (portRef (member clk_counter 4) (instanceRef timeoutIns))
            (portRef D (instanceRef nState_1_sqmuxa_4_6))
           ))
-          (net nState_1_sqmuxa (joined
-           (portRef Z (instanceRef nState_1_0_a3_1_a2_5))
-           (portRef nState_1_sqmuxa)
-          ))
           (net wb_we_i (joined
            (portRef Z (instanceRef wb_we_i_0_a2))
            (portRef wb_we_i (instanceRef efb_i2c_Inst0))
           ))
-          (net N_41_1 (joined
+          (net N_40_1 (joined
            (portRef Z (instanceRef timeout_rst_0_a2_0_a2))
-           (portRef N_41_1 (instanceRef timeoutIns))
+           (portRef N_40_1 (instanceRef timeoutIns))
           ))
           (net (rename nState_0_0 "nState_0[0]") (joined
-           (portRef (member nstate_0 5))
+           (portRef nState_0_0)
            (portRef nState_0 (instanceRef efb_i2c_Inst0))
            (portRef A (instanceRef wb_dat_i_i_o2_0_6))
           ))
           (net (rename nState_0_3 "nState_0[3]") (joined
-           (portRef (member nstate_0 2))
+           (portRef nState_0_3)
            (portRef B (instanceRef wb_dat_i_i_o2_0_6))
           ))
-          (net (rename nState_0_1 "nState_0[1]") (joined
-           (portRef (member nstate_0 4))
-           (portRef A (instanceRef wb_dat_i_i_o2_1_7))
-          ))
-          (net (rename nState_0_4 "nState_0[4]") (joined
-           (portRef (member nstate_0 1))
-           (portRef B (instanceRef wb_dat_i_i_o2_1_7))
-          ))
-          (net (rename nState_0_2 "nState_0[2]") (joined
-           (portRef (member nstate_0 3))
-           (portRef A (instanceRef wb_adr_i_i_o2_0_0))
-          ))
-          (net (rename nState_0_5 "nState_0[5]") (joined
-           (portRef (member nstate_0 0))
-           (portRef B (instanceRef wb_adr_i_i_o2_0_0))
-          ))
-          (net N_33 (joined
-           (portRef Z (instanceRef wb_adr_i_i_o2_6))
-           (portRef N_33 (instanceRef efb_i2c_Inst0))
+          (net N_34 (joined
+           (portRef Z (instanceRef wb_dat_i_i_o2_7))
+           (portRef N_34 (instanceRef efb_i2c_Inst0))
           ))
           (net (rename cState_0_0 "cState_0[0]") (joined
-           (portRef cState_0_0)
+           (portRef (member cstate_0 2))
            (portRef (member cstate_0 2) (instanceRef efb_i2c_Inst0))
           ))
-          (net (rename cState_0_1 "cState_0[1]") (joined
-           (portRef cState_0_1)
-           (portRef (member cstate_0 1) (instanceRef efb_i2c_Inst0))
-          ))
           (net (rename cState_0_2 "cState_0[2]") (joined
-           (portRef cState_0_2)
+           (portRef (member cstate_0 0))
            (portRef (member cstate_0 0) (instanceRef efb_i2c_Inst0))
           ))
-          (net (rename cState_0_5 "cState_0[5]") (joined
-           (portRef cState_0_5)
-           (portRef (member cstate 1) (instanceRef efb_i2c_Inst0))
+          (net (rename cState_0_1 "cState_0[1]") (joined
+           (portRef (member cstate_0 1))
+           (portRef (member cstate 5) (instanceRef efb_i2c_Inst0))
           ))
           (net scl (joined
            (portRef scl (instanceRef efb_i2c_Inst0))
@@ -1852,17 +1861,17 @@
            (portRef un1_cState_3 (instanceRef efb_i2c_Inst0))
            (portRef un1_cState_3)
           ))
-          (net i2c_addr3 (joined
-           (portRef i2c_addr3 (instanceRef efb_i2c_Inst0))
-           (portRef i2c_addr3)
+          (net i2c_data_i4 (joined
+           (portRef i2c_data_i4 (instanceRef efb_i2c_Inst0))
+           (portRef i2c_data_i4)
           ))
           (net un1_i2c_ack_0_a2 (joined
            (portRef un1_i2c_ack_0_a2 (instanceRef efb_i2c_Inst0))
            (portRef un1_i2c_ack_0_a2)
           ))
-          (net un1_i2c_addr5_0 (joined
-           (portRef un1_i2c_addr5_0 (instanceRef efb_i2c_Inst0))
-           (portRef un1_i2c_addr5_0)
+          (net un1_i2c_data_i6_0 (joined
+           (portRef un1_i2c_data_i6_0 (instanceRef efb_i2c_Inst0))
+           (portRef un1_i2c_data_i6_0)
           ))
          )
         (property orig_inst_of (string "wb_manager"))
@@ -2019,8 +2028,8 @@
            (portRef CK (instanceRef nState_1__res_lat))
            (portRef PD (instanceRef nState_1__res_reg_0))
           ))
-          (net un1_i2c_addr5_0 (joined
-           (portRef un1_i2c_addr5_0 (instanceRef wb_manager_inst))
+          (net un1_i2c_data_i6_0 (joined
+           (portRef un1_i2c_data_i6_0 (instanceRef wb_manager_inst))
            (portRef CK (instanceRef nState_0__res_lat))
           ))
           (net (rename sys_clkkeep_0 "sys_clk") (joined
@@ -2037,74 +2046,66 @@
           ))
           (net (rename cState_1 "cState[1]") (joined
            (portRef Q (instanceRef cState_0_1))
-           (portRef cState_0_1 (instanceRef wb_manager_inst))
+           (portRef (member cstate_0 1) (instanceRef wb_manager_inst))
           ))
           (net (rename nState_1 "nState[1]") (joined
            (portRef Z (instanceRef nState_1__res_lat_RNIOI4A))
            (portRef D (instanceRef cState_0_1))
           ))
-          (net i2c_addr3 (joined
-           (portRef i2c_addr3 (instanceRef wb_manager_inst))
+          (net i2c_data_i4 (joined
+           (portRef i2c_data_i4 (instanceRef wb_manager_inst))
            (portRef CD (instanceRef nState_0__res_lat))
            (portRef CD (instanceRef nState_0__res_reg))
           ))
           (net (rename i2c_controller_inst_cState_6 "i2c_controller_inst.cState[6]") (joined
            (portRef cState_4 (instanceRef i2c_controller_inst))
-           (portRef cState_0_d0 (instanceRef wb_manager_inst))
+           (portRef cState_5 (instanceRef wb_manager_inst))
           ))
           (net (rename i2c_controller_inst_cState_2 "i2c_controller_inst.cState[2]") (joined
            (portRef cState_0_d0 (instanceRef i2c_controller_inst))
-           (portRef cState_0_2 (instanceRef wb_manager_inst))
-          ))
-          (net (rename i2c_controller_inst_cState_5 "i2c_controller_inst.cState[5]") (joined
-           (portRef cState_3 (instanceRef i2c_controller_inst))
-           (portRef cState_0_5 (instanceRef wb_manager_inst))
+           (portRef (member cstate_0 0) (instanceRef wb_manager_inst))
           ))
           (net (rename i2c_controller_inst_nState_5 "i2c_controller_inst.nState[5]") (joined
            (portRef (member nstate 0) (instanceRef i2c_controller_inst))
-           (portRef (member nstate_0 0) (instanceRef wb_manager_inst))
+           (portRef (member nstate 0) (instanceRef wb_manager_inst))
           ))
           (net (rename i2c_controller_inst_nState_4 "i2c_controller_inst.nState[4]") (joined
            (portRef (member nstate 1) (instanceRef i2c_controller_inst))
-           (portRef (member nstate_0 1) (instanceRef wb_manager_inst))
+           (portRef (member nstate 1) (instanceRef wb_manager_inst))
           ))
           (net (rename i2c_controller_inst_nState_3 "i2c_controller_inst.nState[3]") (joined
            (portRef (member nstate 2) (instanceRef i2c_controller_inst))
-           (portRef (member nstate_0 2) (instanceRef wb_manager_inst))
+           (portRef nState_0_3 (instanceRef wb_manager_inst))
           ))
           (net (rename i2c_controller_inst_nState_2 "i2c_controller_inst.nState[2]") (joined
            (portRef (member nstate 3) (instanceRef i2c_controller_inst))
-           (portRef (member nstate_0 3) (instanceRef wb_manager_inst))
+           (portRef (member nstate 3) (instanceRef wb_manager_inst))
           ))
           (net (rename i2c_controller_inst_nState_1 "i2c_controller_inst.nState[1]") (joined
            (portRef (member nstate 4) (instanceRef i2c_controller_inst))
-           (portRef (member nstate_0 4) (instanceRef wb_manager_inst))
+           (portRef (member nstate 4) (instanceRef wb_manager_inst))
           ))
           (net (rename i2c_controller_inst_nState_0 "i2c_controller_inst.nState[0]") (joined
            (portRef (member nstate 5) (instanceRef i2c_controller_inst))
-           (portRef (member nstate_0 5) (instanceRef wb_manager_inst))
+           (portRef nState_0_0 (instanceRef wb_manager_inst))
           ))
-          (net (rename wb_manager_inst_nState_1_sqmuxa "wb_manager_inst.nState_1_sqmuxa") (joined
-           (portRef nState_1_sqmuxa (instanceRef wb_manager_inst))
-           (portRef nState_1_sqmuxa (instanceRef i2c_controller_inst))
+          (net (rename wb_manager_inst_cState_1 "wb_manager_inst.cState[1]") (joined
+           (portRef cState_0_d0 (instanceRef wb_manager_inst))
+           (portRef (member cstate_0 0) (instanceRef i2c_controller_inst))
           ))
           (net (rename cState_0_0 "cState_0[0]") (joined
            (portRef Q (instanceRef cState_0_0))
-           (portRef cState_0_0 (instanceRef i2c_controller_inst))
-           (portRef cState_0_0 (instanceRef wb_manager_inst))
+           (portRef (member cstate_0 1) (instanceRef i2c_controller_inst))
+           (portRef (member cstate_0 2) (instanceRef wb_manager_inst))
            (portRef A (instanceRef nState_1__res_lat_RNO))
           ))
-          (net N_34i (joined
-           (portRef N_34i (instanceRef wb_manager_inst))
-           (portRef N_34i (instanceRef i2c_controller_inst))
+          (net N_38i (joined
+           (portRef N_38i (instanceRef wb_manager_inst))
+           (portRef N_38i (instanceRef i2c_controller_inst))
           ))
-          (net N_36_reti (joined
-           (portRef N_36_reti (instanceRef wb_manager_inst))
-           (portRef N_36_reti (instanceRef i2c_controller_inst))
-          ))
-          (net N_35_reti (joined
-           (portRef N_35_reti (instanceRef wb_manager_inst))
-           (portRef N_35_reti (instanceRef i2c_controller_inst))
+          (net N_39_reti (joined
+           (portRef N_39_reti (instanceRef wb_manager_inst))
+           (portRef N_39_reti (instanceRef i2c_controller_inst))
           ))
           (net VCC (joined
            (portRef Z (instanceRef VCC))

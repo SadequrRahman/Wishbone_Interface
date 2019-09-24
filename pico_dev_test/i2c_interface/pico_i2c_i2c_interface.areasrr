@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------
 Report for cell top_module.sample_arch
 
-Register bits: 40 of 1280 (3%)
+Register bits: 41 of 1280 (3%)
 Latch bits:      17
 PIC Latch:       0
 I/O cells:       5
@@ -16,12 +16,12 @@ I/O cells:       5
                              FD1S1B        1       100.0
                              FD1S1D        3       100.0
                             FD1S3BX        2       100.0
-                            FD1S3DX       22       100.0
+                            FD1S3DX       23       100.0
                                 GSR        1       100.0
                                  IB        1       100.0
                                 INV        3       100.0
                                  OB        2       100.0
-                           ORCALUT4       36       100.0
+                           ORCALUT4       37       100.0
                                OSCH        1       100.0
                                 PUR        1       100.0
                                 VHI        6       100.0
@@ -33,7 +33,7 @@ SUB MODULES
                             timeout        1       100.0
                          wb_manager        1       100.0
                             
-                         TOTAL           131           
+                         TOTAL           133           
 ----------------------------------------------------------------------
 Report for cell i2c_master_controller.netlist
      Instance path:  i2c_controller_inst
@@ -42,8 +42,8 @@ Report for cell i2c_master_controller.netlist
                              FD1S1A        6        54.5
                             FD1S1AY        1        50.0
                             FD1S3BX        1        50.0
-                            FD1S3DX        7        31.8
-                           ORCALUT4        2         5.6
+                            FD1S3DX        7        30.4
+                           ORCALUT4        2         5.4
                                 VHI        1        16.7
                                 VLO        1        16.7
                             
@@ -60,15 +60,15 @@ Report for cell wb_manager.netlist
                              FD1S1A        5        45.5
                             FD1S1AY        1        50.0
                             FD1S3BX        1        50.0
-                            FD1S3DX        9        40.9
-                           ORCALUT4       29        80.6
+                            FD1S3DX       10        43.5
+                           ORCALUT4       30        81.1
                                 VHI        3        50.0
                                 VLO        3        50.0
 SUB MODULES 
                        efb_i2c_VHDL        1       100.0
                             timeout        1       100.0
                             
-                         TOTAL            81           
+                         TOTAL            83           
 ----------------------------------------------------------------------
 Report for cell timeout.netlist
      Instance path:  wb_manager_inst.timeoutIns
@@ -76,7 +76,7 @@ Report for cell timeout.netlist
                                cell       count    Res Usage(%)
                               CCU2D        9       100.0
                             FD1P3DX       16       100.0
-                           ORCALUT4        2         5.6
+                           ORCALUT4        2         5.4
                                 VHI        1        16.7
                                 VLO        1        16.7
                             
@@ -88,20 +88,20 @@ Report for cell efb_i2c_VHDL.netlist
                                cell       count    Res Usage(%)
                                  BB        2       100.0
                                 EFB        1       100.0
-                            FD1S3DX        1         4.5
-                           ORCALUT4       12        33.3
+                            FD1S3DX        1         4.3
+                           ORCALUT4       13        35.1
                                 VHI        1        16.7
                                 VLO        1        16.7
                             
-                         TOTAL            18           
+                         TOTAL            19           
 ----------------------------------------------------------------------
 Report for cell HeartBeat.netlist
      Instance path:  HeartBeatInst0
                                           Cell usage:
                                cell       count    Res Usage(%)
-                            FD1S3DX        4        18.2
+                            FD1S3DX        4        17.4
                                 INV        1        33.3
-                           ORCALUT4        3         8.3
+                           ORCALUT4        3         8.1
                                 VHI        1        16.7
                                 VLO        1        16.7
                             

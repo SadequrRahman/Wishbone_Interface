@@ -69,6 +69,7 @@ signal we	  : std_logic := '0';
 
 begin
 	
+	
 	process(clk, rst_n)
 	begin
 		if rst_n = '0' then 
@@ -86,7 +87,7 @@ begin
 	begin
 		wbm_addr <= (others => '0');
 		wbm_data_i <= (others => '0');
-		wbm_option <= (others => '0');
+		wbm_option <= (others => 'Z');
 		case (cState) is
 			when IDLE =>
 			when LOAD_ADDR =>
@@ -121,6 +122,7 @@ begin
 	next_state_logic : process(cState, wbm_status(5), enable)
 	begin
 		ack_o <= '0';
+		wbm_option <= (others => 'Z');
 		case (cState) is
 			when IDLE =>
 				if enable = '1' then
@@ -129,6 +131,7 @@ begin
 			when LOAD_ADDR =>
 				if wbm_status(5) = '1' then 
 					nState <= SEND_ADDR;
+					wbm_option <= x"00";
 				end if;
 			when SEND_ADDR =>
 				if wbm_status(5) = '1' then 

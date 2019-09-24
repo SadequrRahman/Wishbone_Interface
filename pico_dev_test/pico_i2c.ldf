@@ -23,7 +23,7 @@
         <Source name="HeartBeat.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
-        <Source name="top_level_tb.vhd" type="VHDL" type_short="VHDL" excluded="TRUE" syn_sim="SimOnly">
+        <Source name="top_level_tb.vhd" type="VHDL" type_short="VHDL" syn_sim="SimOnly">
             <Options/>
         </Source>
         <Source name="wb_manager_tb.vhd" type="VHDL" type_short="VHDL" excluded="TRUE" syn_sim="SimOnly">

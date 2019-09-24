@@ -1,4 +1,4 @@
-# Mon Sep 23 15:01:44 2019
+# Tue Sep 24 13:51:42 2019
 
 Synopsys Lattice Technology Mapper, Version maplat, Build 1796R, Built Aug  4 2017 11:10:16
 Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated documentation are proprietary to Synopsys, Inc. and may only be used pursuant to the terms and conditions of a written license agreement with Synopsys, Inc. All other use, reproduction, modification, or distribution of the Synopsys software or the associated documentation is strictly prohibited.
@@ -39,7 +39,7 @@ Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00
 @N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|Removing sequential instance status_1[6] (in view: work.wb_manager(rtl)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
 @N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|Removing sequential instance status_1[4] (in view: work.wb_manager(rtl)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
 
-Starting factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 139MB peak: 141MB)
+Starting factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
 
 
 Finished factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
@@ -48,17 +48,17 @@ Finished factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; M
 Starting gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
 
 @N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|Removing sequential instance wb_manager_inst.status_0[5] (in view: work.top_module(sample_arch)) because it does not drive other instances.
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":74:2:74:3|Removing sequential instance i2c_controller_inst.cState_0[0] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":75:2:75:3|Removing sequential instance i2c_controller_inst.cState_0[0] (in view: work.top_module(sample_arch)) because it does not drive other instances.
 @N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|Removing sequential instance wb_manager_inst.status[5] (in view: work.top_module(sample_arch)) because it does not drive other instances.
 @N: BN362 :"d:\workingdir\fpga\pico_dev_test\top_level.vhd":144:2:144:3|Removing sequential instance cState[0] (in view: work.top_module(sample_arch)) because it does not drive other instances.
 @N: BN362 :"d:\workingdir\fpga\pico_dev_test\top_level.vhd":144:2:144:3|Removing sequential instance cState[1] (in view: work.top_module(sample_arch)) because it does not drive other instances.
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":74:2:74:3|Removing sequential instance i2c_controller_inst.cState[1] (in view: work.top_module(sample_arch)) because it does not drive other instances.
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":74:2:74:3|Removing sequential instance i2c_controller_inst.cState[2] (in view: work.top_module(sample_arch)) because it does not drive other instances.
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":74:2:74:3|Removing sequential instance i2c_controller_inst.cState[3] (in view: work.top_module(sample_arch)) because it does not drive other instances.
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":74:2:74:3|Removing sequential instance i2c_controller_inst.cState[4] (in view: work.top_module(sample_arch)) because it does not drive other instances.
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":74:2:74:3|Removing sequential instance i2c_controller_inst.cState[5] (in view: work.top_module(sample_arch)) because it does not drive other instances.
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":74:2:74:3|Removing sequential instance i2c_controller_inst.cState[6] (in view: work.top_module(sample_arch)) because it does not drive other instances.
-@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":74:2:74:3|Removing sequential instance i2c_controller_inst.cState[0] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":75:2:75:3|Removing sequential instance i2c_controller_inst.cState[2] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":75:2:75:3|Removing sequential instance i2c_controller_inst.cState[3] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":75:2:75:3|Removing sequential instance i2c_controller_inst.cState[4] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":75:2:75:3|Removing sequential instance i2c_controller_inst.cState[5] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":75:2:75:3|Removing sequential instance i2c_controller_inst.cState[6] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":75:2:75:3|Removing sequential instance i2c_controller_inst.cState[0] (in view: work.top_module(sample_arch)) because it does not drive other instances.
+@N: BN362 :"d:\workingdir\fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":75:2:75:3|Removing sequential instance i2c_controller_inst.cState[1] (in view: work.top_module(sample_arch)) because it does not drive other instances.
 @N: BN362 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|Removing sequential instance wb_manager_inst.status_1[5] (in view: work.top_module(sample_arch)) because it does not drive other instances.
 
 Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
@@ -83,7 +83,7 @@ Finished technology mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:0
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
-   1		0h:00m:00s		   995.40ns		  38 /        40
+   1		0h:00m:00s		   995.40ns		  39 /        41
 
 Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 141MB)
 
@@ -103,18 +103,18 @@ Finished restoring hierarchy (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:
 #### START OF CLOCK OPTIMIZATION REPORT #####[
 
 0 non-gated/non-generated clock tree(s) driving 0 clock pin(s) of sequential element(s)
-5 gated/generated clock tree(s) driving 57 clock pin(s) of sequential element(s)
-0 instances converted, 57 sequential instances remain driven by gated/generated clocks
+5 gated/generated clock tree(s) driving 58 clock pin(s) of sequential element(s)
+0 instances converted, 58 sequential instances remain driven by gated/generated clocks
 
-====================================================================================== Gated/Generated Clocks =======================================================================================
-Clock Tree ID     Driving Element                                   Drive Element Type     Fanout     Sample Instance                   Explanation                                                  
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-@K:CKID0001       OSCInst0                                          OSCH                   40         cState_0[0]                       No gated clock conversion method for cell cell:LUCENT.FD1S3DX
-@K:CKID0002       i2c_controller_inst.cState_ret_1_RNII1AO          ORCALUT4               7          i2c_controller_inst.nState[0]     No clocks found on inputs                                    
-@K:CKID0003       wb_manager_inst.nState_1_sqmuxa_4_i               ORCALUT4               6          wb_manager_inst.nState[0]         No clocks found on inputs                                    
-@K:CKID0004       wb_manager_inst.efb_i2c_Inst0.un1_cState_3        ORCALUT4               3          nState_0_.res_reg                 No clocks found on inputs                                    
-@K:CKID0005       wb_manager_inst.efb_i2c_Inst0.un1_i2c_addr5_0     ORCALUT4               1          nState_0_.res_lat                 No clocks found on inputs                                    
-=====================================================================================================================================================================================================
+======================================================================================= Gated/Generated Clocks ========================================================================================
+Clock Tree ID     Driving Element                                     Drive Element Type     Fanout     Sample Instance                   Explanation                                                  
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+@K:CKID0001       OSCInst0                                            OSCH                   41         cState_0[0]                       No gated clock conversion method for cell cell:LUCENT.FD1S3DX
+@K:CKID0002       i2c_controller_inst.cState_ret_1_RNII1AO            ORCALUT4               7          i2c_controller_inst.nState[0]     No clocks found on inputs                                    
+@K:CKID0003       wb_manager_inst.nState_1_sqmuxa_4_i                 ORCALUT4               6          wb_manager_inst.nState[0]         No clocks found on inputs                                    
+@K:CKID0004       wb_manager_inst.efb_i2c_Inst0.un1_cState_3          ORCALUT4               3          nState_0_.res_reg                 No clocks found on inputs                                    
+@K:CKID0005       wb_manager_inst.efb_i2c_Inst0.un1_i2c_data_i6_0     ORCALUT4               1          nState_0_.res_lat                 No clocks found on inputs                                    
+=======================================================================================================================================================================================================
 
 
 ##### END OF CLOCK OPTIMIZATION REPORT ######]
@@ -140,7 +140,7 @@ Start final timing analysis (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:0
 
 
 ##### START OF TIMING REPORT #####[
-# Timing Report written on Mon Sep 23 15:01:46 2019
+# Timing Report written on Tue Sep 24 13:51:43 2019
 #
 
 
@@ -312,7 +312,7 @@ Finished timing report (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01
 Resource Usage Report
 Part: lcmxo2_1200ze-1
 
-Register bits: 40 of 1280 (3%)
+Register bits: 41 of 1280 (3%)
 Latch bits:      17
 PIC Latch:       0
 I/O cells:       5
@@ -327,12 +327,12 @@ FD1S1AY:        2
 FD1S1B:         1
 FD1S1D:         3
 FD1S3BX:        2
-FD1S3DX:        22
+FD1S3DX:        23
 GSR:            1
 IB:             1
 INV:            3
 OB:             2
-ORCALUT4:       36
+ORCALUT4:       37
 OSCH:           1
 PUR:            1
 VHI:            6
@@ -342,6 +342,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 30MB peak: 145MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Mon Sep 23 15:01:46 2019
+# Tue Sep 24 13:51:43 2019
 
 ###########################################################]

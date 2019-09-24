@@ -15,20 +15,20 @@ Target Vendor:  LATTICE
 Target Device:  LCMXO2-1200ZETQFP144
 Target Performance:   1
 Mapper:  xo2c00,  version:  Diamond (64-bit) 3.10.3.144
-Mapped on:  09/23/19  15:01:48
+Mapped on:  09/24/19  13:43:11
 
 Design Summary
 --------------
 
-   Number of registers:     57 out of  1604 (4%)
-      PFU registers:           57 out of  1280 (4%)
+   Number of registers:     58 out of  1604 (4%)
+      PFU registers:           58 out of  1280 (5%)
       PIO registers:            0 out of   324 (0%)
-   Number of SLICEs:        33 out of   640 (5%)
-      SLICEs as Logic/ROM:     33 out of   640 (5%)
+   Number of SLICEs:        34 out of   640 (5%)
+      SLICEs as Logic/ROM:     34 out of   640 (5%)
       SLICEs as RAM:            0 out of   480 (0%)
       SLICEs as Carry:          9 out of   640 (1%)
-   Number of LUT4s:         59 out of  1280 (5%)
-      Number used as logic LUTs:         41
+   Number of LUT4s:         60 out of  1280 (5%)
+      Number used as logic LUTs:         42
       Number used as distributed RAM:     0
       Number used as ripple logic:       18
       Number used as shift registers:     0
@@ -58,19 +58,19 @@ Design Summary
       2. Number of logic LUT4s does not include count of distributed RAM and
      ripple logic.
    Number of clocks:  7
-     Net sys_clk: 23 loads, 23 rising, 0 falling (Driver: OSCInst0 )
-     Net un1_i2c_addr5_0: 1 loads, 1 rising, 0 falling (Driver:
+     Net sys_clk: 24 loads, 24 rising, 0 falling (Driver: OSCInst0 )
+     Net un1_i2c_data_i6_0: 1 loads, 1 rising, 0 falling (Driver:
 
                                     Page 1
 
 
 
 
-Design:  top_module                                    Date:  09/23/19  15:01:48
+Design:  top_module                                    Date:  09/24/19  13:43:11
 
 Design Summary (cont)
 ---------------------
-     wb_manager_inst/efb_i2c_Inst0/un1_i2c_addr5_0 )
+     wb_manager_inst/efb_i2c_Inst0/un1_i2c_data_i6_0 )
      Net un1_cState_3: 2 loads, 2 rising, 0 falling (Driver:
      wb_manager_inst/efb_i2c_Inst0/un1_cState_3 )
      Net un1_i2c_ack_0_a2: 1 loads, 1 rising, 0 falling (Driver:
@@ -82,26 +82,26 @@ Design Summary (cont)
      Net wb_manager_inst/efb_i2c_Inst0/i2c1_scli: 1 loads, 1 rising, 0 falling
      (Driver: PIO scl )
    Number of Clock Enables:  1
-     Net wb_manager_inst/N_41_1_i: 9 loads, 9 LSLICEs
-   Number of local set/reset loads for net rst_n_c merged into GSR:  24
+     Net wb_manager_inst/N_40_1_i: 9 loads, 9 LSLICEs
+   Number of local set/reset loads for net rst_n_c merged into GSR:  25
    Number of LSRs:  5
      Net rst_n_c: 1 loads, 0 LSLICEs
-     Net i2c_addr3: 2 loads, 2 LSLICEs
+     Net i2c_data_i4: 2 loads, 2 LSLICEs
      Net un1_i2c_ack_0_a2: 1 loads, 1 LSLICEs
      Net cState_0[0]: 1 loads, 1 LSLICEs
-     Net wb_manager_inst/N_41_1: 9 loads, 9 LSLICEs
+     Net wb_manager_inst/N_40_1: 9 loads, 9 LSLICEs
    Number of nets driven by tri-state buffers:  0
    Top 10 highest fanout non-clock nets:
-     Net wb_manager_inst/N_41_1_i: 11 loads
+     Net wb_manager_inst/N_40_1_i: 11 loads
      Net i2c_controller_inst.cState[6]: 10 loads
-     Net wb_manager_inst/N_41_1: 9 loads
-     Net cState_0[0]: 7 loads
+     Net cState_0[0]: 9 loads
+     Net wb_manager_inst/N_40_1: 9 loads
      Net wb_manager_inst/cState[2]: 7 loads
      Net wb_manager_inst/cState[3]: 7 loads
-     Net wb_manager_inst/N_33: 5 loads
+     Net wb_manager_inst/N_35: 6 loads
      Net cState[1]: 4 loads
-     Net wb_manager_inst/cState[1]: 4 loads
-     Net wb_manager_inst/cState[4]: 4 loads
+     Net i2c_controller_inst.cState[2]: 4 loads
+     Net wb_manager_inst.cState[1]: 4 loads
 
 
 
@@ -132,7 +132,7 @@ WARNING - map: D:/WorkingDir/Fpga/pico_dev_test/pico_i2c.lpf(15): Semantic error
 
 
 
-Design:  top_module                                    Date:  09/23/19  15:01:48
+Design:  top_module                                    Date:  09/24/19  13:43:11
 
 Design Errors/Warnings (cont)
 -----------------------------
@@ -176,9 +176,9 @@ Block i2c_controller_inst/VCC undriven or does not drive anything - clipped.
 Signal cState_0_i[0] was merged into signal cState_0[0]
 Signal rst_n_c_i was merged into signal rst_n_c
 Signal GND undriven or does not drive anything - clipped.
-Signal wb_manager_inst/efb_i2c_Inst0/VCC undriven or does not drive anything -
-     clipped.
 Signal wb_manager_inst/efb_i2c_Inst0/GND undriven or does not drive anything -
+     clipped.
+Signal wb_manager_inst/efb_i2c_Inst0/VCC undriven or does not drive anything -
      clipped.
 Signal wb_manager_inst/timeoutIns/GND undriven or does not drive anything -
      clipped.
@@ -198,7 +198,7 @@ Signal wb_manager_inst/efb_i2c_Inst0/TCINT undriven or does not drive anything -
 
 
 
-Design:  top_module                                    Date:  09/23/19  15:01:48
+Design:  top_module                                    Date:  09/24/19  13:43:11
 
 Removed logic (cont)
 --------------------
@@ -264,7 +264,7 @@ Signal wb_manager_inst/efb_i2c_Inst0/PLLDATO5 undriven or does not drive
 
 
 
-Design:  top_module                                    Date:  09/23/19  15:01:48
+Design:  top_module                                    Date:  09/24/19  13:43:11
 
 Removed logic (cont)
 --------------------
@@ -320,8 +320,8 @@ Signal stdby_sed undriven or does not drive anything - clipped.
 Block nState_1_.res_lat_RNO was optimized away.
 Block rst_n_pad_RNIQR5E was optimized away.
 Block GND was optimized away.
-Block wb_manager_inst/efb_i2c_Inst0/VCC was optimized away.
 Block wb_manager_inst/efb_i2c_Inst0/GND was optimized away.
+Block wb_manager_inst/efb_i2c_Inst0/VCC was optimized away.
 Block wb_manager_inst/timeoutIns/GND was optimized away.
 
 
@@ -330,7 +330,7 @@ Block wb_manager_inst/timeoutIns/GND was optimized away.
 
 
 
-Design:  top_module                                    Date:  09/23/19  15:01:48
+Design:  top_module                                    Date:  09/24/19  13:43:11
 
 Memory Usage
 ------------
@@ -396,7 +396,7 @@ Embedded Functional Block Connection Summary:
 
 
 
-Design:  top_module                                    Date:  09/23/19  15:01:48
+Design:  top_module                                    Date:  09/24/19  13:43:11
 
 Embedded Functional Block Connection Summary: (cont)
 ----------------------------------------------------

@@ -3,7 +3,7 @@ Running in Lattice mode
 Starting:    C:\lscc\diamond\3.10_x64\synpbase\bin64\mbin\synbatch.exe
 Install:     C:\lscc\diamond\3.10_x64\synpbase
 Hostname:    T5810JP
-Date:        Mon Sep 23 14:16:46 2019
+Date:        Tue Sep 24 13:19:33 2019
 Version:     M-2017.03L-SP1-1
 
 Arguments:   -product synplify_pro -batch pico_i2c_i2c_interface_synplify.tcl
@@ -18,7 +18,7 @@ Running: hdl_info_gen in foreground
 Generating HDL info...
 
 hdl_info_gen completed
-# Mon Sep 23 14:16:47 2019
+# Tue Sep 24 13:19:34 2019
 
 Return Code: 0
 Run Time:00h:00m:01s
@@ -29,62 +29,32 @@ Running: i2c_interface in foreground
 Running proj_1|i2c_interface
 
 Running: compile (Compile) on proj_1|i2c_interface
-# Mon Sep 23 14:16:47 2019
+# Tue Sep 24 13:19:34 2019
 
 Running: compile_flow (Compile Process) on proj_1|i2c_interface
-# Mon Sep 23 14:16:47 2019
+# Tue Sep 24 13:19:34 2019
 
 Running: compiler (Compile Input) on proj_1|i2c_interface
-# Mon Sep 23 14:16:47 2019
-Copied D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\synwork\pico_i2c_i2c_interface_comp.srs to D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.srs
+# Tue Sep 24 13:19:34 2019
+compiler exited with errors
+Job failed on: proj_1|i2c_interface
 
-compiler completed
-# Mon Sep 23 14:16:49 2019
+Job: "compiler" terminated with error status: 2
+See log file: "D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\synlog\pico_i2c_i2c_interface_compiler.srr"
+# Tue Sep 24 13:19:35 2019
 
-Return Code: 0
-Run Time:00h:00m:02s
-
-Running: multi_srs_gen (Multi-srs Generator) on proj_1|i2c_interface
-# Mon Sep 23 14:16:49 2019
-
-multi_srs_gen completed
-# Mon Sep 23 14:16:49 2019
-
-Return Code: 0
-Run Time:00h:00m:00s
-Copied D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\synwork\pico_i2c_i2c_interface_mult.srs to D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.srs
-Copied D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.srr to D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.srf
-Complete: Compile Process on proj_1|i2c_interface
-
-Running: premap (Pre-mapping) on proj_1|i2c_interface
-# Mon Sep 23 14:16:49 2019
-
-premap completed with warnings
-# Mon Sep 23 14:16:50 2019
-
-Return Code: 1
+Return Code: 2
 Run Time:00h:00m:01s
+Complete: Compile Process on proj_1|i2c_interface
 Complete: Compile on proj_1|i2c_interface
-
-Running: map (Map) on proj_1|i2c_interface
-# Mon Sep 23 14:16:50 2019
-License granted for 4 parallel jobs
-
-Running: fpga_mapper (Map & Optimize) on proj_1|i2c_interface
-# Mon Sep 23 14:16:50 2019
-Copied D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\synwork\pico_i2c_i2c_interface_m.srm to D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.srm
-
-fpga_mapper completed with warnings
-# Mon Sep 23 14:16:52 2019
-
-Return Code: 1
-Run Time:00h:00m:02s
-Complete: Map on proj_1|i2c_interface
-Copied D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.srr to D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.srf
 Complete: Logic Synthesis on proj_1|i2c_interface
+Copied D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.srr to D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\pico_i2c_i2c_interface.srf
+Error: At line 68 while processing "pico_i2c_i2c_interface_synplify.tcl"
+2
 TCL script complete: "pico_i2c_i2c_interface_synplify.tcl"
-exit status=0
-exit status=0
+TCL script had errors: "pico_i2c_i2c_interface_synplify.tcl"
+exit status=9
+exit status=9
 Save changes for project:
 D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\proj_1.prj
 batch mode default:no

@@ -52,6 +52,6 @@ Global=
 [SpecTracer]
 WindowVisible=0
 [HierarchyViewer]
-HierarchyInformation=top_level_tb|rtl|0 
+HierarchyInformation=top_level_tb|rtl|0  
 ShowHide=ShowTopLevel
 Selected=

@@ -1,10 +1,10 @@
 @W: CG296 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":142:1:142:7|Incomplete sensitivity list; assuming completeness. Make sure all referenced variables in message CG290 are included in the sensitivity list.
 @W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":144:5:144:9|Referenced variable rst_n is not in sensitivity list.
-@W: CG296 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":85:16:85:22|Incomplete sensitivity list; assuming completeness. Make sure all referenced variables in message CG290 are included in the sensitivity list.
-@W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":94:18:94:23|Referenced variable addr_i is not in sensitivity list.
-@W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":106:18:106:23|Referenced variable data_i is not in sensitivity list.
+@W: CG296 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":86:16:86:22|Incomplete sensitivity list; assuming completeness. Make sure all referenced variables in message CG290 are included in the sensitivity list.
+@W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":95:18:95:23|Referenced variable addr_i is not in sensitivity list.
+@W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":107:18:107:23|Referenced variable data_i is not in sensitivity list.
 @W: CL240 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":15:2:15:7|Signal data_o is floating; a simulation mismatch is possible.
-@W: CL117 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":124:2:124:5|Latch generated from process for signal nState(0 to 6); possible missing assignment in an if or case statement.
+@W: CL117 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":126:2:126:5|Latch generated from process for signal nState(0 to 6); possible missing assignment in an if or case statement.
 @W: CG296 :"D:\WorkingDir\Fpga\pico_dev_test\timeout.vhd":28:8:28:14|Incomplete sensitivity list; assuming completeness. Make sure all referenced variables in message CG290 are included in the sensitivity list.
 @W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\timeout.vhd":33:27:33:28|Referenced variable en is not in sensitivity list.
 @W: CL113 :"D:\WorkingDir\Fpga\pico_dev_test\timeout.vhd":30:2:30:3|Feedback mux created for signal clk_counter[15:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
