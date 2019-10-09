@@ -62,7 +62,8 @@ constant I2C_SR_HGC : std_logic_vector (7 downto 0) := "00000001";			-- Hardware
 
 
 -- Enumerated type declaration and state signal declaration
-type state_t is (IDLE, LOAD_ADDR, SEND_ADDR, STOP_ADDR, LOAD_DATA, SEND_DATA, STOP_DATA);
+type state_t is (IDLE, LOAD_ADDR, SEND_ADDR, STOP_ADDR, LOAD_DATA, SEND_DATA, STOP_DATA, LOAD_ADDR_OPT_CLR, SEND_ADDR_OPT_CLR, STOP_ADDR_OPT_CLR
+				, LOAD_DATA_OPT_CLR, SEND_DATA_OPT_CLR);
 signal cState : state_t := IDLE;
 signal nState : state_t := IDLE;
 signal we	  : std_logic := '0';
@@ -87,42 +88,47 @@ begin
 	begin
 		wbm_addr <= (others => '0');
 		wbm_data_i <= (others => '0');
-		wbm_option <= (others => 'Z');
+		wbm_option <= (others => '0');
 		case (cState) is
 			when IDLE =>
 			when LOAD_ADDR =>
 				wbm_addr <= I2C1_TXDR;
 				wbm_data_i <= addr_i;
 				wbm_option <= x"03";
+			when LOAD_ADDR_OPT_CLR =>
 			when SEND_ADDR =>
 				wbm_addr <= I2C1_CMDR;
 				wbm_data_i <= x"94";
 				wbm_option <= x"03";
+			when SEND_ADDR_OPT_CLR =>
 			when STOP_ADDR =>
 				wbm_addr <= I2C1_CMDR;
 				wbm_data_i <= x"44";
 				wbm_option <= x"03";
+			when STOP_ADDR_OPT_CLR =>
 			when LOAD_DATA =>
 				wbm_addr <= I2C1_TXDR;
 				wbm_data_i <= data_i;
 				wbm_option <= x"03";
+			when LOAD_DATA_OPT_CLR =>
+				wbm_addr <= I2C1_TXDR;
+				wbm_data_i <= data_i;
 			when SEND_DATA =>
 				wbm_addr <= I2C1_CMDR;
 				wbm_data_i <= x"94";
 				wbm_option <= x"03";
+			when SEND_DATA_OPT_CLR =>
 			when STOP_DATA =>
 				wbm_addr <= I2C1_CMDR;
 				wbm_data_i <= x"44";
 				wbm_option <= x"03";
 		end case; 
-	
 	end process output_logic;
 	
 	
 	next_state_logic : process(cState, wbm_status(5), enable)
 	begin
 		ack_o <= '0';
-		wbm_option <= (others => 'Z');
 		case (cState) is
 			when IDLE =>
 				if enable = '1' then
@@ -130,31 +136,39 @@ begin
 				end if;
 			when LOAD_ADDR =>
 				if wbm_status(5) = '1' then 
-					nState <= SEND_ADDR;
-					wbm_option <= x"00";
+					nState <= LOAD_ADDR_OPT_CLR;
 				end if;
+			when LOAD_ADDR_OPT_CLR =>
+				nState <= SEND_ADDR;
 			when SEND_ADDR =>
 				if wbm_status(5) = '1' then 
-					nState <= STOP_ADDR;
+					nState <= SEND_ADDR_OPT_CLR;
 				end if;
+			when SEND_ADDR_OPT_CLR =>
+				nState <= STOP_ADDR;
 			when STOP_ADDR =>
 				if wbm_status(5) = '1' then 
-					nState <= LOAD_DATA;
+					nState <= STOP_ADDR_OPT_CLR;
 				end if;
+			when STOP_ADDR_OPT_CLR =>
+				nState <= LOAD_DATA;
 			when LOAD_DATA =>
 				if wbm_status(5) = '1' then 
-					nState <= SEND_DATA;
+					nState <= LOAD_DATA_OPT_CLR;
 				end if;
+			when LOAD_DATA_OPT_CLR =>
+				nState <= SEND_DATA;
 			when SEND_DATA =>
 				if wbm_status(5) = '1' then 
-					nState <= STOP_DATA;
+					nState <= SEND_DATA_OPT_CLR;
 				end if;
+			when SEND_DATA_OPT_CLR =>
+				nState <= STOP_DATA;
 			when STOP_DATA =>
 				if wbm_status(5) = '1' then 
 					ack_o <= '1';
 					nState <= IDLE;
 				end if;
-				
 		end case; 
 	end process next_state_logic;
 	

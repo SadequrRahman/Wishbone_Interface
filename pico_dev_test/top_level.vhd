@@ -159,11 +159,11 @@ begin
 		case cState is
 			when S0 =>
 			when S1 =>
-				i2c_data_i <= x"F4";
+				i2c_data_i <= x"F2";
 				i2c_addr <= x"84";
 				i2c_enable <= '1';
 			when S2 =>
-			end case;
+		end case;
 	end process;
 	
 	-- next state logic

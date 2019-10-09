@@ -8,9 +8,9 @@ Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated
 
 @N: CD720 :"C:\lscc\diamond\3.10_x64\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ps
 @N:"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":8:7:8:16|Top entity is set to top_module.
-File D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd changed - recompiling
+File D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd changed - recompiling
 VHDL syntax check successful!
-File D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd changed - recompiling
+File D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd changed - recompiling
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":8:7:8:16|Synthesizing work.top_module.sample_arch.
 @N: CD233 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":88:14:88:15|Using sequential encoding for type state_t.
 @N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":2291:10:2291:13|Synthesizing work.osch.syn_black_box.
@@ -18,13 +18,13 @@ Post processing for work.osch.syn_black_box
 @W: CG296 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":142:1:142:7|Incomplete sensitivity list; assuming completeness. Make sure all referenced variables in message CG290 are included in the sensitivity list.
 @W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":144:5:144:9|Referenced variable rst_n is not in sensitivity list.
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":8:7:8:27|Synthesizing work.i2c_master_controller.beh_i2c_master_controller.
-@N: CD231 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":65:13:65:14|Using onehot encoding for type state_t. For example, enumeration idle is mapped to "1000000".
-@W: CG296 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":86:16:86:22|Incomplete sensitivity list; assuming completeness. Make sure all referenced variables in message CG290 are included in the sensitivity list.
-@W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":95:18:95:23|Referenced variable addr_i is not in sensitivity list.
-@W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":107:18:107:23|Referenced variable data_i is not in sensitivity list.
+@N: CD231 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":65:13:65:14|Using onehot encoding for type state_t. For example, enumeration idle is mapped to "100000000000".
+@W: CG296 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":87:16:87:22|Incomplete sensitivity list; assuming completeness. Make sure all referenced variables in message CG290 are included in the sensitivity list.
+@W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":96:18:96:23|Referenced variable addr_i is not in sensitivity list.
+@W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":111:18:111:23|Referenced variable data_i is not in sensitivity list.
 Post processing for work.i2c_master_controller.beh_i2c_master_controller
 @W: CL240 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":15:2:15:7|Signal data_o is floating; a simulation mismatch is possible.
-@W: CL117 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":126:2:126:5|Latch generated from process for signal nState(0 to 6); possible missing assignment in an if or case statement.
+@W: CL117 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":132:2:132:5|Latch generated from process for signal nState(0 to 11); possible missing assignment in an if or case statement.
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":10:7:10:16|Synthesizing work.wb_manager.rtl.
 @N: CD231 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":63:14:63:15|Using onehot encoding for type state_t. For example, enumeration idle is mapped to "100000".
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\timeout.vhd":7:7:7:13|Synthesizing work.timeout.rtl_timeout.
@@ -63,7 +63,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memor
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue Sep 24 13:51:39 2019
+# Wed Oct  9 16:59:46 2019
 
 ###########################################################]
 Synopsys Netlist Linker, version comp2017q2p1, Build 190R, built Aug  4 2017
@@ -75,7 +75,7 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue Sep 24 13:51:39 2019
+# Wed Oct  9 16:59:46 2019
 
 ###########################################################]
 @END
@@ -85,6 +85,6 @@ At c_hdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue Sep 24 13:51:39 2019
+# Wed Oct  9 16:59:46 2019
 
 ###########################################################]

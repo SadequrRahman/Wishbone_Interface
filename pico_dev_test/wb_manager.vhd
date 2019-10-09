@@ -118,7 +118,7 @@ begin
 		
 	-- timeout instance
 	timeoutIns : timeout
-	generic map( DEFAULT => 200 )
+	generic map( DEFAULT => 500 )
 	port map(
 		clk => clk_i,
 		rst => timeout_rst,

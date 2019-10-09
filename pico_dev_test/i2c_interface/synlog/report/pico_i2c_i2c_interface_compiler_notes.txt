@@ -6,7 +6,7 @@
 @N: CD233 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":88:14:88:15|Using sequential encoding for type state_t.
 @N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":2291:10:2291:13|Synthesizing work.osch.syn_black_box.
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":8:7:8:27|Synthesizing work.i2c_master_controller.beh_i2c_master_controller.
-@N: CD231 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":65:13:65:14|Using onehot encoding for type state_t. For example, enumeration idle is mapped to "1000000".
+@N: CD231 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":65:13:65:14|Using onehot encoding for type state_t. For example, enumeration idle is mapped to "100000000000".
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":10:7:10:16|Synthesizing work.wb_manager.rtl.
 @N: CD231 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":63:14:63:15|Using onehot encoding for type state_t. For example, enumeration idle is mapped to "100000".
 @N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\timeout.vhd":7:7:7:13|Synthesizing work.timeout.rtl_timeout.

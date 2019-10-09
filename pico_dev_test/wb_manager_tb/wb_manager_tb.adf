@@ -46,6 +46,6 @@ Global=
 [SpecTracer]
 WindowVisible=0
 [HierarchyViewer]
-HierarchyInformation=wb_manager_tb|behavior|0    
+HierarchyInformation=wb_manager_tb|behavior|0      
 ShowHide=ShowTopLevel
 Selected=
