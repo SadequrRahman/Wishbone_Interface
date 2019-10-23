@@ -1,0 +1,13 @@
+NOTE Copyright (C), 1992-2010, Lattice Semiconductor Corporation *
+NOTE All Rights Reserved *
+NOTE DATE CREATED: Mon Sep 23 15:01:58 2019 *
+NOTE DESIGN NAME: top_module *
+NOTE DEVICE NAME: LCMXO2-1200ZE-1TQFP144 *
+NOTE PIN ASSIGNMENTS *
+NOTE PINS enI2C : 39 : out *
+NOTE PINS rst_n : 42 : in *
+NOTE PINS scl : 126 : inout *
+NOTE PINS sda : 125 : inout *
+NOTE PINS heart_beat : 6 : out *
+NOTE CONFIGURATION MODE: NONE *
+NOTE COMPRESSION: on *

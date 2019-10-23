@@ -1,0 +1,90 @@
+Synopsys HDL Compiler, version comp2017q2p1, Build 190R, built Aug  4 2017
+@N|Running in 64-bit mode
+Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated documentation are proprietary to Synopsys, Inc. and may only be used pursuant to the terms and conditions of a written license agreement with Synopsys, Inc. All other use, reproduction, modification, or distribution of the Synopsys software or the associated documentation is strictly prohibited.
+
+Synopsys VHDL Compiler, version comp2017q2p1, Build 190R, built Aug  4 2017
+@N|Running in 64-bit mode
+Copyright (C) 1994-2017 Synopsys, Inc. This Synopsys software and all associated documentation are proprietary to Synopsys, Inc. and may only be used pursuant to the terms and conditions of a written license agreement with Synopsys, Inc. All other use, reproduction, modification, or distribution of the Synopsys software or the associated documentation is strictly prohibited.
+
+@N: CD720 :"C:\lscc\diamond\3.10_x64\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ps
+@N:"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":8:7:8:16|Top entity is set to top_module.
+File D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd changed - recompiling
+VHDL syntax check successful!
+File D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd changed - recompiling
+@N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":8:7:8:16|Synthesizing work.top_module.sample_arch.
+@N: CD233 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":88:14:88:15|Using sequential encoding for type state_t.
+@N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":2291:10:2291:13|Synthesizing work.osch.syn_black_box.
+Post processing for work.osch.syn_black_box
+@W: CG296 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":142:1:142:7|Incomplete sensitivity list; assuming completeness. Make sure all referenced variables in message CG290 are included in the sensitivity list.
+@W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":144:5:144:9|Referenced variable rst_n is not in sensitivity list.
+@N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":8:7:8:27|Synthesizing work.i2c_master_controller.beh_i2c_master_controller.
+@N: CD231 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":65:13:65:14|Using onehot encoding for type state_t. For example, enumeration idle is mapped to "1000000".
+@W: CG296 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":85:16:85:22|Incomplete sensitivity list; assuming completeness. Make sure all referenced variables in message CG290 are included in the sensitivity list.
+@W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":94:18:94:23|Referenced variable addr_i is not in sensitivity list.
+@W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":106:18:106:23|Referenced variable data_i is not in sensitivity list.
+Post processing for work.i2c_master_controller.beh_i2c_master_controller
+@W: CL240 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":15:2:15:7|Signal data_o is floating; a simulation mismatch is possible.
+@W: CL117 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":124:2:124:5|Latch generated from process for signal nState(0 to 6); possible missing assignment in an if or case statement.
+@N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":10:7:10:16|Synthesizing work.wb_manager.rtl.
+@N: CD231 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":63:14:63:15|Using onehot encoding for type state_t. For example, enumeration idle is mapped to "100000".
+@N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\timeout.vhd":7:7:7:13|Synthesizing work.timeout.rtl_timeout.
+@W: CG296 :"D:\WorkingDir\Fpga\pico_dev_test\timeout.vhd":28:8:28:14|Incomplete sensitivity list; assuming completeness. Make sure all referenced variables in message CG290 are included in the sensitivity list.
+@W: CG290 :"D:\WorkingDir\Fpga\pico_dev_test\timeout.vhd":33:27:33:28|Referenced variable en is not in sensitivity list.
+Post processing for work.timeout.rtl_timeout
+@W: CL113 :"D:\WorkingDir\Fpga\pico_dev_test\timeout.vhd":30:2:30:3|Feedback mux created for signal clk_counter[15:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\efb_i2c_VHDL.vhd":14:7:14:18|Synthesizing work.efb_i2c_vhdl.structure.
+@N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":2302:10:2302:12|Synthesizing work.efb.syn_black_box.
+Post processing for work.efb.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":106:10:106:11|Synthesizing work.bb.syn_black_box.
+Post processing for work.bb.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":1490:10:1490:12|Synthesizing work.vlo.syn_black_box.
+Post processing for work.vlo.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd":1483:10:1483:12|Synthesizing work.vhi.syn_black_box.
+Post processing for work.vhi.syn_black_box
+Post processing for work.efb_i2c_vhdl.structure
+Post processing for work.wb_manager.rtl
+@W: CL117 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":153:2:153:5|Latch generated from process for signal nState(0 to 5); possible missing assignment in an if or case statement.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|All reachable assignments to status(0) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|All reachable assignments to status(1) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|All reachable assignments to status(2) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":138:2:138:3|All reachable assignments to status(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@N: CD630 :"D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd":8:7:8:15|Synthesizing work.heartbeat.beh_arch.
+Post processing for work.heartbeat.beh_arch
+@W: CL271 :"D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd":30:1:30:2|Pruning unused bits 32 to 4 of iCounter(32 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+Post processing for work.top_module.sample_arch
+@W: CL117 :"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd":172:2:172:5|Latch generated from process for signal nState(1 downto 0); possible missing assignment in an if or case statement.
+@W: CL246 :"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd":16:3:16:8|Input port bits 7 to 3 of option(7 downto 0) are unused. Assign logic for all port bits or change the input port size.
+@W: CL246 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":18:2:18:11|Input port bits 7 to 6 of wbm_status(7 downto 0) are unused. Assign logic for all port bits or change the input port size.
+@W: CL246 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":18:2:18:11|Input port bits 4 to 0 of wbm_status(7 downto 0) are unused. Assign logic for all port bits or change the input port size.
+@N: CL159 :"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd":21:2:21:11|Input wbm_data_o is unused.
+
+At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 71MB peak: 73MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Mon Sep 23 15:01:41 2019
+
+###########################################################]
+Synopsys Netlist Linker, version comp2017q2p1, Build 190R, built Aug  4 2017
+@N|Running in 64-bit mode
+File D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\synwork\layer0.srs changed - recompiling
+
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Mon Sep 23 15:01:41 2019
+
+###########################################################]
+@END
+
+At c_hdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 3MB peak: 4MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Mon Sep 23 15:01:42 2019
+
+###########################################################]

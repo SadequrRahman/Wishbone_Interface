@@ -1,0 +1,9 @@
+4
+~E 1 "./../../efb_i2c_VHDL.vhd" 14 efb_i2c_VHDL
+~A 1 "./../../efb_i2c_VHDL.vhd" 30 Structure
+~E 1 "./../../timeout.vhd" 7 timeout
+~A 1 "./../../timeout.vhd" 20 rtl_timeout
+~E 1 "./../../wb_manager.vhd" 10 wb_manager
+~A 1 "./../../wb_manager.vhd" 26 rtl
+~E 1 "./../../wb_manager_tb.vhd" 5 wb_manager_tb
+~A 1 "./../../wb_manager_tb.vhd" 8 behavior

@@ -1,0 +1,54 @@
+#OPTIONS:"|-layerid|0|-orig_srs|D:\\WorkingDir\\Fpga\\pico_dev_test\\i2c_interface\\synwork\\pico_i2c_i2c_interface_comp.srs|-top|top_module|-prodtype|synplify_pro|-dspmac|-fixsmult|-infer_seqShift|-nram|-sdff_counter|-divnmod|-nostructver|-encrypt|-pro|-lite|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-ignore_undefined_lib|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work"
+#CUR:"C:\\lscc\\diamond\\3.10_x64\\synpbase\\bin64\\c_vhdl.exe":1501881310
+#CUR:"C:\\lscc\\diamond\\3.10_x64\\synpbase\\lib\\vhd\\location.map":1501904608
+#CUR:"C:\\lscc\\diamond\\3.10_x64\\synpbase\\lib\\vhd\\std.vhd":1501880624
+#CUR:"C:\\lscc\\diamond\\3.10_x64\\synpbase\\lib\\vhd\\snps_haps_pkg.vhd":1501880624
+#CUR:"C:\\lscc\\diamond\\3.10_x64\\synpbase\\lib\\vhd\\std1164.vhd":1501880624
+#CUR:"C:\\lscc\\diamond\\3.10_x64\\synpbase\\lib\\vhd\\numeric.vhd":1501880624
+#CUR:"C:\\lscc\\diamond\\3.10_x64\\synpbase\\lib\\vhd\\umr_capim.vhd":1501880624
+#CUR:"C:\\lscc\\diamond\\3.10_x64\\synpbase\\lib\\vhd\\arith.vhd":1501880624
+#CUR:"C:\\lscc\\diamond\\3.10_x64\\synpbase\\lib\\vhd\\unsigned.vhd":1501880624
+#CUR:"C:\\lscc\\diamond\\3.10_x64\\synpbase\\lib\\vhd\\hyperents.vhd":1501880624
+#CUR:"C:\\lscc\\diamond\\3.10_x64\\cae_library\\synthesis\\vhdl\\machxo2.vhd":1493302304
+#CUR:"D:\\WorkingDir\\Fpga\\pico_dev_test\\i2c_interface\\source\\i2c_master_controller.vhd":1569242101
+#CUR:"D:\\WorkingDir\\Fpga\\pico_dev_test\\timeout.vhd":1569236905
+#CUR:"D:\\WorkingDir\\Fpga\\pico_dev_test\\HeartBeat.vhd":1568036041
+#CUR:"D:\\WorkingDir\\Fpga\\pico_dev_test\\efb_i2c_VHDL.vhd":1568036041
+#CUR:"D:\\WorkingDir\\Fpga\\pico_dev_test\\wb_manager.vhd":1569240588
+#CUR:"D:\\WorkingDir\\Fpga\\pico_dev_test\\top_level.vhd":1569243673
+0			"C:\lscc\diamond\3.10_x64\cae_library\synthesis\vhdl\machxo2.vhd" vhdl
+1			"D:\WorkingDir\Fpga\pico_dev_test\i2c_interface\source\i2c_master_controller.vhd" vhdl
+2			"D:\WorkingDir\Fpga\pico_dev_test\timeout.vhd" vhdl
+3			"D:\WorkingDir\Fpga\pico_dev_test\HeartBeat.vhd" vhdl
+4			"D:\WorkingDir\Fpga\pico_dev_test\efb_i2c_VHDL.vhd" vhdl
+5			"D:\WorkingDir\Fpga\pico_dev_test\wb_manager.vhd" vhdl
+6			"D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd" vhdl
+#Dependency Lists(Uses List)
+0 -1
+1 -1
+2 -1
+3 -1
+4 0
+5 2 4
+6 1 5 3
+#Dependency Lists(Users Of)
+0 4
+1 6
+2 5
+3 6
+4 5
+5 6
+6 -1
+#Design Unit to File Association
+module work top_module 6
+arch work top_module sample_arch 6
+module work wb_manager 5
+arch work wb_manager rtl 5
+module work efb_i2c_vhdl 4
+arch work efb_i2c_vhdl structure 4
+module work heartbeat 3
+arch work heartbeat beh_arch 3
+module work timeout 2
+arch work timeout rtl_timeout 2
+module work i2c_master_controller 1
+arch work i2c_master_controller beh_i2c_master_controller 1

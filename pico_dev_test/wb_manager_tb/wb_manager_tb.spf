@@ -1,0 +1,10 @@
+<BaliSimProject version="1.3" path="." stage="0" language="-1" name="wb_manager_tb" simType="Active-HDL">
+    <Source worklib="" path="timeout.vhd" type="none" include="none"/>
+    <Source worklib="work" path="efb_i2c_VHDL.vhd" type="VHDL" include="none"/>
+    <Source worklib="work" path="wb_manager.vhd" type="VHDL" include="none"/>
+    <Source worklib="work" path="wb_manager_tb.vhd" type="VHDL" include="none"/>
+    <SimLib value="pmi_work ovi_machxo2"/>
+    <GlbInc value=""/>
+    <Macro value=""/>
+    <TopModule instance="" language="VHDL" name="wb_manager_tb"/>
+</BaliSimProject>

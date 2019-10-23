@@ -1,0 +1,57 @@
+[Project]
+Current Flow=Generic
+VCS=0
+version=3
+Current Config=compile
+[Configurations]
+compile=work
+[Library]
+top_level_tb=.\top_level_tb\top_level_tb.lib
+[Settings]
+AccessRead=1
+AccessReadWrite=0
+AccessACCB=0
+AccessACCR=0
+AccessReadWriteSLP=0
+AccessReadTopLevel=0
+DisableC=1
+ENABLE_ADV_DATAFLOW=0
+FLOW_TYPE=HDL
+LANGUAGE=VHDL
+REFRESH_FLOW=1
+[LocalVerilogSets]
+EnableSLP=1
+EnableDebug=0
+PriorityLibNames=pmi_work
+LibNames=ovi_machxo2
+[LocalVhdlSets]
+CompileWithDebug=0
+[$LibMap$]
+top_level_tb=.
+work=.
+[LocalVerilogDirs]
+Count=0
+[DefineMacro]
+Global=
+[Files]
+/..\..\i2c_interface\source\i2c_master_controller.vhd=-1
+/..\..\timeout.vhd=-1
+/..\..\efb_i2c_VHDL.vhd=-1
+/..\..\wb_manager.vhd=-1
+/..\..\HeartBeat.vhd=-1
+/..\..\top_level.vhd=-1
+/..\..\top_level_tb.vhd=-1
+[Files.Data]
+.\..\i2c_interface\source\i2c_master_controller.vhd=VHDL Source Code
+.\..\timeout.vhd=VHDL Source Code
+.\..\efb_i2c_VHDL.vhd=VHDL Source Code
+.\..\wb_manager.vhd=VHDL Source Code
+.\..\HeartBeat.vhd=VHDL Source Code
+.\..\top_level.vhd=VHDL Source Code
+.\..\top_level_tb.vhd=VHDL Source Code
+[SpecTracer]
+WindowVisible=0
+[HierarchyViewer]
+HierarchyInformation=top_level_tb|rtl|0 
+ShowHide=ShowTopLevel
+Selected=

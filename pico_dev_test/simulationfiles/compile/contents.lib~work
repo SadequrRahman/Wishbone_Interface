@@ -1,0 +1,9 @@
+4
+~E 1 "./../../efb_i2c_VHDL.vhd" 14 efb_i2c_VHDL
+~A 1 "./../../efb_i2c_VHDL.vhd" 30 Structure
+~E 1 "./../../HeartBeat.vhd" 8 HeartBeat
+~A 1 "./../../HeartBeat.vhd" 21 beh_arch
+~E 1 "./../../top_level.vhd" 8 top_module
+~A 1 "./../../top_level.vhd" 20 sample_arch
+~E 1 "./../../wb_manager.vhd" 10 wb_manager
+~A 1 "./../../wb_manager.vhd" 27 rtl

@@ -1,0 +1,108 @@
+----------------------------------------------------------------------
+Report for cell top_module.sample_arch
+
+Register bits: 40 of 1280 (3%)
+Latch bits:      17
+PIC Latch:       0
+I/O cells:       5
+                                          Cell usage:
+                               cell       count    Res Usage(%)
+                                 BB        2       100.0
+                              CCU2D        9       100.0
+                                EFB        1       100.0
+                            FD1P3DX       16       100.0
+                             FD1S1A       11       100.0
+                            FD1S1AY        2       100.0
+                             FD1S1B        1       100.0
+                             FD1S1D        3       100.0
+                            FD1S3BX        2       100.0
+                            FD1S3DX       22       100.0
+                                GSR        1       100.0
+                                 IB        1       100.0
+                                INV        3       100.0
+                                 OB        2       100.0
+                           ORCALUT4       36       100.0
+                               OSCH        1       100.0
+                                PUR        1       100.0
+                                VHI        6       100.0
+                                VLO        6       100.0
+SUB MODULES 
+                          HeartBeat        1       100.0
+                       efb_i2c_VHDL        1       100.0
+              i2c_master_controller        1       100.0
+                            timeout        1       100.0
+                         wb_manager        1       100.0
+                            
+                         TOTAL           131           
+----------------------------------------------------------------------
+Report for cell i2c_master_controller.netlist
+     Instance path:  i2c_controller_inst
+                                          Cell usage:
+                               cell       count    Res Usage(%)
+                             FD1S1A        6        54.5
+                            FD1S1AY        1        50.0
+                            FD1S3BX        1        50.0
+                            FD1S3DX        7        31.8
+                           ORCALUT4        2         5.6
+                                VHI        1        16.7
+                                VLO        1        16.7
+                            
+                         TOTAL            19           
+----------------------------------------------------------------------
+Report for cell wb_manager.netlist
+     Instance path:  wb_manager_inst
+                                          Cell usage:
+                               cell       count    Res Usage(%)
+                                 BB        2       100.0
+                              CCU2D        9       100.0
+                                EFB        1       100.0
+                            FD1P3DX       16       100.0
+                             FD1S1A        5        45.5
+                            FD1S1AY        1        50.0
+                            FD1S3BX        1        50.0
+                            FD1S3DX        9        40.9
+                           ORCALUT4       29        80.6
+                                VHI        3        50.0
+                                VLO        3        50.0
+SUB MODULES 
+                       efb_i2c_VHDL        1       100.0
+                            timeout        1       100.0
+                            
+                         TOTAL            81           
+----------------------------------------------------------------------
+Report for cell timeout.netlist
+     Instance path:  wb_manager_inst.timeoutIns
+                                          Cell usage:
+                               cell       count    Res Usage(%)
+                              CCU2D        9       100.0
+                            FD1P3DX       16       100.0
+                           ORCALUT4        2         5.6
+                                VHI        1        16.7
+                                VLO        1        16.7
+                            
+                         TOTAL            29           
+----------------------------------------------------------------------
+Report for cell efb_i2c_VHDL.netlist
+     Instance path:  wb_manager_inst.efb_i2c_Inst0
+                                          Cell usage:
+                               cell       count    Res Usage(%)
+                                 BB        2       100.0
+                                EFB        1       100.0
+                            FD1S3DX        1         4.5
+                           ORCALUT4       12        33.3
+                                VHI        1        16.7
+                                VLO        1        16.7
+                            
+                         TOTAL            18           
+----------------------------------------------------------------------
+Report for cell HeartBeat.netlist
+     Instance path:  HeartBeatInst0
+                                          Cell usage:
+                               cell       count    Res Usage(%)
+                            FD1S3DX        4        18.2
+                                INV        1        33.3
+                           ORCALUT4        3         8.3
+                                VHI        1        16.7
+                                VLO        1        16.7
+                            
+                         TOTAL            10           

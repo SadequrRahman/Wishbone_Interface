@@ -1,0 +1,4 @@
+.\..\efb_i2c_VHDL.vhd
+.\..\wb_manager.vhd
+.\..\HeartBeat.vhd
+.\..\top_level.vhd

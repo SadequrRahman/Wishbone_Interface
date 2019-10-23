@@ -1,0 +1,15 @@
+7
+~E 1 "./../../efb_i2c_VHDL.vhd" 14 efb_i2c_VHDL
+~A 1 "./../../efb_i2c_VHDL.vhd" 30 Structure
+~E 1 "./../../HeartBeat.vhd" 8 HeartBeat
+~A 1 "./../../HeartBeat.vhd" 21 beh_arch
+~E 1 "./../../i2c_interface/source/i2c_master_controller.vhd" 8 i2c_master_controller
+~A 1 "./../../i2c_interface/source/i2c_master_controller.vhd" 28 beh_i2c_master_controller
+~E 1 "./../../timeout.vhd" 7 timeout
+~A 1 "./../../timeout.vhd" 20 rtl_timeout
+~E 1 "./../../top_level_tb.vhd" 8 top_level_tb
+~A 1 "./../../top_level_tb.vhd" 11 rtl
+~E 1 "./../../top_level.vhd" 8 top_module
+~A 1 "./../../top_level.vhd" 19 sample_arch
+~E 1 "./../../wb_manager.vhd" 10 wb_manager
+~A 1 "./../../wb_manager.vhd" 26 rtl

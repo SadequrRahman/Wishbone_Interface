@@ -1,0 +1,4 @@
+@W: FX474 |User-specified initial value defined for some sequential elements which can prevent optimum synthesis results from being achieved. 
+@W: MO129 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":153:2:153:5|Sequential instance nState_1_.res_reg is reduced to a combinational gate by constant propagation.
+@W: MO129 :"d:\workingdir\fpga\pico_dev_test\wb_manager.vhd":153:2:153:5|Sequential instance nState_0_.res_reg_0 is reduced to a combinational gate by constant propagation.
+@W: MT246 :"d:\workingdir\fpga\pico_dev_test\efb_i2c_vhdl.vhd":158:4:158:12|Blackbox EFB is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results) 

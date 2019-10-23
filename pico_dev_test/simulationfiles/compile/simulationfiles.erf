@@ -1,0 +1,5 @@
+MESSAGE "File: D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd" 
+MESSAGE "Compile Entity "top_module"" 
+MESSAGE "Compile Architecture "sample_arch" of Entity "top_module"" 
+WARNING ELAB1_0026: "There is no default binding for component "OSCH". (No entity named "OSCH" was found)." "D:\WorkingDir\Fpga\pico_dev_test\top_level.vhd" 65 0
+SUCCESS "Compile success 0 Errors 1 Warnings  Analysis time :  0.1 [s]" 

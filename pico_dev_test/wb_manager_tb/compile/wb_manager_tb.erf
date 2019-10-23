@@ -1,0 +1,5 @@
+MESSAGE "File: D:\WorkingDir\Fpga\pico_dev_test\wb_manager_tb.vhd" 
+MESSAGE "Compile Entity "wb_manager_tb"" 
+MESSAGE "Compile Architecture "behavior" of Entity "wb_manager_tb"" 
+WARNING ELAB1_0026: "There is no default binding for component "OSCH". (No entity named "OSCH" was found)." "D:\WorkingDir\Fpga\pico_dev_test\wb_manager_tb.vhd" 49 0
+SUCCESS "Compile success 0 Errors 1 Warnings  Analysis time :  0.1 [s]" 

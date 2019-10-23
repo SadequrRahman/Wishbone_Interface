@@ -1,0 +1,5 @@
+
+
+-g RamCfg:Reset
+
+-path "D:/WorkingDir/Fpga/pico_dev_test"  

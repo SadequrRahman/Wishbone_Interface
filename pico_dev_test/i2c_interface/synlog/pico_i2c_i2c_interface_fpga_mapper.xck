@@ -1,0 +1,5 @@
+CKID0001:@|S:OSCInst0@|E:cState_0[0]@|F:@syn_sample_clock_path==CKID0001@|M:ClockId0001 
+CKID0002:@|S:i2c_controller_inst.cState_ret_1_RNII1AO@|E:i2c_controller_inst.nState[0]@|F:@syn_sample_clock_path==CKID0002@|M:ClockId0002 
+CKID0003:@|S:wb_manager_inst.nState_1_sqmuxa_4_i@|E:wb_manager_inst.nState[0]@|F:@syn_sample_clock_path==CKID0003@|M:ClockId0003 
+CKID0004:@|S:wb_manager_inst.efb_i2c_Inst0.un1_cState_3@|E:nState_0_.res_reg@|F:@syn_sample_clock_path==CKID0004@|M:ClockId0004 
+CKID0005:@|S:wb_manager_inst.efb_i2c_Inst0.un1_i2c_addr5_0@|E:nState_0_.res_lat@|F:@syn_sample_clock_path==CKID0005@|M:ClockId0005 
